@@ -72,8 +72,8 @@ precincts_file = "gloucester-precincts-2022.geojson"
 # Plain-English agenda text and previews, written by a language model and
 # labeled as AI-generated on the site. Cached by document hash.
 [summaries]
-model = "claude-haiku-4-5"
-max_tokens = 8000
+model = "claude-sonnet-5"
+max_tokens = 16000
 max_per_run = 25
 
 # Context for unusual months on the 311 scorecard. Each note must cite a source.
