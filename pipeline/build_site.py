@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import re
 import shutil
@@ -289,7 +290,9 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     env.filters.update(date=format_date, time=format_time, filesize=format_bytes, timestamp=format_timestamp,
                        duration=format_duration, number=format_number, month=format_month,
                        markdown=render_markdown, duration_cell=format_duration_cell, street=short_address)
-    env.globals.update(group_by=group_by, today=built_at.date().isoformat(),
+    # Versioned asset URLs, so a browser never pairs new pages with an old cached stylesheet.
+    css_version = hashlib.sha256((STATIC_DIR / "css" / "site.css").read_bytes()).hexdigest()[:10]
+    env.globals.update(group_by=group_by, today=built_at.date().isoformat(), css_version=css_version,
                        change=lambda diff, since: change_text(diff, "", since))
 
     if out_dir.exists():
