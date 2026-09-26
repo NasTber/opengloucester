@@ -97,6 +97,7 @@ class FakeAnthropic:
     MINUTES = {
         "transcript": "# Planning Board Minutes\n\nMotion to approve the site plan at 12 Main St. Vote 5-0.",
         "summary": "The board approved a site plan for 12 Main St.",
+        "is_minutes": True,
         "decisions": ["Approved the site plan for 12 Main St, 5-0"],
     }
 

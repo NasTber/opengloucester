@@ -39,8 +39,13 @@
 {% set ms = m.minutes_summary %}
 <h2 id="minutes">What was decided</h2>
 {% if ms %}
+{% if ms.get("is_minutes") == false %}
+<p>The document the city filed as minutes for this meeting is not minutes; it appears to be {{ "an agenda" if "agenda" in ms.summary.lower() else "another kind of document" }}. Minutes may be posted later.</p>
+{% else %}
 <p>{{ ms.summary }}</p>
-{% if ms.decisions %}
+{% endif %}
+{% if ms.get("is_minutes") == false %}
+{% elif ms.decisions %}
 <h3>Decisions recorded</h3>
 <ul>
   {% for d in ms.decisions %}<li>{{ d }}</li>{% endfor %}

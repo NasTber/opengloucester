@@ -72,21 +72,24 @@ Return:
         "max_tokens": 64000,
         "system": "You convert the minutes of public meetings of a city government into accessible text for residents. Minutes are usually scanned images, so read every character carefully.\n\n"
                   + TRANSCRIPT_RULES + "\n\n" + SUMMARY_RULES + """
-- Report decisions only as the minutes record them. Include the vote count or roll call result when the minutes give one. If the minutes do not say how a matter ended, do not list it as a decision.""",
+- Report decisions only as the minutes record them. Include the vote count or roll call result when the minutes give one. If the minutes do not say how a matter ended, do not list it as a decision.
+- Use the minutes' own verb for each outcome (approved, recommended, referred, continued, tabled, denied). A vote to recommend is not an approval.""",
         "prompt": """These are the posted minutes for: {title}, {date}.
 
 Return:
 - transcript: the full text of the minutes in reading order, as Markdown. Use headings for the document's own headings and lists for its lists. Leave out stamps, seals, and page decorations.
 - summary: 1 to 3 sentences on what the meeting covered and what was decided.
+- is_minutes: true if this document is minutes of a meeting that took place; false if it is something else, such as an agenda or notice filed under minutes.
 - decisions: each motion, vote, or other decision the minutes record, in order, as a short plain-English sentence that includes the outcome (for example "Approved ... 5-0" or "Continued ... to October 22, 2026"). Skip procedural motions such as adjourning or accepting the agenda.""",
         "schema": {
             "type": "object",
             "properties": {
                 "transcript": {"type": "string"},
                 "summary": {"type": "string"},
+                "is_minutes": {"type": "boolean"},
                 "decisions": {"type": "array", "items": {"type": "string"}},
             },
-            "required": ["transcript", "summary", "decisions"],
+            "required": ["transcript", "summary", "is_minutes", "decisions"],
             "additionalProperties": False,
         },
     },
