@@ -1,40 +1,45 @@
 {% extends "base.html" %}
-{% from "macros.html" import status_label, day_group %}
-{% block title %}{{ town.name }}, {{ town.state_abbr }} public data{% endblock %}
+{% from "macros.html" import day_group %}
+{% block title %}{{ town.name }}, {{ town.state_abbr }}, by the numbers{% endblock %}
 {% block content %}
-<section class="hero" aria-labelledby="page-title">
-  <p class="eyebrow">{{ town.name }}, {{ town.state }}</p>
-  <h1 id="page-title">{{ site.name }}</h1>
-  <p class="lede">{{ site.tagline }} Every number links to its source.</p>
-</section>
+<p class="dateline"><time datetime="{{ built_at.date().isoformat() }}">{{ built_at.date() | date }}</time></p>
+<h1>{{ town.name }}, by the numbers</h1>
+<p class="lede">Public data about the City of {{ town.name }}, updated daily. Every number links to its source.</p>
+
+{% if headline %}
+<h2 class="visually-hidden">Headline numbers</h2>
+<ul class="stats">
+  {% for n in headline %}
+  <li class="stat"><a href="{{ n.href }}">
+    <span class="stat-label">{{ n.label }}</span>
+    <span class="stat-value">{{ n.value }}</span>
+    {% if n.get("change") %}<span class="stat-change">{{ n.change }}</span>{% endif %}
+    {% if n.get("source") %}<span class="stat-source">{{ n.source }}{% if n.href.startswith("http") %} <span aria-hidden="true">↗</span>{% endif %}</span>{% endif %}
+  </a></li>
+  {% endfor %}
+</ul>
+{% endif %}
 
 <div class="section-head">
   <h2 id="this-week">Meetings this week</h2>
-  <a href="/meetings/">All upcoming meetings</a>
 </div>
 {% if meetings.this_week %}
 {% for day, items in group_by(meetings.this_week, "date") %}{{ day_group(day, items) }}{% endfor %}
 {% else %}
 <p>No public meetings are listed on the city calendar for the next seven days.</p>
 {% endif %}
+<a class="more" href="/meetings/">All meetings →</a>
 
-<h2>Explore</h2>
-<ul class="card-grid">
+<h2>Sections</h2>
+<ul class="meeting-list">
   {% for s in sections if s.slug != "about" %}
-  <li class="card link-card">
-    <h3><a href="/{{ s.slug }}/">{{ s.title }}</a></h3>
-    {% if s.status != "live" %}<div class="chips">{{ status_label(s) }}</div>{% endif %}
-    <p>{{ s.summary }}</p>
+  <li class="meeting-item single">
+    <div class="meeting-main">
+      <a class="meeting-link" href="/{{ s.slug }}/">{{ s.title }}</a>
+      <p class="meeting-preview">{{ s.summary }}</p>
+    </div>
   </li>
   {% endfor %}
 </ul>
-
-<h2>How this site works</h2>
-<ul>
-  <li>An automated job collects public data every day and rebuilds the site.</li>
-  <li>Figures come from public records only. Each one links to where it came from.</li>
-  <li>Summaries written by software are labeled as AI-generated.</li>
-  <li>Errors are corrected in public. See the <a href="/about/#corrections">corrections policy</a>.</li>
-</ul>
-<p>For city services, news, and department contacts, use the <a href="{{ town.official_site }}">official City of {{ town.name }} website</a>.</p>
+<p class="small">For city services, news, and department contacts, use the <a href="{{ town.official_site }}">official City of {{ town.name }} website</a>.</p>
 {% endblock %}

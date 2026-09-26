@@ -43,6 +43,12 @@ def make_fixture_data(data_dir: Path) -> None:
     summarize.run(config, FakeAnthropic(), data_dir, limit=50, now=FETCHED_AT)
 
     shutil.copytree(REAL_DATA_DIR / "static", data_dir / "static")
+    fetch_311.save_json(data_dir / "finance" / "tax_bill.json", {
+        "source_url": "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx", "years": [
+            {"fiscal_year": 2025, "average_bill": 9224}, {"fiscal_year": 2026, "average_bill": 9502}]})
+    fetch_311.save_json(data_dir / "labor" / "unemployment.json", {
+        "source_url": "https://data.bls.gov/timeseries/LAUCT252615000000003", "months": [
+            {"year": 2025, "month": 7, "rate": 5.3}, {"year": 2026, "month": 7, "rate": 4.8, "preliminary": True}]})
     fetch_311.run(config, FakeSeeClickFix(), data_dir, now=FETCHED_AT, detail_limit=80)
     fetch_311.save_json(data_dir / "311" / "scorecard.json", compute_311.compute(config, data_dir, now=FETCHED_AT))
 

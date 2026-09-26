@@ -19,6 +19,7 @@ from zoneinfo import ZoneInfo
 
 from pipeline.config import DATA_DIR, load_config
 from pipeline.fetch_311 import load_store, save_json, store_dir, tag_wards
+from pipeline.fetch_meetings import slugify
 from pipeline.geo import PrecinctLookup
 
 # Statistics from fewer requests than this are not shown.
@@ -85,6 +86,29 @@ def top_category(records: list[dict]) -> dict:
     return {"category": name, "count": count}
 
 
+def open_at(record: dict, when: datetime) -> bool:
+    """Whether a request was open at a given moment, as far as the data shows."""
+    if parse(record["created_at"]) > when:
+        return False
+    closed = closed_time(record)
+    return closed is None or closed > when
+
+
+def oldest_open(records: list[dict], now: datetime, link_base: str, n: int = 10) -> list[dict]:
+    return [{
+        "id": r["id"], "category": r["category"], "address": r["address"], "ward": r.get("ward"),
+        "created_at": r["created_at"], "age_days": round(days_between(parse(r["created_at"]), now), 1),
+        "url": f"{link_base}/{r['id']}",
+    } for r in sorted(records, key=lambda r: r["created_at"])[:n]]
+
+
+def month_counts(records: list[dict], months: list[str]) -> list[dict]:
+    counts = defaultdict(int)
+    for r in records:
+        counts[r["created_at"][:7]] += 1
+    return [{"month": m, "received": counts.get(m, 0)} for m in months]
+
+
 def backlog(open_records: list[dict], now: datetime, link_base: str) -> dict:
     buckets = [{"label": label, "max_days": limit, "count": 0} for limit, label in BACKLOG_BUCKETS]
     for r in open_records:
@@ -93,16 +117,11 @@ def backlog(open_records: list[dict], now: datetime, link_base: str) -> dict:
             if b["max_days"] is None or age < b["max_days"]:
                 b["count"] += 1
                 break
-    oldest = sorted(open_records, key=lambda r: r["created_at"])[:10]
     return {
         "open": len(open_records),
         "median_age_days": round(median([days_between(parse(r["created_at"]), now) for r in open_records]), 1) if open_records else None,
         "buckets": buckets,
-        "oldest": [{
-            "id": r["id"], "category": r["category"], "address": r["address"], "ward": r.get("ward"),
-            "created_at": r["created_at"], "age_days": round(days_between(parse(r["created_at"]), now), 1),
-            "url": f"{link_base}/{r['id']}",
-        } for r in oldest],
+        "oldest": oldest_open(open_records, now, link_base),
     }
 
 
@@ -136,6 +155,34 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
 
     open_records = [r for r in records if r["status"] == "open"]
     earliest = min((r["created_at"] for r in records), default=None)
+    backlog_now = backlog(open_records, now, link_base)
+    backlog_now["open_week_ago"] = sum(open_at(r, now - timedelta(days=7)) for r in records)
+
+    # Detail for the per-category and per-ward pages: past 12 months.
+    last_months = [f"{(now.year * 12 + now.month - 1 - i) // 12}-{(now.month - 1 - i) % 12 + 1:02d}" for i in range(11, -1, -1)]
+    categories = []
+    for c, rs in sorted(by_category.items(), key=lambda x: (-len(x[1]), x[0])):
+        wards = defaultdict(list)
+        for r in rs:
+            wards[r.get("ward") or "outside"].append(r)
+        categories.append({
+            "category": c, "slug": slugify(c), **summarize(rs),
+            "monthly": month_counts(rs, last_months),
+            "by_ward": [{"ward": w, **summarize(ws)} for w, ws in sorted(wards.items(), key=lambda x: (x[0] == "outside", x[0]))],
+            "oldest": oldest_open([r for r in open_records if r["category"] == c], now, link_base),
+        })
+    wards_detail = []
+    for w, rs in sorted(by_ward.items(), key=lambda x: (x[0] == "outside", x[0])):
+        cats = defaultdict(list)
+        for r in rs:
+            cats[r["category"]].append(r)
+        wards_detail.append({
+            "ward": w, **summarize(rs),
+            "monthly": month_counts(rs, last_months),
+            "by_category": sorted(({"category": c, "slug": slugify(c), **summarize(cs)} for c, cs in cats.items()),
+                                  key=lambda x: (-x["received"], x["category"])),
+            "oldest": oldest_open([r for r in open_records if (r.get("ward") or "outside") == w], now, link_base),
+        })
 
     return {
         "generated_at": now.isoformat(timespec="seconds"),
@@ -144,7 +191,7 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
         "requests_recorded": len(records),
         "min_sample": MIN_SAMPLE,
         "overall": summarize(in_window),
-        "backlog": backlog(open_records, now, link_base),
+        "backlog": backlog_now,
         "by_category": sorted(
             ({"category": c, **summarize(rs)} for c, rs in by_category.items()),
             key=lambda x: (-x["received"], x["category"]),
@@ -160,6 +207,8 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
              "recent": m >= (now - timedelta(days=60)).strftime("%Y-%m")}
             for m, rs in sorted(monthly.items())
         ],
+        "categories": categories,
+        "wards": wards_detail,
     }
 
 

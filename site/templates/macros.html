@@ -1,43 +1,52 @@
 {% macro status_label(section) -%}
-{% if section.status != "live" %}<span class="chip chip-quiet">In development</span>{% endif %}
+{% if section.status != "live" %}<span class="status">In development</span>{% endif %}
 {%- endmacro %}
 
 {% macro contact(site) -%}
 {% if site.contact_email %}email <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a> or {% endif %}open an issue on the <a href="{{ site.repo_url }}/issues">project's public issue tracker</a>
 {%- endmacro %}
 
+{# Status words for a meeting, as plain text. #}
 {% macro meeting_flags(m) -%}
-{% if m.status != "scheduled" %}<span class="chip chip-warn">{{ m.status | capitalize }}</span>{% endif %}
-{% if not m.listed %}<span class="chip chip-warn">Removed from city calendar</span>{% endif %}
-{% if m.special %}<span class="chip">Special meeting</span>{% endif %}
+{%- set parts = [] -%}
+{%- if m.status != "scheduled" %}{% set _ = parts.append(m.status | capitalize) %}{% endif -%}
+{%- if not m.listed %}{% set _ = parts.append("Removed from city calendar") %}{% endif -%}
+{%- for p in parts %}<span class="flag">{{ p }}</span>{% if not loop.last %} · {% endif %}{% endfor -%}
 {%- endmacro %}
 
-{# One meeting as a tappable row. show_date shows a date badge, for lists not grouped by day. #}
-{% macro meeting_item(m, show_date=false, show_body=true) -%}
+{# The quiet credit line under AI-written text. #}
+{% macro ai_credit(doc_label, url) -%}
+<p class="credit">Summary written by AI from the <a href="{{ url }}">city's {{ doc_label }}</a>. Check the original before relying on it. <a href="/about/#ai">About AI summaries</a></p>
+{%- endmacro %}
+
+{# One meeting as a row: time (or date), name, preview, and plain status words. #}
+{% macro meeting_item(m, show_date=false, show_body=true, preview=true) -%}
 <li class="meeting-item">
-  {% if show_date %}
-  <time class="date-badge" datetime="{{ m.date }}"><span class="month">{{ m.date | date("mon") }}</span><span class="day">{{ m.date | date("day") }}</span></time>
-  {% else %}
-  <span class="meeting-when">{% if m.start_time %}<time datetime="{{ m.date }}T{{ m.start_time }}">{{ m.start_time | time }}</time>{% else %}Time not listed{% endif %}</span>
-  {% endif %}
+  <span class="meeting-when">
+    {%- if show_date %}<time datetime="{{ m.date }}">{{ m.date | date("mon") }} {{ m.date | date("day") }}</time>
+    {%- elif m.start_time %}<time datetime="{{ m.date }}T{{ m.start_time }}">{{ m.start_time | time }}</time>
+    {%- else %}<span class="small">Time TBA</span>{% endif -%}
+  </span>
   <div class="meeting-main">
     <a class="meeting-link" href="{{ m.url }}">{% if show_body %}{{ m.body }}{% else %}{{ m.title }}{% endif %}</a>
+    {% if preview %}
     {% if m.minutes_summary %}<p class="meeting-preview">{{ m.minutes_summary.summary }}</p>
-    {% elif m.preview and not show_date %}<p class="meeting-preview">{{ m.preview.summary }}</p>{% endif %}
-    <div class="chips">
-      {% if show_date %}<span class="chip chip-quiet">{{ m.date | date("weekday") }}{% if m.start_time %}, {{ m.start_time | time }}{% endif %}</span>{% endif %}
-      {{ meeting_flags(m) }}
-      {% if m.minutes_doc %}<span class="chip chip-quiet">Minutes posted</span>{% elif m.agenda %}<span class="chip chip-quiet">Agenda posted</span>{% endif %}
-      {% if m.remote_url %}<span class="chip chip-quiet">Online option</span>{% endif %}
-    </div>
+    {% elif m.preview %}<p class="meeting-preview">{{ m.preview.summary }}</p>{% endif %}
+    {% endif %}
+    {% set meta = [] %}
+    {% if show_date %}{% set _ = meta.append(m.date | date("weekday") ~ ((", " ~ (m.start_time | time)) if m.start_time else "")) %}{% endif %}
+    {% if m.minutes_doc %}{% set _ = meta.append("Minutes posted") %}{% elif m.agenda %}{% set _ = meta.append("Agenda posted") %}{% endif %}
+    {% if m.remote_url and m.date >= today %}{% set _ = meta.append("Online option") %}{% endif %}
+    {% if m.special %}{% set _ = meta.append("Special meeting") %}{% endif %}
+    {% set flags = meeting_flags(m) %}
+    {% if meta or flags %}<span class="meeting-meta">{% if flags %}{{ flags }}{% if meta %} · {% endif %}{% endif %}{{ meta | join(" · ") }}</span>{% endif %}
   </div>
-  <span class="chevron" aria-hidden="true"></span>
 </li>
 {%- endmacro %}
 
 {# A day's meetings, under a date heading. #}
 {% macro day_group(day, items, level=3) -%}
-<section class="day-group" aria-labelledby="day-{{ day }}">
+<section aria-labelledby="day-{{ day }}">
   <h{{ level }} class="day-heading" id="day-{{ day }}"><time datetime="{{ day }}">{{ day | date }}</time></h{{ level }}>
   <ul class="meeting-list">
     {% for m in items %}{{ meeting_item(m) }}{% endfor %}

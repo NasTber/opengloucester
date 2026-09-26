@@ -1,0 +1,37 @@
+{# Charts drawn with plain HTML: no JavaScript, readable by screen readers
+   (each chart has a text label and a table with the same numbers). #}
+
+{# Column chart of monthly counts. months: [{month, received, recent?}] #}
+{% macro month_columns(months, label, noted=()) -%}
+{% set peak = months | map(attribute="received") | max %}
+<figure class="chart">
+  <div class="columns" role="img" aria-label="{{ label }}: {% for m in months %}{{ m.month | month }} {{ m.received }}{% if not loop.last %}, {% endif %}{% endfor %}.">
+    {% for m in months %}<div class="col{% if m.month in noted %} noted{% elif m.get("recent") %} recent{% endif %}" style="height: {{ (m.received / peak * 100) if peak else 0 }}%"></div>{% endfor %}
+  </div>
+  <div class="col-labels" aria-hidden="true">
+    {% for m in months %}<span>{{ (m.month | month)[:1] }}</span>{% endfor %}
+  </div>
+</figure>
+{%- endmacro %}
+
+{# Horizontal bars. rows: [{label, value, text, href?}] #}
+{% macro bars(rows, label) -%}
+{% set peak = rows | map(attribute="value") | max %}
+<ul class="hbars" aria-label="{{ label }}">
+  {% for r in rows %}
+  <li class="hbar">
+    <span>{% if r.get("href") %}<a href="{{ r.href }}">{{ r.label }}</a>{% else %}{{ r.label }}{% endif %}</span>
+    <span class="bar" style="width: {{ (r.value / peak * 100) if peak else 0 }}%" aria-hidden="true"></span>
+    <span class="n">{{ r.text }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{%- endmacro %}
+
+{# Links under a chart or table: its own link and its data. #}
+{% macro chart_links(anchor, csv=None) -%}
+<ul class="link-row">
+  {% if csv %}<li><a href="{{ csv }}" download>Download CSV</a></li>{% endif %}
+  <li><a href="#{{ anchor }}">Link to this</a></li>
+</ul>
+{%- endmacro %}

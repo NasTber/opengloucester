@@ -59,10 +59,19 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
+      - name: Fetch tax bill and unemployment
+        if: inputs.sources != '311'
+        continue-on-error: true
+        run: |
+          python -m pipeline.fetch_finance --town gloucester
+          python -m pipeline.fetch_labor --town gloucester
+        env:
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+
       # Commit meetings first so they are not held up by the longer 311 step.
       - name: Commit meetings
         if: inputs.sources != '311'
-        run: .github/scripts/commit-data.sh "Update meetings" data/meetings data/summaries
+        run: .github/scripts/commit-data.sh "Update meetings and indicators" data/meetings data/summaries data/finance data/labor
 
       - name: Fetch 311 requests
         if: inputs.sources != 'meetings'

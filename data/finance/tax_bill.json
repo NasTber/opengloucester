@@ -1,0 +1,42 @@
+{
+  "source": "Massachusetts Department of Revenue, Division of Local Services, Municipal Databank",
+  "source_url": "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=AverageSingleTaxBill.SingleFamTaxBill_wRange",
+  "updated_at": "2026-09-26T19:28:50-04:00",
+  "years": [
+    {
+      "average_bill": 8075,
+      "average_value": 688389,
+      "fiscal_year": 2022,
+      "parcels": 7218,
+      "state_rank": 72
+    },
+    {
+      "average_bill": 8464,
+      "average_value": 799238,
+      "fiscal_year": 2023,
+      "parcels": 7231,
+      "state_rank": 73
+    },
+    {
+      "average_bill": 8934,
+      "average_value": 918140,
+      "fiscal_year": 2024,
+      "parcels": 7233,
+      "state_rank": 72
+    },
+    {
+      "average_bill": 9224,
+      "average_value": 948997,
+      "fiscal_year": 2025,
+      "parcels": 7244,
+      "state_rank": 75
+    },
+    {
+      "average_bill": 9502,
+      "average_value": 1020656,
+      "fiscal_year": 2026,
+      "parcels": 7226,
+      "state_rank": 79
+    }
+  ]
+}

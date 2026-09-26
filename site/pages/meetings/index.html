@@ -1,30 +1,30 @@
 {% extends "base.html" %}
 {% from "macros.html" import day_group, freshness %}
 {% block title %}Meetings{% endblock %}
-{% block description %}Upcoming public meetings in {{ town.name }}, {{ town.state_abbr }}, with times, places, how to attend, and posted agendas.{% endblock %}
+{% block description %}Upcoming public meetings in {{ town.name }}, {{ town.state_abbr }}, with times, places, how to attend, agendas, and what was decided.{% endblock %}
 {% block content %}
 <div class="page-head">
   <h1>Meetings</h1>
-  <p class="lede">Upcoming public meetings of {{ town.name }}'s boards, commissions, and City Council committees.</p>
-  {{ freshness(meetings, town, config.meetings.base_url) }}
-  <ul class="inline-links">
-    <li><a class="button" href="/meetings/boards/">Boards and committees</a></li>
-    <li><a class="button" href="/meetings/past/">Past meetings</a></li>
+  <p class="lede">Meetings of {{ town.name }}'s boards, commissions, and City Council committees.</p>
+  <ul class="link-row">
+    <li><a href="/meetings/boards/">Boards and committees</a></li>
+    <li><a href="/meetings/past/">Past meetings and decisions</a></li>
   </ul>
 </div>
 
+<h2 id="upcoming">Upcoming</h2>
 {% if meetings.upcoming %}
-<h2 id="upcoming" class="visually-hidden">Upcoming meetings</h2>
 {% for day, items in group_by(meetings.upcoming, "date") %}{{ day_group(day, items) }}{% endfor %}
 {% else %}
 <p>No upcoming meetings are listed on the city calendar right now.</p>
 {% endif %}
+{{ freshness(meetings, town, config.meetings.base_url) }}
 
 <h2 id="about-this-list">About this list</h2>
 <ul>
   <li>Meetings come from the city's online calendar. Community events on the same calendar are left out.</li>
-  <li>Each meeting has its own page with the location, how to attend remotely, and the posted agenda.</li>
+  <li>Each meeting has its own page with the location, how to attend, the agenda, and, once posted, the minutes.</li>
   <li>When the city changes a meeting after posting it, the change is recorded on the meeting's page.</li>
-  <li>Agendas are saved when they are posted, so they stay available here.</li>
+  <li>Agendas and minutes are saved when they are posted, so they stay available here.</li>
 </ul>
 {% endblock %}

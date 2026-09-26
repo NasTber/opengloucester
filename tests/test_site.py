@@ -126,6 +126,9 @@ def test_meeting_pages(site_dir):
 def test_home_lists_this_weeks_meetings(site_dir):
     home = (site_dir / "index.html").read_text()
     assert "Meetings this week" in home
+    for label in ("Open 311 requests", "Typical time for the city to acknowledge", "Average single-family tax bill", "Unemployment rate"):
+        assert label in home
+    assert "↓ 0.5 pts from July 2025" in home and "↑ 3.0% from FY2025" in home
     assert "/meetings/2026-10-05-city-council-ordinances-and-administration-committee/" in home
 
 
@@ -151,15 +154,15 @@ def test_outbound_and_pdf_links_open_in_new_tab_with_warning(page_files, config)
 
 def test_ai_preview_is_labeled_and_linked(site_dir):
     page = (site_dir / "meetings" / "2026-09-28-human-rights-commission" / "index.html").read_text()
-    assert "AI-generated" in page
-    assert "Full agenda text" in page
+    assert "Summary written by AI" in page
+    assert "Read the full agenda" in page
     assert "https://www.gloucester-ma.gov/Archive.aspx?ADID=20124" in page
     assert "<script" not in page.split("transcript-body")[1][:2000]
 
 
 def test_scorecard_page(site_dir):
     page = (site_dir / "311" / "index.html").read_text()
-    assert "Requests in the past year" in page
+    assert "Requests, past 12 months" in page
     assert "Ward 1" in page
     assert "CC BY-NC-SA 3.0" in page
     assert (site_dir / "311" / "methodology" / "index.html").exists()
@@ -173,3 +176,11 @@ def test_meeting_known_from_minutes(site_dir, data_dir):
     assert "Decisions recorded" in page
     assert "Archive Center" in page
     assert f"/meetings/minutes/{archived['minutes'][0]['file']}" in page
+
+
+def test_311_ward_and_category_pages_and_csv(site_dir):
+    assert (site_dir / "311" / "ward" / "1" / "index.html").exists()
+    categories = list((site_dir / "311" / "category").iterdir())
+    assert categories
+    header = (site_dir / "311" / "data" / "by-category.csv").read_text().splitlines()[0]
+    assert header.startswith("category,requests,closed,still_open")

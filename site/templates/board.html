@@ -25,5 +25,5 @@
 <ul class="meeting-list">
   {% for m in b.meetings %}{{ meeting_item(m, show_date=true, show_body=false) }}{% endfor %}
 </ul>
-<p class="source-note">{{ site.name }} began recording meetings on {{ meetings.tracking_since | timestamp }}. Earlier meetings are on the <a href="{{ config.meetings.base_url }}/Archive.aspx">city's Archive Center</a>.</p>
+<p class="source-note">Meetings recorded here start in {{ meetings.all[0].date | date("month") }}. Earlier meetings are on the <a href="{{ config.meetings.base_url }}/Archive.aspx">city's Archive Center</a>.</p>
 {% endblock %}

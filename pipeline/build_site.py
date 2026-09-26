@@ -13,6 +13,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import re
 import shutil
@@ -119,6 +120,17 @@ def format_duration(days: float | None) -> str:
     return f"{days:.1f} days" if days < 10 else f"{days:.0f} days"
 
 
+def format_duration_cell(days: float | None) -> str:
+    """Duration for a table cell: a dash when there are too few requests."""
+    return "–" if days is None else format_duration(days)
+
+
+def short_address(address: str) -> str:
+    """'29 Emerson Avenue Gloucester, Massachusetts, 01930' -> '29 Emerson Avenue'."""
+    short = re.split(r",?\s+Gloucester\b", address or "", maxsplit=1, flags=re.I)[0].strip(" ,")
+    return short or address
+
+
 def format_number(n: float | int | None) -> str:
     return "–" if n is None else f"{n:,}"
 
@@ -204,6 +216,57 @@ def group_by(meetings: list[dict], period: str) -> list[tuple]:
     return list(groups.items())
 
 
+def change_text(diff: float, unit: str, since: str, digits: int = 0) -> str:
+    """'↑ 7 from last week' / 'No change from last week'. Neutral wording, no judgment."""
+    if round(diff, digits) == 0:
+        return f"No change from {since}"
+    arrow = "↑" if diff > 0 else "↓"
+    amount = f"{abs(diff):,.{digits}f}"
+    return f"{arrow} {amount}{unit} from {since}"
+
+
+def headline_numbers(data_dir: Path, scorecard: dict | None) -> list[dict]:
+    """The home page's headline row. Each number links to where it comes from."""
+    numbers = []
+    if scorecard:
+        backlog = scorecard["backlog"]
+        numbers.append({
+            "label": "Open 311 requests", "value": f"{backlog['open']:,}", "href": "/311/#open",
+            "change": change_text(backlog["open"] - backlog.get("open_week_ago", backlog["open"]), "", "last week"),
+        })
+        ack = scorecard["overall"]["time_to_acknowledge"]
+        numbers.append({
+            "label": "Typical time for the city to acknowledge a request", "value": format_duration(ack["median"]),
+            "href": "/311/#speed", "change": "Median, past 12 months",
+        })
+    tax_path = data_dir / "finance" / "tax_bill.json"
+    if tax_path.exists():
+        tax = json.loads(tax_path.read_text(encoding="utf-8"))
+        latest, prior = tax["years"][-1], (tax["years"][-2] if len(tax["years"]) > 1 else None)
+        change = ""
+        if prior:
+            pct = (latest["average_bill"] - prior["average_bill"]) / prior["average_bill"] * 100
+            change = change_text(pct, "%", f"FY{prior['fiscal_year']}", 1)
+        numbers.append({
+            "label": "Average single-family tax bill", "value": f"${latest['average_bill']:,}",
+            "href": tax["source_url"], "change": change,
+            "source": f"FY{latest['fiscal_year']} · Mass. Division of Local Services",
+        })
+    labor_path = data_dir / "labor" / "unemployment.json"
+    if labor_path.exists():
+        labor = json.loads(labor_path.read_text(encoding="utf-8"))
+        latest = labor["months"][-1]
+        month_name = date(latest["year"], latest["month"], 1).strftime("%B")
+        year_ago = next((m for m in labor["months"] if m["year"] == latest["year"] - 1 and m["month"] == latest["month"]), None)
+        numbers.append({
+            "label": "Unemployment rate", "value": f"{latest['rate']:.1f}%", "href": labor["source_url"],
+            # City rates are not seasonally adjusted: compare with the same month a year earlier.
+            "change": change_text(latest["rate"] - year_ago["rate"], " pts", f"{month_name} {latest['year'] - 1}", 1) if year_ago else "",
+            "source": f"{month_name} {latest['year']}{' (preliminary)' if latest.get('preliminary') else ''} · U.S. Bureau of Labor Statistics",
+        })
+    return numbers
+
+
 # ---- Build -----------------------------------------------------------------
 
 def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | None = None) -> list[str]:
@@ -225,8 +288,9 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     )
     env.filters.update(date=format_date, time=format_time, filesize=format_bytes, timestamp=format_timestamp,
                        duration=format_duration, number=format_number, month=format_month,
-                       markdown=render_markdown)
-    env.globals.update(group_by=group_by)
+                       markdown=render_markdown, duration_cell=format_duration_cell, street=short_address)
+    env.globals.update(group_by=group_by, today=built_at.date().isoformat(),
+                       change=lambda diff, since: change_text(diff, "", since))
 
     if out_dir.exists():
         shutil.rmtree(out_dir)
@@ -235,7 +299,8 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     own_hosts = {site["domain"], "www." + site["domain"]}
     sections = config["sections"]
     common = dict(config=config, site=site, town=config["town"], sections=sections,
-                  built_at=built_at, meetings=meetings, scorecard=scorecard)
+                  built_at=built_at, meetings=meetings, scorecard=scorecard,
+                  headline=headline_numbers(data_dir, scorecard))
     urls = []
 
     def render(template: str, url: str, **context) -> None:
@@ -259,6 +324,14 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         render("meeting.html", m["url"], meeting=m)
     for b in meetings["boards"]:
         render("board.html", b["url"], board=b)
+    if scorecard:
+        populations = {w["ward"]: w for w in scorecard["by_ward"]}
+        for w in scorecard.get("wards", []):
+            if w["ward"] != "outside":
+                render("ward.html", f"/311/ward/{w['ward']}/", ward={**populations.get(w["ward"], {}), **w})
+        for c in scorecard.get("categories", []):
+            render("category.html", f"/311/category/{c['slug']}/", category=c)
+        write_311_csvs(out_dir / "311" / "data", scorecard)
 
     for folder in ("agendas", "minutes"):
         src = data_dir / "meetings" / folder
@@ -267,6 +340,32 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
 
     write_support_files(out_dir, site, base_url, urls, built_at)
     return urls
+
+
+def write_csv(path: Path, header: list[str], rows: list[list]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(header)
+        writer.writerows(rows)
+
+
+def write_311_csvs(folder: Path, sc: dict) -> None:
+    """Downloadable tables behind the 311 charts. Durations are in days."""
+    def med(s):
+        return s["median"]
+    summary = ["requests", "closed", "still_open", "median_days_to_acknowledge", "median_days_to_close"]
+    def row(x):
+        return [x["received"], x["closed"], x["open"], med(x["time_to_acknowledge"]), med(x["time_to_close"])]
+    write_csv(folder / "monthly.csv", ["month", *summary], [[m["month"], *row(m)] for m in sc["monthly"]])
+    write_csv(folder / "by-ward.csv", ["ward", "population_2020", "per_1000_residents", *summary],
+              [[w["ward"], w.get("population_2020"), w.get("per_1000_residents"), *row(w)] for w in sc["by_ward"]])
+    write_csv(folder / "by-category.csv", ["category", *summary], [[c["category"], *row(c)] for c in sc["categories"]])
+    write_csv(folder / "open-by-age.csv", ["open_for", "requests"], [[b["label"], b["count"]] for b in sc["backlog"]["buckets"]])
+    for w in sc.get("wards", []):
+        write_csv(folder / f"ward-{w['ward']}.csv", ["category", *summary], [[c["category"], *row(c)] for c in w["by_category"]])
+    for c in sc.get("categories", []):
+        write_csv(folder / f"category-{c['slug']}.csv", ["ward", *summary], [[w["ward"], *row(w)] for w in c["by_ward"]])
 
 
 def write_support_files(out_dir: Path, site: dict, base_url: str, urls: list[str], built_at: datetime) -> None:

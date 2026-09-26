@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros.html" import meeting_flags, describe_change %}
+{% from "macros.html" import meeting_flags, describe_change, ai_credit %}
 {% set m = meeting %}
 {% block title %}{{ m.body }}, {{ m.date | date }}{% endblock %}
 {% block description %}{{ m.title }} meeting on {{ m.date | date }}{% if m.start_time %} at {{ m.start_time | time }}{% endif %}: {% if m.minutes_doc %}decisions, minutes, and agenda{% else %}location, how to attend, and agenda{% endif %}.{% endblock %}
@@ -13,67 +13,52 @@
 
 <div class="page-head">
   <h1>{{ m.title }}</h1>
-  <p class="lede"><time datetime="{{ m.date }}{% if m.start_time %}T{{ m.start_time }}{% endif %}">{{ m.date | date }}{% if m.start_time %} at {{ m.start_time | time }}{% endif %}</time></p>
-  {% if m.status != "scheduled" or not m.listed or m.special %}<div class="chips">{{ meeting_flags(m) }}</div>{% endif %}
+  <p class="lede"><time datetime="{{ m.date }}{% if m.start_time %}T{{ m.start_time }}{% endif %}">{{ m.date | date }}{% if m.start_time %} · {{ m.start_time | time }}{% endif %}</time>{% if m.special %} · Special meeting{% endif %}</p>
+  {% if m.status != "scheduled" or not m.listed %}<p>{{ meeting_flags(m) }}</p>{% endif %}
   {% set upcoming = m.date >= built_at.date().isoformat() %}
   {% if (m.remote_url and upcoming) or m.agenda or m.minutes_doc %}
   <div class="actions">
     {% if m.remote_url and upcoming %}<a class="button button-primary" href="{{ m.remote_url }}">Join online (Zoom)</a>{% endif %}
-    {% if m.minutes_doc %}<a class="button" href="{{ m.minutes_doc.source_url }}">View minutes (PDF)</a>{% endif %}
-    {% if m.agenda %}<a class="button" href="{{ m.agenda.source_url }}">View agenda (PDF)</a>{% endif %}
+    {% if m.minutes_doc %}<a class="button" href="{{ m.minutes_doc.source_url }}">Minutes (PDF)</a>{% endif %}
+    {% if m.agenda %}<a class="button" href="{{ m.agenda.source_url }}">Agenda (PDF)</a>{% endif %}
   </div>
   {% endif %}
 </div>
 
-<div class="card">
-  <dl class="details">
-    <dt>Date</dt>
-    <dd>{{ m.date | date }}</dd>
-    {% if m.start_time or m.source != "archive" %}
-    <dt>Time</dt>
-    <dd>{% if m.start_time %}{{ m.start_time | time }}{% if m.end_time %} to {{ m.end_time | time }}{% endif %}{% else %}Not listed{% endif %}</dd>
-    {% endif %}
-    {% if m.location_name or m.address or m.location or m.source != "archive" %}
-    <dt>Location</dt>
-    <dd>
-      {% if m.location_name %}{{ m.location_name }}<br>{% endif %}
-      {{ m.address or m.location or "Not listed" }}
-    </dd>
-    {% endif %}
-    {% if m.remote_url %}
-    <dt>Attend remotely</dt>
-    <dd><a href="{{ m.remote_url }}">Join online (Zoom)</a></dd>
-    {% endif %}
-  </dl>
-</div>
+{% set has_where = m.location_name or m.address or m.location %}
+{% if has_where or m.remote_url or m.source != "archive" %}
+<dl class="facts">
+  <div><dt>Where</dt><dd>{% if m.location_name %}{{ m.location_name }}<br>{% endif %}{{ m.address or m.location or "Not listed" }}</dd></div>
+  {% if m.remote_url %}<div><dt>Online</dt><dd><a href="{{ m.remote_url }}">Join by Zoom</a></dd></div>{% endif %}
+  {% if not m.start_time and m.source != "archive" %}<div><dt>Time</dt><dd>Not listed</dd></div>{% endif %}
+  {% if m.end_time %}<div><dt>Scheduled until</dt><dd>{{ m.end_time | time }}</dd></div>{% endif %}
+</dl>
+{% endif %}
 
 {% if m.minutes_doc %}
 {% set ms = m.minutes_summary %}
 <h2 id="minutes">What was decided</h2>
 {% if ms %}
-<section class="ai-block" aria-labelledby="ai-minutes-label">
-  <p class="ai-label" id="ai-minutes-label"><span class="chip">AI-generated</span> Summary and text written by software from the <a href="{{ ms.source_url }}">city's minutes</a>. Check the original before relying on it.</p>
-  <p class="ai-summary">{{ ms.summary }}</p>
-  {% if ms.decisions %}
-  <h3>Decisions recorded</h3>
-  <ul>
-    {% for d in ms.decisions %}<li>{{ d }}</li>{% endfor %}
-  </ul>
-  {% else %}
-  <p>The minutes do not record any votes or decisions.</p>
-  {% endif %}
-  <details class="transcript">
-    <summary>Full text of the minutes</summary>
-    <div class="transcript-body">{{ ms.transcript | markdown }}</div>
-  </details>
-  <p class="source-note">Written by {{ ms.model }} on <time datetime="{{ ms.generated_at }}">{{ ms.generated_at | timestamp }}</time>. <a href="/about/#ai">How AI-generated text is used</a>.</p>
-</section>
+<p>{{ ms.summary }}</p>
+{% if ms.decisions %}
+<h3>Decisions recorded</h3>
+<ul>
+  {% for d in ms.decisions %}<li>{{ d }}</li>{% endfor %}
+</ul>
 {% else %}
-<p>The city has posted minutes for this meeting. A readable summary will be added here.</p>
+<p>The minutes do not record any votes or decisions.</p>
+{% endif %}
+{{ ai_credit("minutes", ms.source_url) }}
+<details class="expand">
+  <summary>Read the full minutes</summary>
+  <div class="transcript-body">{{ ms.transcript | markdown }}</div>
+</details>
+{% else %}
+<p>The city has posted minutes for this meeting. A summary will be added here after the next update.</p>
 {% endif %}
 <ul>
-  <li><a href="{{ m.minutes_doc.source_url }}">Minutes on the city website</a> (PDF, {{ m.minutes_doc.bytes | filesize }})</li>
-  <li><a href="/meetings/minutes/{{ m.minutes_doc.file }}">Saved copy</a> (PDF, {{ m.minutes_doc.bytes | filesize }}), saved <time datetime="{{ m.minutes_doc.fetched_at }}">{{ m.minutes_doc.fetched_at | timestamp }}</time></li>
+  <li><a href="{{ m.minutes_doc.source_url }}">Minutes on the city website</a> · PDF, {{ m.minutes_doc.bytes | filesize }}</li>
+  <li><a href="/meetings/minutes/{{ m.minutes_doc.file }}">Saved copy of the minutes</a> · saved <time datetime="{{ m.minutes_doc.fetched_at }}">{{ m.minutes_doc.fetched_at | timestamp }}</time></li>
 </ul>
 {% if m.minutes | length > 1 %}
 <p>Earlier versions of these minutes:</p>
@@ -88,32 +73,27 @@
 <p>Minutes for this meeting have not been posted yet. Boards usually approve minutes at a later meeting, and the city posts them after that.</p>
 {% endif %}
 
-<h2 id="agenda">Agenda</h2>
+<h2 id="agenda">{% if m.date >= built_at.date().isoformat() %}What's on the agenda{% else %}Agenda{% endif %}</h2>
 {% if m.preview %}
-<section class="ai-block" aria-labelledby="ai-label">
-  <p class="ai-label" id="ai-label"><span class="chip">AI-generated</span> Preview and text written by software from the <a href="{{ m.preview.source_url }}">city's agenda</a>. Check the original before relying on it.</p>
-  <p class="ai-summary">{{ m.preview.summary }}</p>
-  {% if m.preview["items"] %}
-  <h3>On the agenda</h3>
-  <ul>
-    {% for item in m.preview["items"] %}<li>{{ item }}</li>{% endfor %}
-  </ul>
-  {% endif %}
-  <details class="transcript">
-    <summary>Full agenda text</summary>
-    <div class="transcript-body">{{ m.preview.transcript | markdown }}</div>
-  </details>
-  <p class="source-note">Written by {{ m.preview.model }} on <time datetime="{{ m.preview.generated_at }}">{{ m.preview.generated_at | timestamp }}</time>. <a href="/about/#ai">How AI-generated text is used</a>.</p>
-</section>
-<h3>Original documents</h3>
+<p>{{ m.preview.summary }}</p>
+{% if m.preview["items"] %}
+<ul>
+  {% for item in m.preview["items"] %}<li>{{ item }}</li>{% endfor %}
+</ul>
+{% endif %}
+{{ ai_credit("agenda", m.preview.source_url) }}
+<details class="expand">
+  <summary>Read the full agenda</summary>
+  <div class="transcript-body">{{ m.preview.transcript | markdown }}</div>
+</details>
 {% endif %}
 {% if m.agenda %}
 <ul>
-  <li><a href="{{ m.agenda.source_url }}">Agenda on the city website</a> (PDF, {{ m.agenda.bytes | filesize }})</li>
-  <li><a href="/meetings/agendas/{{ m.agenda.file }}">Saved copy</a> (PDF, {{ m.agenda.bytes | filesize }}), saved <time datetime="{{ m.agenda.fetched_at }}">{{ m.agenda.fetched_at | timestamp }}</time></li>
+  <li><a href="{{ m.agenda.source_url }}">Agenda on the city website</a> · PDF, {{ m.agenda.bytes | filesize }}</li>
+  <li><a href="/meetings/agendas/{{ m.agenda.file }}">Saved copy of the agenda</a> · saved <time datetime="{{ m.agenda.fetched_at }}">{{ m.agenda.fetched_at | timestamp }}</time></li>
 </ul>
 {% if m.agenda.has_text == false %}
-<p class="note">The city posted this agenda as a scanned image. Screen readers and search tools may not be able to read it.{% if m.preview %} The full agenda text above is a readable version.{% endif %}</p>
+<p class="small">The city posted this agenda as a scanned image, which screen readers cannot read.{% if m.preview %} The full agenda text above is a readable version.{% endif %}</p>
 {% endif %}
 {% if m.agendas | length > 1 %}
 <p>Earlier versions of this agenda:</p>

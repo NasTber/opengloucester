@@ -4,6 +4,11 @@
 
 [site]
 name = "OpenGloucester"
+# The header shows name_prefix in dark ink and name_suffix in the primary color,
+# next to a circle with the mark letter.
+name_prefix = "Open"
+name_suffix = "Gloucester"
+mark = "G"
 domain = "opengloucester.org"
 tagline = "Public data on how Gloucester, Massachusetts responds, decides, and spends. Updated daily."
 repo_url = "https://github.com/NasTber/opengloucester"
@@ -22,15 +27,16 @@ official_site = "https://gloucester-ma.gov"
 # under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
 # status: "planned" shows an "In development" label; "live" removes it.
 [[sections]]
-slug = "311"
-title = "311 Requests"
-summary = "How quickly the city acknowledges and closes public service requests, how many are still open, by category and ward."
+slug = "meetings"
+title = "Meetings"
+summary = "Every board and committee meeting, with agendas, minutes, and what was decided."
 status = "live"
 
 [[sections]]
-slug = "meetings"
-title = "Meetings"
-summary = "Upcoming public meetings of city boards and committees, with times, places, how to attend, and saved agendas."
+slug = "311"
+title = "311 Requests"
+nav = "311"
+summary = "How quickly the city acknowledges and closes public service requests, how many are still open, by category and ward."
 status = "live"
 
 [[sections]]
@@ -100,3 +106,13 @@ minutes_since = "2026-06-28"
 "Planning and Development Standing Committee" = "City Council Planning & Development Committee"
 "Contributory Retirement System" = "Gloucester Retirement Board"
 "Council on Aging" = "Council on Aging Board"
+
+# Average single-family tax bill (Mass. Division of Local Services).
+[finance]
+dls_municipality = "Gloucester"
+
+# Unemployment rate (BLS Local Area Unemployment Statistics). City rates are
+# not seasonally adjusted; the state series is shown for context.
+[labor]
+local_series = "LAUCT252615000000003"
+state_series = "LAUST250000000000003"

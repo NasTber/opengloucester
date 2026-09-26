@@ -14,6 +14,8 @@ pipeline/                   Python package
   summarize.py              Daily: agenda and minutes PDFs -> readable text + summaries (AI) -> data/summaries/
   fetch_311.py              Daily: SeeClickFix -> data/311/requests.json (also --backfill YYYY-MM)
   compute_311.py            Daily: requests -> data/311/scorecard.json
+  fetch_finance.py          Average single-family tax bill (Mass. DLS) -> data/finance/
+  fetch_labor.py            Unemployment rate (BLS LAUS) -> data/labor/
   civicplus.py, seeclickfix.py   Source parsers
   geo.py                    Ward/precinct point-in-polygon lookup
   http.py                   Rate-limited HTTP client with retries
@@ -99,4 +101,5 @@ See [`data/README.md`](data/README.md). 311 data comes from [SeeClickFix](https:
 
 ## Secrets
 
-- `ANTHROPIC_API_KEY` (repository secret, optional): enables agenda text and previews. Without it the step is skipped.
+- `ANTHROPIC_API_KEY` (repository secret, optional): enables agenda and minutes text and summaries. Without it the step is skipped.
+- `BLS_API_KEY` (repository secret, optional): free key from bls.gov/developers for the unemployment rate. Without it the job uses BLS's keyless limit, then falls back to the bulk data file.

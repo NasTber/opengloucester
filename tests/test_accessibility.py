@@ -81,7 +81,8 @@ def test_skip_link_is_first_tab_stop_and_moves_focus(browser, server_url):
     assert focused == "Skip to main content"
     assert page.evaluate("document.activeElement.getBoundingClientRect().top") >= 0, "skip link should be visible on focus"
     page.keyboard.press("Enter")
-    assert page.evaluate("document.activeElement.id") == "main"
+    # Focus moves to <main> once the browser finishes the in-page jump.
+    page.wait_for_function("document.activeElement && document.activeElement.id === 'main'", timeout=2000)
     context.close()
 
 
