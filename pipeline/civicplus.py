@@ -132,3 +132,78 @@ def parse_event_page(page: str, base_url: str) -> dict:
         details["remote_url"] = html.unescape(link.group(1))
 
     return details
+
+
+# ---- Archive Center -------------------------------------------------------
+
+MONTH_DATE = re.compile(r"\b([A-Z][a-zA-Z]{2,8})\.?\s*(\d{1,2})(?:st|nd|rd|th)?,?\s+(\d{4})\b")
+ISO_DATE = re.compile(r"(?<!\d)(\d{4})[-_.](\d{2})[-_.](\d{2})(?!\d)")
+NUMERIC_DATE = re.compile(r"(?<!\d)(\d{1,2})[-/.](\d{1,2})[-/.](\d{2}|\d{4})(?!\d)")
+
+
+def parse_title_date(title: str) -> str | None:
+    """Find the meeting date in an archive item title such as 'May 21, 2026 REVISED'
+    or 'Affordable Housing Trust Minutes 3-9-2026'. Returns YYYY-MM-DD or None."""
+    m = MONTH_DATE.search(title)
+    if m:
+        month = m.group(1).capitalize()
+        for fmt in ("%B %d %Y", "%b %d %Y"):
+            try:
+                return datetime.strptime(f"{month} {m.group(2)} {m.group(3)}", fmt).date().isoformat()
+            except ValueError:
+                pass
+    m = ISO_DATE.search(title)
+    if m:
+        try:
+            return datetime(int(m.group(1)), int(m.group(2)), int(m.group(3))).date().isoformat()
+        except ValueError:
+            return None
+    m = NUMERIC_DATE.search(title)
+    if m:
+        year = int(m.group(3))
+        year = year + 2000 if year < 100 else year
+        try:
+            return datetime(year, int(m.group(1)), int(m.group(2))).date().isoformat()
+        except ValueError:
+            return None
+    return None
+
+
+def parse_archive_index(page: str, base_url: str) -> list[dict]:
+    """Parse the Archive Center main page (Archive.aspx).
+
+    Returns one entry per collection with its most recent items (the page
+    lists about 15 per collection)."""
+    collections = []
+    for m in re.finditer(
+        r'<label for="amidDDN(\d+)">(.*?)</label>\s*</span>\s*<br>\s*<select[^>]*>(.*?)</select>', page, re.S
+    ):
+        amid, name, options = m.group(1), clean_text(m.group(2)).rstrip(":").strip(), m.group(3)
+        name = re.sub(r"\s{2,}", " ", name)
+        items = []
+        for adid, title in re.findall(r'<option value="1_\d_0_(\d+)">([^<]*)</option>', options):
+            title = clean_text(title)
+            items.append({
+                "id": adid,
+                "title": title,
+                "date": parse_title_date(title),
+                "url": f"{base_url.rstrip('/')}/Archive.aspx?ADID={adid}",
+            })
+        collections.append({"id": amid, "name": name, "items": items})
+    return collections
+
+
+def collection_body(name: str) -> tuple[str, str]:
+    """Split a collection name into (public body, document kind).
+
+    'Planning Board - Minutes' -> ('Planning Board', 'minutes')
+    'City Council Agendas and Packets' -> ('City Council', 'agendas')"""
+    kinds = [
+        (r"\s*-?\s*Meeting Results$", "results"),
+        (r"\s*-?\s*Minutes$", "minutes"),
+        (r"\s*-?\s*Agendas(?: and Packets)?$", "agendas"),
+    ]
+    for pattern, kind in kinds:
+        if re.search(pattern, name, re.I):
+            return re.sub(pattern, "", name, flags=re.I).strip(" :-"), kind
+    return name.strip(" :-"), "other"

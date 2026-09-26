@@ -73,8 +73,11 @@ precincts_file = "gloucester-precincts-2022.geojson"
 # labeled as AI-generated on the site. Cached by document hash.
 [summaries]
 model = "claude-sonnet-5"
-max_tokens = 16000
-max_per_run = 25
+max_per_run = 50
+# Prices per million tokens, for the spending limit below.
+input_price = 2.0
+output_price = 10.0
+max_cost_per_run = 5.0
 
 # Context for unusual months on the 311 scorecard. Each note must cite a source.
 [[seeclickfix.annotations]]
@@ -82,3 +85,18 @@ month = "2025-07"
 text = "A strike by Republic Services trash and recycling workers began July 1, 2025. Trash routes were missed and recycling was not picked up in parts of Gloucester during the strike."
 source_title = "WBUR, July 21, 2025"
 source_url = "https://www.wbur.org/news/2025/07/21/gloucester-massachusetts-republic-services-garbage-worker-strike"
+
+# Minutes from the city's Archive Center. Minutes for meetings on or after
+# minutes_since are collected; earlier ones can be added by moving the date back.
+[archive]
+index = "Archive.aspx"
+minutes_since = "2026-06-28"
+
+# Archive collection names mapped to the names used on the calendar.
+[archive.aliases]
+"Budget and Finance Standing Committee" = "City Council Budget & Finance Committee"
+"Budget and Finance Committee Annual Budget Review" = "City Council Budget & Finance Committee"
+"Ordinances and Administration Standing Committee" = "City Council Ordinances & Administration Committee"
+"Planning and Development Standing Committee" = "City Council Planning & Development Committee"
+"Contributory Retirement System" = "Gloucester Retirement Board"
+"Council on Aging" = "Council on Aging Board"

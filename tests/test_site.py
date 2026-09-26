@@ -1,6 +1,7 @@
 """Structural checks on the built HTML: every page is well-formed for assistive
 technology and every internal link resolves."""
 
+import json
 from html.parser import HTMLParser
 from urllib.parse import urlparse
 
@@ -162,3 +163,13 @@ def test_scorecard_page(site_dir):
     assert "Ward 1" in page
     assert "CC BY-NC-SA 3.0" in page
     assert (site_dir / "311" / "methodology" / "index.html").exists()
+
+
+def test_meeting_known_from_minutes(site_dir, data_dir):
+    store = json.loads((data_dir / "meetings" / "meetings.json").read_text())
+    archived = next(m for m in store.values() if m.get("source") == "archive")
+    page = (site_dir / "meetings" / archived["slug"] / "index.html").read_text()
+    assert "What was decided" in page
+    assert "Decisions recorded" in page
+    assert "Archive Center" in page
+    assert f"/meetings/minutes/{archived['minutes'][0]['file']}" in page

@@ -46,7 +46,12 @@ jobs:
         continue-on-error: true
         run: python -m pipeline.fetch_meetings --town gloucester
 
-      # Readable text and previews of new agendas (skipped if no API key).
+      - name: Fetch minutes
+        if: inputs.sources != '311'
+        continue-on-error: true
+        run: python -m pipeline.fetch_minutes --town gloucester
+
+      # Readable text and summaries of new agendas and minutes (skipped if no API key).
       - name: Summarize agendas
         if: inputs.sources != '311'
         continue-on-error: true

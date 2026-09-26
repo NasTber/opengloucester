@@ -29,8 +29,13 @@ class FakeCityClient:
             return FakeResponse(self.feed)
         if "Calendar.aspx?EID=" in url:
             return FakeResponse(self.event_page.encode())
+        if url.endswith("/Archive.aspx"):
+            return FakeResponse((FIXTURES / "civicplus_archive_index.html").read_bytes())
         if "Archive.aspx?ADID=" in url:
-            return FakeResponse(self.agenda, {"content-disposition": "inline;filename=September 28 2026.pdf"})
+            adid = url.rsplit("=", 1)[1]
+            # Each archive document gets distinct bytes (a trailing PDF comment), as real ones would.
+            content = self.agenda if adid == "20124" else self.agenda + f"\n% document {adid}\n".encode()
+            return FakeResponse(content, {"content-disposition": "inline;filename=September 28 2026.pdf"})
         raise AssertionError(f"unexpected URL {url}")
 
 
@@ -82,12 +87,17 @@ class FakeSeeClickFix:
 
 
 class FakeAnthropic:
-    """Stands in for anthropic.Anthropic: returns a fixed structured preview."""
+    """Stands in for anthropic.Anthropic: returns a fixed structured result."""
 
     PREVIEW = {
         "transcript": "# Human Rights Commission\n\n1. Call to order.\n2. Review and approval of July 27, 2026 minutes\n3. Meeting Joe Lucido, Assistant Director of Operations on City ADA compliance\n4. Review HRC Student Member Recruitment Search Draft Description\n5. Community updates.\n6. Next Meeting: October 26",
         "summary": "The commission will meet with the city's Assistant Director of Operations about ADA compliance and review a draft description for recruiting a student member.",
-        "items": ["Approve July 27 minutes", "ADA compliance with Joe Lucido", "Student member recruitment description", "Community updates"],
+        "items": ["ADA compliance with Joe Lucido", "Student member recruitment description", "Community updates"],
+    }
+    MINUTES = {
+        "transcript": "# Planning Board Minutes\n\nMotion to approve the site plan at 12 Main St. Vote 5-0.",
+        "summary": "The board approved a site plan for 12 Main St.",
+        "decisions": ["Approved the site plan for 12 Main St, 5-0"],
     }
 
     def __init__(self, stop_reason: str = "end_turn"):
@@ -95,14 +105,32 @@ class FakeAnthropic:
         self.calls = []
         outer = self
 
+        def respond(kwargs):
+            import json
+            outer.calls.append(kwargs)
+            is_minutes = "decisions" in kwargs["output_config"]["format"]["schema"]["properties"]
+            payload = FakeAnthropic.MINUTES if is_minutes else FakeAnthropic.PREVIEW
+            return SimpleNamespace(
+                stop_reason=stop_reason,
+                content=[SimpleNamespace(type="text", text=json.dumps(payload))],
+                usage=SimpleNamespace(input_tokens=1500, output_tokens=400),
+            )
+
+        class Stream:
+            def __init__(self, kwargs):
+                self.kwargs = kwargs
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+            def get_final_message(self):
+                return respond(self.kwargs)
+
         class Messages:
-            def create(self, **kwargs):
-                import json
-                outer.calls.append(kwargs)
-                return SimpleNamespace(
-                    stop_reason=stop_reason,
-                    content=[SimpleNamespace(type="text", text=json.dumps(FakeAnthropic.PREVIEW))],
-                    usage=SimpleNamespace(input_tokens=1500, output_tokens=400),
-                )
+            def stream(self, **kwargs):
+                return Stream(kwargs)
 
         self.messages = Messages()

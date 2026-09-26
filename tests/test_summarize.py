@@ -63,7 +63,7 @@ def test_skips_without_api_key(monkeypatch, capsys):
 def test_new_prompt_version_or_model_regenerates(tmp_path, monkeypatch):
     config = setup(tmp_path)
     summarize.run(config, FakeAnthropic(), tmp_path, limit=5, now=FETCHED_AT)
-    monkeypatch.setattr(summarize, "PROMPT_VERSION", summarize.PROMPT_VERSION + 1)
+    monkeypatch.setitem(summarize.KINDS["agenda"], "version", summarize.KINDS["agenda"]["version"] + 1)
     again = FakeAnthropic()
     assert summarize.run(config, again, tmp_path, limit=5, now=FETCHED_AT)["summarized"] == 1
     config["summaries"]["model"] = "another-model"

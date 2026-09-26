@@ -10,7 +10,8 @@ The site is static HTML built by a small Python script and deployed to GitHub Pa
 config/<town>.toml          Everything town-specific: name, domain, sources, sections
 pipeline/                   Python package
   fetch_meetings.py         Daily: city calendar -> data/meetings/
-  summarize.py              Daily: agenda PDFs -> readable text + previews (AI) -> data/summaries/
+  fetch_minutes.py          Daily: Archive Center minutes -> data/meetings/minutes/
+  summarize.py              Daily: agenda and minutes PDFs -> readable text + summaries (AI) -> data/summaries/
   fetch_311.py              Daily: SeeClickFix -> data/311/requests.json (also --backfill YYYY-MM)
   compute_311.py            Daily: requests -> data/311/scorecard.json
   civicplus.py, seeclickfix.py   Source parsers

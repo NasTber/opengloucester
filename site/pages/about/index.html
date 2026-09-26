@@ -32,6 +32,7 @@
 <ul>
   <li><strong>311 requests:</strong> public service requests from SeeClickFix. Data from <a href="https://seeclickfix.com">seeclickfix.com</a>, used under the <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons BY-NC-SA 3.0</a> license. Private requests are not available and are not counted.</li>
   <li><strong>Meetings:</strong> the <a href="{{ config.meetings.base_url }}/calendar.aspx">City of {{ town.name }} calendar</a> and the agendas attached to each meeting, which the city stores in its <a href="{{ config.meetings.base_url }}/Archive.aspx">Archive Center</a>. Entries that are not meetings of a public body, such as community events, are left out. Each agenda is saved when it is first posted, and later versions are saved alongside it.</li>
+  <li><strong>Minutes:</strong> minutes the city posts in its <a href="{{ config.meetings.base_url }}/Archive.aspx">Archive Center</a> for meetings on or after {{ config.archive.minutes_since | date("plain") }}. Minutes are attached to the matching meeting. A meeting that was not on the calendar when this site checked it gets a page from its minutes.</li>
   <li><strong>Ward boundaries:</strong> MassGIS, the Commonwealth of Massachusetts' geographic information office.</li>
 </ul>
 <p>Metric definitions, including how each request status is counted, will be published here before the figures that use them.</p>
@@ -40,12 +41,13 @@
 <p>An automated job collects new data once a day and rebuilds the site. The date at the bottom of every page shows the last update.</p>
 
 <h2 id="ai">AI-generated summaries</h2>
-<p>Meeting previews and readable agenda text are written by an AI language model ({{ config.summaries.model }}, made by Anthropic) from the agenda the city posted. The city posts most agendas as scanned images, so this text also makes them usable with screen readers and search.</p>
+<p>Meeting previews, summaries of decisions in minutes, and the readable text of agendas and minutes are written by an AI language model ({{ config.summaries.model }}, made by Anthropic) from the documents the city posted. The city posts most of these documents as scanned images, so this text also makes them usable with screen readers and search.</p>
 <ul>
   <li>Each preview is labeled as AI-generated, links to the original document, and shows which model wrote it and when.</li>
   <li>The model is instructed to use only what the document says, without opinions or predictions.</li>
   <li>Previews are not reviewed by a person before they are published. The original document is the authoritative source.</li>
-  <li>A document is processed once. If the city posts a revised agenda, a new preview is written from it.</li>
+  <li>Decisions are listed only as the minutes record them, with the vote when the minutes give one.</li>
+  <li>A document is processed once. If the city posts a revised version, a new summary is written from it.</li>
 </ul>
 
 <h2 id="corrections">Corrections</h2>

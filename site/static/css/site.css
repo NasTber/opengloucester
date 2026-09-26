@@ -601,7 +601,8 @@ dl.card.details { margin: 0 0 1rem; }
   margin-bottom: 1.5rem;
 }
 .ai-block h3 { font-size: 1rem; margin: 1.25rem 0 0.4rem; }
-.ai-label { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0; color: var(--muted); font-size: 0.95rem; }
+.ai-label { margin-top: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+.ai-label .chip { margin-right: 0.4rem; vertical-align: 0.05em; }
 .ai-summary { font-size: 1.1rem; }
 .transcript { margin-top: 1.25rem; border-top: 1px solid var(--line); padding-top: 0.75rem; }
 .transcript summary {

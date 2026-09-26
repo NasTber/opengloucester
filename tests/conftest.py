@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import shutil  # noqa: E402
 
 from fakes import FIXTURES, FakeAnthropic, FakeCityClient, FakeSeeClickFix  # noqa: E402
-from pipeline import build_site, compute_311, fetch_311, fetch_meetings, summarize  # noqa: E402
+from pipeline import build_site, compute_311, fetch_311, fetch_meetings, fetch_minutes, summarize  # noqa: E402
 from pipeline.config import DATA_DIR as REAL_DATA_DIR  # noqa: E402
 from pipeline.config import load_config  # noqa: E402
 
@@ -39,7 +39,8 @@ def make_fixture_data(data_dir: Path) -> None:
     start = feed.index("<item", feed.index("Committee for the Arts") - 400)
     feed = feed[:start] + feed[feed.index("</item>", start) + len("</item>"):]
     fetch_meetings.run(config, FakeCityClient(feed=feed.encode()), data_dir, now=FETCHED_AT.replace(day=27))
-    summarize.run(config, FakeAnthropic(), data_dir, limit=5, now=FETCHED_AT)
+    fetch_minutes.run(config, FakeCityClient(), data_dir, now=FETCHED_AT)
+    summarize.run(config, FakeAnthropic(), data_dir, limit=50, now=FETCHED_AT)
 
     shutil.copytree(REAL_DATA_DIR / "static", data_dir / "static")
     fetch_311.run(config, FakeSeeClickFix(), data_dir, now=FETCHED_AT, detail_limit=80)
