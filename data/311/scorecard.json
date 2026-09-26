@@ -893,7 +893,7 @@
   }
  ],
  "data_since": "2020-04-21",
- "generated_at": "2026-09-26T17:14:57-04:00",
+ "generated_at": "2026-09-26T17:16:19-04:00",
  "min_sample": 5,
  "monthly": [
   {
@@ -913,6 +913,10 @@
     "median": 8.61,
     "n": 71,
     "p90": 197.65
+   },
+   "top_category": {
+    "category": "Illegal Dumping",
+    "count": 13
    }
   },
   {
@@ -932,6 +936,10 @@
     "median": 10.16,
     "n": 116,
     "p90": 223.7
+   },
+   "top_category": {
+    "category": "Trash or Recycling",
+    "count": 27
    }
   },
   {
@@ -951,6 +959,10 @@
     "median": 5.23,
     "n": 76,
     "p90": 169.63
+   },
+   "top_category": {
+    "category": "Pothole",
+    "count": 11
    }
   },
   {
@@ -970,6 +982,10 @@
     "median": 4.28,
     "n": 100,
     "p90": 279.52
+   },
+   "top_category": {
+    "category": "Trash or Recycling",
+    "count": 13
    }
   },
   {
@@ -989,6 +1005,10 @@
     "median": 2.99,
     "n": 183,
     "p90": 310.75
+   },
+   "top_category": {
+    "category": "Snow/Ice Removal",
+    "count": 48
    }
   },
   {
@@ -1008,6 +1028,10 @@
     "median": 5.89,
     "n": 135,
     "p90": 184.22
+   },
+   "top_category": {
+    "category": "Pothole",
+    "count": 32
    }
   },
   {
@@ -1027,6 +1051,10 @@
     "median": 4.03,
     "n": 135,
     "p90": 100.45
+   },
+   "top_category": {
+    "category": "Pothole",
+    "count": 41
    }
   },
   {
@@ -1046,6 +1074,10 @@
     "median": 6.08,
     "n": 178,
     "p90": 197.83
+   },
+   "top_category": {
+    "category": "Pothole",
+    "count": 48
    }
   },
   {
@@ -1065,6 +1097,10 @@
     "median": 10.85,
     "n": 140,
     "p90": 196.94
+   },
+   "top_category": {
+    "category": "Pothole",
+    "count": 27
    }
   },
   {
@@ -1084,6 +1120,10 @@
     "median": 2.71,
     "n": 1503,
     "p90": 55.55
+   },
+   "top_category": {
+    "category": "Trash or Recycling",
+    "count": 1332
    }
   },
   {
@@ -1103,6 +1143,10 @@
     "median": 2.85,
     "n": 246,
     "p90": 112.39
+   },
+   "top_category": {
+    "category": "Trash or Recycling",
+    "count": 121
    }
   },
   {
@@ -1122,6 +1166,10 @@
     "median": 4.6,
     "n": 970,
     "p90": 10.05
+   },
+   "top_category": {
+    "category": "Trash or Recycling",
+    "count": 820
    }
   },
   {
@@ -1141,6 +1189,10 @@
     "median": 9.63,
     "n": 135,
     "p90": 61.51
+   },
+   "top_category": {
+    "category": "Trash or Recycling",
+    "count": 38
    }
   },
   {
@@ -1160,6 +1212,10 @@
     "median": 9.99,
     "n": 109,
     "p90": 61.85
+   },
+   "top_category": {
+    "category": "Trash or Recycling",
+    "count": 40
    }
   },
   {
@@ -1179,6 +1235,10 @@
     "median": 13.68,
     "n": 107,
     "p90": 48.99
+   },
+   "top_category": {
+    "category": "Trash or Recycling",
+    "count": 39
    }
   },
   {
@@ -1198,6 +1258,10 @@
     "median": 2.06,
     "n": 267,
     "p90": 10.88
+   },
+   "top_category": {
+    "category": "Snow/Ice Removal",
+    "count": 82
    }
   },
   {
@@ -1217,6 +1281,10 @@
     "median": 3.04,
     "n": 267,
     "p90": 173.61
+   },
+   "top_category": {
+    "category": "Snow/Ice Removal",
+    "count": 131
    }
   },
   {
@@ -1236,6 +1304,10 @@
     "median": 3.55,
     "n": 192,
     "p90": 159.42
+   },
+   "top_category": {
+    "category": "Pothole",
+    "count": 69
    }
   },
   {
@@ -1255,6 +1327,10 @@
     "median": 7.9,
     "n": 190,
     "p90": 120.28
+   },
+   "top_category": {
+    "category": "Pothole",
+    "count": 70
    }
   },
   {
@@ -1274,6 +1350,10 @@
     "median": 5.83,
     "n": 170,
     "p90": 83.48
+   },
+   "top_category": {
+    "category": "Trash or Recycling",
+    "count": 48
    }
   },
   {
@@ -1293,6 +1373,10 @@
     "median": 6.08,
     "n": 195,
     "p90": 71.36
+   },
+   "top_category": {
+    "category": "Trash or Recycling",
+    "count": 42
    }
   },
   {
@@ -1312,6 +1396,10 @@
     "median": 2.13,
     "n": 191,
     "p90": 22.92
+   },
+   "top_category": {
+    "category": "Pothole",
+    "count": 24
    }
   },
   {
@@ -1331,6 +1419,10 @@
     "median": 2.01,
     "n": 112,
     "p90": 12.96
+   },
+   "top_category": {
+    "category": "Trash or Recycling",
+    "count": 28
    }
   },
   {
@@ -1350,6 +1442,10 @@
     "median": 1.92,
     "n": 65,
     "p90": 4.6
+   },
+   "top_category": {
+    "category": "Trash or Recycling",
+    "count": 36
    }
   }
  ],
