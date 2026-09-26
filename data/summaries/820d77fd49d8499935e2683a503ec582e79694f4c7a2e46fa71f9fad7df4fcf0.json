@@ -1,0 +1,17 @@
+{
+  "transcript": "# Program Subcommittee Meeting\n\n**WEDNESDAY, September 30, 2026**\n**5-30pm**\n**Gloucester High School Library, 32 Leslie O. Johnson Road, Gloucester, MA 01930**\n**Meetings are Recorded**\n\nThe public is welcome to attend meetings in person or, alternatively, through the Zoom link provided on the agenda. The meeting notice will reflect if the meeting is via Zoom only. As Open Meeting Law allows, the School Committee may continue to hold meetings remotely. Please note the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\nIf you are calling in on a phone, you can press Star 9 (*9) to request to speak. If you are watching on a computer or device, there is a \"raise hand\" button that you can tap or press to request to speak. Please use either of these options during oral communications to be recognized to speak.\n\nPlease click the link below to join the webinar:\nhttps://gloucester-ma-gov.zoom.us/j/83701084611\nOr Telephone: (309) 205-3325 or (312) 626-6799\nWebinar ID: 837 0108 4611\n\nPlease visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join a remote meeting.\n\n## Agenda\n\nI. Call to Order\n\nII. Reports/Deliberations/Discussion/Action\n   A. School Committee Operating Protocols\n\nIII. Adjournment\n\nThe listing of matters is those reasonably anticipated by the Chair, which may be discussed at the meeting. Not all items may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.",
+  "summary": "This is a Program Subcommittee meeting for Gloucester Public Schools on September 30, 2026. The main business item is discussion of School Committee Operating Protocols.",
+  "items": [
+    "School Committee Operating Protocols"
+  ],
+  "attend": "The public can attend in person at Gloucester High School Library, 32 Leslie O. Johnson Road, Gloucester, MA 01930, or remotely via Zoom at https://gloucester-ma-gov.zoom.us/j/83701084611. To request to speak by phone, press *9; to request to speak on video, use the \"raise hand\" button. Phone: (309) 205-3325 or (312) 626-6799. Webinar ID: 837 0108 4611.",
+  "kind": "agenda",
+  "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20140",
+  "source_sha256": "820d77fd49d8499935e2683a503ec582e79694f4c7a2e46fa71f9fad7df4fcf0",
+  "model": "claude-haiku-4-5",
+  "generated_at": "2026-09-26T16:34:35-04:00",
+  "usage": {
+    "input_tokens": 2144,
+    "output_tokens": 607
+  }
+}

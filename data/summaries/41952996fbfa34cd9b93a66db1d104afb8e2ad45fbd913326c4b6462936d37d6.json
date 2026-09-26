@@ -1,0 +1,38 @@
+{
+  "transcript": "# GLOUCESTER CONTRIBUTORY RETIREMENT SYSTEM BOARD\n\nP.O. Box 114\nGloucester, MA 01930\nTel: (978) 281-9744 Fax: (978) 281-9817\nwww.gcrsys.com\n\nMeaghan McLaughlin, Executive Director\nLaura Trainor, Administrative Assistant\n\nBoard Members:\nLinda Boucher, Chair\nKenny Costa\nKelly Dolan\nJames Hannon, Jr.\nEdward Hardy\n\n# THE GLOUCESTER RETIREMENT BOARD WILL BE HOLDING THEIR REGULAR MONTHLY MEETING\n\n**DATE:** WEDNESDAY, September 30, 2026\n**LOCATION:** 127 EASTERN AVE. OR VIA REMOTE PARTICIPATION\nDial: +1 (571) 317-3122\nAccess Code: 665-381-853\n**TIME:** 3:00 P.M.\n\n## AGENDA TOPICS:\n\n- MINUTES (VOTE): Regular Minutes of June 24, 2026\n- WARRANT (VOTE): September 2026\n- PRIM: Wire for September 2026 (Vote), August 2026 PRIM Statement and Performance Summary\n- TREASURER'S RECONCILIATION\n- TRIAL BALANCE AND CASH BOOKS: August 2026\n- DIRECTOR'S REPORT: Retirement Office Supplies, Board Procedures, Staff Stipends and Salary\n- NEW BUSINESS:\n  - Light Duty and Creditable Service (Vote)\n  - Involuntary Disability Application Received\n  - Roselli Clark Correspondence\n  - Emerging Issues Report\n- OLD BUSINESS:\n  - City Pre-Employment Physicals (Non-Group 4)\n  - PRIT Fund Authorization (Vote)\n  - Proposed Chair and Vice Chair Roles (Vote)\n- NEW MEMBERS (VOTE): Christine Ciluffo, Isabella DeOliveira Valarese, Richelle Destasio, Verity Elder, Amy George, Beenu Karnane, Aguila Lever, Molly Mae McGillivray, Meaghan McLaughlin, Maria Moceri, William Nixon, Emily Provost, Stephen Raymond, Amy Sheetz, Jayden Silva-Delima, Emily Taormina, Lucia Viviano\n- REQUEST FOR REFUND/ROLLOVER (VOTE): Christina Parisi\n- REQUEST FOR SUPERANNUATION (VOTE): Julie Amaral, Dominic Barbagallo, Debbi Biondo, John George, Ann Moynahan, Ronald Nilsson, Marianne Peters, Kathryn Scola\n- REQUEST FOR TRANSFER (VOTE): Maryann Aiello, Conor MacCorkle, Michael Stuart\n- PERAC:\n  - 91A Correspondence\n  - 2025 Annual Report\n  - Memos:\n    - 23/2026: COLA Reserve Fund and Enhanced COLA\n    - 24/2026: Tobacco Company List\n- DEATHS: Heather A. Goolsby, James E. Griffin\n- EXECUTIVE SESSION: The Board will convene in Executive Session to discuss office security and Disability Retirements. The Board will reconvene in Open Session for the purpose of adjournment.\n\nThe Board reserves the right to consider items on the agenda out of order. The agenda lists those items reasonably anticipated by the Chair to be discussed which have been received at least forty-eight (48) hours prior to the meeting. Not all items listed may in fact be discussed, and other items not listed may also be brought up for discussion to the extent permitted by law. Items identified for discussion in Executive Session may be conducted in open session, in addition to, or in lieu of discussion in Executive Session.\n\nGLOUCESTER CITY HALL, GLOUCESTER RETIREMENT OFFICE, RETIREMENT WEBSITE\nPosted in accordance with the provisions of MGL c30A §20(b). Submitted by: Laura Trainor, Administrative Assistant.",
+  "summary": "The Gloucester Retirement Board will hold their monthly meeting on September 30, 2026 at 3:00 P.M. The meeting will cover routine business including approval of minutes and warrants, treasurer's reconciliation, approval of new members, and various retirement requests including refunds, transfers, and superannuation applications. The board will also meet in executive session to discuss office security and disability retirements.",
+  "items": [
+    "Vote on Regular Minutes of June 24, 2026",
+    "Vote on September 2026 Warrant",
+    "Wire for September 2026 and August 2026 PRIM Statement and Performance Summary",
+    "Treasurer's Reconciliation",
+    "Trial Balance and Cash Books for August 2026",
+    "Director's Report on Retirement Office Supplies, Board Procedures, Staff Stipends and Salary",
+    "Light Duty and Creditable Service",
+    "Involuntary Disability Application Received",
+    "Roselli Clark Correspondence",
+    "Emerging Issues Report",
+    "City Pre-Employment Physicals (Non-Group 4)",
+    "Vote on PRIT Fund Authorization",
+    "Vote on Proposed Chair and Vice Chair Roles",
+    "Vote on New Members",
+    "Vote on Request for Refund/Rollover by Christina Parisi",
+    "Vote on Requests for Superannuation",
+    "Vote on Requests for Transfer",
+    "PERAC 91A Correspondence",
+    "PERAC 2025 Annual Report",
+    "PERAC Memos on COLA Reserve Fund and Tobacco Company List",
+    "Deaths of Heather A. Goolsby and James E. Griffin",
+    "Executive Session to discuss office security and Disability Retirements"
+  ],
+  "attend": "The meeting will be held at 127 EASTERN AVE. or via remote participation. To join remotely, dial +1 (571) 317-3122 and enter access code 665-381-853.",
+  "kind": "agenda",
+  "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20141",
+  "source_sha256": "41952996fbfa34cd9b93a66db1d104afb8e2ad45fbd913326c4b6462936d37d6",
+  "model": "claude-haiku-4-5",
+  "generated_at": "2026-09-26T16:34:35-04:00",
+  "usage": {
+    "input_tokens": 2142,
+    "output_tokens": 1389
+  }
+}

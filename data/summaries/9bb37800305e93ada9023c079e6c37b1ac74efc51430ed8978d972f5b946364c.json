@@ -1,0 +1,18 @@
+{
+  "transcript": "# Board of Assessors\n\n**Thursday, October 1, 2026 9:00 AM**\n\nCity Hall | Office of the Assessors\n9 Dale Ave\nGloucester, MA 01930\n\nPosted: 2026 SEP 24 PM 3:37\n\n## Agenda\n\n1. Call to order open session\n2. Approval of open session minutes\n3. Executive session pursuant to M.G.L. Ch. 30A, §21(a), subsection 7 to comply with M.G.L. Ch. 59 §60 to approve executive session minutes and discuss abatements and exemptions.\n\n**NOTE:** Board to vote to go into Executive Session. Board will adjourn in Executive Session & not return to open session.\n\n## Board of Assessors\n\n**Chair:** Nancy A. Papows\n**Vice Chair:** Timothy W. Good, IV\n**Secretary:** Ashley A. Curley",
+  "summary": "The Board of Assessors will meet to approve open session minutes and enter executive session to approve previous executive session minutes and discuss abatements and exemptions. The board will adjourn during executive session and not return to open session.",
+  "items": [
+    "Approval of open session minutes",
+    "Executive session to approve executive session minutes and discuss abatements and exemptions"
+  ],
+  "attend": "The meeting will be held at City Hall, Office of the Assessors, 9 Dale Ave, Gloucester, MA 01930 on Thursday, October 1, 2026 at 9:00 AM. The document does not specify how the public can attend or comment.",
+  "kind": "agenda",
+  "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20137",
+  "source_sha256": "9bb37800305e93ada9023c079e6c37b1ac74efc51430ed8978d972f5b946364c",
+  "model": "claude-haiku-4-5",
+  "generated_at": "2026-09-26T16:34:35-04:00",
+  "usage": {
+    "input_tokens": 2143,
+    "output_tokens": 395
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "transcript": "# Gloucester City Council Ordinances & Administration Committee\n\n**Meeting Details**\n- Date: Monday, October 5, 2026\n- Time: 6:00 p.m.\n- Location: City Hall, 9 Dale Avenue, Gloucester, MA 01930, 1st Floor Council Conference Room\n- Posted: September 23, 2026\n- This meeting is recorded\n\n**How to Join**\n- In person at the location listed above\n- Zoom link: https://gloucester-ma-gov.zoom.us/j/89822548343\n- Phone: 1 305 224 1968 or 1 309 205 3325\n- Meeting ID: 898 2254 8343\n\nPlease note that the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\n## AGENDA\n\nIndividual items from committee reports may be consolidated into a consent agenda.\n\n1. **CC#2026-018 (Gross): Amend Ch. 2 \"Administration,\" Art. 2 \"City Council,\" Sec. 28 \"Fees\"** by DELETING \"and published in a local newspaper whenever fee changes or new fees are approved by the City Council.\"\n\n## COMMITTEE\n\n**Chair:** Councillor Sean Nolan\n**Vice Chair:** Frank Margiotta\n**Councillor:** Marjorie Grace\n\n**Also attending:** Mayor Paul Lundberg, Kelly Dolan, Grace E. Poirier, Suzanne P. Egan\n\nThe listing of matters is those reasonably anticipated by the Chair which may be discussed at the meeting. Not all items listed may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.",
+  "summary": "The Ordinances & Administration Committee will meet to discuss amending the city's ordinance regarding fees and fee publication requirements for the City Council.",
+  "items": [
+    "Amend ordinance regarding City Council fee publishing requirements"
+  ],
+  "attend": "The public is welcome to attend in person at City Hall, 9 Dale Avenue, Gloucester, MA 01930, 1st Floor Council Conference Room, or join remotely via Zoom at https://gloucester-ma-gov.zoom.us/j/89822548343 or by phone at 1 305 224 1968 or 1 309 205 3325 (Meeting ID: 898 2254 8343).",
+  "kind": "agenda",
+  "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20131",
+  "source_sha256": "bb31d3d80cf2e2be6eb723345f0b5817ec6cd01b79001821a315215aa5227e1f",
+  "model": "claude-haiku-4-5",
+  "generated_at": "2026-09-26T16:34:35-04:00",
+  "usage": {
+    "input_tokens": 2143,
+    "output_tokens": 596
+  }
+}

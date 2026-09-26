@@ -1,0 +1,19 @@
+{
+  "transcript": "# GLOUCESTER CITY COUNCIL\n## Planning & Development Committee Meeting\nWednesday, October 7, 2026 – 6:00 PM\nCity Hall – 1st Floor Conference Room\n9 Dale Avenue, Gloucester MA 01930\n\n**AGENDA**\n\n(Items may be taken out of order at the discretion of the Committee)\n\nThe public is welcome to attend in person. Zoom link to access the meeting remotely is also available:\nJoin from Computer, Smart Device: https://gloucester-ma-gov.zoom.us/j/83291597800\nJoin via Phone: 1 309 205 3325 or 1 312 626 6799\nMeeting ID: 832 9159 7800\n\nPlease note that the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\n1. PP#2026-005: Petition by National Grid to install underground facilities on Wheeler Street beginning at a point 194 feet South of the centerline of the intersection of Wheeler Street and Shore Hill Road and continuing approximately 2 feet in an East direction. National Grid is petitioning to install +/- 2 feet of underground conduit from pole 511 to property line of 115 Wheeler Street, Gloucester, MA.\n\n2. SCP2026-007: The application of Seaside Legal Solutions, P.C. (Owner, Billiken Investments LLC), Day Court #4, Map #219, Lot #155: GZO Sec. 2.3.1(7) \"Conversion to or new multi-family or apartment dwelling, four to six dwelling units,\" and Sec. 3.2.2 fn (e) \"the principal building shall be closer to another principal building on the same site than the sum of their respective heights; provided, however, that the City Council may by special permit authorize a reduction in said distance upon a finding that such reduction is not detrimental because of view obstruction, overshadowing, service access or visual crowding\" in the R2D district. (cont. from July 22, 2026) (cont. to October 7, 2026)\n\n## MATTERS TO BE CONTINUED\n\n1. CC#2026-012 (Memhard): Amend GZO Sec. 3.2.1 \"Dimensional Requirements for Single, Two-Family and Three-Family Dwellings\" by increasing the minimum lot area per dwelling unit (sf) requirement for the RC-40 (Coastal Residential) zoning district by DELETING \"20,000 sf\" and ADDING \"40,000 sf.\" (cont. from July 8, 2026) (cont. to October 21, 2026)\n\n## P&D COMMITTEE\n\nChair, Councilor Jason Grow\nVice Chair, Councilor Dylan Benson\nCouncilor Hannah Kimberley\n\nCC: Mayor Paul Lundberg; Kelly Dolan; Grace E. Poirier; Suzanne Egan; Gregg Cademartori\n\nThe listing of matters is those reasonably anticipated by the Chair which may be discussed at the meeting. Not all items listed may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.",
+  "summary": "The Planning & Development Committee will meet to discuss a petition by National Grid to install underground facilities on Wheeler Street, an application for multi-family or apartment dwelling conversion in the R2D district, and continued discussion of amendments to dimensional requirements for dwellings in the RC-40 zoning district.",
+  "items": [
+    "Petition by National Grid to install underground facilities on Wheeler Street",
+    "Application for conversion to or new multi-family or apartment dwelling at Day Court #4",
+    "Amend dimensional requirements for dwellings in RC-40 zoning district"
+  ],
+  "attend": "The public is welcome to attend in person at City Hall, 1st Floor Conference Room, 9 Dale Avenue, Gloucester MA 01930. The meeting can also be accessed remotely via Zoom at https://gloucester-ma-gov.zoom.us/j/83291597800 or by phone at 1 309 205 3325 or 1 312 626 6799 (Meeting ID: 832 9159 7800).",
+  "kind": "agenda",
+  "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20133",
+  "source_sha256": "7816b2a0b6d1233b12318eb774601219718e4e7e7f74da1801368e63acbe0849",
+  "model": "claude-haiku-4-5",
+  "generated_at": "2026-09-26T16:34:35-04:00",
+  "usage": {
+    "input_tokens": 2141,
+    "output_tokens": 1013
+  }
+}
