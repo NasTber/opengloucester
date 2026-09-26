@@ -1,6 +1,6 @@
 {
-  "transcript": "# Committee for the Arts\n\n**Notice of Public Meeting**\nCity of Gloucester\n\n**Date and Time:** September 29, 2026 — 11am-12:30pm\n\n**Location:** Harbor Master's Conference Room, 19 Harbor Loop, Gloucester, MA 01930\n\n**Zoom Link:** https://gloucester-ma-gov.zoom.us/j/81138441017\n\n**Phone One-Tap:**\n- +13052241968, 81138441017# US\n- +13092053325, 81138441017# US\n\n**Note:** Listed items may be heard out of order.\n\n## Agenda\n\n- Call to Order\n- Approval of the July 28 Minutes\n\n### New Business\n\n1. Arts, Culture, and Events Coordinator update\n2. Poet Laureate\n3. CPA-funded projects: status\n4. CFTA Policies and Practices: status\n5. O'Maley fish sculptures (follow up discussion)\n6. Jason Grow Vietnam Portraits (follow up discussion)\n\n## Adjournment\n\nThe listing of matters is those reasonably anticipated by the Chair, which may be discussed at the meeting. Not all items may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.",
-  "summary": "The Committee for the Arts will meet to discuss updates on the Arts, Culture, and Events Coordinator position, the Poet Laureate, CPA-funded projects, committee policies and practices, and follow-up discussions on the O'Maley fish sculptures and Jason Grow Vietnam Portraits.",
+  "transcript": "# Notice of Public Meeting\n# City of Gloucester\n\nPosted: 2026 SEP 24 PM 2:02\n\n## Committee for the Arts\nSeptember 29, 2026 – 11am-12:30pm\n\nHarbor Master's Conference Room\n19 Harbor Loop\nGloucester, MA 01930\n\n## AGENDA\n\nCommittee for the Arts Zoom link:\n\nTopic: Committee For the Arts Meeting\n\nJoin from PC, Mac, iPad, or Android:\nhttps://gloucester-ma-gov.zoom.us/j/81138441017\n\nPhone one-tap:\n+13052241968,,81138441017# US\n+13092053325,,81138441017# US\n\nListed items may be heard out of order.\n\n- Call to Order\n- Approval of the July 28 Minutes\n\n### New Business:\n\n1. Arts, Culture, and Events Coordinator update\n2. Poet Laureate\n3. CPA-funded projects: status\n4. CFTA Policies and Practices: status\n5. O'Maley fish sculptures (follow up discussion)\n6. Jason Grow Vietnam Portraits (follow up discussion)\n\n### Adjournment:\n\nThe listing of matters is those reasonably anticipated by the Chair, which may be discussed at the meeting. Not all items may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.\n\n1 | Page",
+  "summary": "The Committee for the Arts will meet on September 29, 2026 to receive an update from the Arts, Culture, and Events Coordinator, discuss the Poet Laureate, review the status of CPA-funded projects and CFTA Policies and Practices, and follow up on the O'Maley fish sculptures and the Jason Grow Vietnam Portraits.",
   "items": [
     "Arts, Culture, and Events Coordinator update",
     "Poet Laureate",
@@ -9,14 +9,14 @@
     "O'Maley fish sculptures (follow up discussion)",
     "Jason Grow Vietnam Portraits (follow up discussion)"
   ],
-  "attend": "The meeting will be held in person at the Harbor Master's Conference Room, 19 Harbor Loop, Gloucester, MA 01930, or you can join online using the Zoom link https://gloucester-ma-gov.zoom.us/j/81138441017 or by phone at +13052241968 or +13092053325 (meeting ID 81138441017).",
   "kind": "agenda",
   "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20135",
   "source_sha256": "db88535506ce03b9e71c14d2a52a9a93761b5bbec4ca657a9a274d2894413a5e",
-  "model": "claude-haiku-4-5",
-  "generated_at": "2026-09-26T16:34:35-04:00",
+  "model": "claude-sonnet-5",
+  "prompt_version": 2,
+  "generated_at": "2026-09-26T17:45:38-04:00",
   "usage": {
-    "input_tokens": 2141,
-    "output_tokens": 561
+    "input_tokens": 2374,
+    "output_tokens": 906
   }
 }

@@ -1,17 +1,18 @@
 {
-  "transcript": "# Notice of Public Meeting\n## City of Gloucester\n## Licensing Board Meeting\n## September 28, 2026 6:00 PM\n\n### Remote Participation Meeting\nGloucester, MA 01930\n\n### Agenda\n\nThe public is invited to attend this meeting remotely.\n\nA Zoom link to access the meeting remotely is also available:\n\n**Licensing Board Meeting:** September 28, 2026 6:00 PM\n\n**Join from computer, smart device:** https://gloucester-ma-gov.zoom.us/j/8752739l179\n\n**Join via phone:** +1 (312) 626-6799, Alternate +1 (929) 205-6099, or 1 (346) 248-7799\n\n**Meeting ID:** 875 2739 1179\n\nPlease visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join the meeting remotely. This is a hybrid meeting. Please note that the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\nListed items may be heard out of order.\n\n### Extension of Premise:\n\nLarry Rodolosi of Magnolia Oceanside, dba Magnolia 525 Tavern is requesting to extend his alcohol service area to serve food and alcohol on October 11, 2026 during Magtoberfest.\n\n### Discussion by the Board:\n\n### Adjournment:\n\nThe above agenda items are those reasonably anticipated by the Chair to be discussed at the meeting. Not all items listed may in fact be discussed, items not listed may also be brought up for discussion, to the extent permitted by law.",
-  "summary": "The Licensing Board will meet on September 28, 2026 at 6:00 PM to discuss an extension of premise request from Larry Rodolosi of Magnolia Oceanside, dba Magnolia 525 Tavern, to extend his alcohol service area to serve food and alcohol on October 11, 2026 during Magtoberfest.",
+  "transcript": "CITY CLERK GLOUCESTER, MA - 2026 SEP 24 PM 3:42\n\n# Notice of Public Meeting\n## City of Gloucester\n## Licensing Board Meeting\n## September 28, 2026 6:00 PM\n\n### Remote Participation Meeting\n### Gloucester, MA 01930\n\n## Agenda\n\nThe public is invited to attend this meeting remotely.\n\nA Zoom link to access the meeting remotely is also available:\n\n**Licensing Board Meeting:** September 28, 2026 6:00 PM\n**Join from computer, smart device:** https://gloucester-ma-gov.zoom.us/j/87527391179\n**Join via phone:** +1 (312) 626-6799, Alternate +1 (929) 205-6099, or 1 (346) 248-7799\n\n**Meeting ID:** 875 2739 1179\n\nPlease visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join the meeting remotely. This is a hybrid meeting. Please note that the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\nListed items may be heard out of order.\n\n### Extension of Premise:\n\nLarry Rodolosi of Magnolia Oceanside, dba Magnolia 525 Tavern is requesting to extend his alcohol service area to serve food and alcohol on October 11, 2026 during Magtoberfest.\n\n### Discussion by the Board:\n\n### Adjournment:\n\nThe above agenda items are those reasonably anticipated by the Chair to be discussed at the meeting. Not all items listed may in fact be discussed, items not listed may also be brought up for discussion, to the extent permitted by law.",
+  "summary": "The Gloucester Licensing Board will meet on September 28, 2026 to consider a request from Larry Rodolosi of Magnolia Oceanside, dba Magnolia 525 Tavern, to extend his alcohol service area to serve food and alcohol on October 11, 2026 during Magtoberfest. The board will also hold a general discussion.",
   "items": [
-    "Extension of Premise: Larry Rodolosi of Magnolia Oceanside, dba Magnolia 525 Tavern requesting to extend alcohol service area to serve food and alcohol on October 11, 2026 during Magtoberfest"
+    "Consider request from Larry Rodolosi of Magnolia Oceanside, dba Magnolia 525 Tavern, to extend alcohol service area to serve food and alcohol on October 11, 2026 during Magtoberfest",
+    "General discussion by the Board"
   ],
-  "attend": "The public is invited to attend remotely via Zoom at https://gloucester-ma-gov.zoom.us/j/8752739l179 or by phone at +1 (312) 626-6799, +1 (929) 205-6099, or 1 (346) 248-7799 (Meeting ID: 875 2739 1179). Visit http://gloucester-ma.gov/remote-public-meetings for instructions.",
   "kind": "agenda",
   "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20136",
   "source_sha256": "3f421dea073a24b449beda2f3dca7ea24cb42bfc2823e4a5db926fddff0c7504",
-  "model": "claude-haiku-4-5",
-  "generated_at": "2026-09-26T16:34:35-04:00",
+  "model": "claude-sonnet-5",
+  "prompt_version": 2,
+  "generated_at": "2026-09-26T17:45:38-04:00",
   "usage": {
-    "input_tokens": 2142,
-    "output_tokens": 683
+    "input_tokens": 2378,
+    "output_tokens": 931
   }
 }

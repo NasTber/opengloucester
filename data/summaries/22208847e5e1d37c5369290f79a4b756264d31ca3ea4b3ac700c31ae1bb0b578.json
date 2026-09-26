@@ -1,20 +1,22 @@
 {
-  "transcript": "# Notice of Public Meeting\n## City of Gloucester Historic District Commission\n\nSeptember 29, 2026 6:00 PM\nRose Baker Center for Aging Well 2nd floor Conference Room\n6 Manuel F. Lewis Street\nGloucester, MA 01930\n\nThe public is welcome to attend in person. Zoom link to access the meeting remotely is also available:\n\nJoin from Computer, Smart Device: https://gloucester-ma-gov.zoom.us/j/89204672359\nJoin via Phone: +1 (312) 626-6799, Alternate: +1 (929) 205-6099\nMeeting ID: 89204672359\n\nPlease visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join a remote meeting. Please note that the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\nListed items may be heard out of order.\n\n- Call to Order\n- Introduction/Attendance of the members\n- Approval of the 7/28/2026 and 8/25/2026 minutes\n\n## New Business\n\n- 46 Pleasant Street – Replacement of deck\n- 38 Pleasant Street – Replacement of front door\n- 17 Pleasant Street – Sign permit\n- 33 Middle Street – Replacement and installation of gutters and downspouts\n\n## Board Discussion\n\n## Adjournment\n\nThe listing of matters is those reasonably anticipated by the Chair, which may be discussed at the meeting. Not all items may, in fact, be discussed, and other items not listed may also be brought up for discussion to the extent permitted by law.",
-  "summary": "The Historic District Commission will meet on September 29, 2026 to review applications for work at several addresses including replacement of a deck at 46 Pleasant Street, replacement of a front door at 38 Pleasant Street, a sign permit at 17 Pleasant Street, and gutters and downspouts at 33 Middle Street.",
+  "transcript": "# Notice of Public Meeting\n## City of Gloucester\n### REVISED\n**Historic District Commission**\nSeptember 29, 2026 6:00 PM\nRose Baker Center for Aging Well 2nd floor Conference Room\n6 Manuel F. Lewis Street\nGloucester, MA 01930\n\nCity Clerk posting date: 2026 SEP 22\n\nThe public is welcome to attend in person.\nZoom link to access the meeting remotely is also available:\n\nJoin from Computer, Smart Device: https://gloucester-ma-gov.zoom.us/j/89204672359\nJoin via Phone: +1 (312) 626-6799, Alternate: +1 (929) 205-6099\nMeeting ID: 89204672359\n\nPlease visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join a remote meeting. Please note that the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\nListed items may be heard out of order.\n\n- Call to Order\n- Introduction/Attendance of the members\n- Approval of the 7/28/2026 and 8/25/2026 minutes\n\n## New Business\n\n**38 Pleasant Street** (Map 14, Lot 17) – Michael Craviero requesting a COA for replacement of front door\n\n**33 Middle Street** (Map 7, Lot 85) – Beth Lazazzera and Michael Ibba requesting a COA for the installation of gutters and downspouts\n\n**52 Main Street** (Map 7, Lot 77) – Paula Realty II LLC seeking a Certificate of Appropriateness (COA) for HVAC replacement on roof\n\n**17 Pleasant Street** (Map 8, Lot 73) – William Davis requesting COA for a Sign permit\n\n## Board Discussion\n\n**48 and 48R Middle St.** St John's Episcopal Church pre-application for siding and window replacement of parish hall and repainting exterior of sanctuary.\n\nHDC proposed Rules and Regulations review\n\n## Adjournment\n\nThe listing of matters is those reasonably anticipated by the Chair, which may be discussed at the meeting. Not all items may, in fact, be discussed, and other items not listed may also be brought up for discussion to the extent permitted by law.",
+  "summary": "The Gloucester Historic District Commission will meet on September 29, 2026 to review Certificate of Appropriateness requests for properties at 38 Pleasant Street, 33 Middle Street, 52 Main Street, and 17 Pleasant Street. The board will also discuss a pre-application from St John's Episcopal Church for 48 and 48R Middle St. and review proposed Rules and Regulations.",
   "items": [
-    "Replacement of deck at 46 Pleasant Street",
-    "Replacement of front door at 38 Pleasant Street",
-    "Sign permit at 17 Pleasant Street",
-    "Replacement and installation of gutters and downspouts at 33 Middle Street"
+    "38 Pleasant Street (Map 14, Lot 17) – Michael Craviero requesting a COA for replacement of front door",
+    "33 Middle Street (Map 7, Lot 85) – Beth Lazazzera and Michael Ibba requesting a COA for the installation of gutters and downspouts",
+    "52 Main Street (Map 7, Lot 77) – Paula Realty II LLC seeking a Certificate of Appropriateness (COA) for HVAC replacement on roof",
+    "17 Pleasant Street (Map 8, Lot 73) – William Davis requesting COA for a Sign permit",
+    "48 and 48R Middle St. – St John's Episcopal Church pre-application for siding and window replacement of parish hall and repainting exterior of sanctuary",
+    "HDC proposed Rules and Regulations review"
   ],
-  "attend": "The public is welcome to attend in person at Rose Baker Center for Aging Well 2nd floor Conference Room, 6 Manuel F. Lewis Street, Gloucester, MA 01930. Remote attendance is available via Zoom at https://gloucester-ma-gov.zoom.us/j/89204672359 or by phone at +1 (312) 626-6799 or +1 (929) 205-6099 (Meeting ID: 89204672359).",
   "kind": "agenda",
   "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20111",
   "source_sha256": "22208847e5e1d37c5369290f79a4b756264d31ca3ea4b3ac700c31ae1bb0b578",
-  "model": "claude-haiku-4-5",
-  "generated_at": "2026-09-26T16:34:35-04:00",
+  "model": "claude-sonnet-5",
+  "prompt_version": 2,
+  "generated_at": "2026-09-26T17:45:38-04:00",
   "usage": {
-    "input_tokens": 5244,
-    "output_tokens": 666
+    "input_tokens": 5479,
+    "output_tokens": 1428
   }
 }
