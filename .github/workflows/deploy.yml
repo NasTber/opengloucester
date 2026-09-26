@@ -8,6 +8,12 @@ on:
   schedule:
     - cron: "23 10 * * *"
   workflow_dispatch:
+    inputs:
+      sources:
+        description: Which data to update
+        type: choice
+        options: [all, meetings, "311"]
+        default: all
 
 permissions:
   contents: read
@@ -36,11 +42,13 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Fetch meetings
+        if: inputs.sources != '311'
         continue-on-error: true
         run: python -m pipeline.fetch_meetings --town gloucester
 
       # Readable text and previews of new agendas (skipped if no API key).
       - name: Summarize agendas
+        if: inputs.sources != '311'
         continue-on-error: true
         run: python -m pipeline.summarize --town gloucester
         env:
@@ -48,16 +56,20 @@ jobs:
 
       # Commit meetings first so they are not held up by the longer 311 step.
       - name: Commit meetings
+        if: inputs.sources != '311'
         run: .github/scripts/commit-data.sh "Update meetings" data/meetings data/summaries
 
       - name: Fetch 311 requests
+        if: inputs.sources != 'meetings'
         continue-on-error: true
         run: python -m pipeline.fetch_311 --town gloucester
 
       - name: Compute 311 scorecard
+        if: inputs.sources != 'meetings'
         run: python -m pipeline.compute_311 --town gloucester
 
       - name: Commit 311
+        if: inputs.sources != 'meetings'
         run: .github/scripts/commit-data.sh "Update 311 data" data/311
 
   build:
