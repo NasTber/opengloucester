@@ -184,3 +184,17 @@ def test_311_ward_and_category_pages_and_csv(site_dir):
     assert categories
     header = (site_dir / "311" / "data" / "by-category.csv").read_text().splitlines()[0]
     assert header.startswith("category,requests,closed,still_open")
+
+
+def test_meeting_list_preview_is_about_the_business(site_dir):
+    home = (site_dir / "index.html").read_text()
+    assert "operations director and a draft plan for recruiting a student member" in home
+    assert "will meet on" not in home
+
+
+def test_preview_line_fallbacks():
+    from pipeline.build_site import preview_line
+    assert preview_line({"preview": {"items": ["Budget transfer", "Grant acceptance."]}}) == "Budget transfer; Grant acceptance."
+    assert preview_line({"minutes_summary": {"decisions": ["Approved X, 5-0."]}, "preview": {"headline": "H"}}) == "Approved X, 5-0."
+    assert preview_line({"minutes_summary": {"is_minutes": False, "decisions": []}, "preview": {"headline": "H"}}) == "H"
+    assert preview_line({}) is None

@@ -29,10 +29,7 @@
   </span>
   <div class="meeting-main">
     <a class="meeting-link" href="{{ m.url }}">{% if show_body %}{{ m.body }}{% else %}{{ m.title }}{% endif %}</a>
-    {% if preview %}
-    {% if m.minutes_summary %}<p class="meeting-preview">{{ m.minutes_summary.summary }}</p>
-    {% elif m.preview %}<p class="meeting-preview">{{ m.preview.summary }}</p>{% endif %}
-    {% endif %}
+    {% if preview and m.preview_line %}<p class="meeting-preview">{{ m.preview_line }}</p>{% endif %}
     {% set meta = [] %}
     {% if show_date %}{% set _ = meta.append(m.date | date("weekday") ~ ((", " ~ (m.start_time | time)) if m.start_time else "")) %}{% endif %}
     {% if m.minutes_doc %}{% set _ = meta.append("Minutes posted") %}{% elif m.agenda %}{% set _ = meta.append("Agenda posted") %}{% endif %}

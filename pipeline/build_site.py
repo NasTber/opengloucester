@@ -183,6 +183,7 @@ def load_meetings(data_dir: Path, today: date, summary_model: str | None = None)
             summarize.cached(data_dir, m["minutes_doc"]["sha256"], summary_model, "minutes")
             if m["minutes_doc"] and summary_model else None
         )
+        m["preview_line"] = preview_line(m)
 
     today_s = today.isoformat()
     upcoming = [m for m in meetings if m["date"] >= today_s]
@@ -224,6 +225,24 @@ def change_text(diff: float, unit: str, since: str, digits: int = 0) -> str:
     arrow = "↑" if diff > 0 else "↓"
     amount = f"{abs(diff):,.{digits}f}"
     return f"{arrow} {amount}{unit} from {since}"
+
+
+def preview_line(meeting: dict) -> str | None:
+    """One line for meeting lists: what the meeting is about, never the board,
+    date, or time (those are already shown). Prefers the AI headline; older
+    summaries without one fall back to their own items or decisions."""
+    minutes, agenda = meeting.get("minutes_summary"), meeting.get("preview")
+    if minutes and minutes.get("is_minutes", True):
+        if minutes.get("headline"):
+            return minutes["headline"]
+        if minutes.get("decisions"):
+            return "; ".join(d.rstrip(".") for d in minutes["decisions"][:3]) + "."
+    if agenda:
+        if agenda.get("headline"):
+            return agenda["headline"]
+        if agenda.get("items"):
+            return "; ".join(i.rstrip(".") for i in agenda["items"][:4]) + "."
+    return None
 
 
 def headline_numbers(data_dir: Path, scorecard: dict | None) -> list[dict]:

@@ -53,16 +53,18 @@ KINDS = {
 
 Return:
 - transcript: the full text of the agenda in reading order, as Markdown. Use headings for the document's own headings and lists for its lists. Leave out stamps, seals, and page decorations, but keep the clerk's posting date if shown.
+- headline: one sentence of at most 25 words saying what the meeting will take up, naming the main business. Do not mention the board's name, the date, the time, or the place; readers already see those.
 - summary: 1 to 3 sentences on what the meeting will cover. Name the main business items.
 - items: each agenda item, in order, as short plain-English phrases. Skip routine items such as call to order, roll call, approval of minutes, and adjournment.""",
         "schema": {
             "type": "object",
             "properties": {
                 "transcript": {"type": "string"},
+                "headline": {"type": "string"},
                 "summary": {"type": "string"},
                 "items": {"type": "array", "items": {"type": "string"}},
             },
-            "required": ["transcript", "summary", "items"],
+            "required": ["transcript", "headline", "summary", "items"],
             "additionalProperties": False,
         },
     },
@@ -78,6 +80,7 @@ Return:
 
 Return:
 - transcript: the full text of the minutes in reading order, as Markdown. Use headings for the document's own headings and lists for its lists. Leave out stamps, seals, and page decorations.
+- headline: one sentence of at most 25 words on what the meeting decided, or what it discussed if it decided nothing. Do not mention the board's name, the date, the time, or the place; readers already see those.
 - summary: 1 to 3 sentences on what the meeting covered and what was decided.
 - is_minutes: true if this document is minutes of a meeting that took place; false if it is something else, such as an agenda or notice filed under minutes.
 - decisions: each motion, vote, or other decision the minutes record, in order, as a short plain-English sentence that includes the outcome (for example "Approved ... 5-0" or "Continued ... to October 22, 2026"). Skip procedural motions such as adjourning or accepting the agenda.""",
@@ -85,11 +88,12 @@ Return:
             "type": "object",
             "properties": {
                 "transcript": {"type": "string"},
+                "headline": {"type": "string"},
                 "summary": {"type": "string"},
                 "is_minutes": {"type": "boolean"},
                 "decisions": {"type": "array", "items": {"type": "string"}},
             },
-            "required": ["transcript", "summary", "is_minutes", "decisions"],
+            "required": ["transcript", "headline", "summary", "is_minutes", "decisions"],
             "additionalProperties": False,
         },
     },
