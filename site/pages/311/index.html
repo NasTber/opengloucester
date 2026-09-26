@@ -111,6 +111,11 @@
 <h2 id="monthly">Month by month</h2>
 <p>Requests by the month they were submitted. Recent months include requests that have not had time to close, so their times will rise.</p>
 {% set max_month = sc.monthly | map(attribute="received") | max %}
+{# Notes for unusual months, shown only for months in the table. #}
+{% set months = sc.monthly | map(attribute="month") | list %}
+{% set annotations = config.seeclickfix.annotations | default([]) | selectattr("month", "in", months) | list %}
+{% set notes = {} %}
+{% for a in annotations %}{% set _ = notes.update({a.month: loop.index}) %}{% endfor %}
 <div class="table-scroll" role="region" aria-labelledby="monthly" tabindex="0">
 <table class="data-table">
   <thead><tr>
@@ -118,13 +123,22 @@
   </tr></thead>
   <tbody>
   {% for m in sc.monthly | reverse %}
-    <tr><th scope="row">{{ m.month | month }}{% if m.recent %} <span class="chip chip-quiet">Recent</span>{% endif %}</th><td class="num">{{ m.received | number }}</td>
+    <tr><th scope="row">{{ m.month | month }}{% if m.month in notes %} <a class="note-ref" href="#note-{{ notes[m.month] }}" id="note-ref-{{ notes[m.month] }}"><span class="visually-hidden">See note </span>{{ notes[m.month] }}</a>{% endif %}{% if m.recent %} <span class="chip chip-quiet">Recent</span>{% endif %}</th><td class="num">{{ m.received | number }}</td>
       <td class="bar-cell" aria-hidden="true"><span class="bar" style="width: {{ (m.received / max_month * 100) if max_month else 0 }}%"></span></td>
       <td class="num">{{ m.open | number }}</td><td class="num">{{ m.time_to_close.median | duration }}</td></tr>
   {% endfor %}
   </tbody>
 </table>
 </div>
+{% if notes %}
+<h3 id="month-notes">Notes</h3>
+<ol class="notes-list">
+  {% for a in annotations %}
+  {% set m = sc.monthly | selectattr("month", "equalto", a.month) | first %}
+  <li id="note-{{ loop.index }}"><strong>{{ a.month | month }}:</strong> {{ a.text }} {{ m.top_category.category }} requests made up {{ m.top_category.count | number }} of the {{ m.received | number }} requests that month. Source: <a href="{{ a.source_url }}">{{ a.source_title }}</a>. <a href="#note-ref-{{ loop.index }}"><span class="visually-hidden">Back to table</span><span aria-hidden="true">↩</span></a></li>
+  {% endfor %}
+</ol>
+{% endif %}
 
 <p class="source-note">Data from <a href="https://seeclickfix.com">seeclickfix.com</a>, used under the <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a> license. Only public requests are included. Requests are recorded back to {{ sc.data_since | date }}. Figures with fewer than {{ sc.min_sample }} requests show "Not enough data".</p>
 {% endif %}

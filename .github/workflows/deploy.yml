@@ -62,7 +62,11 @@ jobs:
             echo "No data changes."
           else
             git commit -m "Update data $(TZ=America/New_York date +%Y-%m-%d)"
-            git push
+            # Code may have been pushed while this job ran; replay the data commit on top.
+            for attempt in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              sleep $((attempt * 10))
+            done
           fi
 
   build:

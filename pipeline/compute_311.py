@@ -77,6 +77,14 @@ def summarize(records: list[dict]) -> dict:
     }
 
 
+def top_category(records: list[dict]) -> dict:
+    counts = defaultdict(int)
+    for r in records:
+        counts[r["category"]] += 1
+    name, count = max(counts.items(), key=lambda kv: (kv[1], kv[0]))
+    return {"category": name, "count": count}
+
+
 def backlog(open_records: list[dict], now: datetime, link_base: str) -> dict:
     buckets = [{"label": label, "max_days": limit, "count": 0} for limit, label in BACKLOG_BUCKETS]
     for r in open_records:
@@ -147,7 +155,7 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
             for w, rs in sorted(by_ward.items(), key=lambda x: (x[0] == "outside", x[0]))
         ],
         "monthly": [
-            {"month": m, **summarize(rs),
+            {"month": m, **summarize(rs), "top_category": top_category(rs),
              # Requests from the last two months have had little time to close.
              "recent": m >= (now - timedelta(days=60)).strftime("%Y-%m")}
             for m, rs in sorted(monthly.items())

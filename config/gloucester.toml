@@ -75,3 +75,10 @@ precincts_file = "gloucester-precincts-2022.geojson"
 model = "claude-haiku-4-5"
 max_tokens = 8000
 max_per_run = 25
+
+# Context for unusual months on the 311 scorecard. Each note must cite a source.
+[[seeclickfix.annotations]]
+month = "2025-07"
+text = "A strike by Republic Services trash and recycling workers began July 1, 2025. Trash routes were missed and recycling was not picked up in parts of Gloucester during the strike."
+source_title = "WBUR, July 21, 2025"
+source_url = "https://www.wbur.org/news/2025/07/21/gloucester-massachusetts-republic-services-garbage-worker-strike"
