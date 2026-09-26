@@ -24,22 +24,29 @@ from zoneinfo import ZoneInfo
 
 from pipeline.config import DATA_DIR, load_config
 
-SYSTEM_PROMPT = """You convert public meeting agendas from a city government into accessible text for residents.
+# Bump when the prompt or schema changes; cached results from an older
+# version (or another model) are regenerated on the next run.
+PROMPT_VERSION = 2
 
-Rules:
-- Use only what the document says. Do not add background, predictions, opinions, or likely outcomes.
+SYSTEM_PROMPT = """You convert public meeting agendas from a city government into accessible text for residents. The agendas are usually scanned images, so read every character carefully.
+
+Transcript rules:
+- Copy the document's text character for character. Do not reword, correct, modernize, or change the spelling of anything (for example, keep "Councilor" if that is how it is written).
+- Take particular care with digits and similar-looking characters (0 and O, 1 and l and I, 5 and S) in ZIP codes, phone numbers, meeting IDs, web addresses, dollar amounts, dates, and case numbers.
+- If a word or number cannot be read with confidence, write "[unreadable]" instead of guessing.
+
+Summary and item rules:
+- Use only what the document says. Do not add background, predictions, opinions, likely outcomes, or categories the document does not use.
 - Neutral tone. No adjectives that judge (such as important, controversial, significant).
-- Plain English at about an 8th-grade reading level. Spell out acronyms the first time if the document defines them; otherwise keep them as written.
-- Keep names, addresses, dates, times, dollar amounts, and case or application numbers exactly as written.
-- If part of the document cannot be read, say "[unreadable]" in the transcript rather than guessing."""
+- Plain English at about an 8th-grade reading level.
+- Keep names, dollar amounts, dates, and case or application numbers exactly as written."""
 
 USER_PROMPT = """This is the posted agenda for: {title}, {date}.
 
 Return:
-- transcript: the full text of the agenda in reading order, as Markdown. Use a heading for the meeting name, and a numbered or bulleted list for agenda items as they appear. Leave out stamps, seals, and page decorations, but keep the clerk's posting date if shown.
+- transcript: the full text of the agenda in reading order, as Markdown. Use headings for the document's own headings and lists for its lists. Leave out stamps, seals, and page decorations, but keep the clerk's posting date if shown.
 - summary: 1 to 3 sentences on what the meeting will cover. Name the main business items.
-- items: each agenda item, in order, as short plain-English phrases. Skip routine items such as call to order, roll call, and adjournment.
-- attend: how the public can attend or comment, as stated in the document (place, remote link, phone), in 1 to 2 sentences. Empty string if the document does not say."""
+- items: each agenda item, in order, as short plain-English phrases. Skip routine items such as call to order, roll call, approval of minutes, and adjournment."""
 
 OUTPUT_SCHEMA = {
     "type": "object",
@@ -47,9 +54,8 @@ OUTPUT_SCHEMA = {
         "transcript": {"type": "string"},
         "summary": {"type": "string"},
         "items": {"type": "array", "items": {"type": "string"}},
-        "attend": {"type": "string"},
     },
-    "required": ["transcript", "summary", "items", "attend"],
+    "required": ["transcript", "summary", "items"],
     "additionalProperties": False,
 }
 
@@ -58,12 +64,18 @@ def summaries_dir(data_dir: Path) -> Path:
     return data_dir / "summaries"
 
 
-def cached(data_dir: Path, sha256: str) -> dict | None:
+def cached(data_dir: Path, sha256: str, model: str) -> dict | None:
+    """The saved result for a document, if it was made by this model and prompt version."""
     path = summaries_dir(data_dir) / f"{sha256}.json"
-    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+    if not path.exists():
+        return None
+    record = json.loads(path.read_text(encoding="utf-8"))
+    if record.get("model") != model or record.get("prompt_version") != PROMPT_VERSION:
+        return None
+    return record
 
 
-def pending_agendas(data_dir: Path, today: str) -> list[tuple[dict, dict]]:
+def pending_agendas(data_dir: Path, today: str, model: str) -> list[tuple[dict, dict]]:
     """Latest agenda of each meeting without a cached summary, upcoming meetings first."""
     path = data_dir / "meetings" / "meetings.json"
     store = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
@@ -73,7 +85,7 @@ def pending_agendas(data_dir: Path, today: str) -> list[tuple[dict, dict]]:
             continue
         agenda = meeting["agendas"][-1]
         # Several meetings can share one document; process it once.
-        if agenda["sha256"] in seen or cached(data_dir, agenda["sha256"]):
+        if agenda["sha256"] in seen or cached(data_dir, agenda["sha256"], model):
             continue
         seen.add(agenda["sha256"])
         todo.append((meeting, agenda))
@@ -107,7 +119,7 @@ def summarize_pdf(client, model: str, pdf: bytes, title: str, date: str, max_tok
 def run(config: dict, client, data_dir: Path, limit: int, now: datetime | None = None) -> dict:
     settings = config["summaries"]
     now = now or datetime.now(ZoneInfo(config["site"]["timezone"]))
-    todo = pending_agendas(data_dir, now.date().isoformat())
+    todo = pending_agendas(data_dir, now.date().isoformat(), settings["model"])
     done, errors, tokens = 0, [], {"input_tokens": 0, "output_tokens": 0}
     for meeting, agenda in todo[:limit]:
         pdf = (data_dir / "meetings" / "agendas" / agenda["file"]).read_bytes()
@@ -122,6 +134,7 @@ def run(config: dict, client, data_dir: Path, limit: int, now: datetime | None =
             "source_url": agenda["source_url"],
             "source_sha256": agenda["sha256"],
             "model": settings["model"],
+            "prompt_version": PROMPT_VERSION,
             "generated_at": now.isoformat(timespec="seconds"),
             "usage": usage,
         }

@@ -88,7 +88,6 @@ class FakeAnthropic:
         "transcript": "# Human Rights Commission\n\n1. Call to order.\n2. Review and approval of July 27, 2026 minutes\n3. Meeting Joe Lucido, Assistant Director of Operations on City ADA compliance\n4. Review HRC Student Member Recruitment Search Draft Description\n5. Community updates.\n6. Next Meeting: October 26",
         "summary": "The commission will meet with the city's Assistant Director of Operations about ADA compliance and review a draft description for recruiting a student member.",
         "items": ["Approve July 27 minutes", "ADA compliance with Joe Lucido", "Student member recruitment description", "Community updates"],
-        "attend": "In person at City Hall, 9 Dale Avenue, or remotely by Zoom (meeting ID 86129893412).",
     }
 
     def __init__(self, stop_reason: str = "end_turn"):

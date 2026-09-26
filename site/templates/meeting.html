@@ -52,10 +52,6 @@
     {% for item in m.preview["items"] %}<li>{{ item }}</li>{% endfor %}
   </ul>
   {% endif %}
-  {% if m.preview.attend %}
-  <h3>How to attend or comment</h3>
-  <p>{{ m.preview.attend }}</p>
-  {% endif %}
   <details class="transcript">
     <summary>Full agenda text</summary>
     <div class="transcript-body">{{ m.preview.transcript | markdown }}</div>
