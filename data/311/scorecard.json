@@ -124,16 +124,16 @@
  },
  "by_category": [
   {
-   "acknowledged": 0,
+   "acknowledged": 12,
    "category": "Trash or Recycling",
-   "checked": 0,
+   "checked": 24,
    "closed": 390,
    "open": 56,
    "received": 446,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.58,
+    "n": 12,
+    "p90": 0.8
    },
    "time_to_close": {
     "median": 14.17,
@@ -142,15 +142,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 3,
    "category": "Pothole",
-   "checked": 0,
+   "checked": 10,
    "closed": 241,
    "open": 60,
    "received": 301,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 3,
     "p90": null
    },
    "time_to_close": {
@@ -178,15 +178,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "category": "Other",
-   "checked": 0,
+   "checked": 5,
    "closed": 101,
    "open": 64,
    "received": 165,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -196,15 +196,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "category": "Road Issues Other Than Potholes",
-   "checked": 0,
+   "checked": 3,
    "closed": 103,
    "open": 32,
    "received": 135,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -214,15 +214,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 2,
    "category": "Illegal Dumping",
-   "checked": 0,
+   "checked": 2,
    "closed": 112,
    "open": 21,
    "received": 133,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -232,16 +232,16 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 8,
    "category": "Health Department (General Nuisance/Inquiry)",
-   "checked": 0,
+   "checked": 12,
    "closed": 105,
    "open": 2,
    "received": 107,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.43,
+    "n": 8,
+    "p90": 2.18
    },
    "time_to_close": {
     "median": 3.7,
@@ -252,7 +252,7 @@
   {
    "acknowledged": 0,
    "category": "Police Department (Non-Emergency)",
-   "checked": 0,
+   "checked": 1,
    "closed": 91,
    "open": 3,
    "received": 94,
@@ -268,16 +268,16 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 7,
    "category": "Street Light Issue",
-   "checked": 0,
+   "checked": 7,
    "closed": 55,
    "open": 37,
    "received": 92,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.02,
+    "n": 7,
+    "p90": 1.27
    },
    "time_to_close": {
     "median": 28.51,
@@ -304,15 +304,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 2,
    "category": "Sidewalk Issue",
-   "checked": 0,
+   "checked": 3,
    "closed": 49,
    "open": 35,
    "received": 84,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -322,15 +322,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 2,
    "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
-   "checked": 0,
+   "checked": 2,
    "closed": 44,
    "open": 32,
    "received": 76,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -342,7 +342,7 @@
   {
    "acknowledged": 0,
    "category": "Utilities (Water/Sewer)",
-   "checked": 0,
+   "checked": 1,
    "closed": 56,
    "open": 14,
    "received": 70,
@@ -358,15 +358,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "category": "Manhole Cover",
-   "checked": 0,
+   "checked": 1,
    "closed": 50,
    "open": 15,
    "received": 65,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -376,16 +376,16 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 6,
    "category": "Street Sign Issue",
-   "checked": 0,
+   "checked": 6,
    "closed": 41,
    "open": 18,
    "received": 59,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 1.44,
+    "n": 6,
+    "p90": 2.84
    },
    "time_to_close": {
     "median": 2.13,
@@ -396,7 +396,7 @@
   {
    "acknowledged": 0,
    "category": "Abandoned Vehicle",
-   "checked": 0,
+   "checked": 4,
    "closed": 40,
    "open": 11,
    "received": 51,
@@ -412,15 +412,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "category": "Brush",
-   "checked": 0,
+   "checked": 2,
    "closed": 40,
    "open": 10,
    "received": 50,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -430,15 +430,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 2,
    "category": "Tree Issues",
-   "checked": 0,
+   "checked": 4,
    "closed": 24,
    "open": 26,
    "received": 50,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -466,15 +466,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 2,
    "category": "Clean Team/Volunteer Yellow Bag Pick Up",
-   "checked": 0,
+   "checked": 2,
    "closed": 39,
    "open": 2,
    "received": 41,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -484,15 +484,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 4,
    "category": "Animal Issues",
-   "checked": 0,
+   "checked": 4,
    "closed": 37,
    "open": 0,
    "received": 37,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 4,
     "p90": null
    },
    "time_to_close": {
@@ -502,15 +502,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "category": "Crosswalks",
-   "checked": 0,
+   "checked": 1,
    "closed": 17,
    "open": 16,
    "received": 33,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -520,15 +520,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "category": "Private Property Issue",
-   "checked": 0,
+   "checked": 3,
    "closed": 7,
    "open": 19,
    "received": 26,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -540,7 +540,7 @@
   {
    "acknowledged": 0,
    "category": "Storm Drain/Flooding Issue",
-   "checked": 0,
+   "checked": 1,
    "closed": 22,
    "open": 4,
    "received": 26,
@@ -556,15 +556,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "category": "Parking Kiosk",
-   "checked": 0,
+   "checked": 1,
    "closed": 7,
    "open": 12,
    "received": 19,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -666,7 +666,7 @@
   {
    "acknowledged": 0,
    "category": "Graffiti",
-   "checked": 0,
+   "checked": 1,
    "closed": 2,
    "open": 3,
    "received": 5,
@@ -792,17 +792,17 @@
  ],
  "by_ward": [
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 10,
+   "checked": 25,
    "closed": 539,
    "open": 136,
    "per_1000_residents": 115.1,
    "population_2020": 5862,
    "received": 675,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.9,
+    "n": 10,
+    "p90": 1.91
    },
    "time_to_close": {
     "median": 3.59,
@@ -812,17 +812,17 @@
    "ward": "1"
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 14,
+   "checked": 24,
    "closed": 466,
    "open": 129,
    "per_1000_residents": 101.9,
    "population_2020": 5841,
    "received": 595,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.7,
+    "n": 14,
+    "p90": 2.73
    },
    "time_to_close": {
     "median": 2.69,
@@ -832,17 +832,17 @@
    "ward": "2"
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 6,
+   "checked": 13,
    "closed": 316,
    "open": 96,
    "per_1000_residents": 71.7,
    "population_2020": 5744,
    "received": 412,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.27,
+    "n": 6,
+    "p90": 0.81
    },
    "time_to_close": {
     "median": 4.0,
@@ -852,17 +852,17 @@
    "ward": "3"
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 13,
+   "checked": 19,
    "closed": 388,
    "open": 95,
    "per_1000_residents": 79.2,
    "population_2020": 6100,
    "received": 483,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.6,
+    "n": 13,
+    "p90": 2.75
    },
    "time_to_close": {
     "median": 4.61,
@@ -872,17 +872,17 @@
    "ward": "4"
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 14,
+   "checked": 19,
    "closed": 306,
    "open": 100,
    "per_1000_residents": 65.7,
    "population_2020": 6182,
    "received": 406,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.63,
+    "n": 14,
+    "p90": 2.36
    },
    "time_to_close": {
     "median": 4.75,
@@ -893,16 +893,16 @@
   }
  ],
  "data_since": "2020-04-21",
- "generated_at": "2026-09-26T16:28:41-04:00",
+ "generated_at": "2026-09-26T16:29:47-04:00",
  "min_sample": 5,
  "monthly": [
   {
    "acknowledged": 0,
    "checked": 0,
-   "closed": 72,
+   "closed": 71,
    "month": "2024-10",
    "open": 4,
-   "received": 76,
+   "received": 75,
    "recent": false,
    "time_to_acknowledge": {
     "median": null,
@@ -910,9 +910,9 @@
     "p90": null
    },
    "time_to_close": {
-    "median": 9.44,
-    "n": 72,
-    "p90": 210.21
+    "median": 8.61,
+    "n": 71,
+    "p90": 197.65
    }
   },
   {
@@ -1334,17 +1334,17 @@
    }
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 57,
+   "checked": 100,
    "closed": 65,
    "month": "2026-09",
    "open": 81,
    "received": 146,
    "recent": true,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.67,
+    "n": 57,
+    "p90": 2.57
    },
    "time_to_close": {
     "median": 1.92,
@@ -1354,15 +1354,15 @@
   }
  ],
  "overall": {
-  "acknowledged": 0,
-  "checked": 0,
+  "acknowledged": 57,
+  "checked": 100,
   "closed": 2015,
   "open": 556,
   "received": 2571,
   "time_to_acknowledge": {
-   "median": null,
-   "n": 0,
-   "p90": null
+   "median": 0.67,
+   "n": 57,
+   "p90": 2.57
   },
   "time_to_close": {
    "median": 3.76,
