@@ -49,7 +49,7 @@
    },
    {
     "address": "201 Gloucester Crossing Gloucester, MA, 01930, USA",
-    "age_days": 2062.0,
+    "age_days": 2062.1,
     "category": "Health Department",
     "created_at": "2021-02-02T17:25:34-05:00",
     "id": "9282468",
@@ -125,16 +125,16 @@
  },
  "by_category": [
   {
-   "acknowledged": 48,
+   "acknowledged": 249,
    "category": "Trash or Recycling",
-   "checked": 120,
+   "checked": 445,
    "closed": 389,
    "open": 56,
    "received": 445,
    "time_to_acknowledge": {
-    "median": 0.55,
-    "n": 48,
-    "p90": 1.33
+    "median": 0.59,
+    "n": 249,
+    "p90": 2.54
    },
    "time_to_close": {
     "median": 14.8,
@@ -143,16 +143,16 @@
    }
   },
   {
-   "acknowledged": 43,
+   "acknowledged": 159,
    "category": "Pothole",
-   "checked": 79,
+   "checked": 301,
    "closed": 241,
    "open": 60,
    "received": 301,
    "time_to_acknowledge": {
-    "median": 2.9,
-    "n": 43,
-    "p90": 42.82
+    "median": 1.05,
+    "n": 159,
+    "p90": 42.51
    },
    "time_to_close": {
     "median": 13.86,
@@ -161,16 +161,16 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 136,
    "category": "Snow/Ice Removal",
-   "checked": 0,
+   "checked": 224,
    "closed": 198,
    "open": 26,
    "received": 224,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.05,
+    "n": 136,
+    "p90": 0.87
    },
    "time_to_close": {
     "median": 1.75,
@@ -179,16 +179,16 @@
    }
   },
   {
-   "acknowledged": 23,
+   "acknowledged": 66,
    "category": "Other",
-   "checked": 60,
+   "checked": 165,
    "closed": 101,
    "open": 64,
    "received": 165,
    "time_to_acknowledge": {
-    "median": 0.55,
-    "n": 23,
-    "p90": 3.93
+    "median": 0.61,
+    "n": 66,
+    "p90": 2.71
    },
    "time_to_close": {
     "median": 1.85,
@@ -197,16 +197,16 @@
    }
   },
   {
-   "acknowledged": 22,
+   "acknowledged": 69,
    "category": "Road Issues Other Than Potholes",
-   "checked": 49,
+   "checked": 135,
    "closed": 103,
    "open": 32,
    "received": 135,
    "time_to_acknowledge": {
-    "median": 1.05,
-    "n": 22,
-    "p90": 5.3
+    "median": 1.03,
+    "n": 69,
+    "p90": 8.58
    },
    "time_to_close": {
     "median": 4.14,
@@ -215,16 +215,16 @@
    }
   },
   {
-   "acknowledged": 28,
+   "acknowledged": 94,
    "category": "Illegal Dumping",
-   "checked": 44,
+   "checked": 133,
    "closed": 112,
    "open": 21,
    "received": 133,
    "time_to_acknowledge": {
-    "median": 0.82,
-    "n": 28,
-    "p90": 3.17
+    "median": 0.67,
+    "n": 94,
+    "p90": 2.74
    },
    "time_to_close": {
     "median": 2.71,
@@ -233,16 +233,16 @@
    }
   },
   {
-   "acknowledged": 33,
+   "acknowledged": 80,
    "category": "Health Department (General Nuisance/Inquiry)",
-   "checked": 53,
+   "checked": 106,
    "closed": 104,
    "open": 2,
    "received": 106,
    "time_to_acknowledge": {
-    "median": 0.84,
-    "n": 33,
-    "p90": 18.14
+    "median": 1.38,
+    "n": 80,
+    "p90": 18.03
    },
    "time_to_close": {
     "median": 3.74,
@@ -251,16 +251,16 @@
    }
   },
   {
-   "acknowledged": 5,
+   "acknowledged": 30,
    "category": "Police Department (Non-Emergency)",
-   "checked": 31,
+   "checked": 94,
    "closed": 91,
    "open": 3,
    "received": 94,
    "time_to_acknowledge": {
-    "median": 1.38,
-    "n": 5,
-    "p90": 1.69
+    "median": 0.37,
+    "n": 30,
+    "p90": 1.61
    },
    "time_to_close": {
     "median": 0.65,
@@ -269,16 +269,16 @@
    }
   },
   {
-   "acknowledged": 30,
+   "acknowledged": 71,
    "category": "Street Light Issue",
-   "checked": 32,
+   "checked": 92,
    "closed": 55,
    "open": 37,
    "received": 92,
    "time_to_acknowledge": {
-    "median": 0.43,
-    "n": 30,
-    "p90": 1.88
+    "median": 0.72,
+    "n": 71,
+    "p90": 20.49
    },
    "time_to_close": {
     "median": 28.51,
@@ -287,16 +287,16 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 60,
    "category": "Snow: Plow Request",
-   "checked": 0,
+   "checked": 85,
    "closed": 74,
    "open": 11,
    "received": 85,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.06,
+    "n": 60,
+    "p90": 1.13
    },
    "time_to_close": {
     "median": 1.91,
@@ -305,16 +305,16 @@
    }
   },
   {
-   "acknowledged": 8,
+   "acknowledged": 33,
    "category": "Sidewalk Issue",
-   "checked": 28,
+   "checked": 84,
    "closed": 49,
    "open": 35,
    "received": 84,
    "time_to_acknowledge": {
-    "median": 0.13,
-    "n": 8,
-    "p90": 3.7
+    "median": 0.56,
+    "n": 33,
+    "p90": 3.77
    },
    "time_to_close": {
     "median": 2.52,
@@ -323,16 +323,16 @@
    }
   },
   {
-   "acknowledged": 22,
+   "acknowledged": 42,
    "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
-   "checked": 35,
+   "checked": 76,
    "closed": 44,
    "open": 32,
    "received": 76,
    "time_to_acknowledge": {
-    "median": 0.61,
-    "n": 22,
-    "p90": 2.6
+    "median": 0.56,
+    "n": 42,
+    "p90": 2.61
    },
    "time_to_close": {
     "median": 2.52,
@@ -341,16 +341,16 @@
    }
   },
   {
-   "acknowledged": 16,
+   "acknowledged": 47,
    "category": "Utilities (Water/Sewer)",
-   "checked": 30,
+   "checked": 70,
    "closed": 56,
    "open": 14,
    "received": 70,
    "time_to_acknowledge": {
-    "median": 0.49,
-    "n": 16,
-    "p90": 2.79
+    "median": 0.64,
+    "n": 47,
+    "p90": 3.07
    },
    "time_to_close": {
     "median": 4.83,
@@ -359,16 +359,16 @@
    }
   },
   {
-   "acknowledged": 11,
+   "acknowledged": 47,
    "category": "Manhole Cover",
-   "checked": 15,
+   "checked": 65,
    "closed": 50,
    "open": 15,
    "received": 65,
    "time_to_acknowledge": {
-    "median": 0.61,
-    "n": 11,
-    "p90": 1.15
+    "median": 0.71,
+    "n": 47,
+    "p90": 3.64
    },
    "time_to_close": {
     "median": 7.81,
@@ -377,16 +377,16 @@
    }
   },
   {
-   "acknowledged": 16,
+   "acknowledged": 41,
    "category": "Street Sign Issue",
-   "checked": 25,
+   "checked": 59,
    "closed": 41,
    "open": 18,
    "received": 59,
    "time_to_acknowledge": {
-    "median": 0.62,
-    "n": 16,
-    "p90": 2.74
+    "median": 0.56,
+    "n": 41,
+    "p90": 2.66
    },
    "time_to_close": {
     "median": 2.13,
@@ -395,16 +395,16 @@
    }
   },
   {
-   "acknowledged": 5,
+   "acknowledged": 14,
    "category": "Abandoned Vehicle",
-   "checked": 24,
+   "checked": 51,
    "closed": 40,
    "open": 11,
    "received": 51,
    "time_to_acknowledge": {
-    "median": 1.19,
-    "n": 5,
-    "p90": 2.43
+    "median": 0.57,
+    "n": 14,
+    "p90": 2.61
    },
    "time_to_close": {
     "median": 0.72,
@@ -413,16 +413,16 @@
    }
   },
   {
-   "acknowledged": 14,
+   "acknowledged": 29,
    "category": "Brush",
-   "checked": 27,
+   "checked": 50,
    "closed": 40,
    "open": 10,
    "received": 50,
    "time_to_acknowledge": {
-    "median": 0.51,
-    "n": 14,
-    "p90": 4.14
+    "median": 0.63,
+    "n": 29,
+    "p90": 5.66
    },
    "time_to_close": {
     "median": 1.84,
@@ -431,16 +431,16 @@
    }
   },
   {
-   "acknowledged": 9,
+   "acknowledged": 22,
    "category": "Tree Issues",
-   "checked": 26,
+   "checked": 50,
    "closed": 24,
    "open": 26,
    "received": 50,
    "time_to_acknowledge": {
-    "median": 0.71,
-    "n": 9,
-    "p90": 3.34
+    "median": 0.65,
+    "n": 22,
+    "p90": 1.97
    },
    "time_to_close": {
     "median": 2.6,
@@ -449,16 +449,16 @@
    }
   },
   {
-   "acknowledged": 13,
+   "acknowledged": 23,
    "category": "Beaches",
-   "checked": 28,
+   "checked": 41,
    "closed": 31,
    "open": 10,
    "received": 41,
    "time_to_acknowledge": {
     "median": 0.62,
-    "n": 13,
-    "p90": 1.05
+    "n": 23,
+    "p90": 1.86
    },
    "time_to_close": {
     "median": 1.99,
@@ -467,16 +467,16 @@
    }
   },
   {
-   "acknowledged": 9,
+   "acknowledged": 34,
    "category": "Clean Team/Volunteer Yellow Bag Pick Up",
-   "checked": 15,
+   "checked": 41,
    "closed": 39,
    "open": 2,
    "received": 41,
    "time_to_acknowledge": {
-    "median": 0.53,
-    "n": 9,
-    "p90": 1.1
+    "median": 0.7,
+    "n": 34,
+    "p90": 2.1
    },
    "time_to_close": {
     "median": 1.11,
@@ -485,16 +485,16 @@
    }
   },
   {
-   "acknowledged": 8,
+   "acknowledged": 15,
    "category": "Animal Issues",
-   "checked": 18,
+   "checked": 37,
    "closed": 37,
    "open": 0,
    "received": 37,
    "time_to_acknowledge": {
-    "median": 0.72,
-    "n": 8,
-    "p90": 3.07
+    "median": 0.92,
+    "n": 15,
+    "p90": 2.6
    },
    "time_to_close": {
     "median": 1.55,
@@ -503,16 +503,16 @@
    }
   },
   {
-   "acknowledged": 8,
+   "acknowledged": 16,
    "category": "Crosswalks",
-   "checked": 15,
+   "checked": 33,
    "closed": 17,
    "open": 16,
    "received": 33,
    "time_to_acknowledge": {
-    "median": 2.12,
-    "n": 8,
-    "p90": 2.77
+    "median": 0.6,
+    "n": 16,
+    "p90": 2.64
    },
    "time_to_close": {
     "median": 2.96,
@@ -521,15 +521,15 @@
    }
   },
   {
-   "acknowledged": 1,
+   "acknowledged": 4,
    "category": "Private Property Issue",
-   "checked": 11,
+   "checked": 26,
    "closed": 7,
    "open": 19,
    "received": 26,
    "time_to_acknowledge": {
     "median": null,
-    "n": 1,
+    "n": 4,
     "p90": null
    },
    "time_to_close": {
@@ -539,16 +539,16 @@
    }
   },
   {
-   "acknowledged": 5,
+   "acknowledged": 16,
    "category": "Storm Drain/Flooding Issue",
-   "checked": 9,
+   "checked": 26,
    "closed": 22,
    "open": 4,
    "received": 26,
    "time_to_acknowledge": {
-    "median": 0.82,
-    "n": 5,
-    "p90": 2.87
+    "median": 0.71,
+    "n": 16,
+    "p90": 3.48
    },
    "time_to_close": {
     "median": 7.7,
@@ -557,16 +557,16 @@
    }
   },
   {
-   "acknowledged": 2,
+   "acknowledged": 6,
    "category": "Parking Kiosk",
-   "checked": 8,
+   "checked": 19,
    "closed": 7,
    "open": 12,
    "received": 19,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 2,
-    "p90": null
+    "median": 1.31,
+    "n": 6,
+    "p90": 3.41
    },
    "time_to_close": {
     "median": 2.57,
@@ -577,7 +577,7 @@
   {
    "acknowledged": 0,
    "category": "Community Development",
-   "checked": 6,
+   "checked": 11,
    "closed": 4,
    "open": 7,
    "received": 11,
@@ -593,16 +593,16 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 6,
    "category": "Snow: Icy Conditions",
-   "checked": 0,
+   "checked": 11,
    "closed": 11,
    "open": 0,
    "received": 11,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.29,
+    "n": 6,
+    "p90": 2.8
    },
    "time_to_close": {
     "median": 0.95,
@@ -613,7 +613,7 @@
   {
    "acknowledged": 0,
    "category": "Conservation",
-   "checked": 5,
+   "checked": 10,
    "closed": 3,
    "open": 7,
    "received": 10,
@@ -629,15 +629,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 2,
    "category": "Water Quality",
-   "checked": 1,
+   "checked": 7,
    "closed": 6,
    "open": 1,
    "received": 7,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -647,16 +647,16 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 5,
    "category": "Health Department (General Nuisance - Internal)",
-   "checked": 0,
+   "checked": 6,
    "closed": 6,
    "open": 0,
    "received": 6,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.97,
+    "n": 5,
+    "p90": 2.22
    },
    "time_to_close": {
     "median": 19.85,
@@ -665,15 +665,15 @@
    }
   },
   {
-   "acknowledged": 1,
+   "acknowledged": 2,
    "category": "Graffiti",
-   "checked": 4,
+   "checked": 5,
    "closed": 2,
    "open": 3,
    "received": 5,
    "time_to_acknowledge": {
     "median": null,
-    "n": 1,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -683,15 +683,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 2,
    "category": "Traffic Signal Issue",
-   "checked": 1,
+   "checked": 4,
    "closed": 3,
    "open": 1,
    "received": 4,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -703,7 +703,7 @@
   {
    "acknowledged": 0,
    "category": "Harbor Master's Office",
-   "checked": 1,
+   "checked": 2,
    "closed": 1,
    "open": 1,
    "received": 2,
@@ -719,15 +719,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 2,
    "category": "Health Department (Rental Registry Inquiry-Internal)",
-   "checked": 0,
+   "checked": 2,
    "closed": 2,
    "open": 0,
    "received": 2,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -737,15 +737,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "category": "Health Department (Food - Internal)",
-   "checked": 0,
+   "checked": 1,
    "closed": 1,
    "open": 0,
    "received": 1,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -755,15 +755,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "category": "Health Department (General Inquiry - Internal)",
-   "checked": 0,
+   "checked": 1,
    "closed": 1,
    "open": 0,
    "received": 1,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -773,15 +773,15 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "category": "Health Department (Septic - Internal)",
-   "checked": 0,
+   "checked": 1,
    "closed": 1,
    "open": 0,
    "received": 1,
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -793,17 +793,17 @@
  ],
  "by_ward": [
   {
-   "acknowledged": 106,
-   "checked": 205,
+   "acknowledged": 384,
+   "checked": 674,
    "closed": 538,
    "open": 136,
    "per_1000_residents": 115.0,
    "population_2020": 5862,
    "received": 674,
    "time_to_acknowledge": {
-    "median": 0.87,
-    "n": 106,
-    "p90": 4.8
+    "median": 0.64,
+    "n": 384,
+    "p90": 4.69
    },
    "time_to_close": {
     "median": 3.59,
@@ -813,17 +813,17 @@
    "ward": "1"
   },
   {
-   "acknowledged": 84,
-   "checked": 197,
+   "acknowledged": 302,
+   "checked": 594,
    "closed": 465,
    "open": 129,
    "per_1000_residents": 101.7,
    "population_2020": 5841,
    "received": 594,
    "time_to_acknowledge": {
-    "median": 0.68,
-    "n": 84,
-    "p90": 4.15
+    "median": 0.6,
+    "n": 302,
+    "p90": 4.09
    },
    "time_to_close": {
     "median": 2.67,
@@ -833,17 +833,17 @@
    "ward": "2"
   },
   {
-   "acknowledged": 51,
-   "checked": 115,
+   "acknowledged": 239,
+   "checked": 412,
    "closed": 316,
    "open": 96,
    "per_1000_residents": 71.7,
    "population_2020": 5744,
    "received": 412,
    "time_to_acknowledge": {
-    "median": 0.52,
-    "n": 51,
-    "p90": 3.58
+    "median": 0.54,
+    "n": 239,
+    "p90": 3.55
    },
    "time_to_close": {
     "median": 4.0,
@@ -853,17 +853,17 @@
    "ward": "3"
   },
   {
-   "acknowledged": 83,
-   "checked": 159,
+   "acknowledged": 276,
+   "checked": 483,
    "closed": 388,
    "open": 95,
    "per_1000_residents": 79.2,
    "population_2020": 6100,
    "received": 483,
    "time_to_acknowledge": {
-    "median": 0.64,
-    "n": 83,
-    "p90": 3.11
+    "median": 0.6,
+    "n": 276,
+    "p90": 4.58
    },
    "time_to_close": {
     "median": 4.61,
@@ -873,17 +873,17 @@
    "ward": "4"
   },
   {
-   "acknowledged": 56,
-   "checked": 124,
+   "acknowledged": 224,
+   "checked": 406,
    "closed": 306,
    "open": 100,
    "per_1000_residents": 65.7,
    "population_2020": 6182,
    "received": 406,
    "time_to_acknowledge": {
-    "median": 0.71,
-    "n": 56,
-    "p90": 3.33
+    "median": 0.69,
+    "n": 224,
+    "p90": 4.94
    },
    "time_to_close": {
     "median": 4.75,
@@ -895,18 +895,18 @@
  ],
  "categories": [
   {
-   "acknowledged": 48,
+   "acknowledged": 249,
    "by_ward": [
     {
-     "acknowledged": 7,
-     "checked": 26,
+     "acknowledged": 60,
+     "checked": 105,
      "closed": 93,
      "open": 12,
      "received": 105,
      "time_to_acknowledge": {
       "median": 0.61,
-      "n": 7,
-      "p90": 1.39
+      "n": 60,
+      "p90": 1.93
      },
      "time_to_close": {
       "median": 13.52,
@@ -916,15 +916,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 12,
-     "checked": 27,
+     "acknowledged": 36,
+     "checked": 78,
      "closed": 68,
      "open": 10,
      "received": 78,
      "time_to_acknowledge": {
-      "median": 0.41,
-      "n": 12,
-      "p90": 0.72
+      "median": 0.56,
+      "n": 36,
+      "p90": 1.33
      },
      "time_to_close": {
       "median": 16.87,
@@ -934,15 +934,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 9,
-     "checked": 22,
+     "acknowledged": 57,
+     "checked": 82,
      "closed": 70,
      "open": 12,
      "received": 82,
      "time_to_acknowledge": {
-      "median": 0.5,
-      "n": 9,
-      "p90": 1.19
+      "median": 0.51,
+      "n": 57,
+      "p90": 2.27
      },
      "time_to_close": {
       "median": 39.84,
@@ -952,15 +952,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 13,
-     "checked": 29,
+     "acknowledged": 45,
+     "checked": 91,
      "closed": 76,
      "open": 15,
      "received": 91,
      "time_to_acknowledge": {
-      "median": 0.47,
-      "n": 13,
-      "p90": 0.82
+      "median": 0.54,
+      "n": 45,
+      "p90": 2.26
      },
      "time_to_close": {
       "median": 10.32,
@@ -970,15 +970,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 7,
-     "checked": 16,
+     "acknowledged": 51,
+     "checked": 89,
      "closed": 82,
      "open": 7,
      "received": 89,
      "time_to_acknowledge": {
-      "median": 0.67,
-      "n": 7,
-      "p90": 3.09
+      "median": 0.7,
+      "n": 51,
+      "p90": 2.72
      },
      "time_to_close": {
       "median": 15.54,
@@ -989,7 +989,7 @@
     }
    ],
    "category": "Trash or Recycling",
-   "checked": 120,
+   "checked": 445,
    "closed": 389,
    "monthly": [
     {
@@ -1080,7 +1080,7 @@
     },
     {
      "address": "45 Main St Gloucester, MA, 01930, USA",
-     "age_days": 151.5,
+     "age_days": 151.6,
      "category": "Trash or Recycling",
      "created_at": "2026-04-28T06:24:56-04:00",
      "id": "21574208",
@@ -1107,7 +1107,7 @@
     },
     {
      "address": "1-17 Madison Ct Gloucester, Massachusetts, 01930",
-     "age_days": 149.9,
+     "age_days": 150.0,
      "category": "Trash or Recycling",
      "created_at": "2026-04-29T20:47:44-04:00",
      "id": "21592629",
@@ -1137,9 +1137,9 @@
    "received": 445,
    "slug": "trash-or-recycling",
    "time_to_acknowledge": {
-    "median": 0.55,
-    "n": 48,
-    "p90": 1.33
+    "median": 0.59,
+    "n": 249,
+    "p90": 2.54
    },
    "time_to_close": {
     "median": 14.8,
@@ -1148,18 +1148,18 @@
    }
   },
   {
-   "acknowledged": 43,
+   "acknowledged": 159,
    "by_ward": [
     {
-     "acknowledged": 11,
-     "checked": 22,
+     "acknowledged": 47,
+     "checked": 88,
      "closed": 69,
      "open": 19,
      "received": 88,
      "time_to_acknowledge": {
-      "median": 8.95,
-      "n": 11,
-      "p90": 79.09
+      "median": 2.96,
+      "n": 47,
+      "p90": 59.7
      },
      "time_to_close": {
       "median": 13.93,
@@ -1169,15 +1169,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 2,
-     "checked": 4,
+     "acknowledged": 8,
+     "checked": 19,
      "closed": 16,
      "open": 3,
      "received": 19,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 4.76,
+      "n": 8,
+      "p90": 76.45
      },
      "time_to_close": {
       "median": 10.57,
@@ -1187,15 +1187,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 5,
-     "checked": 7,
+     "acknowledged": 19,
+     "checked": 36,
      "closed": 31,
      "open": 5,
      "received": 36,
      "time_to_acknowledge": {
-      "median": 3.83,
-      "n": 5,
-      "p90": 6.76
+      "median": 1.01,
+      "n": 19,
+      "p90": 7.15
      },
      "time_to_close": {
       "median": 25.61,
@@ -1205,15 +1205,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 15,
-     "checked": 30,
+     "acknowledged": 53,
+     "checked": 96,
      "closed": 76,
      "open": 20,
      "received": 96,
      "time_to_acknowledge": {
       "median": 1.02,
-      "n": 15,
-      "p90": 26.02
+      "n": 53,
+      "p90": 25.03
      },
      "time_to_close": {
       "median": 25.14,
@@ -1223,15 +1223,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 10,
-     "checked": 16,
+     "acknowledged": 32,
+     "checked": 62,
      "closed": 49,
      "open": 13,
      "received": 62,
      "time_to_acknowledge": {
-      "median": 2.02,
-      "n": 10,
-      "p90": 25.26
+      "median": 1.42,
+      "n": 32,
+      "p90": 93.71
      },
      "time_to_close": {
       "median": 3.88,
@@ -1242,7 +1242,7 @@
     }
    ],
    "category": "Pothole",
-   "checked": 79,
+   "checked": 301,
    "closed": 241,
    "monthly": [
     {
@@ -1390,9 +1390,9 @@
    "received": 301,
    "slug": "pothole",
    "time_to_acknowledge": {
-    "median": 2.9,
-    "n": 43,
-    "p90": 42.82
+    "median": 1.05,
+    "n": 159,
+    "p90": 42.51
    },
    "time_to_close": {
     "median": 13.86,
@@ -1401,18 +1401,18 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 136,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 28,
+     "checked": 57,
      "closed": 51,
      "open": 6,
      "received": 57,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.05,
+      "n": 28,
+      "p90": 0.57
      },
      "time_to_close": {
       "median": 1.87,
@@ -1422,15 +1422,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 46,
+     "checked": 72,
      "closed": 63,
      "open": 9,
      "received": 72,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.05,
+      "n": 46,
+      "p90": 0.99
      },
      "time_to_close": {
       "median": 2.0,
@@ -1440,15 +1440,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 28,
+     "checked": 47,
      "closed": 42,
      "open": 5,
      "received": 47,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.05,
+      "n": 28,
+      "p90": 0.82
      },
      "time_to_close": {
       "median": 1.73,
@@ -1458,15 +1458,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 21,
+     "checked": 29,
      "closed": 26,
      "open": 3,
      "received": 29,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.2,
+      "n": 21,
+      "p90": 0.59
      },
      "time_to_close": {
       "median": 1.11,
@@ -1476,15 +1476,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 13,
+     "checked": 19,
      "closed": 16,
      "open": 3,
      "received": 19,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.03,
+      "n": 13,
+      "p90": 1.25
      },
      "time_to_close": {
       "median": 1.55,
@@ -1495,7 +1495,7 @@
     }
    ],
    "category": "Snow/Ice Removal",
-   "checked": 0,
+   "checked": 224,
    "closed": 198,
    "monthly": [
     {
@@ -1604,7 +1604,7 @@
     },
     {
      "address": "10 Sayward St Gloucester, Massachusetts, 01930",
-     "age_days": 232.2,
+     "age_days": 232.3,
      "category": "Snow/Ice Removal",
      "created_at": "2026-02-06T12:43:43-05:00",
      "id": "20959567",
@@ -1643,9 +1643,9 @@
    "received": 224,
    "slug": "snow-ice-removal",
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.05,
+    "n": 136,
+    "p90": 0.87
    },
    "time_to_close": {
     "median": 1.75,
@@ -1654,18 +1654,18 @@
    }
   },
   {
-   "acknowledged": 23,
+   "acknowledged": 66,
    "by_ward": [
     {
-     "acknowledged": 7,
-     "checked": 16,
+     "acknowledged": 15,
+     "checked": 41,
      "closed": 26,
      "open": 15,
      "received": 41,
      "time_to_acknowledge": {
-      "median": 0.73,
-      "n": 7,
-      "p90": 6.01
+      "median": 0.61,
+      "n": 15,
+      "p90": 3.67
      },
      "time_to_close": {
       "median": 0.98,
@@ -1675,15 +1675,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 5,
-     "checked": 17,
+     "acknowledged": 16,
+     "checked": 51,
      "closed": 35,
      "open": 16,
      "received": 51,
      "time_to_acknowledge": {
-      "median": 0.55,
-      "n": 5,
-      "p90": 0.83
+      "median": 0.53,
+      "n": 16,
+      "p90": 1.53
      },
      "time_to_close": {
       "median": 1.01,
@@ -1693,15 +1693,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 4,
-     "checked": 12,
+     "acknowledged": 11,
+     "checked": 25,
      "closed": 11,
      "open": 14,
      "received": 25,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 4,
-      "p90": null
+      "median": 0.68,
+      "n": 11,
+      "p90": 2.48
      },
      "time_to_close": {
       "median": 9.95,
@@ -1711,15 +1711,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 5,
-     "checked": 8,
+     "acknowledged": 13,
+     "checked": 25,
      "closed": 16,
      "open": 9,
      "received": 25,
      "time_to_acknowledge": {
-      "median": 0.75,
-      "n": 5,
-      "p90": 2.69
+      "median": 0.64,
+      "n": 13,
+      "p90": 2.34
      },
      "time_to_close": {
       "median": 0.9,
@@ -1729,15 +1729,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 2,
-     "checked": 7,
+     "acknowledged": 11,
+     "checked": 23,
      "closed": 13,
      "open": 10,
      "received": 23,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 1.08,
+      "n": 11,
+      "p90": 2.71
      },
      "time_to_close": {
       "median": 5.43,
@@ -1748,7 +1748,7 @@
     }
    ],
    "category": "Other",
-   "checked": 60,
+   "checked": 165,
    "closed": 101,
    "monthly": [
     {
@@ -1830,7 +1830,7 @@
     },
     {
      "address": "34 Beachcroft Road Gloucester, MA, 01930, USA",
-     "age_days": 1620.4,
+     "age_days": 1620.5,
      "category": "Other",
      "created_at": "2022-04-20T08:48:35-04:00",
      "id": "12206588",
@@ -1884,7 +1884,7 @@
     },
     {
      "address": "Stage Fort Park Gloucester MA 01930, United States",
-     "age_days": 868.8,
+     "age_days": 868.9,
      "category": "Other",
      "created_at": "2024-05-10T23:18:00-04:00",
      "id": "16582328",
@@ -1896,9 +1896,9 @@
    "received": 165,
    "slug": "other",
    "time_to_acknowledge": {
-    "median": 0.55,
-    "n": 23,
-    "p90": 3.93
+    "median": 0.61,
+    "n": 66,
+    "p90": 2.71
    },
    "time_to_close": {
     "median": 1.85,
@@ -1907,18 +1907,18 @@
    }
   },
   {
-   "acknowledged": 22,
+   "acknowledged": 69,
    "by_ward": [
     {
-     "acknowledged": 9,
-     "checked": 16,
+     "acknowledged": 18,
+     "checked": 37,
      "closed": 25,
      "open": 12,
      "received": 37,
      "time_to_acknowledge": {
-      "median": 1.04,
-      "n": 9,
-      "p90": 3.49
+      "median": 1.01,
+      "n": 18,
+      "p90": 3.93
      },
      "time_to_close": {
       "median": 2.65,
@@ -1928,15 +1928,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 5,
-     "checked": 9,
+     "acknowledged": 12,
+     "checked": 19,
      "closed": 15,
      "open": 4,
      "received": 19,
      "time_to_acknowledge": {
-      "median": 3.65,
-      "n": 5,
-      "p90": 32.05
+      "median": 1.04,
+      "n": 12,
+      "p90": 5.3
      },
      "time_to_close": {
       "median": 14.92,
@@ -1946,15 +1946,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 1,
-     "checked": 6,
+     "acknowledged": 8,
+     "checked": 18,
      "closed": 14,
      "open": 4,
      "received": 18,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 0.54,
+      "n": 8,
+      "p90": 18.44
      },
      "time_to_close": {
       "median": 4.0,
@@ -1964,15 +1964,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 4,
-     "checked": 9,
+     "acknowledged": 17,
+     "checked": 33,
      "closed": 29,
      "open": 4,
      "received": 33,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 4,
-      "p90": null
+      "median": 1.41,
+      "n": 17,
+      "p90": 6.83
      },
      "time_to_close": {
       "median": 3.66,
@@ -1982,15 +1982,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 3,
-     "checked": 9,
+     "acknowledged": 14,
+     "checked": 28,
      "closed": 20,
      "open": 8,
      "received": 28,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 1.63,
+      "n": 14,
+      "p90": 70.39
      },
      "time_to_close": {
       "median": 10.85,
@@ -2001,7 +2001,7 @@
     }
    ],
    "category": "Road Issues Other Than Potholes",
-   "checked": 49,
+   "checked": 135,
    "closed": 103,
    "monthly": [
     {
@@ -2065,7 +2065,7 @@
     },
     {
      "address": "7 Lisa Dr Gloucester MA 01930, United States",
-     "age_days": 993.3,
+     "age_days": 993.4,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2024-01-07T10:09:40-05:00",
      "id": "15839285",
@@ -2092,7 +2092,7 @@
     },
     {
      "address": "9 Cross St Gloucester MA 01930, United States",
-     "age_days": 788.3,
+     "age_days": 788.4,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2024-07-30T11:19:45-04:00",
      "id": "17158269",
@@ -2101,7 +2101,7 @@
     },
     {
      "address": "14 Silva Court Gloucester, Massachusetts, 01930",
-     "age_days": 578.3,
+     "age_days": 578.4,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2025-02-25T10:14:42-05:00",
      "id": "18447182",
@@ -2149,9 +2149,9 @@
    "received": 135,
    "slug": "road-issues-other-than-potholes",
    "time_to_acknowledge": {
-    "median": 1.05,
-    "n": 22,
-    "p90": 5.3
+    "median": 1.03,
+    "n": 69,
+    "p90": 8.58
    },
    "time_to_close": {
     "median": 4.14,
@@ -2160,18 +2160,18 @@
    }
   },
   {
-   "acknowledged": 28,
+   "acknowledged": 94,
    "by_ward": [
     {
-     "acknowledged": 12,
-     "checked": 20,
+     "acknowledged": 38,
+     "checked": 56,
      "closed": 48,
      "open": 8,
      "received": 56,
      "time_to_acknowledge": {
-      "median": 0.86,
-      "n": 12,
-      "p90": 2.58
+      "median": 0.7,
+      "n": 38,
+      "p90": 2.74
      },
      "time_to_close": {
       "median": 2.9,
@@ -2181,15 +2181,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 8,
-     "checked": 12,
+     "acknowledged": 22,
+     "checked": 32,
      "closed": 26,
      "open": 6,
      "received": 32,
      "time_to_acknowledge": {
-      "median": 0.24,
-      "n": 8,
-      "p90": 6.75
+      "median": 0.65,
+      "n": 22,
+      "p90": 6.5
      },
      "time_to_close": {
       "median": 2.18,
@@ -2199,15 +2199,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 5,
-     "checked": 7,
+     "acknowledged": 16,
+     "checked": 21,
      "closed": 17,
      "open": 4,
      "received": 21,
      "time_to_acknowledge": {
-      "median": 1.12,
-      "n": 5,
-      "p90": 2.15
+      "median": 0.35,
+      "n": 16,
+      "p90": 2.07
      },
      "time_to_close": {
       "median": 1.14,
@@ -2217,15 +2217,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 2,
-     "checked": 2,
+     "acknowledged": 9,
+     "checked": 11,
      "closed": 9,
      "open": 2,
      "received": 11,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.86,
+      "n": 9,
+      "p90": 2.32
      },
      "time_to_close": {
       "median": 2.75,
@@ -2235,15 +2235,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 1,
-     "checked": 3,
+     "acknowledged": 9,
+     "checked": 13,
      "closed": 12,
      "open": 1,
      "received": 13,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 0.5,
+      "n": 9,
+      "p90": 1.35
      },
      "time_to_close": {
       "median": 0.96,
@@ -2254,7 +2254,7 @@
     }
    ],
    "category": "Illegal Dumping",
-   "checked": 44,
+   "checked": 133,
    "closed": 112,
    "monthly": [
     {
@@ -2318,7 +2318,7 @@
     },
     {
      "address": "5 Herd'S Hill Gloucester, Massachusetts, 01930",
-     "age_days": 998.1,
+     "age_days": 998.2,
      "category": "Illegal Dumping",
      "created_at": "2024-01-02T14:54:21-05:00",
      "id": "15817360",
@@ -2402,9 +2402,9 @@
    "received": 133,
    "slug": "illegal-dumping",
    "time_to_acknowledge": {
-    "median": 0.82,
-    "n": 28,
-    "p90": 3.17
+    "median": 0.67,
+    "n": 94,
+    "p90": 2.74
    },
    "time_to_close": {
     "median": 2.71,
@@ -2413,18 +2413,18 @@
    }
   },
   {
-   "acknowledged": 33,
+   "acknowledged": 80,
    "by_ward": [
     {
-     "acknowledged": 8,
-     "checked": 14,
+     "acknowledged": 14,
+     "checked": 21,
      "closed": 20,
      "open": 1,
      "received": 21,
      "time_to_acknowledge": {
-      "median": 3.79,
-      "n": 8,
-      "p90": 22.24
+      "median": 2.47,
+      "n": 14,
+      "p90": 17.53
      },
      "time_to_close": {
       "median": 7.37,
@@ -2434,15 +2434,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 18,
-     "checked": 30,
+     "acknowledged": 51,
+     "checked": 68,
      "closed": 68,
      "open": 0,
      "received": 68,
      "time_to_acknowledge": {
-      "median": 0.79,
-      "n": 18,
-      "p90": 17.01
+      "median": 1.41,
+      "n": 51,
+      "p90": 16.98
      },
      "time_to_close": {
       "median": 2.43,
@@ -2452,15 +2452,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 5,
-     "checked": 5,
+     "acknowledged": 10,
+     "checked": 10,
      "closed": 10,
      "open": 0,
      "received": 10,
      "time_to_acknowledge": {
-      "median": 0.11,
-      "n": 5,
-      "p90": 14.26
+      "median": 0.21,
+      "n": 10,
+      "p90": 26.25
      },
      "time_to_close": {
       "median": 20.57,
@@ -2470,14 +2470,14 @@
      "ward": "3"
     },
     {
-     "acknowledged": 2,
-     "checked": 3,
+     "acknowledged": 3,
+     "checked": 4,
      "closed": 4,
      "open": 0,
      "received": 4,
      "time_to_acknowledge": {
       "median": null,
-      "n": 2,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -2488,14 +2488,14 @@
      "ward": "4"
     },
     {
-     "acknowledged": 0,
-     "checked": 1,
+     "acknowledged": 2,
+     "checked": 3,
      "closed": 2,
      "open": 1,
      "received": 3,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -2507,7 +2507,7 @@
     }
    ],
    "category": "Health Department (General Nuisance/Inquiry)",
-   "checked": 53,
+   "checked": 106,
    "closed": 104,
    "monthly": [
     {
@@ -2571,7 +2571,7 @@
     },
     {
      "address": "Shaw'S",
-     "age_days": 0.4,
+     "age_days": 0.5,
      "category": "Health Department (General Nuisance/Inquiry)",
      "created_at": "2026-09-26T08:44:37-04:00",
      "id": "22874475",
@@ -2583,9 +2583,9 @@
    "received": 106,
    "slug": "health-department-general-nuisance-inquiry",
    "time_to_acknowledge": {
-    "median": 0.84,
-    "n": 33,
-    "p90": 18.14
+    "median": 1.38,
+    "n": 80,
+    "p90": 18.03
    },
    "time_to_close": {
     "median": 3.74,
@@ -2594,18 +2594,18 @@
    }
   },
   {
-   "acknowledged": 5,
+   "acknowledged": 30,
    "by_ward": [
     {
-     "acknowledged": 1,
-     "checked": 5,
+     "acknowledged": 9,
+     "checked": 22,
      "closed": 22,
      "open": 0,
      "received": 22,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 0.19,
+      "n": 9,
+      "p90": 1.65
      },
      "time_to_close": {
       "median": 0.5,
@@ -2615,15 +2615,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 2,
-     "checked": 16,
+     "acknowledged": 9,
+     "checked": 41,
      "closed": 39,
      "open": 2,
      "received": 41,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.64,
+      "n": 9,
+      "p90": 1.96
      },
      "time_to_close": {
       "median": 0.75,
@@ -2633,15 +2633,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 0,
-     "checked": 3,
+     "acknowledged": 6,
+     "checked": 15,
      "closed": 14,
      "open": 1,
      "received": 15,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.46,
+      "n": 6,
+      "p90": 0.9
      },
      "time_to_close": {
       "median": 0.65,
@@ -2651,15 +2651,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 2,
-     "checked": 5,
+     "acknowledged": 5,
+     "checked": 11,
      "closed": 11,
      "open": 0,
      "received": 11,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.37,
+      "n": 5,
+      "p90": 1.31
      },
      "time_to_close": {
       "median": 0.48,
@@ -2669,14 +2669,14 @@
      "ward": "4"
     },
     {
-     "acknowledged": 0,
-     "checked": 2,
+     "acknowledged": 1,
+     "checked": 5,
      "closed": 5,
      "open": 0,
      "received": 5,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -2688,7 +2688,7 @@
     }
    ],
    "category": "Police Department (Non-Emergency)",
-   "checked": 31,
+   "checked": 94,
    "closed": 91,
    "monthly": [
     {
@@ -2773,9 +2773,9 @@
    "received": 94,
    "slug": "police-department-non-emergency",
    "time_to_acknowledge": {
-    "median": 1.38,
-    "n": 5,
-    "p90": 1.69
+    "median": 0.37,
+    "n": 30,
+    "p90": 1.61
    },
    "time_to_close": {
     "median": 0.65,
@@ -2784,18 +2784,18 @@
    }
   },
   {
-   "acknowledged": 30,
+   "acknowledged": 71,
    "by_ward": [
     {
-     "acknowledged": 5,
-     "checked": 5,
+     "acknowledged": 17,
+     "checked": 24,
      "closed": 15,
      "open": 9,
      "received": 24,
      "time_to_acknowledge": {
-      "median": 0.01,
-      "n": 5,
-      "p90": 0.81
+      "median": 0.48,
+      "n": 17,
+      "p90": 23.45
      },
      "time_to_close": {
       "median": 30.14,
@@ -2805,15 +2805,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 3,
-     "checked": 4,
+     "acknowledged": 13,
+     "checked": 20,
      "closed": 10,
      "open": 10,
      "received": 20,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 1.73,
+      "n": 13,
+      "p90": 20.03
      },
      "time_to_close": {
       "median": 36.03,
@@ -2823,15 +2823,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 7,
-     "checked": 7,
+     "acknowledged": 10,
+     "checked": 12,
      "closed": 7,
      "open": 5,
      "received": 12,
      "time_to_acknowledge": {
-      "median": 0.56,
-      "n": 7,
-      "p90": 1.66
+      "median": 0.73,
+      "n": 10,
+      "p90": 41.36
      },
      "time_to_close": {
       "median": 8.69,
@@ -2841,15 +2841,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 9,
-     "checked": 10,
+     "acknowledged": 18,
+     "checked": 23,
      "closed": 16,
      "open": 7,
      "received": 23,
      "time_to_acknowledge": {
-      "median": 0.32,
-      "n": 9,
-      "p90": 1.23
+      "median": 0.66,
+      "n": 18,
+      "p90": 5.26
      },
      "time_to_close": {
       "median": 30.32,
@@ -2859,15 +2859,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 6,
-     "checked": 6,
+     "acknowledged": 13,
+     "checked": 13,
      "closed": 7,
      "open": 6,
      "received": 13,
      "time_to_acknowledge": {
-      "median": 0.03,
-      "n": 6,
-      "p90": 1.27
+      "median": 0.72,
+      "n": 13,
+      "p90": 18.03
      },
      "time_to_close": {
       "median": 5.86,
@@ -2878,7 +2878,7 @@
     }
    ],
    "category": "Street Light Issue",
-   "checked": 32,
+   "checked": 92,
    "closed": 55,
    "monthly": [
     {
@@ -3026,9 +3026,9 @@
    "received": 92,
    "slug": "street-light-issue",
    "time_to_acknowledge": {
-    "median": 0.43,
-    "n": 30,
-    "p90": 1.88
+    "median": 0.72,
+    "n": 71,
+    "p90": 20.49
    },
    "time_to_close": {
     "median": 28.51,
@@ -3037,18 +3037,18 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 60,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 18,
+     "checked": 25,
      "closed": 22,
      "open": 3,
      "received": 25,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.03,
+      "n": 18,
+      "p90": 0.1
      },
      "time_to_close": {
       "median": 1.38,
@@ -3058,15 +3058,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 10,
+     "checked": 20,
      "closed": 15,
      "open": 5,
      "received": 20,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.2,
+      "n": 10,
+      "p90": 0.68
      },
      "time_to_close": {
       "median": 1.96,
@@ -3076,15 +3076,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 17,
+     "checked": 21,
      "closed": 19,
      "open": 2,
      "received": 21,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.15,
+      "n": 17,
+      "p90": 1.37
      },
      "time_to_close": {
       "median": 1.97,
@@ -3094,15 +3094,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 12,
+     "checked": 14,
      "closed": 14,
      "open": 0,
      "received": 14,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.08,
+      "n": 12,
+      "p90": 0.77
      },
      "time_to_close": {
       "median": 1.95,
@@ -3112,14 +3112,14 @@
      "ward": "4"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 3,
+     "checked": 5,
      "closed": 4,
      "open": 1,
      "received": 5,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -3131,7 +3131,7 @@
     }
    ],
    "category": "Snow: Plow Request",
-   "checked": 0,
+   "checked": 85,
    "closed": 74,
    "monthly": [
     {
@@ -3222,7 +3222,7 @@
     },
     {
      "address": "180 Atlantic St Gloucester, MA, 01930, USA",
-     "age_days": 236.1,
+     "age_days": 236.2,
      "category": "Snow: Plow Request",
      "created_at": "2026-02-02T14:58:57-05:00",
      "id": "20928103",
@@ -3258,7 +3258,7 @@
     },
     {
      "address": "1-7 Willow St Gloucester, Massachusetts, 01930",
-     "age_days": 214.2,
+     "age_days": 214.3,
      "category": "Snow: Plow Request",
      "created_at": "2026-02-24T12:34:25-05:00",
      "id": "21080764",
@@ -3279,9 +3279,9 @@
    "received": 85,
    "slug": "snow-plow-request",
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.06,
+    "n": 60,
+    "p90": 1.13
    },
    "time_to_close": {
     "median": 1.91,
@@ -3290,17 +3290,17 @@
    }
   },
   {
-   "acknowledged": 8,
+   "acknowledged": 33,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 2,
+     "acknowledged": 4,
+     "checked": 14,
      "closed": 8,
      "open": 6,
      "received": 14,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 4,
       "p90": null
      },
      "time_to_close": {
@@ -3311,15 +3311,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 3,
-     "checked": 12,
+     "acknowledged": 9,
+     "checked": 26,
      "closed": 14,
      "open": 12,
      "received": 26,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.92,
+      "n": 9,
+      "p90": 4.14
      },
      "time_to_close": {
       "median": 6.32,
@@ -3329,15 +3329,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 1,
-     "checked": 5,
+     "acknowledged": 9,
+     "checked": 26,
      "closed": 14,
      "open": 12,
      "received": 26,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 0.62,
+      "n": 9,
+      "p90": 3.54
      },
      "time_to_close": {
       "median": 1.91,
@@ -3347,15 +3347,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 2,
-     "checked": 5,
+     "acknowledged": 6,
+     "checked": 11,
      "closed": 8,
      "open": 3,
      "received": 11,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.03,
+      "n": 6,
+      "p90": 1.04
      },
      "time_to_close": {
       "median": 1.93,
@@ -3365,15 +3365,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 2,
-     "checked": 4,
+     "acknowledged": 5,
+     "checked": 7,
      "closed": 5,
      "open": 2,
      "received": 7,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.53,
+      "n": 5,
+      "p90": 3.2
      },
      "time_to_close": {
       "median": 0.94,
@@ -3384,7 +3384,7 @@
     }
    ],
    "category": "Sidewalk Issue",
-   "checked": 28,
+   "checked": 84,
    "closed": 49,
    "monthly": [
     {
@@ -3502,7 +3502,7 @@
     },
     {
      "address": "1085 Washington St Gloucester MA 01930, United States",
-     "age_days": 1191.1,
+     "age_days": 1191.2,
      "category": "Sidewalk Issue",
      "created_at": "2023-06-23T15:59:36-04:00",
      "id": "14763401",
@@ -3511,7 +3511,7 @@
     },
     {
      "address": "5 Myrtle Square Gloucester, Massachusetts, 01930",
-     "age_days": 1157.2,
+     "age_days": 1157.3,
      "category": "Sidewalk Issue",
      "created_at": "2023-07-27T13:30:44-04:00",
      "id": "14973448",
@@ -3532,9 +3532,9 @@
    "received": 84,
    "slug": "sidewalk-issue",
    "time_to_acknowledge": {
-    "median": 0.13,
-    "n": 8,
-    "p90": 3.7
+    "median": 0.56,
+    "n": 33,
+    "p90": 3.77
    },
    "time_to_close": {
     "median": 2.52,
@@ -3543,18 +3543,18 @@
    }
   },
   {
-   "acknowledged": 22,
+   "acknowledged": 42,
    "by_ward": [
     {
-     "acknowledged": 6,
-     "checked": 8,
+     "acknowledged": 11,
+     "checked": 16,
      "closed": 10,
      "open": 6,
      "received": 16,
      "time_to_acknowledge": {
-      "median": 1.01,
-      "n": 6,
-      "p90": 3.2
+      "median": 0.63,
+      "n": 11,
+      "p90": 2.7
      },
      "time_to_close": {
       "median": 3.35,
@@ -3564,15 +3564,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 6,
-     "checked": 12,
+     "acknowledged": 11,
+     "checked": 24,
      "closed": 11,
      "open": 13,
      "received": 24,
      "time_to_acknowledge": {
-      "median": 0.72,
-      "n": 6,
-      "p90": 2.76
+      "median": 0.58,
+      "n": 11,
+      "p90": 2.74
      },
      "time_to_close": {
       "median": 5.12,
@@ -3582,15 +3582,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 2,
-     "checked": 3,
+     "acknowledged": 7,
+     "checked": 11,
      "closed": 4,
      "open": 7,
      "received": 11,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.12,
+      "n": 7,
+      "p90": 2.15
      },
      "time_to_close": {
       "median": null,
@@ -3600,15 +3600,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 5,
-     "checked": 7,
+     "acknowledged": 8,
+     "checked": 17,
      "closed": 13,
      "open": 4,
      "received": 17,
      "time_to_acknowledge": {
-      "median": 0.64,
-      "n": 5,
-      "p90": 1.32
+      "median": 0.58,
+      "n": 8,
+      "p90": 1.0
      },
      "time_to_close": {
       "median": 1.55,
@@ -3618,15 +3618,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 3,
-     "checked": 5,
+     "acknowledged": 5,
+     "checked": 8,
      "closed": 6,
      "open": 2,
      "received": 8,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.52,
+      "n": 5,
+      "p90": 1.23
      },
      "time_to_close": {
       "median": 2.26,
@@ -3637,7 +3637,7 @@
     }
    ],
    "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
-   "checked": 35,
+   "checked": 76,
    "closed": 44,
    "monthly": [
     {
@@ -3746,7 +3746,7 @@
     },
     {
      "address": "12-98 Griffin Ct Gloucester, MA, 01930, USA",
-     "age_days": 858.4,
+     "age_days": 858.5,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2024-05-21T08:52:23-04:00",
      "id": "16661135",
@@ -3755,7 +3755,7 @@
     },
     {
      "address": "34 Blynman Avenue Gloucester, MA, 01930, USA",
-     "age_days": 851.3,
+     "age_days": 851.4,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2024-05-28T11:15:58-04:00",
      "id": "16707438",
@@ -3764,7 +3764,7 @@
     },
     {
      "address": "Eastern Point Rd & Ledge Ln Gloucester, MA, 01930, USA",
-     "age_days": 822.0,
+     "age_days": 822.1,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2024-06-26T18:31:56-04:00",
      "id": "16924212",
@@ -3785,9 +3785,9 @@
    "received": 76,
    "slug": "public-spaces-parks-playgrounds-boulevard",
    "time_to_acknowledge": {
-    "median": 0.61,
-    "n": 22,
-    "p90": 2.6
+    "median": 0.56,
+    "n": 42,
+    "p90": 2.61
    },
    "time_to_close": {
     "median": 2.52,
@@ -3796,18 +3796,18 @@
    }
   },
   {
-   "acknowledged": 16,
+   "acknowledged": 47,
    "by_ward": [
     {
-     "acknowledged": 3,
-     "checked": 4,
+     "acknowledged": 6,
+     "checked": 9,
      "closed": 8,
      "open": 1,
      "received": 9,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.57,
+      "n": 6,
+      "p90": 2.85
      },
      "time_to_close": {
       "median": 1.19,
@@ -3817,14 +3817,14 @@
      "ward": "1"
     },
     {
-     "acknowledged": 0,
-     "checked": 1,
+     "acknowledged": 2,
+     "checked": 5,
      "closed": 2,
      "open": 3,
      "received": 5,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -3835,15 +3835,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 2,
-     "checked": 4,
+     "acknowledged": 5,
+     "checked": 7,
      "closed": 7,
      "open": 0,
      "received": 7,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.77,
+      "n": 5,
+      "p90": 3.47
      },
      "time_to_close": {
       "median": 4.83,
@@ -3853,15 +3853,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 6,
-     "checked": 8,
+     "acknowledged": 12,
+     "checked": 15,
      "closed": 15,
      "open": 0,
      "received": 15,
      "time_to_acknowledge": {
-      "median": 0.52,
-      "n": 6,
-      "p90": 2.25
+      "median": 0.25,
+      "n": 12,
+      "p90": 1.71
      },
      "time_to_close": {
       "median": 3.71,
@@ -3871,15 +3871,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 5,
-     "checked": 13,
+     "acknowledged": 22,
+     "checked": 34,
      "closed": 24,
      "open": 10,
      "received": 34,
      "time_to_acknowledge": {
-      "median": 0.51,
-      "n": 5,
-      "p90": 1.82
+      "median": 0.69,
+      "n": 22,
+      "p90": 1.94
      },
      "time_to_close": {
       "median": 5.75,
@@ -3890,7 +3890,7 @@
     }
    ],
    "category": "Utilities (Water/Sewer)",
-   "checked": 30,
+   "checked": 70,
    "closed": 56,
    "monthly": [
     {
@@ -3981,7 +3981,7 @@
     },
     {
      "address": "218 Main St Gloucester, Massachusetts, 01930",
-     "age_days": 270.3,
+     "age_days": 270.4,
      "category": "Utilities (Water/Sewer)",
      "created_at": "2025-12-30T10:09:23-05:00",
      "id": "20693637",
@@ -4038,9 +4038,9 @@
    "received": 70,
    "slug": "utilities-water-sewer",
    "time_to_acknowledge": {
-    "median": 0.49,
-    "n": 16,
-    "p90": 2.79
+    "median": 0.64,
+    "n": 47,
+    "p90": 3.07
    },
    "time_to_close": {
     "median": 4.83,
@@ -4049,18 +4049,18 @@
    }
   },
   {
-   "acknowledged": 11,
+   "acknowledged": 47,
    "by_ward": [
     {
-     "acknowledged": 8,
-     "checked": 8,
+     "acknowledged": 32,
+     "checked": 36,
      "closed": 28,
      "open": 8,
      "received": 36,
      "time_to_acknowledge": {
-      "median": 0.51,
-      "n": 8,
-      "p90": 1.91
+      "median": 0.8,
+      "n": 32,
+      "p90": 3.75
      },
      "time_to_close": {
       "median": 17.46,
@@ -4070,14 +4070,14 @@
      "ward": "1"
     },
     {
-     "acknowledged": 1,
-     "checked": 2,
+     "acknowledged": 3,
+     "checked": 6,
      "closed": 4,
      "open": 2,
      "received": 6,
      "time_to_acknowledge": {
       "median": null,
-      "n": 1,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -4089,7 +4089,7 @@
     },
     {
      "acknowledged": 0,
-     "checked": 0,
+     "checked": 2,
      "closed": 2,
      "open": 0,
      "received": 2,
@@ -4106,15 +4106,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 2,
-     "checked": 3,
+     "acknowledged": 8,
+     "checked": 11,
      "closed": 9,
      "open": 2,
      "received": 11,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.2,
+      "n": 8,
+      "p90": 0.95
      },
      "time_to_close": {
       "median": 7.85,
@@ -4124,14 +4124,14 @@
      "ward": "4"
     },
     {
-     "acknowledged": 0,
-     "checked": 2,
+     "acknowledged": 4,
+     "checked": 10,
      "closed": 7,
      "open": 3,
      "received": 10,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 4,
       "p90": null
      },
      "time_to_close": {
@@ -4143,7 +4143,7 @@
     }
    ],
    "category": "Manhole Cover",
-   "checked": 15,
+   "checked": 65,
    "closed": 50,
    "monthly": [
     {
@@ -4252,7 +4252,7 @@
     },
     {
      "address": "Mile 0.4 State Rte 127 S Gloucester, MA, 01930, USA",
-     "age_days": 199.3,
+     "age_days": 199.4,
      "category": "Manhole Cover",
      "created_at": "2026-03-11T11:07:54-04:00",
      "id": "21200052",
@@ -4291,9 +4291,9 @@
    "received": 65,
    "slug": "manhole-cover",
    "time_to_acknowledge": {
-    "median": 0.61,
-    "n": 11,
-    "p90": 1.15
+    "median": 0.71,
+    "n": 47,
+    "p90": 3.64
    },
    "time_to_close": {
     "median": 7.81,
@@ -4302,18 +4302,18 @@
    }
   },
   {
-   "acknowledged": 16,
+   "acknowledged": 41,
    "by_ward": [
     {
-     "acknowledged": 8,
-     "checked": 11,
+     "acknowledged": 13,
+     "checked": 19,
      "closed": 14,
      "open": 5,
      "received": 19,
      "time_to_acknowledge": {
-      "median": 0.33,
-      "n": 8,
-      "p90": 2.13
+      "median": 0.51,
+      "n": 13,
+      "p90": 1.71
      },
      "time_to_close": {
       "median": 2.32,
@@ -4323,15 +4323,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 2,
-     "checked": 5,
+     "acknowledged": 8,
+     "checked": 12,
      "closed": 8,
      "open": 4,
      "received": 12,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.5,
+      "n": 8,
+      "p90": 1.82
      },
      "time_to_close": {
       "median": 7.21,
@@ -4341,14 +4341,14 @@
      "ward": "2"
     },
     {
-     "acknowledged": 0,
-     "checked": 2,
+     "acknowledged": 4,
+     "checked": 8,
      "closed": 6,
      "open": 2,
      "received": 8,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 4,
       "p90": null
      },
      "time_to_close": {
@@ -4359,15 +4359,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 4,
-     "checked": 5,
+     "acknowledged": 7,
+     "checked": 9,
      "closed": 6,
      "open": 3,
      "received": 9,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 4,
-      "p90": null
+      "median": 0.72,
+      "n": 7,
+      "p90": 5.53
      },
      "time_to_close": {
       "median": 1.62,
@@ -4377,15 +4377,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 2,
-     "checked": 2,
+     "acknowledged": 9,
+     "checked": 11,
      "closed": 7,
      "open": 4,
      "received": 11,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.86,
+      "n": 9,
+      "p90": 2.22
      },
      "time_to_close": {
       "median": 2.08,
@@ -4396,7 +4396,7 @@
     }
    ],
    "category": "Street Sign Issue",
-   "checked": 25,
+   "checked": 59,
    "closed": 41,
    "monthly": [
     {
@@ -4544,9 +4544,9 @@
    "received": 59,
    "slug": "street-sign-issue",
    "time_to_acknowledge": {
-    "median": 0.62,
-    "n": 16,
-    "p90": 2.74
+    "median": 0.56,
+    "n": 41,
+    "p90": 2.66
    },
    "time_to_close": {
     "median": 2.13,
@@ -4555,17 +4555,17 @@
    }
   },
   {
-   "acknowledged": 5,
+   "acknowledged": 14,
    "by_ward": [
     {
-     "acknowledged": 2,
-     "checked": 3,
+     "acknowledged": 3,
+     "checked": 11,
      "closed": 11,
      "open": 0,
      "received": 11,
      "time_to_acknowledge": {
       "median": null,
-      "n": 2,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -4576,14 +4576,14 @@
      "ward": "1"
     },
     {
-     "acknowledged": 2,
-     "checked": 10,
+     "acknowledged": 4,
+     "checked": 19,
      "closed": 13,
      "open": 6,
      "received": 19,
      "time_to_acknowledge": {
       "median": null,
-      "n": 2,
+      "n": 4,
       "p90": null
      },
      "time_to_close": {
@@ -4594,14 +4594,14 @@
      "ward": "2"
     },
     {
-     "acknowledged": 0,
-     "checked": 6,
+     "acknowledged": 3,
+     "checked": 11,
      "closed": 9,
      "open": 2,
      "received": 11,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -4612,14 +4612,14 @@
      "ward": "3"
     },
     {
-     "acknowledged": 1,
-     "checked": 4,
+     "acknowledged": 2,
+     "checked": 7,
      "closed": 4,
      "open": 3,
      "received": 7,
      "time_to_acknowledge": {
       "median": null,
-      "n": 1,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -4630,14 +4630,14 @@
      "ward": "4"
     },
     {
-     "acknowledged": 0,
-     "checked": 1,
+     "acknowledged": 2,
+     "checked": 3,
      "closed": 3,
      "open": 0,
      "received": 3,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -4649,7 +4649,7 @@
     }
    ],
    "category": "Abandoned Vehicle",
-   "checked": 24,
+   "checked": 51,
    "closed": 40,
    "monthly": [
     {
@@ -4758,7 +4758,7 @@
     },
     {
      "address": "5 Proctor St Gloucester, MA, 01930, USA",
-     "age_days": 66.4,
+     "age_days": 66.5,
      "category": "Abandoned Vehicle",
      "created_at": "2026-07-22T08:54:22-04:00",
      "id": "22305039",
@@ -4767,7 +4767,7 @@
     },
     {
      "address": "5 Proctor St Gloucester, MA, 01930, USA",
-     "age_days": 66.4,
+     "age_days": 66.5,
      "category": "Abandoned Vehicle",
      "created_at": "2026-07-22T08:54:33-04:00",
      "id": "22305040",
@@ -4797,9 +4797,9 @@
    "received": 51,
    "slug": "abandoned-vehicle",
    "time_to_acknowledge": {
-    "median": 1.19,
-    "n": 5,
-    "p90": 2.43
+    "median": 0.57,
+    "n": 14,
+    "p90": 2.61
    },
    "time_to_close": {
     "median": 0.72,
@@ -4808,18 +4808,18 @@
    }
   },
   {
-   "acknowledged": 14,
+   "acknowledged": 29,
    "by_ward": [
     {
-     "acknowledged": 2,
-     "checked": 7,
+     "acknowledged": 5,
+     "checked": 11,
      "closed": 11,
      "open": 0,
      "received": 11,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.82,
+      "n": 5,
+      "p90": 3.26
      },
      "time_to_close": {
       "median": 2.08,
@@ -4829,15 +4829,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 3,
-     "checked": 3,
+     "acknowledged": 5,
+     "checked": 5,
      "closed": 4,
      "open": 1,
      "received": 5,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.13,
+      "n": 5,
+      "p90": 20.66
      },
      "time_to_close": {
       "median": null,
@@ -4847,15 +4847,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 2,
-     "checked": 2,
+     "acknowledged": 5,
+     "checked": 7,
      "closed": 6,
      "open": 1,
      "received": 7,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.96,
+      "n": 5,
+      "p90": 3.15
      },
      "time_to_close": {
       "median": 1.59,
@@ -4865,15 +4865,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 4,
-     "checked": 10,
+     "acknowledged": 9,
+     "checked": 17,
      "closed": 14,
      "open": 3,
      "received": 17,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 4,
-      "p90": null
+      "median": 0.72,
+      "n": 9,
+      "p90": 7.05
      },
      "time_to_close": {
       "median": 0.97,
@@ -4883,15 +4883,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 3,
-     "checked": 5,
+     "acknowledged": 5,
+     "checked": 10,
      "closed": 5,
      "open": 5,
      "received": 10,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.05,
+      "n": 5,
+      "p90": 0.75
      },
      "time_to_close": {
       "median": 2.56,
@@ -4902,7 +4902,7 @@
     }
    ],
    "category": "Brush",
-   "checked": 27,
+   "checked": 50,
    "closed": 40,
    "monthly": [
     {
@@ -5029,7 +5029,7 @@
     },
     {
      "address": "Mile 25.3 State Rte 127 N Gloucester, Massachusetts, 01930",
-     "age_days": 486.4,
+     "age_days": 486.5,
      "category": "Brush",
      "created_at": "2025-05-28T08:43:57-04:00",
      "id": "19098683",
@@ -5050,9 +5050,9 @@
    "received": 50,
    "slug": "brush",
    "time_to_acknowledge": {
-    "median": 0.51,
-    "n": 14,
-    "p90": 4.14
+    "median": 0.63,
+    "n": 29,
+    "p90": 5.66
    },
    "time_to_close": {
     "median": 1.84,
@@ -5061,17 +5061,17 @@
    }
   },
   {
-   "acknowledged": 9,
+   "acknowledged": 22,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 1,
+     "acknowledged": 3,
+     "checked": 4,
      "closed": 1,
      "open": 3,
      "received": 4,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -5100,14 +5100,14 @@
      "ward": "2"
     },
     {
-     "acknowledged": 1,
-     "checked": 4,
+     "acknowledged": 4,
+     "checked": 8,
      "closed": 4,
      "open": 4,
      "received": 8,
      "time_to_acknowledge": {
       "median": null,
-      "n": 1,
+      "n": 4,
       "p90": null
      },
      "time_to_close": {
@@ -5118,15 +5118,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 2,
-     "checked": 6,
+     "acknowledged": 6,
+     "checked": 15,
      "closed": 11,
      "open": 4,
      "received": 15,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.19,
+      "n": 6,
+      "p90": 0.6
      },
      "time_to_close": {
       "median": 1.94,
@@ -5136,15 +5136,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 3,
-     "checked": 10,
+     "acknowledged": 6,
+     "checked": 18,
      "closed": 6,
      "open": 12,
      "received": 18,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.76,
+      "n": 6,
+      "p90": 3.97
      },
      "time_to_close": {
       "median": 8.41,
@@ -5155,7 +5155,7 @@
     }
    ],
    "category": "Tree Issues",
-   "checked": 26,
+   "checked": 50,
    "closed": 24,
    "monthly": [
     {
@@ -5246,7 +5246,7 @@
     },
     {
      "address": "363 Concord St Gloucester MA 01930, United States",
-     "age_days": 781.0,
+     "age_days": 781.1,
      "category": "Tree Issues",
      "created_at": "2024-08-06T18:24:40-04:00",
      "id": "17219124",
@@ -5273,7 +5273,7 @@
     },
     {
      "address": "139 Western Avenue Gloucester, Massachusetts, 01930",
-     "age_days": 451.3,
+     "age_days": 451.4,
      "category": "Tree Issues",
      "created_at": "2025-07-02T11:06:45-04:00",
      "id": "19393498",
@@ -5303,9 +5303,9 @@
    "received": 50,
    "slug": "tree-issues",
    "time_to_acknowledge": {
-    "median": 0.71,
-    "n": 9,
-    "p90": 3.34
+    "median": 0.65,
+    "n": 22,
+    "p90": 1.97
    },
    "time_to_close": {
     "median": 2.6,
@@ -5314,18 +5314,18 @@
    }
   },
   {
-   "acknowledged": 13,
+   "acknowledged": 23,
    "by_ward": [
     {
-     "acknowledged": 10,
-     "checked": 19,
+     "acknowledged": 16,
+     "checked": 27,
      "closed": 23,
      "open": 4,
      "received": 27,
      "time_to_acknowledge": {
-      "median": 0.37,
-      "n": 10,
-      "p90": 1.01
+      "median": 0.55,
+      "n": 16,
+      "p90": 1.03
      },
      "time_to_close": {
       "median": 1.99,
@@ -5353,14 +5353,14 @@
      "ward": "2"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 1,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -5371,14 +5371,14 @@
      "ward": "3"
     },
     {
-     "acknowledged": 1,
-     "checked": 4,
+     "acknowledged": 4,
+     "checked": 8,
      "closed": 4,
      "open": 4,
      "received": 8,
      "time_to_acknowledge": {
       "median": null,
-      "n": 1,
+      "n": 4,
       "p90": null
      },
      "time_to_close": {
@@ -5408,7 +5408,7 @@
     }
    ],
    "category": "Beaches",
-   "checked": 28,
+   "checked": 41,
    "closed": 31,
    "monthly": [
     {
@@ -5557,8 +5557,8 @@
    "slug": "beaches",
    "time_to_acknowledge": {
     "median": 0.62,
-    "n": 13,
-    "p90": 1.05
+    "n": 23,
+    "p90": 1.86
    },
    "time_to_close": {
     "median": 1.99,
@@ -5567,18 +5567,18 @@
    }
   },
   {
-   "acknowledged": 9,
+   "acknowledged": 34,
    "by_ward": [
     {
-     "acknowledged": 2,
-     "checked": 2,
+     "acknowledged": 8,
+     "checked": 8,
      "closed": 8,
      "open": 0,
      "received": 8,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.73,
+      "n": 8,
+      "p90": 1.99
      },
      "time_to_close": {
       "median": 1.08,
@@ -5588,15 +5588,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 1,
-     "checked": 5,
+     "acknowledged": 8,
+     "checked": 12,
      "closed": 12,
      "open": 0,
      "received": 12,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 1.14,
+      "n": 8,
+      "p90": 5.8
      },
      "time_to_close": {
       "median": 1.56,
@@ -5606,15 +5606,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 3,
-     "checked": 3,
+     "acknowledged": 8,
+     "checked": 8,
      "closed": 8,
      "open": 0,
      "received": 8,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.07,
+      "n": 8,
+      "p90": 1.02
      },
      "time_to_close": {
       "median": 1.03,
@@ -5624,14 +5624,14 @@
      "ward": "3"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 1,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -5642,15 +5642,15 @@
      "ward": "4"
     },
     {
-     "acknowledged": 3,
-     "checked": 5,
+     "acknowledged": 9,
+     "checked": 12,
      "closed": 10,
      "open": 2,
      "received": 12,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.53,
+      "n": 9,
+      "p90": 1.17
      },
      "time_to_close": {
       "median": 1.03,
@@ -5661,7 +5661,7 @@
     }
    ],
    "category": "Clean Team/Volunteer Yellow Bag Pick Up",
-   "checked": 15,
+   "checked": 41,
    "closed": 39,
    "monthly": [
     {
@@ -5716,7 +5716,7 @@
    "oldest": [
     {
      "address": "136 Western Ave Gloucester, MA, 01930, USA",
-     "age_days": 196.8,
+     "age_days": 196.9,
      "category": "Clean Team/Volunteer Yellow Bag Pick Up",
      "created_at": "2026-03-13T23:19:13-04:00",
      "id": "21225895",
@@ -5737,9 +5737,9 @@
    "received": 41,
    "slug": "clean-team-volunteer-yellow-bag-pick-up",
    "time_to_acknowledge": {
-    "median": 0.53,
-    "n": 9,
-    "p90": 1.1
+    "median": 0.7,
+    "n": 34,
+    "p90": 2.1
    },
    "time_to_close": {
     "median": 1.11,
@@ -5748,11 +5748,11 @@
    }
   },
   {
-   "acknowledged": 8,
+   "acknowledged": 15,
    "by_ward": [
     {
      "acknowledged": 2,
-     "checked": 2,
+     "checked": 4,
      "closed": 4,
      "open": 0,
      "received": 4,
@@ -5769,15 +5769,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 2,
-     "checked": 4,
+     "acknowledged": 5,
+     "checked": 9,
      "closed": 9,
      "open": 0,
      "received": 9,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.92,
+      "n": 5,
+      "p90": 4.06
      },
      "time_to_close": {
       "median": 1.67,
@@ -5787,15 +5787,15 @@
      "ward": "2"
     },
     {
-     "acknowledged": 2,
-     "checked": 5,
+     "acknowledged": 5,
+     "checked": 11,
      "closed": 11,
      "open": 0,
      "received": 11,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.96,
+      "n": 5,
+      "p90": 2.59
      },
      "time_to_close": {
       "median": 0.96,
@@ -5823,14 +5823,14 @@
      "ward": "4"
     },
     {
-     "acknowledged": 0,
-     "checked": 3,
+     "acknowledged": 1,
+     "checked": 9,
      "closed": 9,
      "open": 0,
      "received": 9,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -5842,7 +5842,7 @@
     }
    ],
    "category": "Animal Issues",
-   "checked": 18,
+   "checked": 37,
    "closed": 37,
    "monthly": [
     {
@@ -5899,9 +5899,9 @@
    "received": 37,
    "slug": "animal-issues",
    "time_to_acknowledge": {
-    "median": 0.72,
-    "n": 8,
-    "p90": 3.07
+    "median": 0.92,
+    "n": 15,
+    "p90": 2.6
    },
    "time_to_close": {
     "median": 1.55,
@@ -5910,11 +5910,11 @@
    }
   },
   {
-   "acknowledged": 8,
+   "acknowledged": 16,
    "by_ward": [
     {
      "acknowledged": 3,
-     "checked": 4,
+     "checked": 7,
      "closed": 1,
      "open": 6,
      "received": 7,
@@ -5931,15 +5931,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 1,
-     "checked": 4,
+     "acknowledged": 6,
+     "checked": 12,
      "closed": 10,
      "open": 2,
      "received": 12,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 0.06,
+      "n": 6,
+      "p90": 0.66
      },
      "time_to_close": {
       "median": 0.92,
@@ -5950,7 +5950,7 @@
     },
     {
      "acknowledged": 2,
-     "checked": 5,
+     "checked": 7,
      "closed": 1,
      "open": 6,
      "received": 7,
@@ -5967,14 +5967,14 @@
      "ward": "3"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 2,
+     "checked": 4,
      "closed": 3,
      "open": 1,
      "received": 4,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -5985,14 +5985,14 @@
      "ward": "4"
     },
     {
-     "acknowledged": 2,
-     "checked": 2,
+     "acknowledged": 3,
+     "checked": 3,
      "closed": 2,
      "open": 1,
      "received": 3,
      "time_to_acknowledge": {
       "median": null,
-      "n": 2,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -6004,7 +6004,7 @@
     }
    ],
    "category": "Crosswalks",
-   "checked": 15,
+   "checked": 33,
    "closed": 17,
    "monthly": [
     {
@@ -6131,7 +6131,7 @@
     },
     {
      "address": "Ma-128 & E Main St Gloucester, MA, 01930, USA",
-     "age_days": 201.4,
+     "age_days": 201.5,
      "category": "Crosswalks",
      "created_at": "2026-03-09T08:48:26-04:00",
      "id": "21177726",
@@ -6152,9 +6152,9 @@
    "received": 33,
    "slug": "crosswalks",
    "time_to_acknowledge": {
-    "median": 2.12,
-    "n": 8,
-    "p90": 2.77
+    "median": 0.6,
+    "n": 16,
+    "p90": 2.64
    },
    "time_to_close": {
     "median": 2.96,
@@ -6163,17 +6163,17 @@
    }
   },
   {
-   "acknowledged": 1,
+   "acknowledged": 4,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 4,
+     "acknowledged": 1,
+     "checked": 8,
      "closed": 1,
      "open": 7,
      "received": 8,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -6185,7 +6185,7 @@
     },
     {
      "acknowledged": 1,
-     "checked": 2,
+     "checked": 4,
      "closed": 1,
      "open": 3,
      "received": 4,
@@ -6203,7 +6203,7 @@
     },
     {
      "acknowledged": 0,
-     "checked": 3,
+     "checked": 6,
      "closed": 3,
      "open": 3,
      "received": 6,
@@ -6220,14 +6220,14 @@
      "ward": "3"
     },
     {
-     "acknowledged": 0,
-     "checked": 1,
+     "acknowledged": 2,
+     "checked": 4,
      "closed": 1,
      "open": 3,
      "received": 4,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -6239,7 +6239,7 @@
     },
     {
      "acknowledged": 0,
-     "checked": 1,
+     "checked": 4,
      "closed": 1,
      "open": 3,
      "received": 4,
@@ -6257,7 +6257,7 @@
     }
    ],
    "category": "Private Property Issue",
-   "checked": 11,
+   "checked": 26,
    "closed": 7,
    "monthly": [
     {
@@ -6339,7 +6339,7 @@
     },
     {
      "address": "8 Orchard Road Gloucester, Massachusetts, 01930",
-     "age_days": 1328.1,
+     "age_days": 1328.2,
      "category": "Private Property Issue",
      "created_at": "2023-02-06T14:56:00-05:00",
      "id": "14037151",
@@ -6384,7 +6384,7 @@
     },
     {
      "address": "35 Mt Pleasant Ave Gloucester MA 01930, United States",
-     "age_days": 813.3,
+     "age_days": 813.4,
      "category": "Private Property Issue",
      "created_at": "2024-07-05T11:16:22-04:00",
      "id": "16979934",
@@ -6406,7 +6406,7 @@
    "slug": "private-property-issue",
    "time_to_acknowledge": {
     "median": null,
-    "n": 1,
+    "n": 4,
     "p90": null
    },
    "time_to_close": {
@@ -6416,17 +6416,17 @@
    }
   },
   {
-   "acknowledged": 5,
+   "acknowledged": 16,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 1,
+     "acknowledged": 3,
+     "checked": 6,
      "closed": 5,
      "open": 1,
      "received": 6,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -6437,14 +6437,14 @@
      "ward": "1"
     },
     {
-     "acknowledged": 1,
-     "checked": 1,
+     "acknowledged": 2,
+     "checked": 3,
      "closed": 3,
      "open": 0,
      "received": 3,
      "time_to_acknowledge": {
       "median": null,
-      "n": 1,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -6455,14 +6455,14 @@
      "ward": "2"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 2,
+     "checked": 2,
      "closed": 1,
      "open": 1,
      "received": 2,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -6473,15 +6473,15 @@
      "ward": "3"
     },
     {
-     "acknowledged": 1,
-     "checked": 2,
+     "acknowledged": 6,
+     "checked": 9,
      "closed": 8,
      "open": 1,
      "received": 9,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 0.61,
+      "n": 6,
+      "p90": 4.8
      },
      "time_to_close": {
       "median": 10.07,
@@ -6492,7 +6492,7 @@
     },
     {
      "acknowledged": 3,
-     "checked": 5,
+     "checked": 6,
      "closed": 5,
      "open": 1,
      "received": 6,
@@ -6510,7 +6510,7 @@
     }
    ],
    "category": "Storm Drain/Flooding Issue",
-   "checked": 9,
+   "checked": 26,
    "closed": 22,
    "monthly": [
     {
@@ -6658,9 +6658,9 @@
    "received": 26,
    "slug": "storm-drain-flooding-issue",
    "time_to_acknowledge": {
-    "median": 0.82,
-    "n": 5,
-    "p90": 2.87
+    "median": 0.71,
+    "n": 16,
+    "p90": 3.48
    },
    "time_to_close": {
     "median": 7.7,
@@ -6669,17 +6669,17 @@
    }
   },
   {
-   "acknowledged": 2,
+   "acknowledged": 6,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 1,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -6690,15 +6690,15 @@
      "ward": "1"
     },
     {
-     "acknowledged": 2,
-     "checked": 8,
+     "acknowledged": 5,
+     "checked": 18,
      "closed": 6,
      "open": 12,
      "received": 18,
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 1.03,
+      "n": 5,
+      "p90": 2.38
      },
      "time_to_close": {
       "median": 2.21,
@@ -6709,7 +6709,7 @@
     }
    ],
    "category": "Parking Kiosk",
-   "checked": 8,
+   "checked": 19,
    "closed": 7,
    "monthly": [
     {
@@ -6857,9 +6857,9 @@
    "received": 19,
    "slug": "parking-kiosk",
    "time_to_acknowledge": {
-    "median": null,
-    "n": 2,
-    "p90": null
+    "median": 1.31,
+    "n": 6,
+    "p90": 3.41
    },
    "time_to_close": {
     "median": 2.57,
@@ -6872,7 +6872,7 @@
    "by_ward": [
     {
      "acknowledged": 0,
-     "checked": 0,
+     "checked": 1,
      "closed": 0,
      "open": 1,
      "received": 1,
@@ -6890,7 +6890,7 @@
     },
     {
      "acknowledged": 0,
-     "checked": 3,
+     "checked": 5,
      "closed": 2,
      "open": 3,
      "received": 5,
@@ -6908,7 +6908,7 @@
     },
     {
      "acknowledged": 0,
-     "checked": 2,
+     "checked": 4,
      "closed": 1,
      "open": 3,
      "received": 4,
@@ -6944,7 +6944,7 @@
     }
    ],
    "category": "Community Development",
-   "checked": 6,
+   "checked": 11,
    "closed": 4,
    "monthly": [
     {
@@ -7044,7 +7044,7 @@
     },
     {
      "address": "25 Hawthorne Rd GLOUCESTER, MA, 01930, USA",
-     "age_days": 116.4,
+     "age_days": 116.5,
      "category": "Community Development",
      "created_at": "2026-06-02T08:54:29-04:00",
      "id": "21868348",
@@ -7071,7 +7071,7 @@
     },
     {
      "address": "Gloucester Xing Gloucester, MA, 01930, USA",
-     "age_days": 72.2,
+     "age_days": 72.3,
      "category": "Community Development",
      "created_at": "2026-07-16T13:29:45-04:00",
      "id": "22258805",
@@ -7103,17 +7103,17 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 6,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 3,
+     "checked": 4,
      "closed": 4,
      "open": 0,
      "received": 4,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -7124,14 +7124,14 @@
      "ward": "1"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 1,
+     "checked": 3,
      "closed": 3,
      "open": 0,
      "received": 3,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -7142,14 +7142,14 @@
      "ward": "3"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 2,
+     "checked": 3,
      "closed": 3,
      "open": 0,
      "received": 3,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -7161,7 +7161,7 @@
     },
     {
      "acknowledged": 0,
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
@@ -7179,7 +7179,7 @@
     }
    ],
    "category": "Snow: Icy Conditions",
-   "checked": 0,
+   "checked": 11,
    "closed": 11,
    "monthly": [
     {
@@ -7236,9 +7236,9 @@
    "received": 11,
    "slug": "snow-icy-conditions",
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.29,
+    "n": 6,
+    "p90": 2.8
    },
    "time_to_close": {
     "median": 0.95,
@@ -7251,7 +7251,7 @@
    "by_ward": [
     {
      "acknowledged": 0,
-     "checked": 3,
+     "checked": 4,
      "closed": 1,
      "open": 3,
      "received": 4,
@@ -7287,7 +7287,7 @@
     },
     {
      "acknowledged": 0,
-     "checked": 0,
+     "checked": 2,
      "closed": 1,
      "open": 1,
      "received": 2,
@@ -7305,7 +7305,7 @@
     },
     {
      "acknowledged": 0,
-     "checked": 1,
+     "checked": 3,
      "closed": 1,
      "open": 2,
      "received": 3,
@@ -7323,7 +7323,7 @@
     }
    ],
    "category": "Conservation",
-   "checked": 5,
+   "checked": 10,
    "closed": 3,
    "monthly": [
     {
@@ -7482,17 +7482,17 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 2,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 2,
+     "checked": 2,
      "closed": 2,
      "open": 0,
      "received": 2,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -7504,7 +7504,7 @@
     },
     {
      "acknowledged": 0,
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
@@ -7522,7 +7522,7 @@
     },
     {
      "acknowledged": 0,
-     "checked": 1,
+     "checked": 3,
      "closed": 2,
      "open": 1,
      "received": 3,
@@ -7540,7 +7540,7 @@
     },
     {
      "acknowledged": 0,
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
@@ -7558,7 +7558,7 @@
     }
    ],
    "category": "Water Quality",
-   "checked": 1,
+   "checked": 7,
    "closed": 6,
    "monthly": [
     {
@@ -7635,7 +7635,7 @@
    "slug": "water-quality",
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -7645,17 +7645,17 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 5,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 1,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -7666,14 +7666,14 @@
      "ward": "1"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 3,
+     "checked": 4,
      "closed": 4,
      "open": 0,
      "received": 4,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -7684,14 +7684,14 @@
      "ward": "2"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 1,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -7703,7 +7703,7 @@
     }
    ],
    "category": "Health Department (General Nuisance - Internal)",
-   "checked": 0,
+   "checked": 6,
    "closed": 6,
    "monthly": [
     {
@@ -7760,9 +7760,9 @@
    "received": 6,
    "slug": "health-department-general-nuisance-internal",
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.97,
+    "n": 5,
+    "p90": 2.22
    },
    "time_to_close": {
     "median": 19.85,
@@ -7771,7 +7771,7 @@
    }
   },
   {
-   "acknowledged": 1,
+   "acknowledged": 2,
    "by_ward": [
     {
      "acknowledged": 0,
@@ -7792,14 +7792,14 @@
      "ward": "1"
     },
     {
-     "acknowledged": 0,
-     "checked": 1,
+     "acknowledged": 1,
+     "checked": 2,
      "closed": 0,
      "open": 2,
      "received": 2,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -7829,7 +7829,7 @@
     }
    ],
    "category": "Graffiti",
-   "checked": 4,
+   "checked": 5,
    "closed": 2,
    "monthly": [
     {
@@ -7893,7 +7893,7 @@
     },
     {
      "address": "Mile 22.7 State Rte 127 S Gloucester, Massachusetts, 01930",
-     "age_days": 477.4,
+     "age_days": 477.5,
      "category": "Graffiti",
      "created_at": "2025-06-06T08:49:27-04:00",
      "id": "19181552",
@@ -7933,7 +7933,7 @@
    "slug": "graffiti",
    "time_to_acknowledge": {
     "median": null,
-    "n": 1,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -7943,7 +7943,7 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 2,
    "by_ward": [
     {
      "acknowledged": 0,
@@ -7964,14 +7964,14 @@
      "ward": "1"
     },
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 2,
+     "checked": 2,
      "closed": 2,
      "open": 0,
      "received": 2,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -7983,7 +7983,7 @@
     },
     {
      "acknowledged": 0,
-     "checked": 0,
+     "checked": 1,
      "closed": 0,
      "open": 1,
      "received": 1,
@@ -8001,7 +8001,7 @@
     }
    ],
    "category": "Traffic Signal Issue",
-   "checked": 1,
+   "checked": 4,
    "closed": 3,
    "monthly": [
     {
@@ -8078,7 +8078,7 @@
    "slug": "traffic-signal-issue",
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -8092,7 +8092,7 @@
    "by_ward": [
     {
      "acknowledged": 0,
-     "checked": 1,
+     "checked": 2,
      "closed": 1,
      "open": 1,
      "received": 2,
@@ -8110,7 +8110,7 @@
     }
    ],
    "category": "Harbor Master's Office",
-   "checked": 1,
+   "checked": 2,
    "closed": 1,
    "monthly": [
     {
@@ -8165,7 +8165,7 @@
    "oldest": [
     {
      "address": "32-32 Western Ave Gloucester, MA, 01930, USA",
-     "age_days": 795.3,
+     "age_days": 795.4,
      "category": "Harbor Master's Office",
      "created_at": "2024-07-23T11:16:10-04:00",
      "id": "17107994",
@@ -8192,7 +8192,7 @@
     },
     {
      "address": "4 Lobster Ln Gloucester 01930, United States",
-     "age_days": 519.1,
+     "age_days": 519.2,
      "category": "Harbor Master's Office",
      "created_at": "2025-04-25T16:02:43-04:00",
      "id": "18853017",
@@ -8233,17 +8233,17 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 2,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 2,
+     "checked": 2,
      "closed": 2,
      "open": 0,
      "received": 2,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -8255,7 +8255,7 @@
     }
    ],
    "category": "Health Department (Rental Registry Inquiry-Internal)",
-   "checked": 0,
+   "checked": 2,
    "closed": 2,
    "monthly": [
     {
@@ -8313,7 +8313,7 @@
    "slug": "health-department-rental-registry-inquiry-internal",
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 2,
     "p90": null
    },
    "time_to_close": {
@@ -8323,17 +8323,17 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 1,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -8345,7 +8345,7 @@
     }
    ],
    "category": "Health Department (Food - Internal)",
-   "checked": 0,
+   "checked": 1,
    "closed": 1,
    "monthly": [
     {
@@ -8403,7 +8403,7 @@
    "slug": "health-department-food-internal",
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -8413,17 +8413,17 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 1,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -8435,7 +8435,7 @@
     }
    ],
    "category": "Health Department (General Inquiry - Internal)",
-   "checked": 0,
+   "checked": 1,
    "closed": 1,
    "monthly": [
     {
@@ -8493,7 +8493,7 @@
    "slug": "health-department-general-inquiry-internal",
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -8503,17 +8503,17 @@
    }
   },
   {
-   "acknowledged": 0,
+   "acknowledged": 1,
    "by_ward": [
     {
-     "acknowledged": 0,
-     "checked": 0,
+     "acknowledged": 1,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -8525,7 +8525,7 @@
     }
    ],
    "category": "Health Department (Septic - Internal)",
-   "checked": 0,
+   "checked": 1,
    "closed": 1,
    "monthly": [
     {
@@ -8583,7 +8583,7 @@
    "slug": "health-department-septic-internal",
    "time_to_acknowledge": {
     "median": null,
-    "n": 0,
+    "n": 1,
     "p90": null
    },
    "time_to_close": {
@@ -8594,7 +8594,7 @@
   }
  ],
  "data_since": "2020-04-21",
- "generated_at": "2026-09-26T19:29:44-04:00",
+ "generated_at": "2026-09-26T19:44:41-04:00",
  "min_sample": 5,
  "monthly": [
   {
@@ -8851,17 +8851,17 @@
    }
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 112,
+   "checked": 247,
    "closed": 970,
    "month": "2025-09",
    "open": 30,
    "received": 1000,
    "recent": false,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.52,
+    "n": 112,
+    "p90": 2.12
    },
    "time_to_close": {
     "median": 4.6,
@@ -8874,17 +8874,17 @@
    }
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 87,
+   "checked": 151,
    "closed": 135,
    "month": "2025-10",
    "open": 16,
    "received": 151,
    "recent": false,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.98,
+    "n": 87,
+    "p90": 7.89
    },
    "time_to_close": {
     "median": 9.63,
@@ -8897,17 +8897,17 @@
    }
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 73,
+   "checked": 112,
    "closed": 109,
    "month": "2025-11",
    "open": 3,
    "received": 112,
    "recent": false,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.76,
+    "n": 73,
+    "p90": 8.71
    },
    "time_to_close": {
     "median": 9.99,
@@ -8920,17 +8920,17 @@
    }
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 78,
+   "checked": 119,
    "closed": 107,
    "month": "2025-12",
    "open": 12,
    "received": 119,
    "recent": false,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 1.05,
+    "n": 78,
+    "p90": 13.77
    },
    "time_to_close": {
     "median": 13.68,
@@ -8943,17 +8943,17 @@
    }
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 211,
+   "checked": 296,
    "closed": 267,
    "month": "2026-01",
    "open": 29,
    "received": 296,
    "recent": false,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.22,
+    "n": 211,
+    "p90": 1.04
    },
    "time_to_close": {
     "median": 2.06,
@@ -8966,17 +8966,17 @@
    }
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 171,
+   "checked": 315,
    "closed": 267,
    "month": "2026-02",
    "open": 48,
    "received": 315,
    "recent": false,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.2,
+    "n": 171,
+    "p90": 1.8
    },
    "time_to_close": {
     "median": 3.04,
@@ -8989,17 +8989,17 @@
    }
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 145,
+   "checked": 245,
    "closed": 192,
    "month": "2026-03",
    "open": 53,
    "received": 245,
    "recent": false,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.64,
+    "n": 145,
+    "p90": 3.89
    },
    "time_to_close": {
     "median": 3.55,
@@ -9012,17 +9012,17 @@
    }
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 140,
+   "checked": 227,
    "closed": 190,
    "month": "2026-04",
    "open": 37,
    "received": 227,
    "recent": false,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.73,
+    "n": 140,
+    "p90": 4.02
    },
    "time_to_close": {
     "median": 7.9,
@@ -9035,17 +9035,17 @@
    }
   },
   {
-   "acknowledged": 0,
-   "checked": 0,
+   "acknowledged": 116,
+   "checked": 255,
    "closed": 170,
    "month": "2026-05",
    "open": 85,
    "received": 255,
    "recent": false,
    "time_to_acknowledge": {
-    "median": null,
-    "n": 0,
-    "p90": null
+    "median": 0.64,
+    "n": 116,
+    "p90": 4.01
    },
    "time_to_close": {
     "median": 5.83,
@@ -9058,8 +9058,8 @@
    }
   },
   {
-   "acknowledged": 117,
-   "checked": 211,
+   "acknowledged": 133,
+   "checked": 244,
    "closed": 195,
    "month": "2026-06",
    "open": 49,
@@ -9067,8 +9067,8 @@
    "recent": false,
    "time_to_acknowledge": {
     "median": 0.54,
-    "n": 117,
-    "p90": 3.19
+    "n": 133,
+    "p90": 3.45
    },
    "time_to_close": {
     "median": 6.08,
@@ -9151,15 +9151,15 @@
   }
  ],
  "overall": {
-  "acknowledged": 380,
-  "checked": 800,
+  "acknowledged": 1425,
+  "checked": 2569,
   "closed": 2013,
   "open": 556,
   "received": 2569,
   "time_to_acknowledge": {
-   "median": 0.68,
-   "n": 380,
-   "p90": 3.89
+   "median": 0.62,
+   "n": 1425,
+   "p90": 4.21
   },
   "time_to_close": {
    "median": 3.76,
@@ -9170,20 +9170,20 @@
  "requests_recorded": 8055,
  "wards": [
   {
-   "acknowledged": 106,
+   "acknowledged": 384,
    "by_category": [
     {
-     "acknowledged": 7,
+     "acknowledged": 60,
      "category": "Trash or Recycling",
-     "checked": 26,
+     "checked": 105,
      "closed": 93,
      "open": 12,
      "received": 105,
      "slug": "trash-or-recycling",
      "time_to_acknowledge": {
       "median": 0.61,
-      "n": 7,
-      "p90": 1.39
+      "n": 60,
+      "p90": 1.93
      },
      "time_to_close": {
       "median": 13.52,
@@ -9192,17 +9192,17 @@
      }
     },
     {
-     "acknowledged": 11,
+     "acknowledged": 47,
      "category": "Pothole",
-     "checked": 22,
+     "checked": 88,
      "closed": 69,
      "open": 19,
      "received": 88,
      "slug": "pothole",
      "time_to_acknowledge": {
-      "median": 8.95,
-      "n": 11,
-      "p90": 79.09
+      "median": 2.96,
+      "n": 47,
+      "p90": 59.7
      },
      "time_to_close": {
       "median": 13.93,
@@ -9211,17 +9211,17 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 28,
      "category": "Snow/Ice Removal",
-     "checked": 0,
+     "checked": 57,
      "closed": 51,
      "open": 6,
      "received": 57,
      "slug": "snow-ice-removal",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.05,
+      "n": 28,
+      "p90": 0.57
      },
      "time_to_close": {
       "median": 1.87,
@@ -9230,17 +9230,17 @@
      }
     },
     {
-     "acknowledged": 12,
+     "acknowledged": 38,
      "category": "Illegal Dumping",
-     "checked": 20,
+     "checked": 56,
      "closed": 48,
      "open": 8,
      "received": 56,
      "slug": "illegal-dumping",
      "time_to_acknowledge": {
-      "median": 0.86,
-      "n": 12,
-      "p90": 2.58
+      "median": 0.7,
+      "n": 38,
+      "p90": 2.74
      },
      "time_to_close": {
       "median": 2.9,
@@ -9249,17 +9249,17 @@
      }
     },
     {
-     "acknowledged": 7,
+     "acknowledged": 15,
      "category": "Other",
-     "checked": 16,
+     "checked": 41,
      "closed": 26,
      "open": 15,
      "received": 41,
      "slug": "other",
      "time_to_acknowledge": {
-      "median": 0.73,
-      "n": 7,
-      "p90": 6.01
+      "median": 0.61,
+      "n": 15,
+      "p90": 3.67
      },
      "time_to_close": {
       "median": 0.98,
@@ -9268,17 +9268,17 @@
      }
     },
     {
-     "acknowledged": 9,
+     "acknowledged": 18,
      "category": "Road Issues Other Than Potholes",
-     "checked": 16,
+     "checked": 37,
      "closed": 25,
      "open": 12,
      "received": 37,
      "slug": "road-issues-other-than-potholes",
      "time_to_acknowledge": {
-      "median": 1.04,
-      "n": 9,
-      "p90": 3.49
+      "median": 1.01,
+      "n": 18,
+      "p90": 3.93
      },
      "time_to_close": {
       "median": 2.65,
@@ -9287,17 +9287,17 @@
      }
     },
     {
-     "acknowledged": 8,
+     "acknowledged": 32,
      "category": "Manhole Cover",
-     "checked": 8,
+     "checked": 36,
      "closed": 28,
      "open": 8,
      "received": 36,
      "slug": "manhole-cover",
      "time_to_acknowledge": {
-      "median": 0.51,
-      "n": 8,
-      "p90": 1.91
+      "median": 0.8,
+      "n": 32,
+      "p90": 3.75
      },
      "time_to_close": {
       "median": 17.46,
@@ -9306,17 +9306,17 @@
      }
     },
     {
-     "acknowledged": 10,
+     "acknowledged": 16,
      "category": "Beaches",
-     "checked": 19,
+     "checked": 27,
      "closed": 23,
      "open": 4,
      "received": 27,
      "slug": "beaches",
      "time_to_acknowledge": {
-      "median": 0.37,
-      "n": 10,
-      "p90": 1.01
+      "median": 0.55,
+      "n": 16,
+      "p90": 1.03
      },
      "time_to_close": {
       "median": 1.99,
@@ -9325,17 +9325,17 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 18,
      "category": "Snow: Plow Request",
-     "checked": 0,
+     "checked": 25,
      "closed": 22,
      "open": 3,
      "received": 25,
      "slug": "snow-plow-request",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.03,
+      "n": 18,
+      "p90": 0.1
      },
      "time_to_close": {
       "median": 1.38,
@@ -9344,17 +9344,17 @@
      }
     },
     {
-     "acknowledged": 5,
+     "acknowledged": 17,
      "category": "Street Light Issue",
-     "checked": 5,
+     "checked": 24,
      "closed": 15,
      "open": 9,
      "received": 24,
      "slug": "street-light-issue",
      "time_to_acknowledge": {
-      "median": 0.01,
-      "n": 5,
-      "p90": 0.81
+      "median": 0.48,
+      "n": 17,
+      "p90": 23.45
      },
      "time_to_close": {
       "median": 30.14,
@@ -9363,17 +9363,17 @@
      }
     },
     {
-     "acknowledged": 1,
+     "acknowledged": 9,
      "category": "Police Department (Non-Emergency)",
-     "checked": 5,
+     "checked": 22,
      "closed": 22,
      "open": 0,
      "received": 22,
      "slug": "police-department-non-emergency",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 0.19,
+      "n": 9,
+      "p90": 1.65
      },
      "time_to_close": {
       "median": 0.5,
@@ -9382,17 +9382,17 @@
      }
     },
     {
-     "acknowledged": 8,
+     "acknowledged": 14,
      "category": "Health Department (General Nuisance/Inquiry)",
-     "checked": 14,
+     "checked": 21,
      "closed": 20,
      "open": 1,
      "received": 21,
      "slug": "health-department-general-nuisance-inquiry",
      "time_to_acknowledge": {
-      "median": 3.79,
-      "n": 8,
-      "p90": 22.24
+      "median": 2.47,
+      "n": 14,
+      "p90": 17.53
      },
      "time_to_close": {
       "median": 7.37,
@@ -9401,17 +9401,17 @@
      }
     },
     {
-     "acknowledged": 8,
+     "acknowledged": 13,
      "category": "Street Sign Issue",
-     "checked": 11,
+     "checked": 19,
      "closed": 14,
      "open": 5,
      "received": 19,
      "slug": "street-sign-issue",
      "time_to_acknowledge": {
-      "median": 0.33,
-      "n": 8,
-      "p90": 2.13
+      "median": 0.51,
+      "n": 13,
+      "p90": 1.71
      },
      "time_to_close": {
       "median": 2.32,
@@ -9420,17 +9420,17 @@
      }
     },
     {
-     "acknowledged": 6,
+     "acknowledged": 11,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
-     "checked": 8,
+     "checked": 16,
      "closed": 10,
      "open": 6,
      "received": 16,
      "slug": "public-spaces-parks-playgrounds-boulevard",
      "time_to_acknowledge": {
-      "median": 1.01,
-      "n": 6,
-      "p90": 3.2
+      "median": 0.63,
+      "n": 11,
+      "p90": 2.7
      },
      "time_to_close": {
       "median": 3.35,
@@ -9439,16 +9439,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 4,
      "category": "Sidewalk Issue",
-     "checked": 2,
+     "checked": 14,
      "closed": 8,
      "open": 6,
      "received": 14,
      "slug": "sidewalk-issue",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 4,
       "p90": null
      },
      "time_to_close": {
@@ -9458,16 +9458,16 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 3,
      "category": "Abandoned Vehicle",
-     "checked": 3,
+     "checked": 11,
      "closed": 11,
      "open": 0,
      "received": 11,
      "slug": "abandoned-vehicle",
      "time_to_acknowledge": {
       "median": null,
-      "n": 2,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -9477,17 +9477,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 5,
      "category": "Brush",
-     "checked": 7,
+     "checked": 11,
      "closed": 11,
      "open": 0,
      "received": 11,
      "slug": "brush",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.82,
+      "n": 5,
+      "p90": 3.26
      },
      "time_to_close": {
       "median": 2.08,
@@ -9496,17 +9496,17 @@
      }
     },
     {
-     "acknowledged": 3,
+     "acknowledged": 6,
      "category": "Utilities (Water/Sewer)",
-     "checked": 4,
+     "checked": 9,
      "closed": 8,
      "open": 1,
      "received": 9,
      "slug": "utilities-water-sewer",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.57,
+      "n": 6,
+      "p90": 2.85
      },
      "time_to_close": {
       "median": 1.19,
@@ -9515,17 +9515,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 8,
      "category": "Clean Team/Volunteer Yellow Bag Pick Up",
-     "checked": 2,
+     "checked": 8,
      "closed": 8,
      "open": 0,
      "received": 8,
      "slug": "clean-team-volunteer-yellow-bag-pick-up",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.73,
+      "n": 8,
+      "p90": 1.99
      },
      "time_to_close": {
       "median": 1.08,
@@ -9534,16 +9534,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Private Property Issue",
-     "checked": 4,
+     "checked": 8,
      "closed": 1,
      "open": 7,
      "received": 8,
      "slug": "private-property-issue",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -9555,7 +9555,7 @@
     {
      "acknowledged": 3,
      "category": "Crosswalks",
-     "checked": 4,
+     "checked": 7,
      "closed": 1,
      "open": 6,
      "received": 7,
@@ -9572,16 +9572,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 3,
      "category": "Storm Drain/Flooding Issue",
-     "checked": 1,
+     "checked": 6,
      "closed": 5,
      "open": 1,
      "received": 6,
      "slug": "storm-drain-flooding-issue",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -9593,7 +9593,7 @@
     {
      "acknowledged": 2,
      "category": "Animal Issues",
-     "checked": 2,
+     "checked": 4,
      "closed": 4,
      "open": 0,
      "received": 4,
@@ -9612,7 +9612,7 @@
     {
      "acknowledged": 0,
      "category": "Conservation",
-     "checked": 3,
+     "checked": 4,
      "closed": 1,
      "open": 3,
      "received": 4,
@@ -9629,16 +9629,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 3,
      "category": "Snow: Icy Conditions",
-     "checked": 0,
+     "checked": 4,
      "closed": 4,
      "open": 0,
      "received": 4,
      "slug": "snow-icy-conditions",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -9648,16 +9648,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 3,
      "category": "Tree Issues",
-     "checked": 1,
+     "checked": 4,
      "closed": 1,
      "open": 3,
      "received": 4,
      "slug": "tree-issues",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -9667,16 +9667,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 2,
      "category": "Health Department (Rental Registry Inquiry-Internal)",
-     "checked": 0,
+     "checked": 2,
      "closed": 2,
      "open": 0,
      "received": 2,
      "slug": "health-department-rental-registry-inquiry-internal",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -9686,16 +9686,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 2,
      "category": "Water Quality",
-     "checked": 0,
+     "checked": 2,
      "closed": 2,
      "open": 0,
      "received": 2,
      "slug": "water-quality",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -9707,7 +9707,7 @@
     {
      "acknowledged": 0,
      "category": "Community Development",
-     "checked": 0,
+     "checked": 1,
      "closed": 0,
      "open": 1,
      "received": 1,
@@ -9743,16 +9743,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Health Department (Food - Internal)",
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "slug": "health-department-food-internal",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -9762,16 +9762,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Health Department (General Nuisance - Internal)",
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "slug": "health-department-general-nuisance-internal",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -9781,16 +9781,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Parking Kiosk",
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "slug": "parking-kiosk",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -9819,7 +9819,7 @@
      }
     }
    ],
-   "checked": 205,
+   "checked": 674,
    "closed": 538,
    "monthly": [
     {
@@ -9874,7 +9874,7 @@
    "oldest": [
     {
      "address": "34 Beachcroft Road Gloucester, MA, 01930, USA",
-     "age_days": 1620.4,
+     "age_days": 1620.5,
      "category": "Other",
      "created_at": "2022-04-20T08:48:35-04:00",
      "id": "12206588",
@@ -9901,7 +9901,7 @@
     },
     {
      "address": "8 Orchard Road Gloucester, Massachusetts, 01930",
-     "age_days": 1328.1,
+     "age_days": 1328.2,
      "category": "Private Property Issue",
      "created_at": "2023-02-06T14:56:00-05:00",
      "id": "14037151",
@@ -9966,9 +9966,9 @@
    "open": 136,
    "received": 674,
    "time_to_acknowledge": {
-    "median": 0.87,
-    "n": 106,
-    "p90": 4.8
+    "median": 0.64,
+    "n": 384,
+    "p90": 4.69
    },
    "time_to_close": {
     "median": 3.59,
@@ -9978,20 +9978,20 @@
    "ward": "1"
   },
   {
-   "acknowledged": 84,
+   "acknowledged": 302,
    "by_category": [
     {
-     "acknowledged": 12,
+     "acknowledged": 36,
      "category": "Trash or Recycling",
-     "checked": 27,
+     "checked": 78,
      "closed": 68,
      "open": 10,
      "received": 78,
      "slug": "trash-or-recycling",
      "time_to_acknowledge": {
-      "median": 0.41,
-      "n": 12,
-      "p90": 0.72
+      "median": 0.56,
+      "n": 36,
+      "p90": 1.33
      },
      "time_to_close": {
       "median": 16.87,
@@ -10000,17 +10000,17 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 46,
      "category": "Snow/Ice Removal",
-     "checked": 0,
+     "checked": 72,
      "closed": 63,
      "open": 9,
      "received": 72,
      "slug": "snow-ice-removal",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.05,
+      "n": 46,
+      "p90": 0.99
      },
      "time_to_close": {
       "median": 2.0,
@@ -10019,17 +10019,17 @@
      }
     },
     {
-     "acknowledged": 18,
+     "acknowledged": 51,
      "category": "Health Department (General Nuisance/Inquiry)",
-     "checked": 30,
+     "checked": 68,
      "closed": 68,
      "open": 0,
      "received": 68,
      "slug": "health-department-general-nuisance-inquiry",
      "time_to_acknowledge": {
-      "median": 0.79,
-      "n": 18,
-      "p90": 17.01
+      "median": 1.41,
+      "n": 51,
+      "p90": 16.98
      },
      "time_to_close": {
       "median": 2.43,
@@ -10038,17 +10038,17 @@
      }
     },
     {
-     "acknowledged": 5,
+     "acknowledged": 16,
      "category": "Other",
-     "checked": 17,
+     "checked": 51,
      "closed": 35,
      "open": 16,
      "received": 51,
      "slug": "other",
      "time_to_acknowledge": {
-      "median": 0.55,
-      "n": 5,
-      "p90": 0.83
+      "median": 0.53,
+      "n": 16,
+      "p90": 1.53
      },
      "time_to_close": {
       "median": 1.01,
@@ -10057,17 +10057,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 9,
      "category": "Police Department (Non-Emergency)",
-     "checked": 16,
+     "checked": 41,
      "closed": 39,
      "open": 2,
      "received": 41,
      "slug": "police-department-non-emergency",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.64,
+      "n": 9,
+      "p90": 1.96
      },
      "time_to_close": {
       "median": 0.75,
@@ -10076,17 +10076,17 @@
      }
     },
     {
-     "acknowledged": 8,
+     "acknowledged": 22,
      "category": "Illegal Dumping",
-     "checked": 12,
+     "checked": 32,
      "closed": 26,
      "open": 6,
      "received": 32,
      "slug": "illegal-dumping",
      "time_to_acknowledge": {
-      "median": 0.24,
-      "n": 8,
-      "p90": 6.75
+      "median": 0.65,
+      "n": 22,
+      "p90": 6.5
      },
      "time_to_close": {
       "median": 2.18,
@@ -10095,17 +10095,17 @@
      }
     },
     {
-     "acknowledged": 3,
+     "acknowledged": 9,
      "category": "Sidewalk Issue",
-     "checked": 12,
+     "checked": 26,
      "closed": 14,
      "open": 12,
      "received": 26,
      "slug": "sidewalk-issue",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.92,
+      "n": 9,
+      "p90": 4.14
      },
      "time_to_close": {
       "median": 6.32,
@@ -10114,17 +10114,17 @@
      }
     },
     {
-     "acknowledged": 6,
+     "acknowledged": 11,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
-     "checked": 12,
+     "checked": 24,
      "closed": 11,
      "open": 13,
      "received": 24,
      "slug": "public-spaces-parks-playgrounds-boulevard",
      "time_to_acknowledge": {
-      "median": 0.72,
-      "n": 6,
-      "p90": 2.76
+      "median": 0.58,
+      "n": 11,
+      "p90": 2.74
      },
      "time_to_close": {
       "median": 5.12,
@@ -10133,17 +10133,17 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 10,
      "category": "Snow: Plow Request",
-     "checked": 0,
+     "checked": 20,
      "closed": 15,
      "open": 5,
      "received": 20,
      "slug": "snow-plow-request",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.2,
+      "n": 10,
+      "p90": 0.68
      },
      "time_to_close": {
       "median": 1.96,
@@ -10152,17 +10152,17 @@
      }
     },
     {
-     "acknowledged": 3,
+     "acknowledged": 13,
      "category": "Street Light Issue",
-     "checked": 4,
+     "checked": 20,
      "closed": 10,
      "open": 10,
      "received": 20,
      "slug": "street-light-issue",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 1.73,
+      "n": 13,
+      "p90": 20.03
      },
      "time_to_close": {
       "median": 36.03,
@@ -10171,16 +10171,16 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 4,
      "category": "Abandoned Vehicle",
-     "checked": 10,
+     "checked": 19,
      "closed": 13,
      "open": 6,
      "received": 19,
      "slug": "abandoned-vehicle",
      "time_to_acknowledge": {
       "median": null,
-      "n": 2,
+      "n": 4,
       "p90": null
      },
      "time_to_close": {
@@ -10190,17 +10190,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 8,
      "category": "Pothole",
-     "checked": 4,
+     "checked": 19,
      "closed": 16,
      "open": 3,
      "received": 19,
      "slug": "pothole",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 4.76,
+      "n": 8,
+      "p90": 76.45
      },
      "time_to_close": {
       "median": 10.57,
@@ -10209,17 +10209,17 @@
      }
     },
     {
-     "acknowledged": 5,
+     "acknowledged": 12,
      "category": "Road Issues Other Than Potholes",
-     "checked": 9,
+     "checked": 19,
      "closed": 15,
      "open": 4,
      "received": 19,
      "slug": "road-issues-other-than-potholes",
      "time_to_acknowledge": {
-      "median": 3.65,
-      "n": 5,
-      "p90": 32.05
+      "median": 1.04,
+      "n": 12,
+      "p90": 5.3
      },
      "time_to_close": {
       "median": 14.92,
@@ -10228,17 +10228,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 5,
      "category": "Parking Kiosk",
-     "checked": 8,
+     "checked": 18,
      "closed": 6,
      "open": 12,
      "received": 18,
      "slug": "parking-kiosk",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 1.03,
+      "n": 5,
+      "p90": 2.38
      },
      "time_to_close": {
       "median": 2.21,
@@ -10247,17 +10247,17 @@
      }
     },
     {
-     "acknowledged": 1,
+     "acknowledged": 8,
      "category": "Clean Team/Volunteer Yellow Bag Pick Up",
-     "checked": 5,
+     "checked": 12,
      "closed": 12,
      "open": 0,
      "received": 12,
      "slug": "clean-team-volunteer-yellow-bag-pick-up",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 1.14,
+      "n": 8,
+      "p90": 5.8
      },
      "time_to_close": {
       "median": 1.56,
@@ -10266,17 +10266,17 @@
      }
     },
     {
-     "acknowledged": 1,
+     "acknowledged": 6,
      "category": "Crosswalks",
-     "checked": 4,
+     "checked": 12,
      "closed": 10,
      "open": 2,
      "received": 12,
      "slug": "crosswalks",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 0.06,
+      "n": 6,
+      "p90": 0.66
      },
      "time_to_close": {
       "median": 0.92,
@@ -10285,17 +10285,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 8,
      "category": "Street Sign Issue",
-     "checked": 5,
+     "checked": 12,
      "closed": 8,
      "open": 4,
      "received": 12,
      "slug": "street-sign-issue",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.5,
+      "n": 8,
+      "p90": 1.82
      },
      "time_to_close": {
       "median": 7.21,
@@ -10304,17 +10304,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 5,
      "category": "Animal Issues",
-     "checked": 4,
+     "checked": 9,
      "closed": 9,
      "open": 0,
      "received": 9,
      "slug": "animal-issues",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.92,
+      "n": 5,
+      "p90": 4.06
      },
      "time_to_close": {
       "median": 1.67,
@@ -10323,16 +10323,16 @@
      }
     },
     {
-     "acknowledged": 1,
+     "acknowledged": 3,
      "category": "Manhole Cover",
-     "checked": 2,
+     "checked": 6,
      "closed": 4,
      "open": 2,
      "received": 6,
      "slug": "manhole-cover",
      "time_to_acknowledge": {
       "median": null,
-      "n": 1,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -10342,17 +10342,17 @@
      }
     },
     {
-     "acknowledged": 3,
+     "acknowledged": 5,
      "category": "Brush",
-     "checked": 3,
+     "checked": 5,
      "closed": 4,
      "open": 1,
      "received": 5,
      "slug": "brush",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.13,
+      "n": 5,
+      "p90": 20.66
      },
      "time_to_close": {
       "median": null,
@@ -10363,7 +10363,7 @@
     {
      "acknowledged": 0,
      "category": "Community Development",
-     "checked": 3,
+     "checked": 5,
      "closed": 2,
      "open": 3,
      "received": 5,
@@ -10399,16 +10399,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 2,
      "category": "Utilities (Water/Sewer)",
-     "checked": 1,
+     "checked": 5,
      "closed": 2,
      "open": 3,
      "received": 5,
      "slug": "utilities-water-sewer",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -10418,16 +10418,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 3,
      "category": "Health Department (General Nuisance - Internal)",
-     "checked": 0,
+     "checked": 4,
      "closed": 4,
      "open": 0,
      "received": 4,
      "slug": "health-department-general-nuisance-internal",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -10439,7 +10439,7 @@
     {
      "acknowledged": 1,
      "category": "Private Property Issue",
-     "checked": 2,
+     "checked": 4,
      "closed": 1,
      "open": 3,
      "received": 4,
@@ -10456,16 +10456,16 @@
      }
     },
     {
-     "acknowledged": 1,
+     "acknowledged": 2,
      "category": "Storm Drain/Flooding Issue",
-     "checked": 1,
+     "checked": 3,
      "closed": 3,
      "open": 0,
      "received": 3,
      "slug": "storm-drain-flooding-issue",
      "time_to_acknowledge": {
       "median": null,
-      "n": 1,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -10475,16 +10475,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 2,
      "category": "Traffic Signal Issue",
-     "checked": 0,
+     "checked": 2,
      "closed": 2,
      "open": 0,
      "received": 2,
      "slug": "traffic-signal-issue",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -10513,16 +10513,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Health Department (General Inquiry - Internal)",
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "slug": "health-department-general-inquiry-internal",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -10534,7 +10534,7 @@
     {
      "acknowledged": 0,
      "category": "Water Quality",
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
@@ -10551,7 +10551,7 @@
      }
     }
    ],
-   "checked": 197,
+   "checked": 594,
    "closed": 465,
    "monthly": [
     {
@@ -10615,7 +10615,7 @@
     },
     {
      "address": "201 Gloucester Crossing Gloucester, MA, 01930, USA",
-     "age_days": 2062.0,
+     "age_days": 2062.1,
      "category": "Health Department",
      "created_at": "2021-02-02T17:25:34-05:00",
      "id": "9282468",
@@ -10698,9 +10698,9 @@
    "open": 129,
    "received": 594,
    "time_to_acknowledge": {
-    "median": 0.68,
-    "n": 84,
-    "p90": 4.15
+    "median": 0.6,
+    "n": 302,
+    "p90": 4.09
    },
    "time_to_close": {
     "median": 2.67,
@@ -10710,20 +10710,20 @@
    "ward": "2"
   },
   {
-   "acknowledged": 51,
+   "acknowledged": 239,
    "by_category": [
     {
-     "acknowledged": 9,
+     "acknowledged": 57,
      "category": "Trash or Recycling",
-     "checked": 22,
+     "checked": 82,
      "closed": 70,
      "open": 12,
      "received": 82,
      "slug": "trash-or-recycling",
      "time_to_acknowledge": {
-      "median": 0.5,
-      "n": 9,
-      "p90": 1.19
+      "median": 0.51,
+      "n": 57,
+      "p90": 2.27
      },
      "time_to_close": {
       "median": 39.84,
@@ -10732,17 +10732,17 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 28,
      "category": "Snow/Ice Removal",
-     "checked": 0,
+     "checked": 47,
      "closed": 42,
      "open": 5,
      "received": 47,
      "slug": "snow-ice-removal",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.05,
+      "n": 28,
+      "p90": 0.82
      },
      "time_to_close": {
       "median": 1.73,
@@ -10751,17 +10751,17 @@
      }
     },
     {
-     "acknowledged": 5,
+     "acknowledged": 19,
      "category": "Pothole",
-     "checked": 7,
+     "checked": 36,
      "closed": 31,
      "open": 5,
      "received": 36,
      "slug": "pothole",
      "time_to_acknowledge": {
-      "median": 3.83,
-      "n": 5,
-      "p90": 6.76
+      "median": 1.01,
+      "n": 19,
+      "p90": 7.15
      },
      "time_to_close": {
       "median": 25.61,
@@ -10770,17 +10770,17 @@
      }
     },
     {
-     "acknowledged": 1,
+     "acknowledged": 9,
      "category": "Sidewalk Issue",
-     "checked": 5,
+     "checked": 26,
      "closed": 14,
      "open": 12,
      "received": 26,
      "slug": "sidewalk-issue",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 0.62,
+      "n": 9,
+      "p90": 3.54
      },
      "time_to_close": {
       "median": 1.91,
@@ -10789,17 +10789,17 @@
      }
     },
     {
-     "acknowledged": 4,
+     "acknowledged": 11,
      "category": "Other",
-     "checked": 12,
+     "checked": 25,
      "closed": 11,
      "open": 14,
      "received": 25,
      "slug": "other",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 4,
-      "p90": null
+      "median": 0.68,
+      "n": 11,
+      "p90": 2.48
      },
      "time_to_close": {
       "median": 9.95,
@@ -10808,17 +10808,17 @@
      }
     },
     {
-     "acknowledged": 5,
+     "acknowledged": 16,
      "category": "Illegal Dumping",
-     "checked": 7,
+     "checked": 21,
      "closed": 17,
      "open": 4,
      "received": 21,
      "slug": "illegal-dumping",
      "time_to_acknowledge": {
-      "median": 1.12,
-      "n": 5,
-      "p90": 2.15
+      "median": 0.35,
+      "n": 16,
+      "p90": 2.07
      },
      "time_to_close": {
       "median": 1.14,
@@ -10827,17 +10827,17 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 17,
      "category": "Snow: Plow Request",
-     "checked": 0,
+     "checked": 21,
      "closed": 19,
      "open": 2,
      "received": 21,
      "slug": "snow-plow-request",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.15,
+      "n": 17,
+      "p90": 1.37
      },
      "time_to_close": {
       "median": 1.97,
@@ -10846,17 +10846,17 @@
      }
     },
     {
-     "acknowledged": 1,
+     "acknowledged": 8,
      "category": "Road Issues Other Than Potholes",
-     "checked": 6,
+     "checked": 18,
      "closed": 14,
      "open": 4,
      "received": 18,
      "slug": "road-issues-other-than-potholes",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 0.54,
+      "n": 8,
+      "p90": 18.44
      },
      "time_to_close": {
       "median": 4.0,
@@ -10865,17 +10865,17 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 6,
      "category": "Police Department (Non-Emergency)",
-     "checked": 3,
+     "checked": 15,
      "closed": 14,
      "open": 1,
      "received": 15,
      "slug": "police-department-non-emergency",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.46,
+      "n": 6,
+      "p90": 0.9
      },
      "time_to_close": {
       "median": 0.65,
@@ -10884,17 +10884,17 @@
      }
     },
     {
-     "acknowledged": 7,
+     "acknowledged": 10,
      "category": "Street Light Issue",
-     "checked": 7,
+     "checked": 12,
      "closed": 7,
      "open": 5,
      "received": 12,
      "slug": "street-light-issue",
      "time_to_acknowledge": {
-      "median": 0.56,
-      "n": 7,
-      "p90": 1.66
+      "median": 0.73,
+      "n": 10,
+      "p90": 41.36
      },
      "time_to_close": {
       "median": 8.69,
@@ -10903,16 +10903,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 3,
      "category": "Abandoned Vehicle",
-     "checked": 6,
+     "checked": 11,
      "closed": 9,
      "open": 2,
      "received": 11,
      "slug": "abandoned-vehicle",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -10922,17 +10922,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 5,
      "category": "Animal Issues",
-     "checked": 5,
+     "checked": 11,
      "closed": 11,
      "open": 0,
      "received": 11,
      "slug": "animal-issues",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.96,
+      "n": 5,
+      "p90": 2.59
      },
      "time_to_close": {
       "median": 0.96,
@@ -10941,16 +10941,92 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 7,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
-     "checked": 3,
+     "checked": 11,
      "closed": 4,
      "open": 7,
      "received": 11,
      "slug": "public-spaces-parks-playgrounds-boulevard",
      "time_to_acknowledge": {
+      "median": 0.12,
+      "n": 7,
+      "p90": 2.15
+     },
+     "time_to_close": {
       "median": null,
-      "n": 2,
+      "n": 4,
+      "p90": null
+     }
+    },
+    {
+     "acknowledged": 10,
+     "category": "Health Department (General Nuisance/Inquiry)",
+     "checked": 10,
+     "closed": 10,
+     "open": 0,
+     "received": 10,
+     "slug": "health-department-general-nuisance-inquiry",
+     "time_to_acknowledge": {
+      "median": 0.21,
+      "n": 10,
+      "p90": 26.25
+     },
+     "time_to_close": {
+      "median": 20.57,
+      "n": 10,
+      "p90": 68.01
+     }
+    },
+    {
+     "acknowledged": 8,
+     "category": "Clean Team/Volunteer Yellow Bag Pick Up",
+     "checked": 8,
+     "closed": 8,
+     "open": 0,
+     "received": 8,
+     "slug": "clean-team-volunteer-yellow-bag-pick-up",
+     "time_to_acknowledge": {
+      "median": 0.07,
+      "n": 8,
+      "p90": 1.02
+     },
+     "time_to_close": {
+      "median": 1.03,
+      "n": 8,
+      "p90": 2.97
+     }
+    },
+    {
+     "acknowledged": 4,
+     "category": "Street Sign Issue",
+     "checked": 8,
+     "closed": 6,
+     "open": 2,
+     "received": 8,
+     "slug": "street-sign-issue",
+     "time_to_acknowledge": {
+      "median": null,
+      "n": 4,
+      "p90": null
+     },
+     "time_to_close": {
+      "median": 2.54,
+      "n": 6,
+      "p90": 5.83
+     }
+    },
+    {
+     "acknowledged": 4,
+     "category": "Tree Issues",
+     "checked": 8,
+     "closed": 4,
+     "open": 4,
+     "received": 8,
+     "slug": "tree-issues",
+     "time_to_acknowledge": {
+      "median": null,
+      "n": 4,
       "p90": null
      },
      "time_to_close": {
@@ -10961,92 +11037,16 @@
     },
     {
      "acknowledged": 5,
-     "category": "Health Department (General Nuisance/Inquiry)",
-     "checked": 5,
-     "closed": 10,
-     "open": 0,
-     "received": 10,
-     "slug": "health-department-general-nuisance-inquiry",
-     "time_to_acknowledge": {
-      "median": 0.11,
-      "n": 5,
-      "p90": 14.26
-     },
-     "time_to_close": {
-      "median": 20.57,
-      "n": 10,
-      "p90": 68.01
-     }
-    },
-    {
-     "acknowledged": 3,
-     "category": "Clean Team/Volunteer Yellow Bag Pick Up",
-     "checked": 3,
-     "closed": 8,
-     "open": 0,
-     "received": 8,
-     "slug": "clean-team-volunteer-yellow-bag-pick-up",
-     "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
-     },
-     "time_to_close": {
-      "median": 1.03,
-      "n": 8,
-      "p90": 2.97
-     }
-    },
-    {
-     "acknowledged": 0,
-     "category": "Street Sign Issue",
-     "checked": 2,
-     "closed": 6,
-     "open": 2,
-     "received": 8,
-     "slug": "street-sign-issue",
-     "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
-     },
-     "time_to_close": {
-      "median": 2.54,
-      "n": 6,
-      "p90": 5.83
-     }
-    },
-    {
-     "acknowledged": 1,
-     "category": "Tree Issues",
-     "checked": 4,
-     "closed": 4,
-     "open": 4,
-     "received": 8,
-     "slug": "tree-issues",
-     "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
-     },
-     "time_to_close": {
-      "median": null,
-      "n": 4,
-      "p90": null
-     }
-    },
-    {
-     "acknowledged": 2,
      "category": "Brush",
-     "checked": 2,
+     "checked": 7,
      "closed": 6,
      "open": 1,
      "received": 7,
      "slug": "brush",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.96,
+      "n": 5,
+      "p90": 3.15
      },
      "time_to_close": {
       "median": 1.59,
@@ -11057,7 +11057,7 @@
     {
      "acknowledged": 2,
      "category": "Crosswalks",
-     "checked": 5,
+     "checked": 7,
      "closed": 1,
      "open": 6,
      "received": 7,
@@ -11074,17 +11074,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 5,
      "category": "Utilities (Water/Sewer)",
-     "checked": 4,
+     "checked": 7,
      "closed": 7,
      "open": 0,
      "received": 7,
      "slug": "utilities-water-sewer",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.77,
+      "n": 5,
+      "p90": 3.47
      },
      "time_to_close": {
       "median": 4.83,
@@ -11095,7 +11095,7 @@
     {
      "acknowledged": 0,
      "category": "Private Property Issue",
-     "checked": 3,
+     "checked": 6,
      "closed": 3,
      "open": 3,
      "received": 6,
@@ -11114,7 +11114,7 @@
     {
      "acknowledged": 0,
      "category": "Community Development",
-     "checked": 2,
+     "checked": 4,
      "closed": 1,
      "open": 3,
      "received": 4,
@@ -11131,16 +11131,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Snow: Icy Conditions",
-     "checked": 0,
+     "checked": 3,
      "closed": 3,
      "open": 0,
      "received": 3,
      "slug": "snow-icy-conditions",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -11150,16 +11150,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Graffiti",
-     "checked": 1,
+     "checked": 2,
      "closed": 0,
      "open": 2,
      "received": 2,
      "slug": "graffiti",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -11171,7 +11171,7 @@
     {
      "acknowledged": 0,
      "category": "Manhole Cover",
-     "checked": 0,
+     "checked": 2,
      "closed": 2,
      "open": 0,
      "received": 2,
@@ -11188,16 +11188,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 2,
      "category": "Storm Drain/Flooding Issue",
-     "checked": 0,
+     "checked": 2,
      "closed": 1,
      "open": 1,
      "received": 2,
      "slug": "storm-drain-flooding-issue",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -11207,16 +11207,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Beaches",
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "slug": "beaches",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -11245,7 +11245,7 @@
      }
     }
    ],
-   "checked": 115,
+   "checked": 412,
    "closed": 316,
    "monthly": [
     {
@@ -11392,9 +11392,9 @@
    "open": 96,
    "received": 412,
    "time_to_acknowledge": {
-    "median": 0.52,
-    "n": 51,
-    "p90": 3.58
+    "median": 0.54,
+    "n": 239,
+    "p90": 3.55
    },
    "time_to_close": {
     "median": 4.0,
@@ -11404,20 +11404,20 @@
    "ward": "3"
   },
   {
-   "acknowledged": 83,
+   "acknowledged": 276,
    "by_category": [
     {
-     "acknowledged": 15,
+     "acknowledged": 53,
      "category": "Pothole",
-     "checked": 30,
+     "checked": 96,
      "closed": 76,
      "open": 20,
      "received": 96,
      "slug": "pothole",
      "time_to_acknowledge": {
       "median": 1.02,
-      "n": 15,
-      "p90": 26.02
+      "n": 53,
+      "p90": 25.03
      },
      "time_to_close": {
       "median": 25.14,
@@ -11426,17 +11426,17 @@
      }
     },
     {
-     "acknowledged": 13,
+     "acknowledged": 45,
      "category": "Trash or Recycling",
-     "checked": 29,
+     "checked": 91,
      "closed": 76,
      "open": 15,
      "received": 91,
      "slug": "trash-or-recycling",
      "time_to_acknowledge": {
-      "median": 0.47,
-      "n": 13,
-      "p90": 0.82
+      "median": 0.54,
+      "n": 45,
+      "p90": 2.26
      },
      "time_to_close": {
       "median": 10.32,
@@ -11445,17 +11445,17 @@
      }
     },
     {
-     "acknowledged": 4,
+     "acknowledged": 17,
      "category": "Road Issues Other Than Potholes",
-     "checked": 9,
+     "checked": 33,
      "closed": 29,
      "open": 4,
      "received": 33,
      "slug": "road-issues-other-than-potholes",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 4,
-      "p90": null
+      "median": 1.41,
+      "n": 17,
+      "p90": 6.83
      },
      "time_to_close": {
       "median": 3.66,
@@ -11464,17 +11464,17 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 21,
      "category": "Snow/Ice Removal",
-     "checked": 0,
+     "checked": 29,
      "closed": 26,
      "open": 3,
      "received": 29,
      "slug": "snow-ice-removal",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.2,
+      "n": 21,
+      "p90": 0.59
      },
      "time_to_close": {
       "median": 1.11,
@@ -11483,17 +11483,17 @@
      }
     },
     {
-     "acknowledged": 5,
+     "acknowledged": 13,
      "category": "Other",
-     "checked": 8,
+     "checked": 25,
      "closed": 16,
      "open": 9,
      "received": 25,
      "slug": "other",
      "time_to_acknowledge": {
-      "median": 0.75,
-      "n": 5,
-      "p90": 2.69
+      "median": 0.64,
+      "n": 13,
+      "p90": 2.34
      },
      "time_to_close": {
       "median": 0.9,
@@ -11502,17 +11502,17 @@
      }
     },
     {
-     "acknowledged": 9,
+     "acknowledged": 18,
      "category": "Street Light Issue",
-     "checked": 10,
+     "checked": 23,
      "closed": 16,
      "open": 7,
      "received": 23,
      "slug": "street-light-issue",
      "time_to_acknowledge": {
-      "median": 0.32,
-      "n": 9,
-      "p90": 1.23
+      "median": 0.66,
+      "n": 18,
+      "p90": 5.26
      },
      "time_to_close": {
       "median": 30.32,
@@ -11521,17 +11521,17 @@
      }
     },
     {
-     "acknowledged": 4,
+     "acknowledged": 9,
      "category": "Brush",
-     "checked": 10,
+     "checked": 17,
      "closed": 14,
      "open": 3,
      "received": 17,
      "slug": "brush",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 4,
-      "p90": null
+      "median": 0.72,
+      "n": 9,
+      "p90": 7.05
      },
      "time_to_close": {
       "median": 0.97,
@@ -11540,17 +11540,17 @@
      }
     },
     {
-     "acknowledged": 5,
+     "acknowledged": 8,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
-     "checked": 7,
+     "checked": 17,
      "closed": 13,
      "open": 4,
      "received": 17,
      "slug": "public-spaces-parks-playgrounds-boulevard",
      "time_to_acknowledge": {
-      "median": 0.64,
-      "n": 5,
-      "p90": 1.32
+      "median": 0.58,
+      "n": 8,
+      "p90": 1.0
      },
      "time_to_close": {
       "median": 1.55,
@@ -11559,17 +11559,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 6,
      "category": "Tree Issues",
-     "checked": 6,
+     "checked": 15,
      "closed": 11,
      "open": 4,
      "received": 15,
      "slug": "tree-issues",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.19,
+      "n": 6,
+      "p90": 0.6
      },
      "time_to_close": {
       "median": 1.94,
@@ -11578,17 +11578,17 @@
      }
     },
     {
-     "acknowledged": 6,
+     "acknowledged": 12,
      "category": "Utilities (Water/Sewer)",
-     "checked": 8,
+     "checked": 15,
      "closed": 15,
      "open": 0,
      "received": 15,
      "slug": "utilities-water-sewer",
      "time_to_acknowledge": {
-      "median": 0.52,
-      "n": 6,
-      "p90": 2.25
+      "median": 0.25,
+      "n": 12,
+      "p90": 1.71
      },
      "time_to_close": {
       "median": 3.71,
@@ -11597,17 +11597,17 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 12,
      "category": "Snow: Plow Request",
-     "checked": 0,
+     "checked": 14,
      "closed": 14,
      "open": 0,
      "received": 14,
      "slug": "snow-plow-request",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.08,
+      "n": 12,
+      "p90": 0.77
      },
      "time_to_close": {
       "median": 1.95,
@@ -11616,17 +11616,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 9,
      "category": "Illegal Dumping",
-     "checked": 2,
+     "checked": 11,
      "closed": 9,
      "open": 2,
      "received": 11,
      "slug": "illegal-dumping",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.86,
+      "n": 9,
+      "p90": 2.32
      },
      "time_to_close": {
       "median": 2.75,
@@ -11635,17 +11635,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 8,
      "category": "Manhole Cover",
-     "checked": 3,
+     "checked": 11,
      "closed": 9,
      "open": 2,
      "received": 11,
      "slug": "manhole-cover",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.2,
+      "n": 8,
+      "p90": 0.95
      },
      "time_to_close": {
       "median": 7.85,
@@ -11654,17 +11654,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 5,
      "category": "Police Department (Non-Emergency)",
-     "checked": 5,
+     "checked": 11,
      "closed": 11,
      "open": 0,
      "received": 11,
      "slug": "police-department-non-emergency",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.37,
+      "n": 5,
+      "p90": 1.31
      },
      "time_to_close": {
       "median": 0.48,
@@ -11673,17 +11673,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 6,
      "category": "Sidewalk Issue",
-     "checked": 5,
+     "checked": 11,
      "closed": 8,
      "open": 3,
      "received": 11,
      "slug": "sidewalk-issue",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.03,
+      "n": 6,
+      "p90": 1.04
      },
      "time_to_close": {
       "median": 1.93,
@@ -11692,17 +11692,17 @@
      }
     },
     {
-     "acknowledged": 1,
+     "acknowledged": 6,
      "category": "Storm Drain/Flooding Issue",
-     "checked": 2,
+     "checked": 9,
      "closed": 8,
      "open": 1,
      "received": 9,
      "slug": "storm-drain-flooding-issue",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 0.61,
+      "n": 6,
+      "p90": 4.8
      },
      "time_to_close": {
       "median": 10.07,
@@ -11711,17 +11711,17 @@
      }
     },
     {
-     "acknowledged": 4,
+     "acknowledged": 7,
      "category": "Street Sign Issue",
-     "checked": 5,
+     "checked": 9,
      "closed": 6,
      "open": 3,
      "received": 9,
      "slug": "street-sign-issue",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 4,
-      "p90": null
+      "median": 0.72,
+      "n": 7,
+      "p90": 5.53
      },
      "time_to_close": {
       "median": 1.62,
@@ -11730,16 +11730,16 @@
      }
     },
     {
-     "acknowledged": 1,
+     "acknowledged": 4,
      "category": "Beaches",
-     "checked": 4,
+     "checked": 8,
      "closed": 4,
      "open": 4,
      "received": 8,
      "slug": "beaches",
      "time_to_acknowledge": {
       "median": null,
-      "n": 1,
+      "n": 4,
       "p90": null
      },
      "time_to_close": {
@@ -11749,16 +11749,16 @@
      }
     },
     {
-     "acknowledged": 1,
+     "acknowledged": 2,
      "category": "Abandoned Vehicle",
-     "checked": 4,
+     "checked": 7,
      "closed": 4,
      "open": 3,
      "received": 7,
      "slug": "abandoned-vehicle",
      "time_to_acknowledge": {
       "median": null,
-      "n": 1,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -11787,16 +11787,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 2,
      "category": "Crosswalks",
-     "checked": 0,
+     "checked": 4,
      "closed": 3,
      "open": 1,
      "received": 4,
      "slug": "crosswalks",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -11806,16 +11806,16 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 3,
      "category": "Health Department (General Nuisance/Inquiry)",
-     "checked": 3,
+     "checked": 4,
      "closed": 4,
      "open": 0,
      "received": 4,
      "slug": "health-department-general-nuisance-inquiry",
      "time_to_acknowledge": {
       "median": null,
-      "n": 2,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -11825,16 +11825,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 2,
      "category": "Private Property Issue",
-     "checked": 1,
+     "checked": 4,
      "closed": 1,
      "open": 3,
      "received": 4,
      "slug": "private-property-issue",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -11844,16 +11844,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 2,
      "category": "Snow: Icy Conditions",
-     "checked": 0,
+     "checked": 3,
      "closed": 3,
      "open": 0,
      "received": 3,
      "slug": "snow-icy-conditions",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -11865,7 +11865,7 @@
     {
      "acknowledged": 0,
      "category": "Water Quality",
-     "checked": 1,
+     "checked": 3,
      "closed": 2,
      "open": 1,
      "received": 3,
@@ -11884,7 +11884,7 @@
     {
      "acknowledged": 0,
      "category": "Conservation",
-     "checked": 0,
+     "checked": 2,
      "closed": 1,
      "open": 1,
      "received": 2,
@@ -11922,7 +11922,7 @@
     {
      "acknowledged": 0,
      "category": "Harbor Master's Office",
-     "checked": 1,
+     "checked": 2,
      "closed": 1,
      "open": 1,
      "received": 2,
@@ -11939,16 +11939,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Clean Team/Volunteer Yellow Bag Pick Up",
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "slug": "clean-team-volunteer-yellow-bag-pick-up",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -11958,16 +11958,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Health Department (General Nuisance - Internal)",
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "slug": "health-department-general-nuisance-internal",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -11977,16 +11977,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Health Department (Septic - Internal)",
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
      "slug": "health-department-septic-internal",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -11996,7 +11996,7 @@
      }
     }
    ],
-   "checked": 159,
+   "checked": 483,
    "closed": 388,
    "monthly": [
     {
@@ -12132,7 +12132,7 @@
     },
     {
      "address": "1085 Washington St Gloucester MA 01930, United States",
-     "age_days": 1191.1,
+     "age_days": 1191.2,
      "category": "Sidewalk Issue",
      "created_at": "2023-06-23T15:59:36-04:00",
      "id": "14763401",
@@ -12143,9 +12143,9 @@
    "open": 95,
    "received": 483,
    "time_to_acknowledge": {
-    "median": 0.64,
-    "n": 83,
-    "p90": 3.11
+    "median": 0.6,
+    "n": 276,
+    "p90": 4.58
    },
    "time_to_close": {
     "median": 4.61,
@@ -12155,20 +12155,20 @@
    "ward": "4"
   },
   {
-   "acknowledged": 56,
+   "acknowledged": 224,
    "by_category": [
     {
-     "acknowledged": 7,
+     "acknowledged": 51,
      "category": "Trash or Recycling",
-     "checked": 16,
+     "checked": 89,
      "closed": 82,
      "open": 7,
      "received": 89,
      "slug": "trash-or-recycling",
      "time_to_acknowledge": {
-      "median": 0.67,
-      "n": 7,
-      "p90": 3.09
+      "median": 0.7,
+      "n": 51,
+      "p90": 2.72
      },
      "time_to_close": {
       "median": 15.54,
@@ -12177,17 +12177,17 @@
      }
     },
     {
-     "acknowledged": 10,
+     "acknowledged": 32,
      "category": "Pothole",
-     "checked": 16,
+     "checked": 62,
      "closed": 49,
      "open": 13,
      "received": 62,
      "slug": "pothole",
      "time_to_acknowledge": {
-      "median": 2.02,
-      "n": 10,
-      "p90": 25.26
+      "median": 1.42,
+      "n": 32,
+      "p90": 93.71
      },
      "time_to_close": {
       "median": 3.88,
@@ -12196,17 +12196,17 @@
      }
     },
     {
-     "acknowledged": 5,
+     "acknowledged": 22,
      "category": "Utilities (Water/Sewer)",
-     "checked": 13,
+     "checked": 34,
      "closed": 24,
      "open": 10,
      "received": 34,
      "slug": "utilities-water-sewer",
      "time_to_acknowledge": {
-      "median": 0.51,
-      "n": 5,
-      "p90": 1.82
+      "median": 0.69,
+      "n": 22,
+      "p90": 1.94
      },
      "time_to_close": {
       "median": 5.75,
@@ -12215,17 +12215,17 @@
      }
     },
     {
-     "acknowledged": 3,
+     "acknowledged": 14,
      "category": "Road Issues Other Than Potholes",
-     "checked": 9,
+     "checked": 28,
      "closed": 20,
      "open": 8,
      "received": 28,
      "slug": "road-issues-other-than-potholes",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 1.63,
+      "n": 14,
+      "p90": 70.39
      },
      "time_to_close": {
       "median": 10.85,
@@ -12234,17 +12234,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 11,
      "category": "Other",
-     "checked": 7,
+     "checked": 23,
      "closed": 13,
      "open": 10,
      "received": 23,
      "slug": "other",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 1.08,
+      "n": 11,
+      "p90": 2.71
      },
      "time_to_close": {
       "median": 5.43,
@@ -12253,17 +12253,17 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 13,
      "category": "Snow/Ice Removal",
-     "checked": 0,
+     "checked": 19,
      "closed": 16,
      "open": 3,
      "received": 19,
      "slug": "snow-ice-removal",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 0,
-      "p90": null
+      "median": 0.03,
+      "n": 13,
+      "p90": 1.25
      },
      "time_to_close": {
       "median": 1.55,
@@ -12272,17 +12272,17 @@
      }
     },
     {
-     "acknowledged": 3,
+     "acknowledged": 6,
      "category": "Tree Issues",
-     "checked": 10,
+     "checked": 18,
      "closed": 6,
      "open": 12,
      "received": 18,
      "slug": "tree-issues",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.76,
+      "n": 6,
+      "p90": 3.97
      },
      "time_to_close": {
       "median": 8.41,
@@ -12291,17 +12291,17 @@
      }
     },
     {
-     "acknowledged": 1,
+     "acknowledged": 9,
      "category": "Illegal Dumping",
-     "checked": 3,
+     "checked": 13,
      "closed": 12,
      "open": 1,
      "received": 13,
      "slug": "illegal-dumping",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 1,
-      "p90": null
+      "median": 0.5,
+      "n": 9,
+      "p90": 1.35
      },
      "time_to_close": {
       "median": 0.96,
@@ -12310,17 +12310,17 @@
      }
     },
     {
-     "acknowledged": 6,
+     "acknowledged": 13,
      "category": "Street Light Issue",
-     "checked": 6,
+     "checked": 13,
      "closed": 7,
      "open": 6,
      "received": 13,
      "slug": "street-light-issue",
      "time_to_acknowledge": {
-      "median": 0.03,
-      "n": 6,
-      "p90": 1.27
+      "median": 0.72,
+      "n": 13,
+      "p90": 18.03
      },
      "time_to_close": {
       "median": 5.86,
@@ -12329,17 +12329,17 @@
      }
     },
     {
-     "acknowledged": 3,
+     "acknowledged": 9,
      "category": "Clean Team/Volunteer Yellow Bag Pick Up",
-     "checked": 5,
+     "checked": 12,
      "closed": 10,
      "open": 2,
      "received": 12,
      "slug": "clean-team-volunteer-yellow-bag-pick-up",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.53,
+      "n": 9,
+      "p90": 1.17
      },
      "time_to_close": {
       "median": 1.03,
@@ -12348,17 +12348,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 9,
      "category": "Street Sign Issue",
-     "checked": 2,
+     "checked": 11,
      "closed": 7,
      "open": 4,
      "received": 11,
      "slug": "street-sign-issue",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.86,
+      "n": 9,
+      "p90": 2.22
      },
      "time_to_close": {
       "median": 2.08,
@@ -12367,17 +12367,17 @@
      }
     },
     {
-     "acknowledged": 3,
+     "acknowledged": 5,
      "category": "Brush",
-     "checked": 5,
+     "checked": 10,
      "closed": 5,
      "open": 5,
      "received": 10,
      "slug": "brush",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.05,
+      "n": 5,
+      "p90": 0.75
      },
      "time_to_close": {
       "median": 2.56,
@@ -12386,16 +12386,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 4,
      "category": "Manhole Cover",
-     "checked": 2,
+     "checked": 10,
      "closed": 7,
      "open": 3,
      "received": 10,
      "slug": "manhole-cover",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 4,
       "p90": null
      },
      "time_to_close": {
@@ -12405,16 +12405,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Animal Issues",
-     "checked": 3,
+     "checked": 9,
      "closed": 9,
      "open": 0,
      "received": 9,
      "slug": "animal-issues",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -12424,17 +12424,17 @@
      }
     },
     {
-     "acknowledged": 3,
+     "acknowledged": 5,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
-     "checked": 5,
+     "checked": 8,
      "closed": 6,
      "open": 2,
      "received": 8,
      "slug": "public-spaces-parks-playgrounds-boulevard",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 3,
-      "p90": null
+      "median": 0.52,
+      "n": 5,
+      "p90": 1.23
      },
      "time_to_close": {
       "median": 2.26,
@@ -12443,17 +12443,17 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 5,
      "category": "Sidewalk Issue",
-     "checked": 4,
+     "checked": 7,
      "closed": 5,
      "open": 2,
      "received": 7,
      "slug": "sidewalk-issue",
      "time_to_acknowledge": {
-      "median": null,
-      "n": 2,
-      "p90": null
+      "median": 0.53,
+      "n": 5,
+      "p90": 3.2
      },
      "time_to_close": {
       "median": 0.94,
@@ -12464,7 +12464,7 @@
     {
      "acknowledged": 3,
      "category": "Storm Drain/Flooding Issue",
-     "checked": 5,
+     "checked": 6,
      "closed": 5,
      "open": 1,
      "received": 6,
@@ -12481,16 +12481,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 1,
      "category": "Police Department (Non-Emergency)",
-     "checked": 2,
+     "checked": 5,
      "closed": 5,
      "open": 0,
      "received": 5,
      "slug": "police-department-non-emergency",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 1,
       "p90": null
      },
      "time_to_close": {
@@ -12500,16 +12500,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 3,
      "category": "Snow: Plow Request",
-     "checked": 0,
+     "checked": 5,
      "closed": 4,
      "open": 1,
      "received": 5,
      "slug": "snow-plow-request",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -12540,7 +12540,7 @@
     {
      "acknowledged": 0,
      "category": "Private Property Issue",
-     "checked": 1,
+     "checked": 4,
      "closed": 1,
      "open": 3,
      "received": 4,
@@ -12557,16 +12557,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 2,
      "category": "Abandoned Vehicle",
-     "checked": 1,
+     "checked": 3,
      "closed": 3,
      "open": 0,
      "received": 3,
      "slug": "abandoned-vehicle",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -12578,7 +12578,7 @@
     {
      "acknowledged": 0,
      "category": "Conservation",
-     "checked": 1,
+     "checked": 3,
      "closed": 1,
      "open": 2,
      "received": 3,
@@ -12595,16 +12595,16 @@
      }
     },
     {
-     "acknowledged": 2,
+     "acknowledged": 3,
      "category": "Crosswalks",
-     "checked": 2,
+     "checked": 3,
      "closed": 2,
      "open": 1,
      "received": 3,
      "slug": "crosswalks",
      "time_to_acknowledge": {
       "median": null,
-      "n": 2,
+      "n": 3,
       "p90": null
      },
      "time_to_close": {
@@ -12614,16 +12614,16 @@
      }
     },
     {
-     "acknowledged": 0,
+     "acknowledged": 2,
      "category": "Health Department (General Nuisance/Inquiry)",
-     "checked": 1,
+     "checked": 3,
      "closed": 2,
      "open": 1,
      "received": 3,
      "slug": "health-department-general-nuisance-inquiry",
      "time_to_acknowledge": {
       "median": null,
-      "n": 0,
+      "n": 2,
       "p90": null
      },
      "time_to_close": {
@@ -12654,7 +12654,7 @@
     {
      "acknowledged": 0,
      "category": "Snow: Icy Conditions",
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
@@ -12673,7 +12673,7 @@
     {
      "acknowledged": 0,
      "category": "Traffic Signal Issue",
-     "checked": 0,
+     "checked": 1,
      "closed": 0,
      "open": 1,
      "received": 1,
@@ -12692,7 +12692,7 @@
     {
      "acknowledged": 0,
      "category": "Water Quality",
-     "checked": 0,
+     "checked": 1,
      "closed": 1,
      "open": 0,
      "received": 1,
@@ -12709,7 +12709,7 @@
      }
     }
    ],
-   "checked": 124,
+   "checked": 406,
    "closed": 306,
    "monthly": [
     {
@@ -12764,7 +12764,7 @@
    "oldest": [
     {
      "address": "13 Cedarwood Road Gloucester, Massachusetts, 01930",
-     "age_days": 1607.2,
+     "age_days": 1607.3,
      "category": "Health Department",
      "created_at": "2022-05-03T13:44:23-04:00",
      "id": "12274633",
@@ -12827,7 +12827,7 @@
     },
     {
      "address": "5 Herd'S Hill Gloucester, Massachusetts, 01930",
-     "age_days": 998.1,
+     "age_days": 998.2,
      "category": "Illegal Dumping",
      "created_at": "2024-01-02T14:54:21-05:00",
      "id": "15817360",
@@ -12836,7 +12836,7 @@
     },
     {
      "address": "7 Lisa Dr Gloucester MA 01930, United States",
-     "age_days": 993.3,
+     "age_days": 993.4,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2024-01-07T10:09:40-05:00",
      "id": "15839285",
@@ -12856,9 +12856,9 @@
    "open": 100,
    "received": 406,
    "time_to_acknowledge": {
-    "median": 0.71,
-    "n": 56,
-    "p90": 3.33
+    "median": 0.69,
+    "n": 224,
+    "p90": 4.94
    },
    "time_to_close": {
     "median": 4.75,
