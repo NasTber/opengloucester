@@ -1,27 +1,71 @@
 import functools
 import http.server
 import sys
+import tempfile
 import threading
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(Path(__file__).parent))
 
-import build_site  # noqa: E402
+from fakes import FIXTURES, FakeCityClient  # noqa: E402
+from pipeline import build_site, fetch_meetings  # noqa: E402
+from pipeline.config import load_config  # noqa: E402
+
+TZ = ZoneInfo("America/New_York")
+FETCHED_AT = datetime(2026, 9, 26, 12, 0, tzinfo=TZ)
+BUILT_AT = datetime(2026, 10, 2, 7, 0, tzinfo=TZ)
+
+
+def make_fixture_data(data_dir: Path) -> None:
+    """Run the meetings pipeline twice against saved city pages.
+
+    The second run simulates the city cancelling one meeting and deleting
+    another, so change history is exercised.
+    """
+    config = load_config("gloucester")
+    fetch_meetings.run(config, FakeCityClient(), data_dir, now=FETCHED_AT)
+    feed = (FIXTURES / "civicplus_calendar.xml").read_text()
+    feed = feed.replace("6:00 PM Licensing Board Special Meeting", "CANCELLED - 6:00 PM Licensing Board Special Meeting")
+    start = feed.index("<item", feed.index("Committee for the Arts") - 400)
+    feed = feed[:start] + feed[feed.index("</item>", start) + len("</item>"):]
+    fetch_meetings.run(config, FakeCityClient(feed=feed.encode()), data_dir, now=FETCHED_AT.replace(day=27))
+
+
+def _build_fixture_site() -> Path:
+    base = Path(tempfile.mkdtemp(prefix="opengloucester-test-"))
+    make_fixture_data(base / "data")
+    build_site.build("gloucester", base / "site", data_dir=base / "data", now=BUILT_AT)
+    return base
+
+
+FIXTURE_BASE = _build_fixture_site()
+SITE_DIR = FIXTURE_BASE / "site"
+DATA_DIR = FIXTURE_BASE / "data"
+# Every built page, as a URL path, plus an unknown path for the 404 page.
+PAGE_PATHS = sorted(
+    build_site.url_for(p.relative_to(SITE_DIR)) for p in SITE_DIR.rglob("*.html") if p.name != "404.html"
+)
 
 
 @pytest.fixture(scope="session")
-def site_dir(tmp_path_factory):
-    out = tmp_path_factory.mktemp("site")
-    build_site.build("gloucester", out)
-    return out
+def site_dir():
+    return SITE_DIR
+
+
+@pytest.fixture(scope="session")
+def data_dir():
+    return DATA_DIR
 
 
 @pytest.fixture(scope="session")
 def config():
-    return build_site.load_config("gloucester")
+    return load_config("gloucester")
 
 
 @pytest.fixture(scope="session")

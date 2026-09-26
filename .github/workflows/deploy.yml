@@ -1,19 +1,64 @@
-name: Build and deploy
+name: Update and deploy
 
 on:
   push:
     branches: [main]
   pull_request:
+  # Daily data refresh, early morning Eastern time.
+  schedule:
+    - cron: "23 10 * * *"
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: update-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
+  # Fetch new data and commit it to main. Runs only on the schedule or by hand.
+  update:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+
+      - run: pip install -r requirements.txt
+
+      - name: Fetch meetings
+        run: python -m pipeline.fetch_meetings --town gloucester
+
+      - name: Commit data changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "Update data $(TZ=America/New_York date +%Y-%m-%d)"
+            git push
+          fi
+
   build:
+    needs: update
+    # Build even when the update job was skipped (push, PR) or failed (keep the last good data online).
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          # After an update, build the commit it just pushed.
+          ref: ${{ github.event_name == 'pull_request' && github.sha || github.ref }}
 
       - uses: actions/setup-python@v6
         with:
@@ -26,19 +71,20 @@ jobs:
           pip install -r requirements.txt -r requirements-dev.txt
           python -m playwright install --with-deps chromium
 
-      - name: Build site
-        run: python scripts/build_site.py --town gloucester
-
-      # Structure, link, and WCAG 2.2 AA checks. A failure here blocks deploy.
+      # Tests run on saved fixtures: pipeline parsing, page structure, links,
+      # and WCAG 2.2 AA checks. A failure here blocks deploy.
       - name: Test
-        run: python -m pytest -v
+        run: python -m pytest
+
+      - name: Build site
+        run: python -m pipeline.build_site --town gloucester
 
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
 
   deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: ${{ !cancelled() && needs.build.result == 'success' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:

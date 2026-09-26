@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Boards and committees{% endblock %}
+{% block description %}Every {{ town.name }} board, commission, and committee with a meeting on the city calendar, and when each meets next.{% endblock %}
+{% block content %}
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol><li><a href="/meetings/">Meetings</a></li></ol>
+</nav>
+<h1>Boards and committees</h1>
+<p class="lede">Every public body with a meeting recorded on this site, and when it meets next.</p>
+{% if meetings.boards %}
+<ul class="board-list">
+  {% for b in meetings.boards %}
+  <li>
+    <a href="{{ b.url }}">{{ b.name }}</a>
+    <span class="meeting-meta">{% if b.next %}Next: <time datetime="{{ b.next.date }}">{{ b.next.date | date("short") }}</time>{% else %}No upcoming meeting listed{% endif %}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No meetings have been recorded yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,18 +1,34 @@
 {% extends "base.html" %}
-{% from "macros.html" import status_label %}
+{% from "macros.html" import meeting_item, freshness %}
 {% block title %}Meetings{% endblock %}
-{% block description %}{{ section.summary }}{% endblock %}
+{% block description %}Upcoming public meetings in {{ town.name }}, {{ town.state_abbr }}, with times, places, how to attend, and posted agendas.{% endblock %}
 {% block content %}
-<h1>{{ section.title }}</h1>
-{{ status_label(section) }}
-<p class="lede">{{ section.summary }}</p>
+<h1>Meetings</h1>
+<p class="lede">Upcoming public meetings of {{ town.name }}'s boards, commissions, and City Council committees.</p>
+{{ freshness(meetings, town, config.meetings.base_url) }}
 
-<h2>What this section will show</h2>
-<ul>
-  <li>Public meetings scheduled for the coming week, with date, time, place, and how to attend or comment.</li>
-  <li>A short plain-English preview of each agenda, labeled as AI-generated and linked to the original document.</li>
-  <li>Links to agendas and minutes as the city posts them, kept after the city removes them.</li>
+<ul class="inline-links">
+  <li><a href="/meetings/boards/">All boards and committees</a></li>
+  <li><a href="/meetings/past/">Past meetings</a></li>
 </ul>
 
-<p>Until this section is ready, agendas and minutes are posted on the <a href="{{ town.official_site }}">official City of {{ town.name }} website</a>.</p>
+{% if meetings.upcoming %}
+<h2 id="upcoming">Upcoming</h2>
+{% for day, items in group_by(meetings.upcoming, "date") %}
+<h3><time datetime="{{ day }}">{{ day | date }}</time></h3>
+<ul class="meeting-list">
+  {% for m in items %}{{ meeting_item(m) }}{% endfor %}
+</ul>
+{% endfor %}
+{% else %}
+<p>No upcoming meetings are listed on the city calendar right now.</p>
+{% endif %}
+
+<h2 id="about-this-list">About this list</h2>
+<ul>
+  <li>Meetings come from the city's online calendar. Community events on the same calendar are left out.</li>
+  <li>Each meeting has its own page with the location, how to attend remotely, and the posted agenda.</li>
+  <li>When the city changes a meeting after posting it, the change is recorded on the meeting's page.</li>
+  <li>Agendas are saved when they are posted, so they stay available here.</li>
+</ul>
 {% endblock %}

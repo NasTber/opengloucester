@@ -6,7 +6,7 @@ checks are still needed when new sections are added.
 """
 
 import pytest
-from conftest import build_site
+from conftest import PAGE_PATHS
 
 playwright_api = pytest.importorskip("playwright.sync_api")
 axe_module = pytest.importorskip("axe_playwright_python.sync_playwright")
@@ -14,12 +14,7 @@ axe_module = pytest.importorskip("axe_playwright_python.sync_playwright")
 WCAG_TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa", "best-practice"]
 VIEWPORTS = {"desktop": {"width": 1280, "height": 900}, "phone": {"width": 320, "height": 640}}
 SCHEMES = ["light", "dark"]
-# Every page in site/pages/, plus an unknown path to exercise the 404 page.
-PATHS = sorted(
-    build_site.url_for(p.relative_to(build_site.PAGES_DIR))
-    for p in build_site.PAGES_DIR.rglob("*.html")
-    if p.name != "404.html"
-) + ["/no-such-page/"]
+PATHS = PAGE_PATHS + ["/no-such-page/"]
 
 
 @pytest.fixture(scope="module")

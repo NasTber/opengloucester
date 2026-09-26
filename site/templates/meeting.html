@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% from "macros.html" import meeting_flags, describe_change %}
+{% set m = meeting %}
+{% block title %}{{ m.body }}, {{ m.date | date }}{% endblock %}
+{% block description %}{{ m.title }} meeting on {{ m.date | date }}{% if m.start_time %} at {{ m.start_time | time }}{% endif %}: location, how to attend, and agenda.{% endblock %}
+{% block content %}
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol>
+    <li><a href="/meetings/">Meetings</a></li>
+    <li><a href="{{ m.body_url }}">{{ m.body }}</a></li>
+  </ol>
+</nav>
+
+<h1>{{ m.title }}</h1>
+<p class="lede"><time datetime="{{ m.date }}{% if m.start_time %}T{{ m.start_time }}{% endif %}">{{ m.date | date }}{% if m.start_time %} at {{ m.start_time | time }}{% endif %}</time></p>
+{{ meeting_flags(m) }}
+
+<dl class="details">
+  <dt>Date</dt>
+  <dd>{{ m.date | date }}</dd>
+  <dt>Time</dt>
+  <dd>{% if m.start_time %}{{ m.start_time | time }}{% if m.end_time %} to {{ m.end_time | time }}{% endif %}{% else %}Not listed{% endif %}</dd>
+  <dt>Location</dt>
+  <dd>
+    {% if m.location_name %}{{ m.location_name }}<br>{% endif %}
+    {{ m.address or m.location or "Not listed" }}
+  </dd>
+  {% if m.remote_url %}
+  <dt>Attend remotely</dt>
+  <dd><a href="{{ m.remote_url }}">Join online (Zoom)</a></dd>
+  {% endif %}
+</dl>
+
+<h2 id="agenda">Agenda</h2>
+{% if m.agenda %}
+<ul>
+  <li><a href="{{ m.agenda.source_url }}">Agenda on the city website</a> (PDF, {{ m.agenda.bytes | filesize }})</li>
+  <li><a href="/meetings/agendas/{{ m.agenda.file }}">Saved copy</a> (PDF, {{ m.agenda.bytes | filesize }}), saved <time datetime="{{ m.agenda.fetched_at }}">{{ m.agenda.fetched_at | timestamp }}</time></li>
+</ul>
+{% if m.agenda.has_text == false %}
+<p class="note">The city posted this agenda as a scanned image. Screen readers and search tools may not be able to read it.</p>
+{% endif %}
+{% if m.agendas | length > 1 %}
+<p>Earlier versions of this agenda:</p>
+<ul>
+  {% for a in m.agendas[:-1] | reverse %}
+  <li><a href="/meetings/agendas/{{ a.file }}">Version saved <time datetime="{{ a.fetched_at }}">{{ a.fetched_at | timestamp }}</time></a> (PDF, {{ a.bytes | filesize }})</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% elif m.date >= built_at.date().isoformat() %}
+<p>The city has not posted an agenda for this meeting yet. Under state law, notice of a meeting is generally posted at least 48 hours ahead, not counting weekends and legal holidays.</p>
+{% else %}
+<p>No agenda was posted with this meeting on the city calendar.</p>
+{% endif %}
+
+{% if m.history %}
+<h2 id="changes">Changes since posting</h2>
+<ul>
+  {% for h in m.history | reverse %}
+  <li><time datetime="{{ h.at }}">{{ h.at | timestamp }}</time>: {{ describe_change(h) }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<h2 id="source">Source</h2>
+<p><a href="{{ m.source_url }}">This meeting on the City of {{ town.name }} calendar</a>. First recorded by {{ site.name }} on <time datetime="{{ m.first_seen }}">{{ m.first_seen | timestamp }}</time>.</p>
+{% endblock %}

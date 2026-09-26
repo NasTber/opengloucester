@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% from "macros.html" import meeting_item %}
+{% set b = board %}
+{% block title %}{{ b.name }} meetings{% endblock %}
+{% block description %}Upcoming and past meetings of the {{ town.name }} {{ b.name }}, with agendas.{% endblock %}
+{% block content %}
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol>
+    <li><a href="/meetings/">Meetings</a></li>
+    <li><a href="/meetings/boards/">Boards and committees</a></li>
+  </ol>
+</nav>
+
+<h1>{{ b.name }}</h1>
+{% if b.next %}
+<p class="lede">Next meeting: <a href="{{ b.next.url }}">{{ b.next.date | date }}{% if b.next.start_time %} at {{ b.next.start_time | time }}{% endif %}</a></p>
+{% else %}
+<p class="lede">No upcoming meetings are listed on the city calendar.</p>
+{% endif %}
+
+<h2>All recorded meetings</h2>
+<ul class="meeting-list">
+  {% for m in b.meetings %}{{ meeting_item(m, show_date=true, show_body=false) }}{% endfor %}
+</ul>
+<p class="source-note">{{ site.name }} began recording meetings on {{ meetings.tracking_since | timestamp }}. Earlier meetings are on the <a href="{{ config.meetings.base_url }}/Archive.aspx">city's Archive Center</a>.</p>
+{% endblock %}

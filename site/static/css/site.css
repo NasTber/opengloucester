@@ -218,3 +218,84 @@ main li + li { margin-top: 0.35rem; }
   .site-header a { color: #000; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; }
 }
+
+/* Meetings */
+.inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+main .inline-links li + li { margin-top: 0; }
+.source-note { color: var(--muted); font-size: 0.95rem; }
+.note {
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--border);
+  background: var(--surface);
+}
+.meeting-list, .board-list {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+main .meeting-list li + li, main .board-list li + li { margin-top: 0; }
+.meeting-item, .board-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.meeting-when {
+  flex: 0 0 9.5rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.meeting-link { font-weight: 600; }
+.meeting-meta { color: var(--muted); font-size: 0.95rem; }
+.flag {
+  display: inline-block;
+  margin: 0.15rem 0.35rem 0.15rem 0;
+  padding: 0 0.5rem;
+  border: 1px solid var(--muted);
+  border-radius: 0.25rem;
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.flag-alert {
+  border-color: var(--status-text);
+  background: var(--status-bg);
+  color: var(--status-text);
+}
+.details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.details dt { font-weight: 700; }
+.details dd { margin: 0; }
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+}
+main .breadcrumb li + li { margin-top: 0; }
+.breadcrumb li + li::before {
+  content: "/";
+  margin: 0 0.5rem;
+  color: var(--muted);
+}
+.breadcrumb a { display: inline-block; padding: 0.2rem 0; }
+
+@media (max-width: 30rem) {
+  .meeting-when { flex-basis: 100%; }
+  .details { grid-template-columns: 1fr; gap: 0.1rem; }
+  .details dd { margin-bottom: 0.6rem; }
+}

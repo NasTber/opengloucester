@@ -1,6 +1,6 @@
 # Site configuration for one town. Everything town-specific lives here so the
 # same code can build another town's site from another file in this folder.
-# Build with: python scripts/build_site.py --town gloucester
+# Build with: python -m pipeline.build_site --town gloucester
 
 [site]
 name = "OpenGloucester"
@@ -10,6 +10,7 @@ repo_url = "https://github.com/NasTber/opengloucester"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = ""
 timezone = "America/New_York"
+user_agent = "opengloucester.org (+https://opengloucester.org/about/)"
 
 [town]
 name = "Gloucester"
@@ -29,11 +30,28 @@ status = "planned"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "Upcoming public meetings with plain-English previews of each agenda, and links to the posted documents."
-status = "planned"
+summary = "Upcoming public meetings of city boards and committees, with times, places, how to attend, and saved agendas."
+status = "live"
 
 [[sections]]
 slug = "about"
 title = "About"
 summary = "Data sources, update schedule, metric definitions, and corrections."
 status = "live"
+
+# Public meetings, from the city's CivicPlus calendar.
+[meetings]
+base_url = "https://www.gloucester-ma.gov"
+calendar_feed = "RSSFeed.aspx?ModID=58&CID=All-calendar.xml"
+# Calendar entries whose title matches this are public meetings; the rest
+# (festivals, community events) are skipped.
+include_pattern = '\b(board|commission|committee|subcommittee|council|authority|trust|meeting|hearing)\b'
+request_delay = 3.0
+max_event_pages = 40
+
+# Calendar names mapped to one consistent name per public body.
+[meetings.aliases]
+"Gloucester Historical Commission" = "Historical Commission"
+"Ordinances & Administration" = "City Council Ordinances & Administration Committee"
+"Planning & Development" = "City Council Planning & Development Committee"
+"Budget & Finance" = "City Council Budget & Finance Committee"

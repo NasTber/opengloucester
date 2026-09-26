@@ -1,10 +1,23 @@
 {% extends "base.html" %}
-{% from "macros.html" import status_label %}
+{% from "macros.html" import status_label, meeting_item %}
 {% block title %}{{ town.name }}, {{ town.state_abbr }} public data{% endblock %}
 {% block content %}
 <h1>{{ site.name }}</h1>
 <p class="lede">{{ site.tagline }}</p>
 <p>This site collects public data about the City of {{ town.name }}, measures it, and explains it in plain language. Every number links to its source.</p>
+
+<h2 id="this-week">Meetings this week</h2>
+{% if meetings.this_week %}
+{% for day, items in group_by(meetings.this_week, "date") %}
+<h3><time datetime="{{ day }}">{{ day | date }}</time></h3>
+<ul class="meeting-list">
+  {% for m in items %}{{ meeting_item(m) }}{% endfor %}
+</ul>
+{% endfor %}
+{% else %}
+<p>No public meetings are listed on the city calendar for the next seven days.</p>
+{% endif %}
+<p><a href="/meetings/">All upcoming meetings</a></p>
 
 <h2>Sections</h2>
 <ul class="card-list">

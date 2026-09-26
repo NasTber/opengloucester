@@ -5,3 +5,42 @@
 {% macro contact(site) -%}
 {% if site.contact_email %}email <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a> or {% endif %}open an issue on the <a href="{{ site.repo_url }}/issues">project's public issue tracker</a>
 {%- endmacro %}
+
+{% macro meeting_flags(m) -%}
+{% if m.status != "scheduled" %}<span class="flag flag-alert">{{ m.status | capitalize }}</span>{% endif %}
+{% if not m.listed %}<span class="flag flag-alert">Removed from city calendar</span>{% endif %}
+{% if m.special %}<span class="flag">Special meeting</span>{% endif %}
+{%- endmacro %}
+
+{# One meeting in a list. show_date adds the date for lists not grouped by day. #}
+{% macro meeting_item(m, show_date=false, show_body=true) -%}
+<li class="meeting-item">
+  <span class="meeting-when">
+    {%- if show_date %}<time datetime="{{ m.date }}">{{ m.date | date("short") }}</time>{% if m.start_time %}, {% endif %}{% endif -%}
+    {%- if m.start_time %}<time datetime="{{ m.date }}T{{ m.start_time }}">{{ m.start_time | time }}</time>{% elif not show_date %}Time not listed{% endif -%}
+  </span>
+  <a class="meeting-link" href="{{ m.url }}">{% if show_body %}{{ m.body }}{% else %}{{ m.title }}{% endif %}</a>
+  {{ meeting_flags(m) }}
+  {% if m.agenda %}<span class="meeting-meta">Agenda posted</span>{% endif %}
+</li>
+{%- endmacro %}
+
+{% macro describe_change(h) -%}
+{% if h.field == "start_time" %}Start time changed from {{ h.old | time or "not listed" }} to {{ h.new | time or "not listed" }}.
+{% elif h.field == "date" %}Date changed from {{ h.old | date }} to {{ h.new | date }}.
+{% elif h.field == "listed" %}{% if h.new %}Listed on the city calendar again.{% else %}Removed from the city calendar.{% endif %}
+{% elif h.field == "status" %}Marked {{ h.new }} on the city calendar.
+{% elif h.field == "agenda" %}A revised agenda was posted.
+{% elif h.field == "location_name" %}Location changed from {{ h.old or "not listed" }} to {{ h.new or "not listed" }}.
+{% elif h.field == "address" %}Address changed from {{ h.old or "not listed" }} to {{ h.new or "not listed" }}.
+{% elif h.field == "title" %}Title changed from "{{ h.old }}" to "{{ h.new }}".
+{% else %}{{ h.field }} changed.
+{% endif %}
+{%- endmacro %}
+
+{% macro freshness(meetings, town, city_site) -%}
+<p class="source-note">
+  Source: <a href="{{ city_site }}/calendar.aspx">City of {{ town.name }} calendar</a>.
+  {% if meetings.status %}Last checked <time datetime="{{ meetings.status.updated_at }}">{{ meetings.status.updated_at | timestamp }}</time>.{% endif %}
+</p>
+{%- endmacro %}

@@ -7,13 +7,20 @@ The site is static HTML built by a small Python script and deployed to GitHub Pa
 ## Layout
 
 ```
-config/<town>.toml      Everything town-specific: name, domain, links, sections
-site/templates/         Shared page layout (header, navigation, footer)
-site/pages/             One folder per section; each index.html becomes /<section>/
-site/static/            CSS, icons, and other files copied as-is
-scripts/build_site.py   Renders site/pages/ into _site/
-tests/                  Structure, link, and accessibility checks
-.github/workflows/      Build, test, and deploy to GitHub Pages
+config/<town>.toml          Everything town-specific: name, domain, sources, sections
+pipeline/                   Python package
+  fetch_meetings.py         Daily: city calendar -> data/meetings/
+  civicplus.py              Parsers for CivicPlus city websites
+  http.py                   Rate-limited HTTP client with retries
+  build_site.py             Renders site/ + data/ into _site/
+data/                       Collected data, committed by the daily job
+  meetings/meetings.json    One record per meeting, with a history of changes
+  meetings/agendas/         Saved copy of every agenda as posted
+site/templates/             Shared layout and per-record templates (meeting, board)
+site/pages/                 One folder per section; each index.html becomes /<section>/
+site/static/                CSS, icons, and other files copied as-is
+tests/                      Pipeline, structure, link, and accessibility checks (offline)
+.github/workflows/          Daily update, test, and deploy to GitHub Pages
 ```
 
 ## Build and test locally
@@ -21,12 +28,14 @@ tests/                  Structure, link, and accessibility checks
 Requires Python 3.11 or newer.
 
 ```sh
+python -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt -r requirements-dev.txt
 python -m playwright install chromium
 
-python scripts/build_site.py           # writes _site/
-python -m http.server -d _site 8000    # browse at http://localhost:8000
-python -m pytest                       # structure, links, accessibility
+python -m pipeline.fetch_meetings         # update data/ from the city website
+python -m pipeline.build_site             # writes _site/
+python -m http.server -d _site 8000       # browse at http://localhost:8000
+python -m pytest                          # runs offline against tests/fixtures/
 ```
 
 ## Adding a section
@@ -34,8 +43,16 @@ python -m pytest                       # structure, links, accessibility
 1. Add a `[[sections]]` entry to `config/gloucester.toml`. It appears in the main navigation.
 2. Create `site/pages/<slug>/index.html` extending `base.html`. It is served at `/<slug>/`.
 3. Sub-pages go in sub-folders: `site/pages/<slug>/<name>/index.html` is served at `/<slug>/<name>/`.
+4. Pages generated from data (one per record) use a template in `site/templates/` and are added in `pipeline/build_site.py`.
 
 New pages are picked up by the tests automatically.
+
+## Data collection
+
+- The workflow runs every morning, fetches new data, commits any changes under `data/`, then tests, builds, and deploys.
+- Requests identify the site in the User-Agent, wait between calls, and back off on errors. The city website rate-limits bursts of requests.
+- Records are never deleted. When a source changes something after posting it, the change is recorded in the record's `history`.
+- Meeting page URLs are fixed when a meeting is first recorded, so links keep working if the city renames or reschedules it.
 
 ## Accessibility
 
@@ -53,7 +70,7 @@ Rules for new pages:
 
 ## Deploying
 
-Pushes to `main` build, test, and deploy. Pull requests build and test only.
+Pushes to `main` test, build, and deploy. Pull requests test only. The daily schedule and the **Run workflow** button also fetch new data first.
 
 One-time setup:
 

@@ -108,3 +108,21 @@ def test_internal_links_resolve(site_dir, page_files):
 def test_contact_route_present(site_dir, rel):
     html = (site_dir / rel).read_text()
     assert "/issues" in html
+
+
+def test_meeting_pages(site_dir):
+    page = (site_dir / "meetings" / "2026-09-28-licensing-board" / "index.html").read_text()
+    assert "Cancelled" in page
+    assert "Marked cancelled on the city calendar." in page
+    hrc = (site_dir / "meetings" / "2026-09-28-human-rights-commission" / "index.html").read_text()
+    assert "/meetings/agendas/20124.pdf" in hrc
+    assert "scanned image" in hrc
+    assert (site_dir / "meetings" / "agendas" / "20124.pdf").exists()
+    arts = (site_dir / "meetings" / "2026-09-29-committee-for-the-arts" / "index.html").read_text()
+    assert "Removed from the city calendar." in arts
+
+
+def test_home_lists_this_weeks_meetings(site_dir):
+    home = (site_dir / "index.html").read_text()
+    assert "Meetings this week" in home
+    assert "/meetings/2026-10-05-city-council-ordinances-and-administration-committee/" in home
