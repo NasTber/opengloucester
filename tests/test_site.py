@@ -146,3 +146,19 @@ def test_outbound_and_pdf_links_open_in_new_tab_with_warning(page_files, config)
             else:
                 assert "target=" not in attrs, f"{path}: internal link {href} should open in place"
     assert checked > 0
+
+
+def test_ai_preview_is_labeled_and_linked(site_dir):
+    page = (site_dir / "meetings" / "2026-09-28-human-rights-commission" / "index.html").read_text()
+    assert "AI-generated" in page
+    assert "Full agenda text" in page
+    assert "https://www.gloucester-ma.gov/Archive.aspx?ADID=20124" in page
+    assert "<script" not in page.split("transcript-body")[1][:2000]
+
+
+def test_scorecard_page(site_dir):
+    page = (site_dir / "311" / "index.html").read_text()
+    assert "Requests in the past year" in page
+    assert "Ward 1" in page
+    assert "CC BY-NC-SA 3.0" in page
+    assert (site_dir / "311" / "methodology" / "index.html").exists()

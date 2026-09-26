@@ -522,3 +522,101 @@ main .breadcrumb li + li { margin-top: 0; }
   .card, .meeting-list { box-shadow: none; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; -webkit-mask: none; mask: none; background: none; width: auto; height: auto; }
 }
+
+/* ---- 311 scorecard ---- */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+main .stat-grid > li { max-width: none; margin-top: 0; }
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.stat-label { color: var(--muted); font-size: 0.9rem; font-weight: 700; }
+.stat-value { font-size: 1.75rem; font-weight: 750; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.stat-note { color: var(--muted); font-size: 0.9rem; line-height: 1.4; }
+.stat-pending { font-size: 1.25rem; color: var(--muted); }
+
+.table-scroll {
+  overflow-x: auto;
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+.data-table th, .data-table td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: middle;
+}
+.data-table tbody tr:last-child > * { border-bottom: 0; }
+.data-table thead th {
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.data-table tbody th { font-weight: 600; }
+.data-table .num { text-align: right; white-space: nowrap; }
+.bar-cell { width: 35%; min-width: 5rem; }
+.bar {
+  display: block;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: var(--primary);
+  min-width: 2px;
+}
+.plain-list { padding-left: 1.4rem; }
+dl.card.details { margin: 0 0 1rem; }
+
+/* ---- AI-generated agenda text ---- */
+
+.ai-block {
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+.ai-block h3 { font-size: 1rem; margin: 1.25rem 0 0.4rem; }
+.ai-label { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0; color: var(--muted); font-size: 0.95rem; }
+.ai-summary { font-size: 1.1rem; }
+.transcript { margin-top: 1.25rem; border-top: 1px solid var(--line); padding-top: 0.75rem; }
+.transcript summary {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--link);
+  font-weight: 650;
+  cursor: pointer;
+}
+.transcript-body { padding-top: 0.5rem; }
+.transcript-body h3, .transcript-body h4, .transcript-body h5 { font-size: 1rem; }
+.meeting-preview {
+  margin: 0.2rem 0 0.1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}

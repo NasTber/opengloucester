@@ -14,7 +14,9 @@ RETRY_STATUS = {429, 500, 502, 503, 504}
 
 
 class FetchError(Exception):
-    pass
+    def __init__(self, message: str, status: int | None = None):
+        super().__init__(message)
+        self.status = status
 
 
 class PoliteClient:
@@ -43,9 +45,12 @@ class PoliteClient:
                 last_error = e
                 continue
             if response.status_code in RETRY_STATUS:
-                last_error = FetchError(f"HTTP {response.status_code}")
+                last_error = FetchError(f"HTTP {response.status_code}", response.status_code)
+                retry_after = response.headers.get("Retry-After", "")
+                if retry_after.isdigit():
+                    time.sleep(min(int(retry_after), 300))
                 continue
             if response.status_code >= 400:
-                raise FetchError(f"{url}: HTTP {response.status_code}")
+                raise FetchError(f"{url}: HTTP {response.status_code}", response.status_code)
             return response
-        raise FetchError(f"{url}: {last_error}")
+        raise FetchError(f"{url}: {last_error}", getattr(last_error, "status", None))

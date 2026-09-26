@@ -1,22 +1,131 @@
 {% extends "base.html" %}
-{% from "macros.html" import status_label %}
-{% block title %}311 Requests{% endblock %}
-{% block description %}{{ section.summary }}{% endblock %}
+{% block title %}311 Requests scorecard{% endblock %}
+{% block description %}How quickly the City of {{ town.name }} acknowledges and closes public service requests, how many are still open, by category and ward.{% endblock %}
+{% set sc = scorecard %}
 {% block content %}
-<h1>{{ section.title }}</h1>
-{{ status_label(section) }}
-<p class="lede">{{ section.summary }}</p>
+<div class="page-head">
+  <h1>311 Requests</h1>
+  <p class="lede">How the City of {{ town.name }} responds to public service requests submitted through SeeClickFix.</p>
+  {% if sc %}
+  <p class="source-note">Source: public requests on <a href="https://seeclickfix.com">SeeClickFix</a>. Figures cover requests submitted {{ sc.window.start | date("plain") }} to {{ sc.window.end | date("plain") }}, and were last updated <time datetime="{{ sc.generated_at }}">{{ sc.generated_at | timestamp }}</time>.</p>
+  {% endif %}
+  <div class="actions">
+    <a class="button" href="/311/methodology/">How these numbers are calculated</a>
+    <a class="button" href="{{ config.seeclickfix.report_url }}">Report a problem to the city</a>
+  </div>
+</div>
 
-<h2>What this section will show</h2>
-<ul>
-  <li><strong>Time to close:</strong> the median number of days from when a request is submitted to when it is closed, by category and by ward.</li>
-  <li><strong>Open backlog:</strong> how many requests are still open and how long they have been waiting.</li>
-  <li><strong>Trends:</strong> the same figures month by month.</li>
-  <li><strong>Repeat locations:</strong> places where the same kind of problem is reported more than once within a short period.</li>
+{% if not sc %}
+<p>Figures will appear here after the first data collection.</p>
+{% else %}
+{% set o = sc.overall %}
+<h2 id="past-year" class="visually-hidden">The past year</h2>
+<ul class="stat-grid">
+  <li class="stat">
+    <span class="stat-label">Requests in the past year</span>
+    <span class="stat-value">{{ o.received | number }}</span>
+    <span class="stat-note">{{ o.closed | number }} closed, {{ o.open | number }} still open</span>
+  </li>
+  <li class="stat">
+    <span class="stat-label">Typical time to acknowledge</span>
+    {% if o.time_to_acknowledge.median is none and o.checked < o.received %}
+    <span class="stat-value stat-pending">Being collected</span>
+    <span class="stat-note">Exact acknowledgment times are being looked up</span>
+    {% else %}
+    <span class="stat-value">{{ o.time_to_acknowledge.median | duration }}</span>
+    <span class="stat-note">Median. {{ o.acknowledged | number }} of {{ o.checked | number }} requests checked were acknowledged by city staff</span>
+    {% endif %}
+  </li>
+  <li class="stat">
+    <span class="stat-label">Typical time to close</span>
+    <span class="stat-value">{{ o.time_to_close.median | duration }}</span>
+    <span class="stat-note">Median. 1 in 10 took longer than {{ o.time_to_close.p90 | duration }}</span>
+  </li>
+  <li class="stat">
+    <span class="stat-label">Open right now</span>
+    <span class="stat-value">{{ sc.backlog.open | number }}</span>
+    <span class="stat-note">Half have been open longer than {{ sc.backlog.median_age_days | duration }}</span>
+  </li>
 </ul>
+{% if o.checked < o.received %}
+<p class="note">Exact acknowledgment times are still being collected: {{ o.checked | number }} of {{ o.received | number }} requests from the past year have been checked so far. The acknowledgment figures will change as the rest are added.</p>
+{% endif %}
 
-<h2>Where the data comes from</h2>
-<p>Requests that residents submit through SeeClickFix, the city's service request system. Only public requests are included. Requests the city keeps private are not available and are not counted.</p>
+<h2 id="open">Open requests by age</h2>
+<p>Every request still open, whenever it was submitted.</p>
+{% set max_bucket = sc.backlog.buckets | map(attribute="count") | max %}
+<div class="table-scroll" role="region" aria-labelledby="open" tabindex="0">
+<table class="data-table">
+  <thead><tr><th scope="col">Open for</th><th scope="col" class="num">Requests</th><th scope="col"><span class="visually-hidden">Bar</span></th></tr></thead>
+  <tbody>
+  {% for b in sc.backlog.buckets %}
+    <tr><th scope="row">{{ b.label }}</th><td class="num">{{ b.count | number }}</td>
+      <td class="bar-cell" aria-hidden="true"><span class="bar" style="width: {{ (b.count / max_bucket * 100) if max_bucket else 0 }}%"></span></td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
 
-<p>To report a problem, use the <a href="{{ town.official_site }}">official City of {{ town.name }} website</a>. This site does not accept reports.</p>
+<h3>Longest-open requests</h3>
+<ol class="plain-list">
+  {% for r in sc.backlog.oldest %}
+  <li><a href="{{ r.url }}">{{ r.category }}</a>, {{ r.address or "no address" }}{% if r.ward %} (Ward {{ r.ward }}){% endif %}. Open {{ r.age_days | duration }}, since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>
+  {% endfor %}
+</ol>
+
+<h2 id="categories">By category</h2>
+<p>Requests submitted in the past year. Times are medians: half of requests took less time, half took more.</p>
+<div class="table-scroll" role="region" aria-labelledby="categories" tabindex="0">
+<table class="data-table">
+  <thead><tr>
+    <th scope="col">Category</th><th scope="col" class="num">Received</th><th scope="col" class="num">Still open</th>
+    <th scope="col" class="num">Time to acknowledge</th><th scope="col" class="num">Time to close</th>
+  </tr></thead>
+  <tbody>
+  {% for c in sc.by_category %}
+    <tr><th scope="row">{{ c.category }}</th><td class="num">{{ c.received | number }}</td><td class="num">{{ c.open | number }}</td>
+      <td class="num">{{ c.time_to_acknowledge.median | duration }}</td><td class="num">{{ c.time_to_close.median | duration }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<h2 id="wards">By ward</h2>
+<p>Requests submitted in the past year, by the ward where the problem was reported. Differences between wards reflect how often residents report problems as well as how the city responds.</p>
+<div class="table-scroll" role="region" aria-labelledby="wards" tabindex="0">
+<table class="data-table">
+  <thead><tr>
+    <th scope="col">Ward</th><th scope="col" class="num">Received</th><th scope="col" class="num">Per 1,000 residents</th><th scope="col" class="num">Still open</th>
+    <th scope="col" class="num">Time to acknowledge</th><th scope="col" class="num">Time to close</th>
+  </tr></thead>
+  <tbody>
+  {% for w in sc.by_ward %}
+    <tr><th scope="row">{% if w.ward == "outside" %}Outside ward boundaries{% else %}Ward {{ w.ward }}{% endif %}</th><td class="num">{{ w.received | number }}</td>
+      <td class="num">{{ w.per_1000_residents | number }}</td><td class="num">{{ w.open | number }}</td>
+      <td class="num">{{ w.time_to_acknowledge.median | duration }}</td><td class="num">{{ w.time_to_close.median | duration }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<h2 id="monthly">Month by month</h2>
+<p>Requests by the month they were submitted. Recent months include requests that have not had time to close, so their times will rise.</p>
+{% set max_month = sc.monthly | map(attribute="received") | max %}
+<div class="table-scroll" role="region" aria-labelledby="monthly" tabindex="0">
+<table class="data-table">
+  <thead><tr>
+    <th scope="col">Month</th><th scope="col" class="num">Received</th><th scope="col"><span class="visually-hidden">Bar</span></th><th scope="col" class="num">Still open</th><th scope="col" class="num">Time to close</th>
+  </tr></thead>
+  <tbody>
+  {% for m in sc.monthly | reverse %}
+    <tr><th scope="row">{{ m.month | month }}{% if m.recent %} <span class="chip chip-quiet">Recent</span>{% endif %}</th><td class="num">{{ m.received | number }}</td>
+      <td class="bar-cell" aria-hidden="true"><span class="bar" style="width: {{ (m.received / max_month * 100) if max_month else 0 }}%"></span></td>
+      <td class="num">{{ m.open | number }}</td><td class="num">{{ m.time_to_close.median | duration }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<p class="source-note">Data from <a href="https://seeclickfix.com">seeclickfix.com</a>, used under the <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a> license. Only public requests are included. Requests are recorded back to {{ sc.data_since | date }}. Figures with fewer than {{ sc.min_sample }} requests show "Not enough data".</p>
+{% endif %}
 {% endblock %}

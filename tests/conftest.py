@@ -13,8 +13,11 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(Path(__file__).parent))
 
-from fakes import FIXTURES, FakeCityClient  # noqa: E402
-from pipeline import build_site, fetch_meetings  # noqa: E402
+import shutil  # noqa: E402
+
+from fakes import FIXTURES, FakeAnthropic, FakeCityClient, FakeSeeClickFix  # noqa: E402
+from pipeline import build_site, compute_311, fetch_311, fetch_meetings, summarize  # noqa: E402
+from pipeline.config import DATA_DIR as REAL_DATA_DIR  # noqa: E402
 from pipeline.config import load_config  # noqa: E402
 
 TZ = ZoneInfo("America/New_York")
@@ -23,10 +26,11 @@ BUILT_AT = datetime(2026, 10, 2, 7, 0, tzinfo=TZ)
 
 
 def make_fixture_data(data_dir: Path) -> None:
-    """Run the meetings pipeline twice against saved city pages.
+    """Run every pipeline step offline against saved source data.
 
-    The second run simulates the city cancelling one meeting and deleting
-    another, so change history is exercised.
+    The meetings pipeline runs twice; the second run simulates the city
+    cancelling one meeting and deleting another, so change history is
+    exercised. Agenda previews come from a stand-in model client.
     """
     config = load_config("gloucester")
     fetch_meetings.run(config, FakeCityClient(), data_dir, now=FETCHED_AT)
@@ -35,6 +39,11 @@ def make_fixture_data(data_dir: Path) -> None:
     start = feed.index("<item", feed.index("Committee for the Arts") - 400)
     feed = feed[:start] + feed[feed.index("</item>", start) + len("</item>"):]
     fetch_meetings.run(config, FakeCityClient(feed=feed.encode()), data_dir, now=FETCHED_AT.replace(day=27))
+    summarize.run(config, FakeAnthropic(), data_dir, limit=5, now=FETCHED_AT)
+
+    shutil.copytree(REAL_DATA_DIR / "static", data_dir / "static")
+    fetch_311.run(config, FakeSeeClickFix(), data_dir, now=FETCHED_AT, detail_limit=80)
+    fetch_311.save_json(data_dir / "311" / "scorecard.json", compute_311.compute(config, data_dir, now=FETCHED_AT))
 
 
 def _build_fixture_site() -> Path:

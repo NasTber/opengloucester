@@ -42,13 +42,35 @@
 </div>
 
 <h2 id="agenda">Agenda</h2>
+{% if m.preview %}
+<section class="ai-block" aria-labelledby="ai-label">
+  <p class="ai-label" id="ai-label"><span class="chip">AI-generated</span> Preview and text written by software from the <a href="{{ m.preview.source_url }}">city's agenda</a>. Check the original before relying on it.</p>
+  <p class="ai-summary">{{ m.preview.summary }}</p>
+  {% if m.preview["items"] %}
+  <h3>On the agenda</h3>
+  <ul>
+    {% for item in m.preview["items"] %}<li>{{ item }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+  {% if m.preview.attend %}
+  <h3>How to attend or comment</h3>
+  <p>{{ m.preview.attend }}</p>
+  {% endif %}
+  <details class="transcript">
+    <summary>Full agenda text</summary>
+    <div class="transcript-body">{{ m.preview.transcript | markdown }}</div>
+  </details>
+  <p class="source-note">Written by {{ m.preview.model }} on <time datetime="{{ m.preview.generated_at }}">{{ m.preview.generated_at | timestamp }}</time>. <a href="/about/#ai">How AI-generated text is used</a>.</p>
+</section>
+<h3>Original documents</h3>
+{% endif %}
 {% if m.agenda %}
 <ul>
   <li><a href="{{ m.agenda.source_url }}">Agenda on the city website</a> (PDF, {{ m.agenda.bytes | filesize }})</li>
   <li><a href="/meetings/agendas/{{ m.agenda.file }}">Saved copy</a> (PDF, {{ m.agenda.bytes | filesize }}), saved <time datetime="{{ m.agenda.fetched_at }}">{{ m.agenda.fetched_at | timestamp }}</time></li>
 </ul>
 {% if m.agenda.has_text == false %}
-<p class="note">The city posted this agenda as a scanned image. Screen readers and search tools may not be able to read it.</p>
+<p class="note">The city posted this agenda as a scanned image. Screen readers and search tools may not be able to read it.{% if m.preview %} The full agenda text above is a readable version.{% endif %}</p>
 {% endif %}
 {% if m.agendas | length > 1 %}
 <p>Earlier versions of this agenda:</p>

@@ -1,0 +1,110 @@
+"""Tests for the 311 pipeline, run offline against saved SeeClickFix responses."""
+
+import json
+import shutil
+from datetime import datetime
+
+import pytest
+
+from conftest import FETCHED_AT, REAL_DATA_DIR
+from fakes import FakeSeeClickFix
+from pipeline import compute_311, fetch_311
+from pipeline.config import load_config
+from pipeline.geo import PrecinctLookup
+
+
+@pytest.fixture
+def config():
+    return load_config("gloucester")
+
+
+@pytest.fixture
+def data(tmp_path):
+    shutil.copytree(REAL_DATA_DIR / "static", tmp_path / "static")
+    return tmp_path
+
+
+def load(data_dir):
+    return json.loads((data_dir / "311" / "requests.json").read_text())
+
+
+def test_precinct_lookup():
+    lookup = PrecinctLookup(REAL_DATA_DIR / "static" / "gloucester-precincts-2022.geojson")
+    city_hall = lookup.find(42.6146, -70.6634)  # 9 Dale Ave
+    assert city_hall is not None and city_hall["ward"] in {"1", "2", "3", "4", "5"}
+    assert lookup.find(42.3601, -71.0589) is None  # Boston
+    assert lookup.find(None, None) is None
+
+
+def test_run_records_requests_without_personal_details(config, data):
+    fetch_311.run(config, FakeSeeClickFix(), data, now=FETCHED_AT, detail_limit=0)
+    store = load(data)
+    assert len(store) == 114
+    record = next(iter(store.values()))
+    assert {"id", "category", "created_at", "status", "lat", "lng", "ward", "precinct"} <= record.keys()
+    assert "description" not in record and "media_url" not in record
+    assert all(r["ward"] for r in store.values()), "every fixture request is inside the city"
+
+
+def test_run_fills_exact_times_up_to_limit(config, data):
+    summary = fetch_311.run(config, FakeSeeClickFix(), data, now=FETCHED_AT, detail_limit=10)
+    assert summary["details_fetched"] == 10
+    assert summary["details_missing"] == 104
+    fetch_311.run(config, FakeSeeClickFix(), data, now=FETCHED_AT, detail_limit=500)
+    assert all(r["detail"] for r in load(data).values())
+
+
+def test_request_leaving_open_list_is_rechecked(config, data):
+    first = FakeSeeClickFix()
+    fetch_311.run(config, first, data, now=FETCHED_AT, detail_limit=500)
+    closed_id = str(first.open_items[0]["service_request_id"])
+    # The city closed it: it leaves the open list, and the lookup reports it closed.
+    now_closed = dict(first.open_items[0], status="closed")
+    later = FakeSeeClickFix(open_items=first.open_items[1:], window_items=first.window_items + [now_closed])
+    fetch_311.run(config, later, data, now=FETCHED_AT.replace(day=27), detail_limit=500)
+    assert any(u.endswith(f"/issues/{closed_id}") for u in later.urls), "closed request should be looked up again"
+    assert load(data)[closed_id]["status"] == "closed"
+
+
+def test_removed_request_is_kept_out(config, data):
+    source = FakeSeeClickFix()
+    gone = str(source.open_items[0]["service_request_id"])
+    fetch_311.run(config, FakeSeeClickFix(missing_ids={gone}), data, now=FETCHED_AT, detail_limit=500)
+    assert load(data)[gone]["removed"] is True
+    scorecard = compute_311.compute(config, data, now=FETCHED_AT)
+    assert scorecard["overall"]["received"] == 113
+
+
+def test_close_time_prefers_exact_then_archive_then_update():
+    base = {"status": "closed", "updated_at": "2026-09-05T00:00:00-04:00"}
+    assert compute_311.closed_time({**base, "detail": {"closed_at": "2026-09-02T00:00:00-04:00", "updated_at": "2026-09-03T00:00:00-04:00"}}).day == 2
+    assert compute_311.closed_time({**base, "detail": {"closed_at": None, "updated_at": "2026-09-03T00:00:00-04:00"}}).day == 3
+    assert compute_311.closed_time({**base, "detail": None}).day == 5
+    assert compute_311.closed_time({**base, "status": "open"}) is None
+
+
+def test_small_samples_are_suppressed():
+    assert compute_311.stats([1.0, 2.0])["median"] is None
+    s = compute_311.stats([1.0, 2.0, 3.0, 4.0, 5.0])
+    assert s["median"] == 3.0 and s["n"] == 5
+
+
+def test_scorecard(config, data):
+    fetch_311.run(config, FakeSeeClickFix(), data, now=FETCHED_AT, detail_limit=500)
+    sc = compute_311.compute(config, data, now=FETCHED_AT)
+    o = sc["overall"]
+    assert o["received"] == o["open"] + o["closed"] == 114
+    assert o["checked"] == 114
+    assert 0 < o["acknowledged"] < o["checked"]
+    assert o["time_to_close"]["median"] is not None
+    assert sum(b["count"] for b in sc["backlog"]["buckets"]) == sc["backlog"]["open"] == 100
+    assert sum(w["received"] for w in sc["by_ward"]) == 114
+    assert all(w["per_1000_residents"] for w in sc["by_ward"] if w["ward"] != "outside")
+    assert sc["backlog"]["oldest"][0]["url"].startswith("https://seeclickfix.com/issues/")
+
+
+def test_month_windows_cover_every_month():
+    from datetime import date
+    windows = list(fetch_311.month_windows(date(2024, 11, 1), date(2025, 2, 10)))
+    assert [w[0].isoformat() for w in windows] == ["2024-11-01", "2024-12-01", "2025-01-01", "2025-02-01"]
+    assert windows[-1][1].isoformat() == "2025-03-01"

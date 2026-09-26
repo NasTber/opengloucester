@@ -1,0 +1,1379 @@
+{
+ "backlog": {
+  "buckets": [
+   {
+    "count": 20,
+    "label": "Under 1 week",
+    "max_days": 7
+   },
+   {
+    "count": 74,
+    "label": "1 to 4 weeks",
+    "max_days": 30
+   },
+   {
+    "count": 130,
+    "label": "1 to 3 months",
+    "max_days": 90
+   },
+   {
+    "count": 332,
+    "label": "3 to 12 months",
+    "max_days": 365
+   },
+   {
+    "count": 351,
+    "label": "Over 1 year",
+    "max_days": null
+   }
+  ],
+  "median_age_days": 214.1,
+  "oldest": [
+   {
+    "address": "6 Sadler St Gloucester MA 01930, United States",
+    "age_days": 2349.1,
+    "category": "Private Property Issue",
+    "created_at": "2020-04-21T13:57:09-04:00",
+    "id": "7696257",
+    "url": "https://seeclickfix.com/issues/7696257",
+    "ward": "2"
+   },
+   {
+    "address": "1 Western Ave Gloucester MA 01930, United States",
+    "age_days": 2085.3,
+    "category": "Illegal Dumping",
+    "created_at": "2021-01-10T08:37:04-05:00",
+    "id": "9172426",
+    "url": "https://seeclickfix.com/issues/9172426",
+    "ward": "3"
+   },
+   {
+    "address": "201 Gloucester Crossing Gloucester, MA, 01930, USA",
+    "age_days": 2061.9,
+    "category": "Health Department",
+    "created_at": "2021-02-02T17:25:34-05:00",
+    "id": "9282468",
+    "url": "https://seeclickfix.com/issues/9282468",
+    "ward": "2"
+   },
+   {
+    "address": "1240 Washington Street Gloucester, MA, 01930, USA",
+    "age_days": 2048.0,
+    "category": "Storm Drain/Flooding Issue",
+    "created_at": "2021-02-16T14:30:35-05:00",
+    "id": "9364041",
+    "url": "https://seeclickfix.com/issues/9364041",
+    "ward": "4"
+   },
+   {
+    "address": "498 Washington Street Gloucester, MA, 01930, USA",
+    "age_days": 2042.1,
+    "category": "Other",
+    "created_at": "2021-02-22T14:13:16-05:00",
+    "id": "9391474",
+    "url": "https://seeclickfix.com/issues/9391474",
+    "ward": "4"
+   },
+   {
+    "address": "30 Reservoir Rd Gloucester MA 01930, United States",
+    "age_days": 1998.3,
+    "category": "Sidewalk Issue",
+    "created_at": "2021-04-07T08:09:55-04:00",
+    "id": "9665568",
+    "url": "https://seeclickfix.com/issues/9665568",
+    "ward": "4"
+   },
+   {
+    "address": "67 Middle St Gloucester, MA 01930, USA",
+    "age_days": 1898.3,
+    "category": "Health Department",
+    "created_at": "2021-07-16T09:01:28-04:00",
+    "id": "10427677",
+    "url": "https://seeclickfix.com/issues/10427677",
+    "ward": "2"
+   },
+   {
+    "address": "86 Main Street Gloucester, MA, 01930, USA",
+    "age_days": 1858.1,
+    "category": "Other",
+    "created_at": "2021-08-25T15:04:08-04:00",
+    "id": "10876481",
+    "url": "https://seeclickfix.com/issues/10876481",
+    "ward": "2"
+   },
+   {
+    "address": "34 Railroad Ave Gloucester, MA 01930, USA",
+    "age_days": 1708.2,
+    "category": "Health Department",
+    "created_at": "2022-01-22T10:00:37-05:00",
+    "id": "11772169",
+    "url": "https://seeclickfix.com/issues/11772169",
+    "ward": "2"
+   },
+   {
+    "address": "262 Main Street Gloucester, MA, 01930, USA",
+    "age_days": 1698.6,
+    "category": "Health Department",
+    "created_at": "2022-02-01T00:11:12-05:00",
+    "id": "11812528",
+    "url": "https://seeclickfix.com/issues/11812528",
+    "ward": "2"
+   }
+  ],
+  "open": 907
+ },
+ "by_category": [
+  {
+   "acknowledged": 0,
+   "category": "Trash or Recycling",
+   "checked": 0,
+   "closed": 390,
+   "open": 56,
+   "received": 446,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 14.17,
+    "n": 390,
+    "p90": 141.64
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Pothole",
+   "checked": 0,
+   "closed": 241,
+   "open": 60,
+   "received": 301,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 13.86,
+    "n": 241,
+    "p90": 83.88
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Snow/Ice Removal",
+   "checked": 0,
+   "closed": 198,
+   "open": 26,
+   "received": 224,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 1.75,
+    "n": 198,
+    "p90": 16.26
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Other",
+   "checked": 0,
+   "closed": 101,
+   "open": 64,
+   "received": 165,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 1.85,
+    "n": 101,
+    "p90": 43.91
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Road Issues Other Than Potholes",
+   "checked": 0,
+   "closed": 103,
+   "open": 32,
+   "received": 135,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 4.14,
+    "n": 103,
+    "p90": 78.56
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Illegal Dumping",
+   "checked": 0,
+   "closed": 112,
+   "open": 21,
+   "received": 133,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.71,
+    "n": 112,
+    "p90": 91.48
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Health Department (General Nuisance/Inquiry)",
+   "checked": 0,
+   "closed": 105,
+   "open": 2,
+   "received": 107,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 3.7,
+    "n": 105,
+    "p90": 36.16
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Police Department (Non-Emergency)",
+   "checked": 0,
+   "closed": 91,
+   "open": 3,
+   "received": 94,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 0.65,
+    "n": 91,
+    "p90": 4.99
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Street Light Issue",
+   "checked": 0,
+   "closed": 55,
+   "open": 37,
+   "received": 92,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 28.51,
+    "n": 55,
+    "p90": 97.43
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Snow: Plow Request",
+   "checked": 0,
+   "closed": 74,
+   "open": 11,
+   "received": 85,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 1.91,
+    "n": 74,
+    "p90": 11.1
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Sidewalk Issue",
+   "checked": 0,
+   "closed": 49,
+   "open": 35,
+   "received": 84,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.52,
+    "n": 49,
+    "p90": 46.47
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
+   "checked": 0,
+   "closed": 44,
+   "open": 32,
+   "received": 76,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.52,
+    "n": 44,
+    "p90": 64.56
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Utilities (Water/Sewer)",
+   "checked": 0,
+   "closed": 56,
+   "open": 14,
+   "received": 70,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 4.83,
+    "n": 56,
+    "p90": 91.98
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Manhole Cover",
+   "checked": 0,
+   "closed": 50,
+   "open": 15,
+   "received": 65,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 7.81,
+    "n": 50,
+    "p90": 62.01
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Street Sign Issue",
+   "checked": 0,
+   "closed": 41,
+   "open": 18,
+   "received": 59,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.13,
+    "n": 41,
+    "p90": 19.97
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Abandoned Vehicle",
+   "checked": 0,
+   "closed": 40,
+   "open": 11,
+   "received": 51,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 0.72,
+    "n": 40,
+    "p90": 3.85
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Brush",
+   "checked": 0,
+   "closed": 40,
+   "open": 10,
+   "received": 50,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 1.84,
+    "n": 40,
+    "p90": 19.93
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Tree Issues",
+   "checked": 0,
+   "closed": 24,
+   "open": 26,
+   "received": 50,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.6,
+    "n": 24,
+    "p90": 18.22
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Beaches",
+   "checked": 0,
+   "closed": 31,
+   "open": 10,
+   "received": 41,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 1.99,
+    "n": 31,
+    "p90": 30.14
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Clean Team/Volunteer Yellow Bag Pick Up",
+   "checked": 0,
+   "closed": 39,
+   "open": 2,
+   "received": 41,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 1.11,
+    "n": 39,
+    "p90": 4.49
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Animal Issues",
+   "checked": 0,
+   "closed": 37,
+   "open": 0,
+   "received": 37,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 1.55,
+    "n": 37,
+    "p90": 5.25
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Crosswalks",
+   "checked": 0,
+   "closed": 17,
+   "open": 16,
+   "received": 33,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.96,
+    "n": 17,
+    "p90": 30.27
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Private Property Issue",
+   "checked": 0,
+   "closed": 7,
+   "open": 19,
+   "received": 26,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 3.15,
+    "n": 7,
+    "p90": 83.67
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Storm Drain/Flooding Issue",
+   "checked": 0,
+   "closed": 22,
+   "open": 4,
+   "received": 26,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 7.7,
+    "n": 22,
+    "p90": 56.19
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Parking Kiosk",
+   "checked": 0,
+   "closed": 7,
+   "open": 12,
+   "received": 19,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.57,
+    "n": 7,
+    "p90": 28.4
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Community Development",
+   "checked": 0,
+   "closed": 4,
+   "open": 7,
+   "received": 11,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": null,
+    "n": 4,
+    "p90": null
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Snow: Icy Conditions",
+   "checked": 0,
+   "closed": 11,
+   "open": 0,
+   "received": 11,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 0.95,
+    "n": 11,
+    "p90": 11.72
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Conservation",
+   "checked": 0,
+   "closed": 3,
+   "open": 7,
+   "received": 10,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": null,
+    "n": 3,
+    "p90": null
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Water Quality",
+   "checked": 0,
+   "closed": 6,
+   "open": 1,
+   "received": 7,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 48.89,
+    "n": 6,
+    "p90": 132.94
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Health Department (General Nuisance - Internal)",
+   "checked": 0,
+   "closed": 6,
+   "open": 0,
+   "received": 6,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 19.85,
+    "n": 6,
+    "p90": 38.45
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Graffiti",
+   "checked": 0,
+   "closed": 2,
+   "open": 3,
+   "received": 5,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": null,
+    "n": 2,
+    "p90": null
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Traffic Signal Issue",
+   "checked": 0,
+   "closed": 3,
+   "open": 1,
+   "received": 4,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": null,
+    "n": 3,
+    "p90": null
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Harbor Master's Office",
+   "checked": 0,
+   "closed": 1,
+   "open": 1,
+   "received": 2,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": null,
+    "n": 1,
+    "p90": null
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Health Department (Rental Registry Inquiry-Internal)",
+   "checked": 0,
+   "closed": 2,
+   "open": 0,
+   "received": 2,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": null,
+    "n": 2,
+    "p90": null
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Health Department (Food - Internal)",
+   "checked": 0,
+   "closed": 1,
+   "open": 0,
+   "received": 1,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": null,
+    "n": 1,
+    "p90": null
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Health Department (General Inquiry - Internal)",
+   "checked": 0,
+   "closed": 1,
+   "open": 0,
+   "received": 1,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": null,
+    "n": 1,
+    "p90": null
+   }
+  },
+  {
+   "acknowledged": 0,
+   "category": "Health Department (Septic - Internal)",
+   "checked": 0,
+   "closed": 1,
+   "open": 0,
+   "received": 1,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": null,
+    "n": 1,
+    "p90": null
+   }
+  }
+ ],
+ "by_ward": [
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 539,
+   "open": 136,
+   "per_1000_residents": 115.1,
+   "population_2020": 5862,
+   "received": 675,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 3.59,
+    "n": 539,
+    "p90": 69.53
+   },
+   "ward": "1"
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 466,
+   "open": 129,
+   "per_1000_residents": 101.9,
+   "population_2020": 5841,
+   "received": 595,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.69,
+    "n": 466,
+    "p90": 67.2
+   },
+   "ward": "2"
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 316,
+   "open": 96,
+   "per_1000_residents": 71.7,
+   "population_2020": 5744,
+   "received": 412,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 4.0,
+    "n": 316,
+    "p90": 77.51
+   },
+   "ward": "3"
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 388,
+   "open": 95,
+   "per_1000_residents": 79.2,
+   "population_2020": 6100,
+   "received": 483,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 4.61,
+    "n": 388,
+    "p90": 75.04
+   },
+   "ward": "4"
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 306,
+   "open": 100,
+   "per_1000_residents": 65.7,
+   "population_2020": 6182,
+   "received": 406,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 4.75,
+    "n": 306,
+    "p90": 90.17
+   },
+   "ward": "5"
+  }
+ ],
+ "data_since": "2020-04-21",
+ "generated_at": "2026-09-26T16:28:41-04:00",
+ "min_sample": 5,
+ "monthly": [
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 72,
+   "month": "2024-10",
+   "open": 4,
+   "received": 76,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 9.44,
+    "n": 72,
+    "p90": 210.21
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 116,
+   "month": "2024-11",
+   "open": 12,
+   "received": 128,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 10.16,
+    "n": 116,
+    "p90": 223.7
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 76,
+   "month": "2024-12",
+   "open": 0,
+   "received": 76,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 5.23,
+    "n": 76,
+    "p90": 169.63
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 100,
+   "month": "2025-01",
+   "open": 3,
+   "received": 103,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 4.28,
+    "n": 100,
+    "p90": 279.52
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 183,
+   "month": "2025-02",
+   "open": 10,
+   "received": 193,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.99,
+    "n": 183,
+    "p90": 310.75
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 135,
+   "month": "2025-03",
+   "open": 9,
+   "received": 144,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 5.89,
+    "n": 135,
+    "p90": 184.22
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 135,
+   "month": "2025-04",
+   "open": 16,
+   "received": 151,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 4.03,
+    "n": 135,
+    "p90": 100.45
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 178,
+   "month": "2025-05",
+   "open": 32,
+   "received": 210,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 6.08,
+    "n": 178,
+    "p90": 197.83
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 140,
+   "month": "2025-06",
+   "open": 15,
+   "received": 155,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 10.85,
+    "n": 140,
+    "p90": 196.94
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 1503,
+   "month": "2025-07",
+   "open": 36,
+   "received": 1539,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.71,
+    "n": 1503,
+    "p90": 55.55
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 246,
+   "month": "2025-08",
+   "open": 22,
+   "received": 268,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.85,
+    "n": 246,
+    "p90": 112.39
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 970,
+   "month": "2025-09",
+   "open": 30,
+   "received": 1000,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 4.6,
+    "n": 970,
+    "p90": 10.05
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 135,
+   "month": "2025-10",
+   "open": 16,
+   "received": 151,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 9.63,
+    "n": 135,
+    "p90": 61.51
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 109,
+   "month": "2025-11",
+   "open": 3,
+   "received": 112,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 9.99,
+    "n": 109,
+    "p90": 61.85
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 107,
+   "month": "2025-12",
+   "open": 12,
+   "received": 119,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 13.68,
+    "n": 107,
+    "p90": 48.99
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 267,
+   "month": "2026-01",
+   "open": 29,
+   "received": 296,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.06,
+    "n": 267,
+    "p90": 10.88
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 267,
+   "month": "2026-02",
+   "open": 48,
+   "received": 315,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 3.04,
+    "n": 267,
+    "p90": 173.61
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 192,
+   "month": "2026-03",
+   "open": 53,
+   "received": 245,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 3.55,
+    "n": 192,
+    "p90": 159.42
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 190,
+   "month": "2026-04",
+   "open": 37,
+   "received": 227,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 7.9,
+    "n": 190,
+    "p90": 120.28
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 170,
+   "month": "2026-05",
+   "open": 85,
+   "received": 255,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 5.83,
+    "n": 170,
+    "p90": 83.48
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 195,
+   "month": "2026-06",
+   "open": 49,
+   "received": 244,
+   "recent": false,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 6.08,
+    "n": 195,
+    "p90": 71.36
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 191,
+   "month": "2026-07",
+   "open": 45,
+   "received": 236,
+   "recent": true,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.13,
+    "n": 191,
+    "p90": 22.92
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 112,
+   "month": "2026-08",
+   "open": 95,
+   "received": 207,
+   "recent": true,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 2.01,
+    "n": 112,
+    "p90": 12.96
+   }
+  },
+  {
+   "acknowledged": 0,
+   "checked": 0,
+   "closed": 65,
+   "month": "2026-09",
+   "open": 81,
+   "received": 146,
+   "recent": true,
+   "time_to_acknowledge": {
+    "median": null,
+    "n": 0,
+    "p90": null
+   },
+   "time_to_close": {
+    "median": 1.92,
+    "n": 65,
+    "p90": 4.6
+   }
+  }
+ ],
+ "overall": {
+  "acknowledged": 0,
+  "checked": 0,
+  "closed": 2015,
+  "open": 556,
+  "received": 2571,
+  "time_to_acknowledge": {
+   "median": null,
+   "n": 0,
+   "p90": null
+  },
+  "time_to_close": {
+   "median": 3.76,
+   "n": 2015,
+   "p90": 75.23
+  }
+ },
+ "requests_recorded": 8055,
+ "window": {
+  "days": 365,
+  "end": "2026-09-26",
+  "start": "2025-09-26"
+ }
+}

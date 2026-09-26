@@ -21,6 +21,7 @@ jobs:
   update:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     permissions:
       contents: write
     steps:
@@ -35,7 +36,22 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Fetch meetings
+        continue-on-error: true
         run: python -m pipeline.fetch_meetings --town gloucester
+
+      # Readable text and previews of new agendas (skipped if no API key).
+      - name: Summarize agendas
+        continue-on-error: true
+        run: python -m pipeline.summarize --town gloucester
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Fetch 311 requests
+        continue-on-error: true
+        run: python -m pipeline.fetch_311 --town gloucester
+
+      - name: Compute 311 scorecard
+        run: python -m pipeline.compute_311 --town gloucester
 
       - name: Commit data changes
         run: |

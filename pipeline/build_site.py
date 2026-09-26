@@ -22,7 +22,9 @@ from pathlib import Path
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
+import markdown
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
+from markupsafe import Markup, escape
 
 from pipeline.config import DATA_DIR, ROOT, load_config
 from pipeline.fetch_meetings import slugify
@@ -81,6 +83,8 @@ def format_date(value: str | date, fmt: str = "long") -> str:
         return f"{d.strftime('%a')}, {d.strftime('%b')} {d.day}"
     if fmt == "month":
         return d.strftime("%B %Y")
+    if fmt == "plain":
+        return f"{d.strftime('%B')} {d.day}, {d.year}"
     if fmt == "mon":
         return d.strftime("%b")
     if fmt == "day":
@@ -100,6 +104,36 @@ def format_time(value: str | None) -> str:
 
 def format_bytes(n: int) -> str:
     return f"{n / 1024:.0f} KB" if n < 1024 * 1024 else f"{n / 1024 / 1024:.1f} MB"
+
+
+def format_duration(days: float | None) -> str:
+    if days is None:
+        return "Not enough data"
+    hours = days * 24
+    if hours < 1:
+        return "Under 1 hour"
+    if hours < 36:
+        n = round(hours)
+        return f"{n} hour{'s' if n != 1 else ''}"
+    return f"{days:.1f} days" if days < 10 else f"{days:.0f} days"
+
+
+def format_number(n: float | int | None) -> str:
+    return "–" if n is None else f"{n:,}"
+
+
+def format_month(value: str) -> str:
+    d = date.fromisoformat(value + "-01")
+    return f"{d.strftime('%b')} {d.year}"
+
+
+def render_markdown(text: str) -> Markup:
+    """Render model-written Markdown safely: escape any HTML first, and demote
+    headings so they sit below the page's own h2."""
+    html = markdown.markdown(escape(text), extensions=["sane_lists"])
+    for level in (3, 2, 1):
+        html = html.replace(f"<h{level}>", f"<h{level + 2}>").replace(f"</h{level}>", f"</h{level + 2}>")
+    return Markup(html)
 
 
 def format_timestamp(value: str) -> str:
@@ -125,6 +159,11 @@ def load_meetings(data_dir: Path, today: date) -> dict:
         m["body_slug"] = slugify(m["body"])
         m["body_url"] = f"/meetings/boards/{m['body_slug']}/"
         m["agenda"] = m["agendas"][-1] if m.get("agendas") else None
+        m["preview"] = None
+        if m["agenda"]:
+            summary_path = data_dir / "summaries" / f"{m['agenda']['sha256']}.json"
+            if summary_path.exists():
+                m["preview"] = json.loads(summary_path.read_text(encoding="utf-8"))
 
     today_s = today.isoformat()
     upcoming = [m for m in meetings if m["date"] >= today_s]
@@ -168,6 +207,8 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     base_url = f"https://{site['domain']}"
     built_at = now or datetime.now(ZoneInfo(site["timezone"]))
     meetings = load_meetings(data_dir, built_at.date())
+    scorecard_path = data_dir / "311" / "scorecard.json"
+    scorecard = json.loads(scorecard_path.read_text(encoding="utf-8")) if scorecard_path.exists() else None
 
     env = Environment(
         loader=FileSystemLoader([SITE_DIR / "templates", PAGES_DIR]),
@@ -176,7 +217,9 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         trim_blocks=True,
         lstrip_blocks=True,
     )
-    env.filters.update(date=format_date, time=format_time, filesize=format_bytes, timestamp=format_timestamp)
+    env.filters.update(date=format_date, time=format_time, filesize=format_bytes, timestamp=format_timestamp,
+                       duration=format_duration, number=format_number, month=format_month,
+                       markdown=render_markdown)
     env.globals.update(group_by=group_by)
 
     if out_dir.exists():
@@ -186,7 +229,7 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     own_hosts = {site["domain"], "www." + site["domain"]}
     sections = config["sections"]
     common = dict(config=config, site=site, town=config["town"], sections=sections,
-                  built_at=built_at, meetings=meetings)
+                  built_at=built_at, meetings=meetings, scorecard=scorecard)
     urls = []
 
     def render(template: str, url: str, **context) -> None:

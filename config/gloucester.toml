@@ -24,8 +24,8 @@ official_site = "https://gloucester-ma.gov"
 [[sections]]
 slug = "311"
 title = "311 Requests"
-summary = "How quickly the city closes public service requests, how many are still open, and where the same problem keeps being reported."
-status = "planned"
+summary = "How quickly the city acknowledges and closes public service requests, how many are still open, by category and ward."
+status = "live"
 
 [[sections]]
 slug = "meetings"
@@ -55,3 +55,23 @@ max_event_pages = 40
 "Ordinances & Administration" = "City Council Ordinances & Administration Committee"
 "Planning & Development" = "City Council Planning & Development Committee"
 "Budget & Finance" = "City Council Budget & Finance Committee"
+
+# 311 requests, from SeeClickFix (public requests only).
+[seeclickfix]
+organization_id = 547
+open311_base = "https://seeclickfix.com/open311/v2"
+api_base = "https://seeclickfix.com/api/v2"
+report_url = "https://www.gloucester-ma.gov/835/Citizen-Request"
+# SeeClickFix documents a limit of 20 requests per minute.
+request_delay = 3.2
+recent_days = 21
+max_details_per_run = 700
+time_budget_seconds = 2400
+precincts_file = "gloucester-precincts-2022.geojson"
+
+# Plain-English agenda text and previews, written by a language model and
+# labeled as AI-generated on the site. Cached by document hash.
+[summaries]
+model = "claude-haiku-4-5"
+max_tokens = 8000
+max_per_run = 25

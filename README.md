@@ -10,12 +10,19 @@ The site is static HTML built by a small Python script and deployed to GitHub Pa
 config/<town>.toml          Everything town-specific: name, domain, sources, sections
 pipeline/                   Python package
   fetch_meetings.py         Daily: city calendar -> data/meetings/
-  civicplus.py              Parsers for CivicPlus city websites
+  summarize.py              Daily: agenda PDFs -> readable text + previews (AI) -> data/summaries/
+  fetch_311.py              Daily: SeeClickFix -> data/311/requests.json (also --backfill YYYY-MM)
+  compute_311.py            Daily: requests -> data/311/scorecard.json
+  civicplus.py, seeclickfix.py   Source parsers
+  geo.py                    Ward/precinct point-in-polygon lookup
   http.py                   Rate-limited HTTP client with retries
   build_site.py             Renders site/ + data/ into _site/
 data/                       Collected data, committed by the daily job
   meetings/meetings.json    One record per meeting, with a history of changes
   meetings/agendas/         Saved copy of every agenda as posted
+  summaries/                AI-generated agenda text, cached by document hash
+  311/                      311 requests and the computed scorecard
+  static/                   Ward and precinct boundaries (see data/README.md)
 site/templates/             Shared layout and per-record templates (meeting, board)
 site/pages/                 One folder per section; each index.html becomes /<section>/
 site/static/                CSS, icons, and other files copied as-is
@@ -32,7 +39,10 @@ python -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt -r requirements-dev.txt
 python -m playwright install chromium
 
-python -m pipeline.fetch_meetings         # update data/ from the city website
+python -m pipeline.fetch_meetings         # update meetings from the city website
+python -m pipeline.fetch_311              # update 311 requests from SeeClickFix
+python -m pipeline.compute_311            # recompute the 311 scorecard
+ANTHROPIC_API_KEY=... python -m pipeline.summarize   # agenda text and previews (optional)
 python -m pipeline.build_site             # writes _site/
 python -m http.server -d _site 8000       # browse at http://localhost:8000
 python -m pytest                          # runs offline against tests/fixtures/
@@ -84,4 +94,8 @@ One-time setup:
 
 ## Data and licenses
 
-311 data comes from [SeeClickFix](https://seeclickfix.com) under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/). Other sources are listed on the site's [About page](https://opengloucester.org/about/).
+See [`data/README.md`](data/README.md). 311 data comes from [SeeClickFix](https://seeclickfix.com) under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/). Other sources are listed on the site's [About page](https://opengloucester.org/about/).
+
+## Secrets
+
+- `ANTHROPIC_API_KEY` (repository secret, optional): enables agenda text and previews. Without it the step is skipped.
