@@ -12,6 +12,8 @@
   <meta property="og:description" content="{{ self.description() }}">
   <meta property="og:url" content="{{ canonical_url }}">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#151b20" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/static/css/site.css">
   {% block head %}{% endblock %}
@@ -21,8 +23,11 @@
 
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="site-name" href="/"{% if page_url == "/" %} aria-current="page"{% endif %}>{{ site.name }}</a>
-      <nav aria-label="Main">
+      <a class="brand" href="/"{% if page_url == "/" %} aria-current="page"{% endif %}>
+        <img class="brand-mark" src="/static/favicon.svg" alt="" width="32" height="32">
+        <span class="brand-name">{{ site.name }}</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
         <ul class="nav-list">
           {% for s in sections %}
           {% set href = "/" ~ s.slug ~ "/" %}
@@ -42,9 +47,12 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <p>{{ site.name }} is an independent project. It is not affiliated with or endorsed by the City of {{ town.name }}. Official information is at <a href="{{ town.official_site }}">{{ town.official_site | replace("https://", "") }}</a>.</p>
-      <p>Last updated <time datetime="{{ built_at.isoformat(timespec='minutes') }}">{{ built_at.strftime("%B") }} {{ built_at.day }}, {{ built_at.year }}</time>.</p>
+    <div class="wrap footer-inner">
+      <div class="footer-about">
+        <p class="footer-brand">{{ site.name }}</p>
+        <p>An independent project. Not affiliated with or endorsed by the City of {{ town.name }}. Official information is at <a href="{{ town.official_site }}">{{ town.official_site | replace("https://", "") }}</a>.</p>
+        <p>Last updated <time datetime="{{ built_at.isoformat(timespec='minutes') }}">{{ built_at.strftime("%B") }} {{ built_at.day }}, {{ built_at.year }}</time>.</p>
+      </div>
       <ul class="footer-links">
         <li><a href="/about/">About and methodology</a></li>
         <li><a href="/about/#corrections">Corrections</a></li>

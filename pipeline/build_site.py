@@ -14,10 +14,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 from collections import defaultdict
 from datetime import date, datetime, timedelta
 from pathlib import Path
+from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
@@ -42,6 +44,35 @@ def url_for(rel_path: Path) -> str:
     return "/" + "/".join(parts)
 
 
+# ---- Links that leave the site ---------------------------------------------
+
+LINK_RE = re.compile(r"<a\b([^>]*)>(.*?)</a>", re.S)
+NEW_TAB_NOTE = '<span class="visually-hidden"> (opens in new tab)</span>'
+
+
+def opens_new_tab(href: str, own_hosts: set[str]) -> bool:
+    """Links to other sites and to PDFs open in a new tab, so visitors keep their place here."""
+    url = urlparse(href)
+    if url.scheme in ("http", "https") and url.hostname not in own_hosts:
+        return True
+    return url.path.lower().endswith(".pdf")
+
+
+def mark_new_tab_links(html: str, own_hosts: set[str]) -> str:
+    """Add target=_blank, rel=noopener, an arrow icon, and screen-reader text to outbound links."""
+    def fix(match: re.Match) -> str:
+        attrs, text = match.group(1), match.group(2)
+        href = re.search(r'href="([^"]*)"', attrs)
+        if not href or "target=" in attrs or not opens_new_tab(href.group(1), own_hosts):
+            return match.group(0)
+        if 'class="' in attrs:
+            attrs = attrs.replace('class="', 'class="external ', 1)
+        else:
+            attrs += ' class="external"'
+        return f'<a{attrs} target="_blank" rel="noopener">{text}{NEW_TAB_NOTE}</a>'
+    return LINK_RE.sub(fix, html)
+
+
 # ---- Template filters ------------------------------------------------------
 
 def format_date(value: str | date, fmt: str = "long") -> str:
@@ -50,6 +81,12 @@ def format_date(value: str | date, fmt: str = "long") -> str:
         return f"{d.strftime('%a')}, {d.strftime('%b')} {d.day}"
     if fmt == "month":
         return d.strftime("%B %Y")
+    if fmt == "mon":
+        return d.strftime("%b")
+    if fmt == "day":
+        return str(d.day)
+    if fmt == "weekday":
+        return d.strftime("%A")
     return f"{d.strftime('%A')}, {d.strftime('%B')} {d.day}, {d.year}"
 
 
@@ -146,6 +183,7 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         shutil.rmtree(out_dir)
     shutil.copytree(STATIC_DIR, out_dir / "static")
 
+    own_hosts = {site["domain"], "www." + site["domain"]}
     sections = config["sections"]
     common = dict(config=config, site=site, town=config["town"], sections=sections,
                   built_at=built_at, meetings=meetings)
@@ -157,6 +195,7 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         html = env.get_template(template).render(
             **common, **context, section=section, page_url=url, canonical_url=base_url + url
         )
+        html = mark_new_tab_links(html, own_hosts)
         dest = out_dir / (url.lstrip("/") + ("index.html" if url.endswith("/") else ""))
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(html, encoding="utf-8")

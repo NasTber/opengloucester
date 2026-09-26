@@ -9,7 +9,7 @@
 <h1>Past meetings</h1>
 {% if meetings.past %}
 {% for month, items in group_by(meetings.past, "month") %}
-<h2>{{ month | date("month") }}</h2>
+<h2 class="day-heading">{{ month | date("month") }}</h2>
 <ul class="meeting-list">
   {% for m in items %}{{ meeting_item(m, show_date=true) }}{% endfor %}
 </ul>

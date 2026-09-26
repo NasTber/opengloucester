@@ -1,25 +1,21 @@
 {% extends "base.html" %}
-{% from "macros.html" import meeting_item, freshness %}
+{% from "macros.html" import day_group, freshness %}
 {% block title %}Meetings{% endblock %}
 {% block description %}Upcoming public meetings in {{ town.name }}, {{ town.state_abbr }}, with times, places, how to attend, and posted agendas.{% endblock %}
 {% block content %}
-<h1>Meetings</h1>
-<p class="lede">Upcoming public meetings of {{ town.name }}'s boards, commissions, and City Council committees.</p>
-{{ freshness(meetings, town, config.meetings.base_url) }}
-
-<ul class="inline-links">
-  <li><a href="/meetings/boards/">All boards and committees</a></li>
-  <li><a href="/meetings/past/">Past meetings</a></li>
-</ul>
+<div class="page-head">
+  <h1>Meetings</h1>
+  <p class="lede">Upcoming public meetings of {{ town.name }}'s boards, commissions, and City Council committees.</p>
+  {{ freshness(meetings, town, config.meetings.base_url) }}
+  <ul class="inline-links">
+    <li><a class="button" href="/meetings/boards/">Boards and committees</a></li>
+    <li><a class="button" href="/meetings/past/">Past meetings</a></li>
+  </ul>
+</div>
 
 {% if meetings.upcoming %}
-<h2 id="upcoming">Upcoming</h2>
-{% for day, items in group_by(meetings.upcoming, "date") %}
-<h3><time datetime="{{ day }}">{{ day | date }}</time></h3>
-<ul class="meeting-list">
-  {% for m in items %}{{ meeting_item(m) }}{% endfor %}
-</ul>
-{% endfor %}
+<h2 id="upcoming" class="visually-hidden">Upcoming meetings</h2>
+{% for day, items in group_by(meetings.upcoming, "date") %}{{ day_group(day, items) }}{% endfor %}
 {% else %}
 <p>No upcoming meetings are listed on the city calendar right now.</p>
 {% endif %}

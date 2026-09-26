@@ -11,25 +11,35 @@
   </ol>
 </nav>
 
-<h1>{{ m.title }}</h1>
-<p class="lede"><time datetime="{{ m.date }}{% if m.start_time %}T{{ m.start_time }}{% endif %}">{{ m.date | date }}{% if m.start_time %} at {{ m.start_time | time }}{% endif %}</time></p>
-{{ meeting_flags(m) }}
-
-<dl class="details">
-  <dt>Date</dt>
-  <dd>{{ m.date | date }}</dd>
-  <dt>Time</dt>
-  <dd>{% if m.start_time %}{{ m.start_time | time }}{% if m.end_time %} to {{ m.end_time | time }}{% endif %}{% else %}Not listed{% endif %}</dd>
-  <dt>Location</dt>
-  <dd>
-    {% if m.location_name %}{{ m.location_name }}<br>{% endif %}
-    {{ m.address or m.location or "Not listed" }}
-  </dd>
-  {% if m.remote_url %}
-  <dt>Attend remotely</dt>
-  <dd><a href="{{ m.remote_url }}">Join online (Zoom)</a></dd>
+<div class="page-head">
+  <h1>{{ m.title }}</h1>
+  <p class="lede"><time datetime="{{ m.date }}{% if m.start_time %}T{{ m.start_time }}{% endif %}">{{ m.date | date }}{% if m.start_time %} at {{ m.start_time | time }}{% endif %}</time></p>
+  {% if m.status != "scheduled" or not m.listed or m.special %}<div class="chips">{{ meeting_flags(m) }}</div>{% endif %}
+  {% if m.remote_url or m.agenda %}
+  <div class="actions">
+    {% if m.remote_url %}<a class="button button-primary" href="{{ m.remote_url }}">Join online (Zoom)</a>{% endif %}
+    {% if m.agenda %}<a class="button" href="{{ m.agenda.source_url }}">View agenda (PDF)</a>{% endif %}
+  </div>
   {% endif %}
-</dl>
+</div>
+
+<div class="card">
+  <dl class="details">
+    <dt>Date</dt>
+    <dd>{{ m.date | date }}</dd>
+    <dt>Time</dt>
+    <dd>{% if m.start_time %}{{ m.start_time | time }}{% if m.end_time %} to {{ m.end_time | time }}{% endif %}{% else %}Not listed{% endif %}</dd>
+    <dt>Location</dt>
+    <dd>
+      {% if m.location_name %}{{ m.location_name }}<br>{% endif %}
+      {{ m.address or m.location or "Not listed" }}
+    </dd>
+    {% if m.remote_url %}
+    <dt>Attend remotely</dt>
+    <dd><a href="{{ m.remote_url }}">Join online (Zoom)</a></dd>
+    {% endif %}
+  </dl>
+</div>
 
 <h2 id="agenda">Agenda</h2>
 {% if m.agenda %}
@@ -56,9 +66,9 @@
 
 {% if m.history %}
 <h2 id="changes">Changes since posting</h2>
-<ul>
+<ul class="timeline">
   {% for h in m.history | reverse %}
-  <li><time datetime="{{ h.at }}">{{ h.at | timestamp }}</time>: {{ describe_change(h) }}</li>
+  <li><time datetime="{{ h.at }}">{{ h.at | timestamp }}</time>{{ describe_change(h) }}</li>
   {% endfor %}
 </ul>
 {% endif %}

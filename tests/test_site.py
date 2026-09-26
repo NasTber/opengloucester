@@ -126,3 +126,23 @@ def test_home_lists_this_weeks_meetings(site_dir):
     home = (site_dir / "index.html").read_text()
     assert "Meetings this week" in home
     assert "/meetings/2026-10-05-city-council-ordinances-and-administration-committee/" in home
+
+
+def test_outbound_and_pdf_links_open_in_new_tab_with_warning(page_files, config):
+    """Visitors keep their place on the site; screen readers hear that a new tab opens."""
+    import re
+    own = {config["site"]["domain"], "www." + config["site"]["domain"]}
+    checked = 0
+    for path in page_files:
+        html = path.read_text()
+        for attrs, text in re.findall(r"<a\b([^>]*)>(.*?)</a>", html, re.S):
+            href = re.search(r'href="([^"]*)"', attrs).group(1)
+            url = urlparse(href)
+            outbound = url.scheme in ("http", "https") and url.hostname not in own
+            if outbound or url.path.endswith(".pdf"):
+                checked += 1
+                assert 'target="_blank"' in attrs and 'rel="noopener"' in attrs, f"{path}: {href}"
+                assert "(opens in new tab)" in text, f"{path}: {href} missing new-tab warning"
+            else:
+                assert "target=" not in attrs, f"{path}: internal link {href} should open in place"
+    assert checked > 0

@@ -10,9 +10,9 @@
 {% if meetings.boards %}
 <ul class="board-list">
   {% for b in meetings.boards %}
-  <li>
+  <li class="card">
     <a href="{{ b.url }}">{{ b.name }}</a>
-    <span class="meeting-meta">{% if b.next %}Next: <time datetime="{{ b.next.date }}">{{ b.next.date | date("short") }}</time>{% else %}No upcoming meeting listed{% endif %}</span>
+    <span class="meta">{% if b.next %}Next meeting <time datetime="{{ b.next.date }}">{{ b.next.date | date("short") }}</time>{% else %}No upcoming meeting listed{% endif %}</span>
   </li>
   {% endfor %}
 </ul>

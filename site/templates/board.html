@@ -11,12 +11,15 @@
   </ol>
 </nav>
 
-<h1>{{ b.name }}</h1>
-{% if b.next %}
-<p class="lede">Next meeting: <a href="{{ b.next.url }}">{{ b.next.date | date }}{% if b.next.start_time %} at {{ b.next.start_time | time }}{% endif %}</a></p>
-{% else %}
-<p class="lede">No upcoming meetings are listed on the city calendar.</p>
-{% endif %}
+<div class="page-head">
+  <h1>{{ b.name }}</h1>
+  {% if b.next %}
+  <p class="lede">Next meeting: {{ b.next.date | date }}{% if b.next.start_time %} at {{ b.next.start_time | time }}{% endif %}</p>
+  <div class="actions"><a class="button button-primary" href="{{ b.next.url }}">Next meeting details</a></div>
+  {% else %}
+  <p class="lede">No upcoming meetings are listed on the city calendar.</p>
+  {% endif %}
+</div>
 
 <h2>All recorded meetings</h2>
 <ul class="meeting-list">

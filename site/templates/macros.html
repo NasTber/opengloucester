@@ -1,5 +1,5 @@
 {% macro status_label(section) -%}
-{% if section.status != "live" %}<span class="status">In development</span>{% endif %}
+{% if section.status != "live" %}<span class="chip chip-quiet">In development</span>{% endif %}
 {%- endmacro %}
 
 {% macro contact(site) -%}
@@ -7,25 +7,44 @@
 {%- endmacro %}
 
 {% macro meeting_flags(m) -%}
-{% if m.status != "scheduled" %}<span class="flag flag-alert">{{ m.status | capitalize }}</span>{% endif %}
-{% if not m.listed %}<span class="flag flag-alert">Removed from city calendar</span>{% endif %}
-{% if m.special %}<span class="flag">Special meeting</span>{% endif %}
+{% if m.status != "scheduled" %}<span class="chip chip-warn">{{ m.status | capitalize }}</span>{% endif %}
+{% if not m.listed %}<span class="chip chip-warn">Removed from city calendar</span>{% endif %}
+{% if m.special %}<span class="chip">Special meeting</span>{% endif %}
 {%- endmacro %}
 
-{# One meeting in a list. show_date adds the date for lists not grouped by day. #}
+{# One meeting as a tappable row. show_date shows a date badge, for lists not grouped by day. #}
 {% macro meeting_item(m, show_date=false, show_body=true) -%}
 <li class="meeting-item">
-  <span class="meeting-when">
-    {%- if show_date %}<time datetime="{{ m.date }}">{{ m.date | date("short") }}</time>{% if m.start_time %}, {% endif %}{% endif -%}
-    {%- if m.start_time %}<time datetime="{{ m.date }}T{{ m.start_time }}">{{ m.start_time | time }}</time>{% elif not show_date %}Time not listed{% endif -%}
-  </span>
-  <a class="meeting-link" href="{{ m.url }}">{% if show_body %}{{ m.body }}{% else %}{{ m.title }}{% endif %}</a>
-  {{ meeting_flags(m) }}
-  {% if m.agenda %}<span class="meeting-meta">Agenda posted</span>{% endif %}
+  {% if show_date %}
+  <time class="date-badge" datetime="{{ m.date }}"><span class="month">{{ m.date | date("mon") }}</span><span class="day">{{ m.date | date("day") }}</span></time>
+  {% else %}
+  <span class="meeting-when">{% if m.start_time %}<time datetime="{{ m.date }}T{{ m.start_time }}">{{ m.start_time | time }}</time>{% else %}Time not listed{% endif %}</span>
+  {% endif %}
+  <div class="meeting-main">
+    <a class="meeting-link" href="{{ m.url }}">{% if show_body %}{{ m.body }}{% else %}{{ m.title }}{% endif %}</a>
+    <div class="chips">
+      {% if show_date %}<span class="chip chip-quiet">{{ m.date | date("weekday") }}{% if m.start_time %}, {{ m.start_time | time }}{% endif %}</span>{% endif %}
+      {{ meeting_flags(m) }}
+      {% if m.agenda %}<span class="chip chip-quiet">Agenda posted</span>{% endif %}
+      {% if m.remote_url %}<span class="chip chip-quiet">Online option</span>{% endif %}
+    </div>
+  </div>
+  <span class="chevron" aria-hidden="true"></span>
 </li>
 {%- endmacro %}
 
+{# A day's meetings, under a date heading. #}
+{% macro day_group(day, items, level=3) -%}
+<section class="day-group" aria-labelledby="day-{{ day }}">
+  <h{{ level }} class="day-heading" id="day-{{ day }}"><time datetime="{{ day }}">{{ day | date }}</time></h{{ level }}>
+  <ul class="meeting-list">
+    {% for m in items %}{{ meeting_item(m) }}{% endfor %}
+  </ul>
+</section>
+{%- endmacro %}
+
 {% macro describe_change(h) -%}
+{#- Plain sentence describing one recorded change. -#}
 {% if h.field == "start_time" %}Start time changed from {{ h.old | time or "not listed" }} to {{ h.new | time or "not listed" }}.
 {% elif h.field == "date" %}Date changed from {{ h.old | date }} to {{ h.new | date }}.
 {% elif h.field == "listed" %}{% if h.new %}Listed on the city calendar again.{% else %}Removed from the city calendar.{% endif %}

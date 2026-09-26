@@ -1,30 +1,29 @@
 {% extends "base.html" %}
-{% from "macros.html" import status_label, meeting_item %}
+{% from "macros.html" import status_label, day_group %}
 {% block title %}{{ town.name }}, {{ town.state_abbr }} public data{% endblock %}
 {% block content %}
-<h1>{{ site.name }}</h1>
-<p class="lede">{{ site.tagline }}</p>
-<p>This site collects public data about the City of {{ town.name }}, measures it, and explains it in plain language. Every number links to its source.</p>
+<section class="hero" aria-labelledby="page-title">
+  <p class="eyebrow">{{ town.name }}, {{ town.state }}</p>
+  <h1 id="page-title">{{ site.name }}</h1>
+  <p class="lede">{{ site.tagline }} Every number links to its source.</p>
+</section>
 
-<h2 id="this-week">Meetings this week</h2>
+<div class="section-head">
+  <h2 id="this-week">Meetings this week</h2>
+  <a href="/meetings/">All upcoming meetings</a>
+</div>
 {% if meetings.this_week %}
-{% for day, items in group_by(meetings.this_week, "date") %}
-<h3><time datetime="{{ day }}">{{ day | date }}</time></h3>
-<ul class="meeting-list">
-  {% for m in items %}{{ meeting_item(m) }}{% endfor %}
-</ul>
-{% endfor %}
+{% for day, items in group_by(meetings.this_week, "date") %}{{ day_group(day, items) }}{% endfor %}
 {% else %}
 <p>No public meetings are listed on the city calendar for the next seven days.</p>
 {% endif %}
-<p><a href="/meetings/">All upcoming meetings</a></p>
 
-<h2>Sections</h2>
-<ul class="card-list">
+<h2>Explore</h2>
+<ul class="card-grid">
   {% for s in sections if s.slug != "about" %}
-  <li class="card">
+  <li class="card link-card">
     <h3><a href="/{{ s.slug }}/">{{ s.title }}</a></h3>
-    {{ status_label(s) }}
+    {% if s.status != "live" %}<div class="chips">{{ status_label(s) }}</div>{% endif %}
     <p>{{ s.summary }}</p>
   </li>
   {% endfor %}
