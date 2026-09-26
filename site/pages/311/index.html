@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from "macros.html" import status_label %}
+{% block title %}311 Requests{% endblock %}
+{% block description %}{{ section.summary }}{% endblock %}
+{% block content %}
+<h1>{{ section.title }}</h1>
+{{ status_label(section) }}
+<p class="lede">{{ section.summary }}</p>
+
+<h2>What this section will show</h2>
+<ul>
+  <li><strong>Time to close:</strong> the median number of days from when a request is submitted to when it is closed, by category and by ward.</li>
+  <li><strong>Open backlog:</strong> how many requests are still open and how long they have been waiting.</li>
+  <li><strong>Trends:</strong> the same figures month by month.</li>
+  <li><strong>Repeat locations:</strong> places where the same kind of problem is reported more than once within a short period.</li>
+</ul>
+
+<h2>Where the data comes from</h2>
+<p>Requests that residents submit through SeeClickFix, the city's service request system. Only public requests are included. Requests the city keeps private are not available and are not counted.</p>
+
+<p>To report a problem, use the <a href="{{ town.official_site }}">official City of {{ town.name }} website</a>. This site does not accept reports.</p>
+{% endblock %}

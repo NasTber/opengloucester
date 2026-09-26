@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% from "macros.html" import status_label %}
+{% block title %}{{ town.name }}, {{ town.state_abbr }} public data{% endblock %}
+{% block content %}
+<h1>{{ site.name }}</h1>
+<p class="lede">{{ site.tagline }}</p>
+<p>This site collects public data about the City of {{ town.name }}, measures it, and explains it in plain language. Every number links to its source.</p>
+
+<h2>Sections</h2>
+<ul class="card-list">
+  {% for s in sections if s.slug != "about" %}
+  <li class="card">
+    <h3><a href="/{{ s.slug }}/">{{ s.title }}</a></h3>
+    {{ status_label(s) }}
+    <p>{{ s.summary }}</p>
+  </li>
+  {% endfor %}
+</ul>
+
+<h2>How this site works</h2>
+<ul>
+  <li>An automated job collects public data every day and rebuilds the site.</li>
+  <li>Figures come from public records only. Each one links to where it came from.</li>
+  <li>Summaries written by software are labeled as AI-generated.</li>
+  <li>Errors are corrected in public. See the <a href="/about/#corrections">corrections policy</a>.</li>
+</ul>
+<p>For city services, news, and department contacts, use the <a href="{{ town.official_site }}">official City of {{ town.name }} website</a>.</p>
+{% endblock %}

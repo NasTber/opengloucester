@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% from "macros.html" import contact %}
+{% block title %}Accessibility{% endblock %}
+{% block description %}{{ site.name }}'s accessibility commitment, the standard it follows, known limitations, and how to report a problem.{% endblock %}
+{% block content %}
+<h1>Accessibility</h1>
+<p class="lede">{{ site.name }} is built to be usable by everyone, including people who use screen readers, keyboards, magnification, or voice control.</p>
+
+<h2>Standard</h2>
+<p>The site aims to conform to the <a href="https://www.w3.org/TR/WCAG22/">Web Content Accessibility Guidelines (WCAG) 2.2</a> at Level AA. This includes WCAG 2.1 Level AA, the standard that the U.S. Department of Justice's 2024 ADA Title II rule sets for state and local government websites.</p>
+
+<h2>What the site does</h2>
+<ul>
+  <li>Pages use headings, landmarks, and lists so screen readers can navigate them.</li>
+  <li>Every feature works with a keyboard. A "Skip to main content" link is the first item on every page.</li>
+  <li>Text and controls meet WCAG contrast ratios in both light and dark mode.</li>
+  <li>Text can be enlarged to 200% and pages fit a narrow phone screen without scrolling sideways.</li>
+  <li>Color is never the only way information is shown.</li>
+  <li>Animation is reduced when your device asks for reduced motion.</li>
+  <li>Every chart has a data table with the same figures, and every map has a list of the same locations.</li>
+  <li>Pages work without JavaScript wherever possible.</li>
+</ul>
+
+<h2>How it is tested</h2>
+<p>Every update to the site runs automated accessibility checks (axe-core) against each page, in light and dark mode and at desktop and phone widths. An update that fails these checks is not published. Automated tools catch only some problems, so pages are also checked by hand with a keyboard and a screen reader when new sections are added.</p>
+
+<h2>Known limitations</h2>
+<ul>
+  <li>Agendas, minutes, and other documents linked from this site are published by the city, often as PDFs. {{ site.name }} cannot change them, and some may not be accessible. Where this site summarizes a document, the summary is provided as regular text.</li>
+</ul>
+
+<h2>Report a problem</h2>
+<p>If something on this site is hard to use, {{ contact(site) }}. Please include the page address and a description of the problem. If you need information from the site in another format, ask and it will be provided.</p>
+
+<p><small>This statement was last reviewed on <time datetime="2026-09-26">September 26, 2026</time>.</small></p>
+{% endblock %}

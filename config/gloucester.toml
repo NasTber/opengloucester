@@ -1,0 +1,39 @@
+# Site configuration for one town. Everything town-specific lives here so the
+# same code can build another town's site from another file in this folder.
+# Build with: python scripts/build_site.py --town gloucester
+
+[site]
+name = "OpenGloucester"
+domain = "opengloucester.org"
+tagline = "Public data on how Gloucester, Massachusetts responds, decides, and spends. Updated daily."
+repo_url = "https://github.com/NasTber/opengloucester"
+# Public contact address. Shown on the About and Accessibility pages when set.
+contact_email = ""
+timezone = "America/New_York"
+
+[town]
+name = "Gloucester"
+state = "Massachusetts"
+state_abbr = "MA"
+official_site = "https://gloucester-ma.gov"
+
+# Sections appear in the main navigation in this order. Each one is a folder
+# under site/pages/<slug>/ and is served at https://<domain>/<slug>/.
+# status: "planned" shows an "In development" label; "live" removes it.
+[[sections]]
+slug = "311"
+title = "311 Requests"
+summary = "How quickly the city closes public service requests, how many are still open, and where the same problem keeps being reported."
+status = "planned"
+
+[[sections]]
+slug = "meetings"
+title = "Meetings"
+summary = "Upcoming public meetings with plain-English previews of each agenda, and links to the posted documents."
+status = "planned"
+
+[[sections]]
+slug = "about"
+title = "About"
+summary = "Data sources, update schedule, metric definitions, and corrections."
+status = "live"

@@ -1,0 +1,16 @@
+# Build output
+_site/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Local-only notes
+*.local.md
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

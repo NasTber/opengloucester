@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %} | {{ site.name }}</title>
+  <meta name="description" content="{% block description %}{{ site.tagline }}{% endblock %}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ self.title() }}">
+  <meta property="og:description" content="{{ self.description() }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/site.css">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="site-name" href="/"{% if page_url == "/" %} aria-current="page"{% endif %}>{{ site.name }}</a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          {% for s in sections %}
+          {% set href = "/" ~ s.slug ~ "/" %}
+          <li><a href="{{ href }}"
+            {%- if page_url == href %} aria-current="page"
+            {%- elif page_url.startswith(href) %} aria-current="true"{% endif %}>{{ s.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>{{ site.name }} is an independent project. It is not affiliated with or endorsed by the City of {{ town.name }}. Official information is at <a href="{{ town.official_site }}">{{ town.official_site | replace("https://", "") }}</a>.</p>
+      <p>Last updated <time datetime="{{ built_at.isoformat(timespec='minutes') }}">{{ built_at.strftime("%B") }} {{ built_at.day }}, {{ built_at.year }}</time>.</p>
+      <ul class="footer-links">
+        <li><a href="/about/">About and methodology</a></li>
+        <li><a href="/about/#corrections">Corrections</a></li>
+        <li><a href="/about/accessibility/">Accessibility</a></li>
+        <li><a href="{{ site.repo_url }}">Source code</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

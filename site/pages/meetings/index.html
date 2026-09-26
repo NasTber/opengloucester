@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% from "macros.html" import status_label %}
+{% block title %}Meetings{% endblock %}
+{% block description %}{{ section.summary }}{% endblock %}
+{% block content %}
+<h1>{{ section.title }}</h1>
+{{ status_label(section) }}
+<p class="lede">{{ section.summary }}</p>
+
+<h2>What this section will show</h2>
+<ul>
+  <li>Public meetings scheduled for the coming week, with date, time, place, and how to attend or comment.</li>
+  <li>A short plain-English preview of each agenda, labeled as AI-generated and linked to the original document.</li>
+  <li>Links to agendas and minutes as the city posts them, kept after the city removes them.</li>
+</ul>
+
+<p>Until this section is ready, agendas and minutes are posted on the <a href="{{ town.official_site }}">official City of {{ town.name }} website</a>.</p>
+{% endblock %}

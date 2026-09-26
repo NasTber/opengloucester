@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% from "macros.html" import contact %}
+{% block title %}About and methodology{% endblock %}
+{% block description %}How {{ site.name }} collects, measures, and explains public data about {{ town.name }}, {{ town.state_abbr }}.{% endblock %}
+{% block content %}
+<h1>About and methodology</h1>
+<p class="lede">{{ site.name }} is an independent, read-only site. It publishes public data about the City of {{ town.name }}, {{ town.state }}, and does not accept reports, comments, or accounts.</p>
+
+<nav aria-label="On this page" class="toc">
+  <h2 id="toc-heading">On this page</h2>
+  <ul>
+    <li><a href="#principles">Principles</a></li>
+    <li><a href="#sources">Data sources</a></li>
+    <li><a href="#updates">Update schedule</a></li>
+    <li><a href="#ai">AI-generated summaries</a></li>
+    <li><a href="#corrections">Corrections</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<h2 id="principles">Principles</h2>
+<ul>
+  <li>Every number and every summary links to its source.</li>
+  <li>Text written by software is labeled as AI-generated.</li>
+  <li>The site reports figures without commentary.</li>
+  <li>Corrections are shown on the page, not made silently.</li>
+  <li>History is kept. When the city replaces or removes a document, the earlier version stays available here.</li>
+</ul>
+
+<h2 id="sources">Data sources</h2>
+<p>Sources are listed here as each section goes live, with a link to the original data and its license.</p>
+<ul>
+  <li><strong>311 requests:</strong> public service requests from SeeClickFix. Data from <a href="https://seeclickfix.com">seeclickfix.com</a>, used under the <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons BY-NC-SA 3.0</a> license. Private requests are not available and are not counted.</li>
+  <li><strong>Meetings:</strong> agendas and minutes posted on the <a href="{{ town.official_site }}">official City of {{ town.name }} website</a>.</li>
+  <li><strong>Ward boundaries:</strong> MassGIS, the Commonwealth of Massachusetts' geographic information office.</li>
+</ul>
+<p>Metric definitions, including how each request status is counted, will be published here before the figures that use them.</p>
+
+<h2 id="updates">Update schedule</h2>
+<p>An automated job collects new data once a day and rebuilds the site. The date at the bottom of every page shows the last update.</p>
+
+<h2 id="ai">AI-generated summaries</h2>
+<p>Some plain-English summaries, such as meeting previews, are written by an AI language model from the original document. Each summary is labeled as AI-generated, links to the document it summarizes, and records when it was written. Summaries are not reviewed by a person before they are published. The original document is the authoritative source.</p>
+
+<h2 id="corrections">Corrections</h2>
+<p>If a figure or summary is wrong, please report it. Confirmed errors are fixed and a correction note is added to the affected page, stating what changed and when.</p>
+
+<h2 id="contact">Contact</h2>
+<p>To report an error or ask a question, {{ contact(site) }}.</p>
+{% endblock %}

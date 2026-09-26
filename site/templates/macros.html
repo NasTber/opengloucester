@@ -1,0 +1,7 @@
+{% macro status_label(section) -%}
+{% if section.status != "live" %}<span class="status">In development</span>{% endif %}
+{%- endmacro %}
+
+{% macro contact(site) -%}
+{% if site.contact_email %}email <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a> or {% endif %}open an issue on the <a href="{{ site.repo_url }}/issues">project's public issue tracker</a>
+{%- endmacro %}
