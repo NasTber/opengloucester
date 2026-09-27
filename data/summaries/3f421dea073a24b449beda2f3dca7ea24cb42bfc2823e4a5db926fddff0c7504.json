@@ -1,18 +1,19 @@
 {
-  "transcript": "# Notice of Public Meeting\n## City of Gloucester\n## Licensing Board Meeting\n### September 28, 2026 6:00 PM\n\nPosted: 2026 SEP 24 PM 3:42\n\n### Remote Participation Meeting\n### Gloucester, MA 01930\n\n## Agenda\n\nThe public is invited to attend this meeting remotely.\n\nA Zoom link to access the meeting remotely is also available:\n\n**Licensing Board Meeting:** September 28, 2026 6:00 PM\n**Join from computer, smart device:** https://gloucester-ma-gov.zoom.us/j/87527391179\n**Join via phone:** +1 (312) 626-6799, Alternate +1 (929) 205-6099, or 1 (346) 248-7799\n\n**Meeting ID:** 875 2739 1179\n\nPlease visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join the meeting remotely. This is a hybrid meeting. Please note that the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\nListed items may be heard out of order.\n\n### Extension of Premise:\n\nLarry Rodolosi of Magnolia Oceanside, dba Magnolia 525 Tavern is requesting to extend his alcohol service area to serve food and alcohol on October 11, 2026 during Magtoberfest.\n\n### Discussion by the Board:\n\n### Adjournment:\n\nThe above agenda items are those reasonably anticipated by the Chair to be discussed at the meeting. Not all items listed may in fact be discussed, items not listed may also be brought up for discussion, to the extent permitted by law.",
-  "headline": "Board will consider a request to extend the alcohol and food service area for Magnolia 525 Tavern during Magtoberfest.",
-  "summary": "Larry Rodolosi of Magnolia Oceanside, doing business as Magnolia 525 Tavern, is asking to extend his alcohol service area to include food and alcohol on October 11, 2026 during Magtoberfest. The board will discuss this request.",
+  "transcript": "CITY CLERK GLOUCESTER, MA - Posted: 2026 SEP 24 PM 3:42\n\n# Notice of Public Meeting\n## City of Gloucester\n## Licensing Board Meeting\n## September 28, 2026 6:00 PM\n\n### Remote Participation Meeting\n### Gloucester, MA 01930\n\n## Agenda\n\nThe public is invited to attend this meeting remotely.\n\nA Zoom link to access the meeting remotely is also available:\n\n**Licensing Board Meeting:** September 28, 2026 6:00 PM\n**Join from computer, smart device:** https://gloucester-ma-gov.zoom.us/j/87527391179\n**Join via phone:** +1 (312) 626-6799, Alternate +1 (929) 205-6099, or 1 (346) 248-7799\n\n**Meeting ID:** 875 2739 1179\n\nPlease visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join the meeting remotely. This is a hybrid meeting. Please note that the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\nListed items may be heard out of order.\n\n### Extension of Premise:\n\nLarry Rodolosi of Magnolia Oceanside, dba Magnolia 525 Tavern is requesting to extend his alcohol service area to serve food and alcohol on October 11, 2026 during Magtoberfest.\n\n### Discussion by the Board:\n\n### Adjournment:\n\nThe above agenda items are those reasonably anticipated by the Chair to be discussed at the meeting. Not all items listed may in fact be discussed, items not listed may also be brought up for discussion, to the extent permitted by law.",
+  "headline": "Request by Larry Rodolosi of Magnolia Oceanside, dba Magnolia 525 Tavern, to extend alcohol service area for Magtoberfest on October 11, 2026.",
+  "summary": "The meeting will cover a request from Larry Rodolosi of Magnolia Oceanside, dba Magnolia 525 Tavern, to extend his alcohol service area to serve food and alcohol on October 11, 2026 during Magtoberfest. The Board will discuss the request.",
   "items": [
-    "Consider request from Larry Rodolosi of Magnolia Oceanside, dba Magnolia 525 Tavern, to extend alcohol service area to serve food and alcohol on October 11, 2026 during Magtoberfest"
+    "Request from Larry Rodolosi of Magnolia Oceanside, dba Magnolia 525 Tavern, to extend alcohol service area to serve food and alcohol on October 11, 2026 during Magtoberfest",
+    "Board discussion of the request"
   ],
   "kind": "agenda",
   "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20136",
   "source_sha256": "3f421dea073a24b449beda2f3dca7ea24cb42bfc2823e4a5db926fddff0c7504",
   "model": "claude-sonnet-5",
-  "prompt_version": 3,
-  "generated_at": "2026-09-27T09:29:25-04:00",
+  "prompt_version": 4,
+  "generated_at": "2026-09-27T11:13:07-04:00",
   "usage": {
-    "input_tokens": 2497,
-    "output_tokens": 951
+    "input_tokens": 2552,
+    "output_tokens": 976
   }
 }

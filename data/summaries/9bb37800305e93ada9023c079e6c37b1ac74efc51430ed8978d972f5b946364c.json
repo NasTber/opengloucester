@@ -1,18 +1,18 @@
 {
-  "transcript": "**BOARD OF ASSESSORS**\n**Thursday, October 1, 2026 9:00 AM**\n**City Hall | Office of the Assessors**\n**9 Dale Ave**\n**Gloucester, MA 01930**\n\nPosted: CITY CLERK GLOUCESTER, MA 2026 SEP 24 PM 3:37\n\n## AGENDA\n\n1. Call to order open session\n\n2. Approval of open session minutes.\n\n3. Executive session pursuant to M.G.L. Ch. 30A, §21(a), subsection 7 to comply with M.G.L. Ch. 59 §60 to approve executive session minutes and discuss abatements and exemptions.\n\nNOTE: Board to vote to go into Executive Session. Board will adjourn in Executive Session & not return to open session\n\n**BOARD OF ASSESSORS**\n**Chair, Nancy A. Papows**\n**Vice Chair, Timothy W. Good, IV**\n**Secretary, Ashley A. Curley**\n\nThe listing of matters is those reasonably anticipated by the Chair which may be discussed at the meeting. Not all items listed may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.",
-  "headline": "Board to enter executive session to discuss property tax abatements and exemptions.",
-  "summary": "The board will vote to go into executive session under state law to approve executive session minutes and discuss abatements and exemptions. The board will adjourn during executive session and not return to open session.",
+  "transcript": "# BOARD OF ASSESSORS\n**Thursday, October 1, 2026 9:00 AM**\n**City Hall | Office of the Assessors**\n**9 Dale Ave**\n**Gloucester, MA 01930**\n\nPosted: City Clerk, Gloucester, MA - 2026 SEP 24 PM 3:37\n\n## AGENDA\n\n1. Call to order open session\n\n2. Approval of open session minutes.\n\n3. Executive session pursuant to M.G.L. Ch. 30A, §21(a), subsection 7 to comply with M.G.L. Ch. 59 §60 to approve executive session minutes and discuss abatements and exemptions.\n\nNOTE: Board to vote to go into Executive Session. Board will adjourn in Executive Session & not return to open session\n\n**BOARD OF ASSESSORS**\n**Chair, Nancy A. Papows**\n**Vice Chair, Timothy W. Good, IV**\n**Secretary, Ashley A. Curley**\n\nThe listing of matters is those reasonably anticipated by the Chair which may be discussed at the meeting. Not all items listed may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.",
+  "headline": "Executive session to discuss property tax abatements and exemptions under M.G.L. Ch. 59 §60.",
+  "summary": "The board will vote to enter executive session to approve executive session minutes and discuss abatements and exemptions. The board will adjourn directly from executive session without returning to open session.",
   "items": [
-    "Executive session pursuant to M.G.L. Ch. 30A, §21(a), subsection 7 to comply with M.G.L. Ch. 59 §60 to approve executive session minutes and discuss abatements and exemptions"
+    "Executive session under M.G.L. Ch. 30A, §21(a), subsection 7 and M.G.L. Ch. 59 §60 to approve executive session minutes and discuss abatements and exemptions"
   ],
   "kind": "agenda",
   "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20137",
   "source_sha256": "9bb37800305e93ada9023c079e6c37b1ac74efc51430ed8978d972f5b946364c",
   "model": "claude-sonnet-5",
-  "prompt_version": 3,
-  "generated_at": "2026-09-27T09:29:25-04:00",
+  "prompt_version": 4,
+  "generated_at": "2026-09-27T11:13:07-04:00",
   "usage": {
-    "input_tokens": 2496,
-    "output_tokens": 722
+    "input_tokens": 2551,
+    "output_tokens": 636
   }
 }
