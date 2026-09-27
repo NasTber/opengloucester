@@ -208,3 +208,17 @@ class FakeHousing:
 
 def shi_pdf_text(pdf: bytes) -> str:
     return (FIXTURES / "housing" / "shi_text.txt").read_text()
+
+
+class FakePermits:
+    """The city's public Drive folder listing and its permit CSV."""
+    def __init__(self):
+        self.urls = []
+
+    def get(self, url):
+        self.urls.append(url)
+        if "embeddedfolderview" in url:
+            return FakeResponse((FIXTURES / "permits" / "drive_folder.html").read_bytes())
+        if "id=NEWFILE" in url:
+            return FakeResponse((FIXTURES / "permits" / "inspsrvcs.csv").read_bytes())
+        raise AssertionError(f"unexpected URL {url}")

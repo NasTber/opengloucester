@@ -31,6 +31,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup, escape
 
 from pipeline.config import DATA_DIR, ROOT, load_config
+from pipeline import streets as streets_mod
 from pipeline import summarize
 from pipeline.fetch_meetings import slugify
 from pipeline.seeclickfix import short_address
@@ -533,9 +534,17 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     # Newest first; the version in the URL changes whenever the text does.
     search_json = json.dumps(search_index(meetings["all"]), ensure_ascii=False, separators=(",", ":"))
     search_url = f"/meetings/search-index.json?v={hashlib.sha256(search_json.encode()).hexdigest()[:10]}"
+    permits_path = data_dir / "permits" / "permits.json"
+    permits = json.loads(permits_path.read_text(encoding="utf-8")) if permits_path.exists() else None
+    requests_path = data_dir / "311" / "requests.json"
+    requests_311 = list(json.loads(requests_path.read_text(encoding="utf-8")).values()) if requests_path.exists() else []
+    streets_json = json.dumps(street_index(meetings["all"], (permits or {}).get("permits", []), requests_311,
+                                           built_at.date(), config["town"]), ensure_ascii=False, separators=(",", ":"))
+    streets_url = f"/streets/streets.json?v={hashlib.sha256(streets_json.encode()).hexdigest()[:10]}"
     share_path = STATIC_DIR / "share" / f"{town}.png"
     share_image = f"{base_url}/static/share/{town}.png" if share_path.exists() else None
     common = dict(config=config, site=site, town=config["town"], sections=sections, share_image=share_image, search_url=search_url,
+                  streets_url=streets_url, permits=permits,
                   built_at=built_at, meetings=meetings, scorecard=scorecard, schools=schools, budget=budget, housing=housing,
                   headline=headline_numbers(data_dir, scorecard), map_points=map_points(scorecard))
     urls = []
@@ -587,8 +596,71 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
 
     (out_dir / "meetings" / "search-index.json").write_text(search_json, encoding="utf-8")
     write_feed(out_dir / "feed.xml", meetings["all"], config, base_url, built_at)
+    (out_dir / "streets").mkdir(parents=True, exist_ok=True)
+    (out_dir / "streets" / "streets.json").write_text(streets_json, encoding="utf-8")
     write_support_files(out_dir, site, base_url, urls, built_at)
     return urls
+
+
+def street_index(meetings: list[dict], permits: list[dict], requests: list[dict], today: date, town: dict,
+                 limit: int = 30) -> dict:
+    """Everything the site knows about each street: agenda and minutes mentions,
+    building and demolition permits, and 311 requests from the past year."""
+    streets: dict = defaultdict(lambda: {"meetings": [], "permits": [], "requests": []})
+
+    def place(address: str) -> tuple[str, list[str]]:
+        number = streets_mod.HOUSE_NUMBER.match(address.upper() + " ")
+        return (number.group(0).strip() if number else ""), streets_mod.street_keys(address)
+
+    # Meeting places (City Hall, the high school library) head every agenda; they aren't news.
+    venues = {(num, key) for m in meetings for num, keys in [place(m.get("address") or "")] for key in keys}
+
+    def line_with(text: str, address: str) -> str:
+        line = next((l for l in text.splitlines() if address in l), address)
+        return clip(re.sub(r"[#*_>|]+", " ", line).strip(), 200)
+
+    # A line naming the meeting room, or a mailing address ("2 Dale Ave, Gloucester, MA"),
+    # is the document's header, not an agenda item.
+    venue_line = re.compile(r"\b(?:conference room|meeting room|auditorium|council chambers?|city hall|held at)\b"
+                            rf"|,\s*{re.escape(town['name'])},?\s*{re.escape(town['state_abbr'])}\b", re.I)
+
+    for m in meetings:
+        for kind, doc in (("Agenda", m["preview"]), ("Minutes", m["minutes_summary"])):
+            text = (doc or {}).get("transcript") or ""
+            for address in streets_mod.addresses_in(text):
+                num, keys = place(address)
+                if venue_line.search(line_with(text, address)):
+                    continue
+                for key in keys:
+                    if (num, key) in venues:
+                        continue
+                    entries = streets[key]["meetings"]
+                    if not any(e["url"] == m["url"] and e["doc"] == kind for e in entries):
+                        entries.append({"url": m["url"], "date": m["date"], "board": m["body"], "doc": kind,
+                                        "line": line_with(text, address)})
+    for p in permits:
+        num, keys = place(p["address"])
+        for key in keys:
+            streets[key]["permits"].append({
+                "date": p["submitted"], "address": (num + " " if num else "") + streets_mod.street_name(key),
+                "type": p["type"].replace(" (2017-2023)", ""), "status": p["status"], "cost": p["cost"], "work": clip(p["work"], 160)})
+    year_ago = (today - timedelta(days=365)).isoformat()
+    for r in requests:
+        if r.get("removed") or (r.get("created_at") or "") < year_ago:
+            continue
+        for key in streets_mod.street_keys(r.get("address", "")):
+            streets[key]["requests"].append({
+                "date": r["created_at"][:10], "category": r["category"], "status": r["status"],
+                "address": short_address(r["address"]), "url": f"https://seeclickfix.com/issues/{r['id']}"})
+    out = {}
+    for key, s in streets.items():
+        entry = {"name": streets_mod.street_name(key)}
+        for field, items in s.items():
+            items.sort(key=lambda e: e["date"], reverse=True)
+            entry[field] = items[:limit]
+            entry[field + "_total"] = len(items)
+        out[key] = entry
+    return {"suffixes": streets_mod.SUFFIXES, "streets": dict(sorted(out.items()))}
 
 
 def write_feed(path: Path, meetings: list[dict], config: dict, base_url: str, built_at: datetime, limit: int = 50) -> None:

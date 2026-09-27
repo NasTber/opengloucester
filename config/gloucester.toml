@@ -248,6 +248,16 @@ state_geo = "04000US25"
 shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
 shi_name = "Gloucester"
 
+# Building and demolition permits, from the city's Data Hub: a CSV of every
+# Inspectional Services permit in a public Google Drive folder, linked from
+# page_url. Used by the street lookup.
+[permits]
+page_url = "https://gloucester-ma.gov/839/Inspectional-Services-Permit-Data"
+drive_folder = "1hsAMC0wjHIQZEsNre2DgGX7TnQSZEAQJ"
+file_prefix = "PublicData---InspSrvcs"
+types = ["Building Permit", "Building Permit (2017-2023)", "Demolition Permit"]
+years = 3
+
 # Unemployment rate (BLS Local Area Unemployment Statistics). City rates are
 # not seasonally adjusted; the state series is shown for context.
 [labor]

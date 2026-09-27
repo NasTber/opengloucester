@@ -136,6 +136,11 @@ main .link-row li + li { margin-top: 0; }
 .button-primary:hover { background: var(--primary-dark); }
 @media (max-width: 30rem) { .actions .button { flex: 1 1 100%; } }
 
+/* Street lookup box on the home page */
+.street-box { margin: 1.25rem 0 0; padding: 1rem; border: 1px solid var(--line); border-left: 4px solid var(--primary); background: var(--soft); }
+.street-box label { display: block; margin-bottom: 0.4rem; font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--primary-dark); }
+.street-box .small { margin: 0.5rem 0 0; }
+
 /* Meeting search */
 .search-form { margin: 1.25rem 0 0; }
 .search-form label { display: block; font-weight: 700; margin-bottom: 0.35rem; }

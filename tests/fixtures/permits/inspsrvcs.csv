@@ -1,0 +1,7 @@
+Record #,Record Type,Applicant Name,Date Submitted,Address,Record Status,Owner Name,IS: Licensed Professional,IS:  Estimated Cost,IS: Description of Work,IS: Property/Occupancy Type
+BLD-26-589,Building Permit,Applicant A,2026-09-22 08:51:42 AM,"35 LEONARD ST, GLOUCESTER",Active,Owner A,Contractor A,8000,Replacement of deck railings on an existing elevated deck.,Residential Only
+DEMO-26-12,Demolition Permit,Applicant B,2026-08-03 10:00:00 AM,"38 PLEASANT ST, GLOUCESTER",Complete,Owner B,Contractor B,"12,500",Demolish detached garage,Residential Only
+BLD-26-400,Building Permit,Applicant C,2026-06-10 09:00:00 AM,"62 62R 64 EASTERN POINT BV, GLOUCESTER",Active,Owner C,Contractor C,,New single-family dwelling,Residential Only
+ELEC-26-699,Electrical Permit,Applicant D,2026-09-20 07:00:00 AM,"33 MAPLEWOOD AV, GLOUCESTER",Active,Owner D,Contractor D,1500,Service upgrade,Residential Only
+BLDS-26-581,Building Permit - Short Form,Applicant E,2026-09-22 06:35:02 AM,"105R ESSEX AV, GLOUCESTER",Active,Owner E,Contractor E,29000,Replacing windows and doors,Residential Only
+BLD-19-100,Building Permit (2017-2023),Applicant F,2019-05-01 09:00:00 AM,"12 MAIN ST, GLOUCESTER",Complete,Owner F,Contractor F,50000,Old renovation,Commercial

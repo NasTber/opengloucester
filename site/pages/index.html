@@ -6,6 +6,15 @@
 <h1>This week in {{ town.name }}</h1>
 <p class="lede">What's coming up at City Hall, what was decided, and how the city is doing. Updated every morning.</p>
 
+<form class="street-box" role="search" action="/streets/" method="get">
+  <label for="home-street">What's happening on your street?</label>
+  <div class="search-row">
+    <input id="home-street" name="q" type="search" autocomplete="off" spellcheck="false" aria-describedby="home-street-hint">
+    <button class="button button-primary" type="submit">Look up</button>
+  </div>
+  <p class="small" id="home-street-hint">Agenda items, building permits, and 311 requests on any street, such as "Pleasant Street".</p>
+</form>
+
 {# ---- Coming up ---- #}
 <div class="section-head">
   <h2 id="coming-up">Coming up</h2>

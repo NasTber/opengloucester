@@ -16,9 +16,9 @@ sys.path.insert(0, str(Path(__file__).parent))
 import shutil  # noqa: E402
 
 from fakes import (FIXTURES, FakeAnthropic, FakeBudgetDLS, FakeCityClient, FakeDESE, FakeHousing,  # noqa: E402
-                   FakeSeeClickFix, shi_pdf_text)
+                   FakePermits, FakeSeeClickFix, shi_pdf_text)
 from pipeline import (build_site, compute_311, fetch_311, fetch_budget, fetch_housing, fetch_meetings,  # noqa: E402
-                      fetch_minutes, fetch_schools, summarize)
+                      fetch_minutes, fetch_permits, fetch_schools, summarize)
 from pipeline.config import DATA_DIR as REAL_DATA_DIR  # noqa: E402
 from pipeline.config import load_config  # noqa: E402
 
@@ -58,6 +58,7 @@ def make_fixture_data(data_dir: Path) -> None:
         fetch_housing.run(config, FakeHousing(), data_dir, now=FETCHED_AT)
     finally:
         fetch_housing.pdf_text = real_pdf_text
+    fetch_permits.run(config, FakePermits(), data_dir, now=FETCHED_AT)
     fetch_311.run(config, FakeSeeClickFix(), data_dir, now=FETCHED_AT, detail_limit=80)
     fetch_311.save_json(data_dir / "311" / "scorecard.json", compute_311.compute(config, data_dir, now=FETCHED_AT))
 
