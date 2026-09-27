@@ -1,12 +1,12 @@
 {
  "changed": 0,
  "details_fetched": 700,
- "details_missing": 3160,
+ "details_missing": 2460,
  "errors": [],
- "new": 3,
+ "new": 0,
  "open_listed": 912,
- "requests_made": 712,
+ "requests_made": 713,
  "requests_total": 8060,
- "updated_at": "2026-09-27T15:09:20-04:00",
- "ward_tagged": 3
+ "updated_at": "2026-09-27T16:52:56-04:00",
+ "ward_tagged": 0
 }
