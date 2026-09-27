@@ -59,15 +59,23 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
-      - name: Fetch tax bill, unemployment, and school figures
+      # One step per source, so one failing source doesn't stop the others.
+      - name: Fetch tax bill
         if: inputs.sources != '311'
         continue-on-error: true
-        run: |
-          python -m pipeline.fetch_finance --town gloucester
-          python -m pipeline.fetch_labor --town gloucester
-          python -m pipeline.fetch_schools --town gloucester
+        run: python -m pipeline.fetch_finance --town gloucester
+
+      - name: Fetch unemployment
+        if: inputs.sources != '311'
+        continue-on-error: true
+        run: python -m pipeline.fetch_labor --town gloucester
         env:
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+
+      - name: Fetch school figures
+        if: inputs.sources != '311'
+        continue-on-error: true
+        run: python -m pipeline.fetch_schools --town gloucester
 
       # Budget and housing: weekly at most; skipped when the saved figures are recent.
       - name: Fetch budget figures

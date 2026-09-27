@@ -58,6 +58,8 @@
   <summary>Read the full minutes</summary>
   <div class="transcript-body">{{ ms.transcript | markdown }}</div>
 </details>
+{% elif m.minutes_too_large %}
+<p>Minutes are posted. The file is too large to summarize automatically; the minutes are linked below.</p>
 {% else %}
 <p>Minutes are posted. A summary will be added in the next update.</p>
 {% endif %}

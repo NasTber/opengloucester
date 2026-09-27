@@ -42,6 +42,9 @@ def report_url(municipality: str, fiscal_year: int) -> str:
 
 def parse_workbook(content: bytes) -> dict | None:
     """Read the one data row of the report. None if the year has no certified figures."""
+    if not content.startswith(b"PK"):
+        from pipeline.fetch_budget import not_a_workbook
+        raise not_a_workbook(content)
     sheet = openpyxl.load_workbook(io.BytesIO(content), read_only=True).worksheets[0]
     rows = list(sheet.iter_rows(values_only=True))
     if len(rows) < 2:

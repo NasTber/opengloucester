@@ -93,3 +93,10 @@ def test_out_of_credit_stops_after_first_failure(tmp_path):
     result = summarize.run(config, client, tmp_path, limit=50, now=FETCHED_AT)
     assert len(client.calls) == 1
     assert result["summarized"] == 0 and "out of credit" in result["errors"][0]
+
+
+def test_oversized_pdfs_are_not_sent():
+    from pipeline import summarize
+    assert summarize.too_large({"bytes": 29_811_159})
+    assert not summarize.too_large({"bytes": 900_000})
+    assert not summarize.too_large({})

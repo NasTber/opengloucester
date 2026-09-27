@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import io
 import json
+import re
 import statistics
 import sys
 from datetime import datetime, timedelta
@@ -51,10 +52,16 @@ def export_url(report: str, table: str, **params) -> str:
     })
 
 
+def not_a_workbook(content: bytes) -> FetchError:
+    """An error that shows the start of what DLS sent back, to tell a block page from an error page."""
+    text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", content[:3000].decode("utf-8", "replace"))).strip()
+    return FetchError(f"DLS returned {len(content)} bytes that are not a workbook: {text[:200]!r}")
+
+
 def rows(content: bytes) -> list[dict]:
     """Workbook rows as dicts keyed by the header row (the first row with 'DOR Code')."""
     if not content.startswith(b"PK"):
-        raise FetchError("DLS returned a page instead of a workbook")
+        raise not_a_workbook(content)
     sheet = openpyxl.load_workbook(io.BytesIO(content), read_only=True).worksheets[0]
     table = list(sheet.iter_rows(values_only=True))
     start = next((i for i, r in enumerate(table) if str(r[0] or "").strip().upper() == "DOR CODE"), None)

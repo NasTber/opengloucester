@@ -99,8 +99,14 @@ Return:
     },
 }
 
-# Documents longer than this are not sent; the page links to the original.
+# Documents longer or larger than this are not sent; the page links to the original.
 MAX_PAGES = 60
+# The API takes requests up to 32 MB, and base64 makes a PDF a third larger.
+MAX_BYTES = 22_000_000
+
+
+def too_large(doc: dict) -> bool:
+    return (doc.get("bytes") or 0) > MAX_BYTES
 
 
 def summaries_dir(data_dir: Path) -> Path:
@@ -133,7 +139,7 @@ def pending_documents(data_dir: Path, today: str, model: str) -> list[tuple[str,
                 continue
             doc = meeting[field][-1]
             # Several meetings can share one document; process it once.
-            if doc["sha256"] in seen or cached(data_dir, doc["sha256"], model, kind):
+            if doc["sha256"] in seen or too_large(doc) or cached(data_dir, doc["sha256"], model, kind):
                 continue
             seen.add(doc["sha256"])
             todo.append((kind, meeting, doc))

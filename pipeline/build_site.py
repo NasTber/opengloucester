@@ -200,6 +200,7 @@ def load_meetings(data_dir: Path, today: date, summary_model: str | None = None)
             summarize.cached(data_dir, m["minutes_doc"]["sha256"], summary_model, "minutes")
             if m["minutes_doc"] and summary_model else None
         )
+        m["minutes_too_large"] = bool(m["minutes_doc"]) and summarize.too_large(m["minutes_doc"])
         m["preview_line"] = preview_line(m)
 
     today_s = today.isoformat()

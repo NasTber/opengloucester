@@ -162,3 +162,10 @@ def test_housing_keeps_last_figures_when_a_source_fails(tmp_path, monkeypatch):
     assert result["problems"] and result["problems"][0].startswith("shi:")
     h = json.loads((tmp_path / "housing" / "housing.json").read_text())
     assert h["shi"]["percent"] == 8.04
+
+
+def test_dls_error_page_is_reported():
+    import pytest
+    from pipeline.http import FetchError
+    with pytest.raises(FetchError, match="not a workbook: 'Access denied'"):
+        fetch_finance.parse_workbook(b"<html><title>Access denied</title></html>")
