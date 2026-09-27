@@ -46,7 +46,13 @@
 
 {% if config.get("analytics", {}).get("goatcounter") %}
 <h2 id="privacy">Privacy</h2>
-<p>This site counts page views with <a href="https://www.goatcounter.com">GoatCounter</a>, which uses no cookies and doesn't store IP addresses. It records which page was viewed, the site you came from, and your screen size, plus the browser type and approximate location that any website can see. It never records what you search for or which street you look up.{% if config.analytics.public_stats %} The counts are <a href="{{ config.analytics.public_stats }}">public</a>.{% endif %}</p>
+<p>We count visits so we know which pages are useful. That's all.</p>
+<ul>
+  <li>No cookies, no ads, and no tracking across other sites.</li>
+  <li>What you search for, and which street you look up, is never recorded.</li>
+  <li>Nothing that identifies you is kept, not even your IP address.</li>
+</ul>
+<p class="small">Counting is done by <a href="https://www.goatcounter.com">GoatCounter</a>, a privacy-friendly service. It notes the page, the site that linked here, and your screen size, along with the browser type and rough location (such as the country or state) that every website can see. We only look at the totals.{% if config.analytics.public_stats %} They're <a href="{{ config.analytics.public_stats }}">public</a>.{% endif %}</p>
 {% endif %}
 
 <h2 id="corrections">Corrections and contact</h2>
