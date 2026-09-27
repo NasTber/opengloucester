@@ -36,6 +36,24 @@
 {% if m.source != "archive" and m.agenda %}<p class="small">Location from the city calendar. The posted agenda is the official notice; check it if the two differ.</p>{% endif %}
 {% endif %}
 
+{% set part = config.get("participation", {}).get(m.body, {}) %}
+{% if upcoming and m.status == "scheduled" %}
+<h2 id="take-part">How to take part</h2>
+{% if m.public_hearing %}
+<div class="notice"><p><strong>This agenda includes a public hearing.</strong> At a public hearing, residents can speak on the matter before the board decides.</p></div>
+{% endif %}
+<ul>
+  {% if has_where %}<li>Attend in person at {{ m.location_name or m.address or m.location }}.</li>{% endif %}
+  {% if m.remote_url %}<li>Watch or take part online: <a href="{{ m.remote_url }}">join by Zoom</a>.</li>{% endif %}
+  {% if part.get("comment") %}<li>{{ part.comment }} Source: <a href="{{ part.source_url }}">{{ part.source_title }}</a>.</li>{% endif %}
+  {% if part.get("video_url") %}<li>Meetings are broadcast and recorded by <a href="{{ part.video_url }}">{{ part.video_title }}</a>.</li>{% endif %}
+  {% if m.agenda %}<li>The <a href="{{ m.agenda.source_url }}">posted agenda</a> is the official notice. It may give instructions for public comment.</li>{% endif %}
+  <li>For official email or text alerts about this board, sign up for the city's <a href="{{ config.meetings.base_url }}/list.aspx">Notify Me</a> service.</li>
+</ul>
+{% elif part.get("video_url") %}
+<p>Recordings of {{ m.body }} meetings: <a href="{{ part.video_url }}">{{ part.video_title }}</a>.</p>
+{% endif %}
+
 {% if m.minutes_doc %}
 {% set ms = m.minutes_summary %}
 <h2 id="minutes">What was decided</h2>

@@ -11,6 +11,8 @@ name_suffix = "Gloucester"
 mark = "G"
 domain = "opengloucester.org"
 tagline = "Public data on how Gloucester, Massachusetts responds, decides, and spends. Updated daily."
+# One line under the name at the top of every page.
+masthead = "An independent guide to city government in Gloucester, Massachusetts"
 repo_url = "https://github.com/NasTber/opengloucester"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = ""
@@ -127,6 +129,15 @@ month = "2025-09"
 text = "The Republic Services strike that began July 1 went on until a deal was reached September 19, 2025."
 source_title = "WBUR, September 19, 2025"
 source_url = "https://www.wbur.org/news/2025/09/19/massachusetts-republic-teamsters-trash-strike-ends"
+
+# How residents can take part, per board, shown on its meeting pages. Only
+# what the city itself has published; each entry names its source.
+[participation."City Council"]
+comment = "The Council hears from residents during \"oral communications\" and at public hearings."
+source_title = "City Council FAQ"
+source_url = "https://gloucester-ma.gov/faq.aspx?TID=40"
+video_title = "1623 Studios"
+video_url = "https://1623studios.org/watch-content/government/"
 
 # Terms that come up on agendas and minutes, explained on each meeting page
 # where they appear. Acronyms match exactly; other terms ignore case. Use

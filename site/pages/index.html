@@ -1,13 +1,51 @@
 {% extends "base.html" %}
 {% from "macros.html" import day_group, meeting_item %}
-{% block title %}{{ town.name }} this week{% endblock %}
+{% block title %}This week in {{ town.name }}{% endblock %}
 {% block content %}
 <p class="dateline"><time datetime="{{ built_at.date().isoformat() }}">{{ built_at.date() | date }}</time></p>
-<h1>{{ town.name }} this week</h1>
-<p class="lede">City data, meetings, and 311 requests. Updated every morning.</p>
+<h1>This week in {{ town.name }}</h1>
+<p class="lede">What's coming up at City Hall, what was decided, and how the city is doing. Updated every morning.</p>
 
+{# ---- Coming up ---- #}
+<div class="section-head">
+  <h2 id="coming-up">Coming up</h2>
+  <a href="/meetings/">All meetings</a>
+</div>
+{% set hearings = meetings.upcoming | selectattr("public_hearing") | list %}
+{% if hearings %}
+<div class="notice">
+  <h3>Public {{ "hearing" if hearings | length == 1 else "hearings" }}: residents can speak</h3>
+  <ul class="plain-list">
+    {% for m in hearings[:5] %}
+    <li><a href="{{ m.url }}#take-part">{{ m.body }}</a><span class="item-detail"><time datetime="{{ m.date }}">{{ m.date | date }}</time>{% if m.start_time %}, {{ m.start_time | time }}{% endif %}{% if m.preview_line %} · {{ m.preview_line }}{% endif %}</span></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{% if meetings.this_week %}
+{% for day, items in group_by(meetings.this_week, "date") %}{{ day_group(day, items) }}{% endfor %}
+{% else %}
+<p>No public meetings are listed on the city calendar for the next seven days.</p>
+{% endif %}
+<p class="small">For official email or text alerts when a board posts a meeting, sign up for the city's <a href="{{ config.meetings.base_url }}/list.aspx">Notify Me</a> service.</p>
+
+{# ---- Decided ---- #}
+{% if meetings.final %}
+<div class="section-head">
+  <h2 id="decided">Recently decided</h2>
+  <a href="/meetings/decisions/">All decisions</a>
+</div>
+<p class="small">From the latest minutes the city has posted. Minutes come out after a board approves them, usually a few weeks after the meeting.</p>
+<ul class="meeting-list">
+  {% for m in meetings.final[:5] %}{{ meeting_item(m, show_date=true) }}{% endfor %}
+</ul>
+{% endif %}
+
+{# ---- Numbers ---- #}
 {% if headline %}
-<h2 class="visually-hidden">Headline numbers</h2>
+<div class="section-head">
+  <h2 id="numbers">How the city is doing</h2>
+</div>
 <ul class="stats">
   {% for n in headline %}
   <li class="stat"><a href="{{ n.href }}">
@@ -20,28 +58,8 @@
 </ul>
 {% endif %}
 
-<div class="section-head">
-  <h2 id="this-week">Meetings this week</h2>
-</div>
-{% if meetings.this_week %}
-{% for day, items in group_by(meetings.this_week, "date") %}{{ day_group(day, items) }}{% endfor %}
-{% else %}
-<p>No public meetings are listed on the city calendar for the next seven days.</p>
-{% endif %}
-<a class="more" href="/meetings/">All meetings →</a>
-
-{% if meetings.decided %}
-<div class="section-head">
-  <h2 id="decided">Recently decided</h2>
-</div>
-<p class="small">From the latest minutes the city has posted, usually a few weeks after each meeting.</p>
-<ul class="meeting-list">
-  {% for m in meetings.decided[:4] %}{{ meeting_item(m, show_date=true) }}{% endfor %}
-</ul>
-<a class="more" href="/meetings/decisions/">All decisions →</a>
-{% endif %}
-
-<h2>Sections</h2>
+{# ---- Sections ---- #}
+<h2 id="explore">Explore</h2>
 <ul class="meeting-list">
   {% for s in sections if s.slug != "about" %}
   <li class="meeting-item single">
@@ -52,5 +70,8 @@
   </li>
   {% endfor %}
 </ul>
-<p class="small">For city services and news, see the <a href="{{ town.official_site }}">city's website</a>.</p>
+<ul class="link-row">
+  <li><a href="/feed.xml">Follow City Hall updates by RSS</a></li>
+  <li><a href="{{ town.official_site }}">City services and news</a></li>
+</ul>
 {% endblock %}

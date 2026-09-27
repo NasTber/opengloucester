@@ -134,10 +134,10 @@ def test_meeting_pages(site_dir):
 
 def test_home_lists_this_weeks_meetings(site_dir):
     home = (site_dir / "index.html").read_text()
-    assert "Meetings this week" in home
+    assert "Coming up" in home and "Recently decided" in home
     for label in ("Open 311 requests", "Typical time for the city to acknowledge", "Average single-family tax bill", "Unemployment rate"):
         assert label in home
-    assert "↓ 0.5 pts from July 2025" in home and "↑ 3.0% from FY2025" in home
+    assert "↓ 0.5 pts from July 2025" in home and "↑ 3.0% from last year" in home
     assert "/meetings/2026-10-05-city-council-ordinances-and-administration-committee/" in home
 
 
@@ -299,6 +299,43 @@ def test_decisions_page_and_csv(site_dir):
     page = (site_dir / "meetings" / "decisions" / "index.html").read_text()
     assert "<h1>Decisions</h1>" in page
     rows = list(csv.reader((site_dir / "meetings" / "data" / "decisions.csv").open()))
-    assert rows[0] == ["meeting_date", "board", "decision", "meeting_url", "minutes_url"]
+    assert rows[0] == ["meeting_date", "board", "kind", "decision", "meeting_url", "minutes_url"]
+    assert {r[2] for r in rows[1:]} <= {"decided", "recommended", "procedural"}
     home = (site_dir / "index.html").read_text()
     assert ('href="/meetings/decisions/"' in home) == (len(rows) > 1)
+
+
+def test_decisions_are_sorted_for_residents():
+    from pipeline.build_site import decision_kind, emphasize_money
+    assert decision_kind("The City Council voted 9-0 to approve the new trash fee schedule.") == "decided"
+    assert decision_kind("The Budget & Finance Committee voted 3-0 to recommend approving the new trash fee schedule.") == "recommended"
+    assert decision_kind("Recommended, 3-0, that the City Council accept a $16,800 grant.") == "recommended"
+    assert decision_kind("Approved the site plan as recommended by staff.") == "decided"
+    assert decision_kind("Approved the minutes for July 9, 2026 as presented.") == "procedural"
+    assert decision_kind("Continued PH2026-011 to the July 28, 2026 City Council meeting.") == "procedural"
+    assert decision_kind("The City Council voted 9-0 to refer CC#2026-020 to the O&A Committee.") == "procedural"
+    assert decision_kind("Closed the public hearing for NOI 028-3150 10 Dennison Street.") == "procedural"
+    assert str(emphasize_money("Paid $3,100, $51,317.23 & $1.2 million <x>")) == (
+        "Paid <strong>$3,100</strong>, <strong>$51,317.23</strong> &amp; <strong>$1.2 million</strong> &lt;x&gt;")
+
+
+def test_feed_is_valid_rss(site_dir):
+    import xml.dom.minidom
+    feed = xml.dom.minidom.parse(str(site_dir / "feed.xml"))
+    assert feed.getElementsByTagName("channel")
+    home = (site_dir / "index.html").read_text()
+    assert 'type="application/rss+xml"' in home and 'href="/feed.xml"' in home
+
+
+def test_recommendations_lead_with_the_action():
+    from pipeline.build_site import decision_text, tidy_recommendation
+    assert tidy_recommendation("Voted 3 in favor, 0 opposed to recommend that the City Council permit National Grid "
+                               "(PP#2026-004) to install one pole.") == "Permit National Grid (PP#2026-004) to install one pole. (3–0)"
+    assert tidy_recommendation("The Budget & Finance Committee voted 3-0 to recommend approving the new trash fee "
+                               "schedule.") == "Approve the new trash fee schedule. (3–0)"
+    # A vote against, or wording that isn't standard, is shown exactly as written.
+    against = "Voted by roll call 0 in favor, 3 opposed, not to recommend that the City Council amend Chapter 9."
+    assert tidy_recommendation(against) == against
+    odd = "The committee voted 2-0 (1 absent) to recommend appointing Rosalie Nicastro."
+    assert tidy_recommendation(odd) == odd
+    assert str(decision_text("Appointed Joseph A. Orlando, TTE 2/14/2029.")) == "Appointed Joseph A. Orlando, term ends 2/14/2029."

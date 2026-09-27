@@ -8,6 +8,9 @@
 @font-face { font-family: "Public Sans"; font-weight: 600; font-display: swap; src: url(/static/fonts/public-sans-600.woff2) format("woff2"); }
 @font-face { font-family: "Public Sans"; font-weight: 700; font-display: swap; src: url(/static/fonts/public-sans-700.woff2) format("woff2"); }
 @font-face { font-family: "Public Sans"; font-weight: 800; font-display: swap; src: url(/static/fonts/public-sans-800.woff2) format("woff2"); }
+/* Headlines: Source Serif 4 (SIL Open Font License), served from this site. */
+@font-face { font-family: "Source Serif 4"; font-weight: 600; font-display: swap; src: url(/static/fonts/source-serif-4-600.woff2) format("woff2"); }
+@font-face { font-family: "Source Serif 4"; font-weight: 700; font-display: swap; src: url(/static/fonts/source-serif-4-700.woff2) format("woff2"); }
 
 :root {
   --primary: #1e3e80;       /* city navy */
@@ -25,6 +28,7 @@
   --warn-bg: #fff3d1;
   --warn-text: #5c3d00;
   --warn-line: #b88300;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --measure: 68ch;
   --gutter: 1rem;
 }
@@ -44,14 +48,16 @@ body {
 }
 .wrap { width: 100%; max-width: 64rem; margin: 0 auto; padding: 0 var(--gutter); }
 
-h1, h2, h3 { color: var(--primary-dark); letter-spacing: -0.015em; }
-h1 { font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.4rem); line-height: 1.12; font-weight: 800; margin: 0 0 0.4rem; }
-h2 { font-size: 1.35rem; line-height: 1.25; font-weight: 800; margin: 2.25rem 0 0.75rem; }
+h1, h2, h3 { color: var(--primary-dark); }
+h1, h2 { font-family: var(--serif); letter-spacing: -0.01em; }
+h1 { font-size: clamp(1.9rem, 1.5rem + 1.8vw, 2.6rem); line-height: 1.12; font-weight: 700; margin: 0 0 0.4rem; }
+h2 { font-size: 1.5rem; line-height: 1.2; font-weight: 700; margin: 2.25rem 0 0.75rem; }
 h3 { font-size: 1.05rem; line-height: 1.3; font-weight: 700; margin: 2rem 0 0.5rem; }
 /* Each section starts with a rule and space above, so a page reads as separate blocks. */
 main h2 { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .section-head { padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .section-head h2, .toc h2, .callout h2 { margin-top: 0; padding-top: 0; border-top: 0; }
+.section-head > a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 600; }
 p, main li { max-width: var(--measure); }
 main li + li { margin-top: 0.3rem; }
 
@@ -74,35 +80,28 @@ main:focus { outline: none; }
 /* Links that open a new tab: an arrow here, hidden text for screen readers. */
 a.external::after { content: "\2009\2197"; font-size: 0.85em; }
 
-/* ---- Header ---- */
+/* ---- Header: a masthead and a section bar, like a paper's front page ---- */
 
-.topline { height: 4px; background: var(--accent); }
-.site-header { border-bottom: 1px solid var(--line); background: var(--bg); }
-.header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; column-gap: 1.5rem; }
-.brand { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 3.5rem; text-decoration: none; color: var(--primary-dark); }
-.brand-mark {
-  display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 50%;
-  background: var(--primary); color: #fff; font-weight: 800; font-size: 1.15rem; line-height: 1;
+.site-header { background: var(--bg); }
+.masthead { padding: 1.1rem var(--gutter) 0.8rem; }
+.brand {
+  display: inline-block; color: var(--primary-dark); text-decoration: none;
+  font-family: var(--serif); font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.3rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.01em;
 }
-.brand-name { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.015em; }
-.brand-name span { color: var(--primary); }
-.brand:hover .brand-name { text-decoration: underline; }
+.brand span { color: var(--accent); }
+.brand:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+.masthead-line { margin: 0.3rem 0 0; color: var(--ink-soft); font-size: 0.95rem; }
 
-.site-nav { width: 100%; border-top: 1px solid var(--line); }
-.nav-list { display: flex; flex-wrap: wrap; column-gap: 1.1rem; margin: 0; padding: 0; list-style: none; }
+.site-nav { border-top: 1px solid var(--primary-dark); border-bottom: 4px double var(--primary-dark); }
+.nav-list { display: flex; flex-wrap: wrap; column-gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
 .nav-list a {
-  display: flex; align-items: center; min-height: 2.9rem;
-  color: var(--muted); font-weight: 600; text-decoration: none;
+  display: flex; align-items: center; min-height: 2.75rem;
+  color: var(--ink); font-weight: 600; font-size: 0.95rem; text-decoration: none;
   border-bottom: 3px solid transparent;
 }
-.nav-list a:hover { color: var(--ink); border-bottom-color: var(--line-strong); }
-.nav-list a[aria-current] { color: var(--primary); border-bottom-color: currentColor; }
-@media (min-width: 40rem) {
-  .header-inner { flex-wrap: nowrap; }
-  .site-nav { width: auto; border-top: 0; }
-  .nav-list { column-gap: 1.6rem; }
-  .nav-list a { min-height: 3.6rem; }
-}
+.nav-list a:hover { color: var(--primary); border-bottom-color: var(--line-strong); }
+.nav-list a[aria-current] { color: var(--accent); border-bottom-color: currentColor; }
+@media (min-width: 40rem) { .nav-list { column-gap: 1.75rem; } }
 
 /* ---- Page ---- */
 
@@ -129,7 +128,7 @@ main .link-row li + li { margin-top: 0; }
 .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0; }
 .button {
   display: inline-flex; align-items: center; justify-content: center;
-  min-height: 2.9rem; padding: 0 1.1rem; border: 1.5px solid var(--primary); border-radius: 4px;
+  min-height: 2.9rem; padding: 0 1.1rem; border: 1.5px solid var(--primary); border-radius: 0;
   color: var(--primary); background: var(--bg); font-weight: 700; text-decoration: none;
 }
 .button:hover { background: var(--primary-soft); }
@@ -143,7 +142,7 @@ main .link-row li + li { margin-top: 0; }
 .search-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .search-row input {
   flex: 1 1 12rem; min-width: 0; min-height: 2.9rem; padding: 0 0.75rem;
-  border: 1.5px solid var(--line-strong); border-radius: 4px; font: inherit; color: var(--ink); background: var(--bg);
+  border: 1.5px solid var(--line-strong); border-radius: 0; font: inherit; color: var(--ink); background: var(--bg);
 }
 .search-results { padding-left: 0; list-style: none; }
 .search-results > li { padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
@@ -170,8 +169,8 @@ main .stats > li { max-width: none; margin: 0; }
 .stat > a:hover .stat-value { text-decoration: underline; text-decoration-thickness: 2px; }
 .stat-label { display: block; min-height: 2.6em; color: var(--ink-soft); font-size: 0.9rem; font-weight: 700; line-height: 1.3; }
 .stat-value {
-  display: block; margin: 0.2rem 0; color: var(--primary); font-size: 1.95rem; font-weight: 800;
-  line-height: 1.1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+  display: block; margin: 0.25rem 0; color: var(--primary-dark); font-family: var(--serif); font-size: 2.1rem; font-weight: 700;
+  line-height: 1.1; letter-spacing: -0.01em;
 }
 .stat-change { display: block; font-size: 0.9rem; line-height: 1.4; }
 .stat-source { display: block; margin-top: 0.3rem; color: var(--muted); font-size: 0.8125rem; line-height: 1.4; }
@@ -214,6 +213,7 @@ main .decision-list > li { max-width: none; margin: 0; }
 .decision-meeting > .item-detail { margin: 0.2rem 0 0.6rem; }
 .decision-meeting ul { margin: 0; padding-left: 1.25rem; }
 .decision-meeting details.expand { margin-top: 0.5rem; border-top: 0; padding: 0; }
+.decision-label { margin: 0.9rem 0 0.2rem; color: var(--ink-soft); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
 
 .board-list { margin: 0; padding: 0; list-style: none; columns: 1; }
 @media (min-width: 48rem) { .board-list { columns: 2; column-gap: 2rem; } }
@@ -304,17 +304,12 @@ main .hbars > li { max-width: none; margin: 0; }
 main .plain-list > li + li { margin-top: 0.75rem; }
 .item-detail { display: block; color: var(--ink-soft); font-size: 0.95rem; }
 
-/* "On this page": jump links under a long page's heading. */
-.jump { margin: 1.5rem 0 0; }
-.jump ul { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.35rem 0 0; padding: 0; list-style: none; }
+/* "On this page": a plain contents line under a long page's numbers. */
+.jump { margin: 1.5rem 0 0; padding: 0.4rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.jump ul { display: flex; flex-wrap: wrap; column-gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
 main .jump li + li { margin-top: 0; }
-.jump a {
-  display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 0.9rem;
-  border: 1px solid var(--line); border-radius: 999px; background: var(--soft);
-  color: var(--primary); font-size: 0.9375rem; font-weight: 600; text-decoration: none;
-}
-.jump a:hover { border-color: var(--primary); }
-.jump-label { margin: 0; color: var(--ink-soft); font-size: 0.875rem; font-weight: 700; }
+.jump a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 600; }
+.jump-label { margin: 0.25rem 0 0; color: var(--ink-soft); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 
 /* ---- Footer ---- */
 
@@ -349,7 +344,7 @@ dl.defs dd { margin: 0.15rem 0 0; max-width: var(--measure); }
 /* ---- Maps ---- */
 .map {
   height: 22rem; margin: 0.75rem 0 0; isolation: isolate;
-  border: 1px solid var(--line); border-radius: 0.5rem; background: var(--primary-soft);
+  border: 1px solid var(--line); background: var(--primary-soft);
 }
 @media (max-width: 30rem) { .map { height: 18rem; } }
 .map.leaflet-container { font: inherit; font-size: 0.9rem; }
@@ -358,11 +353,17 @@ dl.defs dd { margin: 0.15rem 0 0; max-width: var(--measure); }
 .map .leaflet-popup-content a { color: var(--primary); }
 .map .leaflet-control-attribution a { color: var(--primary); }
 
+/* ---- Notice: a public hearing or other chance to take part ---- */
+.notice { margin: 1rem 0 0.5rem; padding: 0.9rem 1rem 0.6rem; border: 1px solid var(--accent); border-top-width: 4px; background: var(--bg); }
+.notice h3 { margin: 0 0 0.25rem; color: var(--accent); }
+.notice .plain-list { margin: 0.4rem 0 0; }
+.notice > p { margin: 0 0 0.3rem; }
+
 /* ---- Callout ---- */
 .callout {
   margin: 1.25rem 0 1.5rem; padding: 1rem 1.1rem;
-  border: 1px solid var(--line); border-left: 4px solid var(--primary); border-radius: 0.5rem;
-  background: var(--primary-soft);
+  border-left: 4px solid var(--primary);
+  background: var(--soft);
 }
 .callout p { margin: 0; }
 .callout .actions { margin: 0.8rem 0 0; }

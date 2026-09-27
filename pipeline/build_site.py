@@ -20,8 +20,10 @@ import re
 import shutil
 from collections import defaultdict
 from datetime import date, datetime, timedelta
+from email.utils import format_datetime
 from pathlib import Path
 from urllib.parse import urlparse
+from xml.sax.saxutils import escape as xml_escape
 from zoneinfo import ZoneInfo
 
 import markdown
@@ -181,6 +183,83 @@ def format_timestamp(value: str) -> str:
 
 # ---- Data ------------------------------------------------------------------
 
+# Sorting recorded decisions for residents. Fixed rules, checked against the
+# real minutes: a committee's recommendation is not a final decision, and
+# procedural steps (approving minutes, continuing or closing a hearing,
+# referring an item) are folded away.
+RECOMMENDED = re.compile(r"\brecommend(?:s|ed|ing)?\b(?!\s+by\b)", re.I)
+AS_RECOMMENDED = re.compile(r"\bas recommended\b", re.I)
+PROCEDURAL = [re.compile(p, re.I) for p in (
+    r"\b(?:approv|accept)\w*\b[^.;]*\bminutes\b",
+    r"^\s*(?:the \w+(?: \w+){0,5} )?(?:voted (?:\d+[-–]\d+ |unanimously )?to )?(?:continu|table|postpon|defer)\w*\b",
+    r"\bwithdr[ae]w\w*\b",
+    r"\bno (?:committee )?recommendation\b",
+    r"^\s*it was determined that a\b[^.;]*\bmeeting\b",
+    r"\b(?:enter|go|went|convene)\w*\b[^.;]*\bexecutive session\b",
+    r"\bclosed the public hearing\b",
+    r"^\s*(?:the \w+(?: \w+){0,5} )?(?:voted (?:\d+[-–]\d+ )?to )?refer(?:red)?\b",
+    r"\badjourn",
+)]
+PUBLIC_HEARING = re.compile(r"\bpublic hearing", re.I)
+MONEY = re.compile(r"\$(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?(?:\s(?:million|billion|thousand))?")
+
+
+# A committee's recommendation, without the wording its heading already says:
+# "Voted 3 in favor, 0 opposed to recommend that the City Council approve X"
+# becomes "Approve X. (3–0)". Only standard wording is trimmed; anything else,
+# including a vote not to recommend, is shown exactly as written.
+VOTE = r"(?:(\d{1,2}) in favor, (\d{1,2}) opposed|\b(\d{1,2})[-–](\d{1,2})\b(?![\d/]))"
+REC_LEAD = re.compile(
+    r"^(?:the [\w&'.,\s]{3,60}? committee )?(?:voted (?:by roll call )?(?:" + VOTE + r"|unanimously)?,? ?to recommend"
+    r"|recommend(?:ed|s)?)(?:,? (?:" + VOTE + r"),?)?(?: that)?(?: the city council| to the city council)?(?: to)?(?: the city)? ", re.I)
+REC_TAIL = re.compile(r",?\s*(?:—\s*)?(?:voted )?(?:" + VOTE + r")(?:[^.;]{0,40})?\.?$", re.I)
+REC_NEGATIVE = re.compile(r"\bnot to recommend|\bno (?:committee )?recommendation|\brecommend(?:ed|s)? against\b", re.I)
+PLAIN_VERBS = {"approving": "approve", "accepting": "accept", "appointing": "appoint", "amending": "amend",
+               "confirming": "confirm", "allowing": "allow", "adopting": "adopt", "granting": "grant",
+               "authorizing": "authorize", "permitting": "permit", "denying": "deny", "transferring": "transfer"}
+
+
+def _vote(match: re.Match) -> str | None:
+    counts = [g for g in match.groups() if g is not None][:2]
+    return f"{counts[0]}–{counts[1]}" if len(counts) == 2 else None
+
+
+def tidy_recommendation(text: str) -> str:
+    """The recommended action first, with the vote at the end, when the wording is standard."""
+    lead = REC_LEAD.match(text)
+    if not lead or REC_NEGATIVE.search(text):
+        return text
+    vote, rest = _vote(lead), text[lead.end():]
+    tail = REC_TAIL.search(rest)
+    if tail:
+        vote, rest = vote or _vote(tail), rest[:tail.start()]
+    rest = rest.strip().rstrip(".,;")
+    if not rest:
+        return text
+    first, _, after = rest.partition(" ")
+    first = PLAIN_VERBS.get(first.lower(), first)
+    return f"{first[:1].upper()}{first[1:]}{' ' + after if after else ''}." + (f" ({vote})" if vote else "")
+
+
+def decision_text(text: str) -> Markup:
+    """A decision for reading: "TTE" (term to expire) spelled out, dollar amounts in bold."""
+    return emphasize_money(re.sub(r"\bTTE\b", "term ends", text))
+
+
+def decision_kind(text: str) -> str:
+    """ "recommended", "procedural", or "decided"."""
+    if RECOMMENDED.search(text) and not AS_RECOMMENDED.search(text):
+        return "recommended"
+    if any(p.search(text) for p in PROCEDURAL):
+        return "procedural"
+    return "decided"
+
+
+def emphasize_money(text: str) -> Markup:
+    """Dollar amounts in bold, so money stands out when scanning."""
+    return Markup(MONEY.sub(lambda m: f"<strong>{m.group(0)}</strong>", str(escape(text))))
+
+
 def glossary_for(meeting: dict, entries: list[dict]) -> list[dict]:
     """Glossary entries whose term appears in a meeting's summaries or document text.
 
@@ -229,6 +308,14 @@ def load_meetings(data_dir: Path, today: date, summary_model: str | None = None,
             if m["minutes_doc"] and summary_model else None
         )
         m["minutes_too_large"] = bool(m["minutes_doc"]) and summarize.too_large(m["minutes_doc"])
+        ms = m["minutes_summary"]
+        sorted_decisions = {"decided": [], "recommended": [], "procedural": []}
+        if ms and ms.get("is_minutes", True):
+            for d in ms.get("decisions", []):
+                sorted_decisions[decision_kind(d)].append(d)
+        m["decisions"] = sorted_decisions
+        m["public_hearing"] = bool(m["preview"]) and bool(PUBLIC_HEARING.search(
+            " ".join([m["preview"].get("summary") or "", m["preview"].get("transcript") or "", *m["preview"].get("items", [])])))
         m["preview_line"] = preview_line(m)
         m["glossary"] = glossary_for(m, glossary or [])
 
@@ -247,13 +334,15 @@ def load_meetings(data_dir: Path, today: date, summary_model: str | None = None,
     week_end = (today + timedelta(days=7)).isoformat()
     # Meetings whose minutes record decisions, newest first. Minutes that turned
     # out to be another document (an agenda filed as minutes) are left out.
-    decided = [m for m in past if (s := m["minutes_summary"]) and s.get("is_minutes", True) and s.get("decisions")]
+    decided = [m for m in past if m["decisions"]["decided"] or m["decisions"]["recommended"]]
     return {
         "all": meetings,
         "upcoming": upcoming,
         "this_week": [m for m in upcoming if m["date"] < week_end],
         "past": past,
         "decided": decided,
+        # For the home page: meetings that made at least one final decision.
+        "final": [m for m in decided if m["decisions"]["decided"]],
         "boards": board_list,
         "status": status,
         "tracking_since": min((m["first_seen"] for m in meetings), default=None),
@@ -317,7 +406,8 @@ def preview_line(meeting: dict) -> str | None:
         if minutes.get("headline"):
             return minutes["headline"]
         if minutes.get("decisions"):
-            return clip(minutes["decisions"][0])
+            final = [d for d in minutes["decisions"] if decision_kind(d) == "decided"]
+            return clip((final or minutes["decisions"])[0])
     if agenda:
         if agenda.get("headline"):
             return agenda["headline"]
@@ -351,11 +441,11 @@ def headline_numbers(data_dir: Path, scorecard: dict | None) -> list[dict]:
         change = ""
         if prior:
             pct = (latest["average_bill"] - prior["average_bill"]) / prior["average_bill"] * 100
-            change = change_text(pct, "%", f"FY{prior['fiscal_year']}", 1)
+            change = change_text(pct, "%", "last year", 1)
         numbers.append({
             "label": "Average single-family tax bill", "value": f"${latest['average_bill']:,}",
             "href": tax["source_url"], "change": change,
-            "source": f"FY{latest['fiscal_year']} · Mass. Division of Local Services",
+            "source": f"Fiscal year {latest['fiscal_year']} · Mass. Division of Local Services",
         })
     labor_path = data_dir / "labor" / "unemployment.json"
     if labor_path.exists():
@@ -422,7 +512,8 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
                        duration=format_duration, number=format_number, money=format_money, month=format_month,
                        markdown=render_markdown, duration_cell=format_duration_cell, street=short_address,
                        model_name=model_name, capitalize_first=lambda t: Markup(t[:1].upper() + t[1:]),
-                       school_year=school_year)
+                       school_year=school_year, money_bold=emphasize_money, decision=decision_text,
+                       recommendation=lambda t: decision_text(tidy_recommendation(t)))
     # Versioned asset URLs, so a browser never pairs new pages with an old cached stylesheet.
     css_version = hashlib.sha256((STATIC_DIR / "css" / "site.css").read_bytes()).hexdigest()[:10]
     def versioned(path: str) -> str:
@@ -470,9 +561,9 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         render("meeting.html", m["url"], meeting=m)
     for b in meetings["boards"]:
         render("board.html", b["url"], board=b)
-    write_csv(out_dir / "meetings" / "data" / "decisions.csv", ["meeting_date", "board", "decision", "meeting_url", "minutes_url"],
-              [[m["date"], m["body"], d, base_url + m["url"], m["minutes_doc"]["source_url"]]
-               for m in meetings["decided"] for d in m["minutes_summary"]["decisions"]])
+    write_csv(out_dir / "meetings" / "data" / "decisions.csv", ["meeting_date", "board", "kind", "decision", "meeting_url", "minutes_url"],
+              [[m["date"], m["body"], kind, d, base_url + m["url"], m["minutes_doc"]["source_url"]]
+               for m in meetings["decided"] for kind, ds in m["decisions"].items() for d in ds])
     if scorecard:
         populations = {w["ward"]: w for w in scorecard["by_ward"]}
         for w in scorecard.get("wards", []):
@@ -495,8 +586,39 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
             shutil.copytree(src, out_dir / "meetings" / folder)
 
     (out_dir / "meetings" / "search-index.json").write_text(search_json, encoding="utf-8")
+    write_feed(out_dir / "feed.xml", meetings["all"], config, base_url, built_at)
     write_support_files(out_dir, site, base_url, urls, built_at)
     return urls
+
+
+def write_feed(path: Path, meetings: list[dict], config: dict, base_url: str, built_at: datetime, limit: int = 50) -> None:
+    """RSS feed of City Hall updates: each agenda and set of minutes as it is posted."""
+    items = []
+    for m in meetings:
+        when = format_date(m["date"])
+        if m["agenda"]:
+            items.append((m["agenda"]["fetched_at"], f"{m['body']}: agenda for {when}", m,
+                          (m["preview"] or {}).get("headline") or (m["preview"] or {}).get("summary") or "Agenda posted."))
+        if m["minutes_doc"]:
+            ms = m["minutes_summary"] or {}
+            items.append((m["minutes_doc"]["fetched_at"], f"{m['body']}: minutes of {when}", m,
+                          ms.get("headline") or ms.get("summary") or "Minutes posted."))
+    items.sort(key=lambda i: i[0], reverse=True)
+    site = config["site"]
+    entries = "".join(
+        f"<item><title>{xml_escape(title)}</title><link>{base_url}{m['url']}</link>"
+        f"<guid isPermaLink=\"false\">{base_url}{m['url']}#{'minutes' if 'minutes of' in title else 'agenda'}-{xml_escape(posted)}</guid>"
+        f"<pubDate>{format_datetime(datetime.fromisoformat(posted))}</pubDate>"
+        f"<description>{xml_escape(text)}</description></item>\n"
+        for posted, title, m, text in items[:limit]
+    )
+    path.write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>\n'
+        f"<title>{xml_escape(site['name'])}: City Hall updates</title><link>{base_url}/</link>"
+        f"<description>New agendas and minutes from {xml_escape(config['town']['name'])} city boards and committees.</description>"
+        f"<lastBuildDate>{format_datetime(built_at)}</lastBuildDate>\n{entries}</channel></rss>\n",
+        encoding="utf-8",
+    )
 
 
 def write_csv(path: Path, header: list[str], rows: list[list]) -> None:

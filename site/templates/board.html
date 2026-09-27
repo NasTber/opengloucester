@@ -21,6 +21,15 @@
   {% endif %}
 </div>
 
+{% set part = config.get("participation", {}).get(b.name, {}) %}
+<h2 id="take-part">How to follow this board</h2>
+<ul>
+  {% if part.get("comment") %}<li>{{ part.comment }} Source: <a href="{{ part.source_url }}">{{ part.source_title }}</a>.</li>{% endif %}
+  {% if part.get("video_url") %}<li>Meetings are broadcast and recorded by <a href="{{ part.video_url }}">{{ part.video_title }}</a>.</li>{% endif %}
+  <li>For official email or text alerts when this board posts a meeting, sign up for the city's <a href="{{ config.meetings.base_url }}/list.aspx">Notify Me</a> service.</li>
+  <li>New agendas and minutes from every board are in this site's <a href="/feed.xml">RSS feed</a>.</li>
+</ul>
+
 <h2>All recorded meetings</h2>
 <ul class="meeting-list">
   {% for m in b.meetings %}{{ meeting_item(m, show_date=true, show_body=false) }}{% endfor %}
