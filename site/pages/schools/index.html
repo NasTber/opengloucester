@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "macros.html" import on_this_page %}
 {% block title %}Schools{% endblock %}
 {% block description %}{{ config.schools.district_name }} compared with the state: graduation rate, chronic absenteeism, and MCAS results.{% endblock %}
 {% set sch = config.schools %}
@@ -47,6 +48,7 @@
     <span class="stat-change">Spring {{ math.year }}, meeting or exceeding · State {{ math.state | round | int }}%</span>
   </a></li>
 </ul>
+{{ on_this_page([("graduation", "Graduation"), ("absenteeism", "Absenteeism"), ("mcas", "MCAS")]) }}
 
 <h2 id="graduation">Graduation rate</h2>
 <p>Share of students who graduated high school within four years of starting ninth grade.</p>
