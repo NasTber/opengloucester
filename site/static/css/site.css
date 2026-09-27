@@ -288,3 +288,15 @@ dl.defs { margin: 0.5rem 0 1rem; }
 dl.defs dt { margin-top: 0.9rem; font-weight: 700; color: var(--primary-dark); }
 dl.defs dd { margin: 0.15rem 0 0; max-width: var(--measure); }
 .stat a.external::after { content: none; }
+
+/* ---- Maps ---- */
+.map {
+  height: 22rem; margin: 0.75rem 0 0; isolation: isolate;
+  border: 1px solid var(--line); border-radius: 0.5rem; background: var(--primary-soft);
+}
+@media (max-width: 30rem) { .map { height: 18rem; } }
+.map.leaflet-container { font: inherit; font-size: 0.9rem; }
+.map .leaflet-popup-content { margin: 0.75rem 1rem; line-height: 1.4; }
+.map .leaflet-popup-content p { margin: 0.25rem 0 0.4rem; }
+.map .leaflet-popup-content a { color: var(--primary); }
+.map .leaflet-control-attribution a { color: var(--primary); }

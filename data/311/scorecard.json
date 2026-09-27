@@ -2,12 +2,12 @@
  "backlog": {
   "buckets": [
    {
-    "count": 20,
+    "count": 19,
     "label": "Under 1 week",
     "max_days": 7
    },
    {
-    "count": 74,
+    "count": 75,
     "label": "1 to 4 weeks",
     "max_days": 30
    },
@@ -27,11 +27,11 @@
     "max_days": null
    }
   ],
-  "median_age_days": 214.2,
+  "median_age_days": 214.3,
   "oldest": [
    {
     "address": "6 Sadler St Gloucester MA 01930, United States",
-    "age_days": 2349.2,
+    "age_days": 2349.3,
     "category": "Private Property Issue",
     "created_at": "2020-04-21T13:57:09-04:00",
     "id": "7696257",
@@ -40,7 +40,7 @@
    },
    {
     "address": "1 Western Ave Gloucester MA 01930, United States",
-    "age_days": 2085.4,
+    "age_days": 2085.5,
     "category": "Illegal Dumping",
     "created_at": "2021-01-10T08:37:04-05:00",
     "id": "9172426",
@@ -85,7 +85,7 @@
    },
    {
     "address": "67 Middle St Gloucester, MA 01930, USA",
-    "age_days": 1898.4,
+    "age_days": 1898.5,
     "category": "Health Department",
     "created_at": "2021-07-16T09:01:28-04:00",
     "id": "10427677",
@@ -121,7 +121,7 @@
    }
   ],
   "open": 907,
-  "open_week_ago": 900
+  "open_week_ago": 901
  },
  "by_category": [
   {
@@ -1089,7 +1089,7 @@
     },
     {
      "address": "25 Brooks Rd Gloucester, Massachusetts, 01930",
-     "age_days": 150.9,
+     "age_days": 151.0,
      "category": "Trash or Recycling",
      "created_at": "2026-04-28T21:15:51-04:00",
      "id": "21583154",
@@ -1125,7 +1125,7 @@
     },
     {
      "address": "25 Wonson St Gloucester, Massachusetts, 01930",
-     "age_days": 145.0,
+     "age_days": 145.1,
      "category": "Trash or Recycling",
      "created_at": "2026-05-04T19:01:27-04:00",
      "id": "21629923",
@@ -1342,7 +1342,7 @@
     },
     {
      "address": "24 Lexington Ave Gloucester 01930, United States",
-     "age_days": 214.1,
+     "age_days": 214.2,
      "category": "Pothole",
      "created_at": "2026-02-24T15:29:13-05:00",
      "id": "21083474",
@@ -1568,7 +1568,7 @@
     },
     {
      "address": "3 Summit St Gloucester, MA, 01930, USA",
-     "age_days": 240.4,
+     "age_days": 240.5,
      "category": "Snow/Ice Removal",
      "created_at": "2026-01-29T08:28:21-05:00",
      "id": "20898613",
@@ -1595,7 +1595,7 @@
     },
     {
      "address": "180 Washington St Gloucester, Massachusetts, 01930",
-     "age_days": 232.3,
+     "age_days": 232.4,
      "category": "Snow/Ice Removal",
      "created_at": "2026-02-06T11:05:23-05:00",
      "id": "20958486",
@@ -1613,7 +1613,7 @@
     },
     {
      "address": "271 E Main St Gloucester, Massachusetts, 01930",
-     "age_days": 232.1,
+     "age_days": 232.2,
      "category": "Snow/Ice Removal",
      "created_at": "2026-02-06T15:47:21-05:00",
      "id": "20961384",
@@ -1631,7 +1631,7 @@
     },
     {
      "address": "Ronna Rd Gloucester, Massachusetts, 01930",
-     "age_days": 231.1,
+     "age_days": 231.2,
      "category": "Snow/Ice Removal",
      "created_at": "2026-02-07T15:53:12-05:00",
      "id": "20966088",
@@ -1839,7 +1839,7 @@
     },
     {
      "address": "749 Washington Street Gloucester, Massachusetts, 01930",
-     "age_days": 1293.3,
+     "age_days": 1293.4,
      "category": "Other",
      "created_at": "2023-03-13T11:58:23-04:00",
      "id": "14198625",
@@ -1848,7 +1848,7 @@
     },
     {
      "address": "470-580 Western Ave Gloucester, MA, 01930, USA",
-     "age_days": 1252.2,
+     "age_days": 1252.3,
      "category": "Other",
      "created_at": "2023-04-23T14:22:12-04:00",
      "id": "14410932",
@@ -1857,7 +1857,7 @@
     },
     {
      "address": "115 Western Avenue Gloucester, MA, 01930, USA",
-     "age_days": 1105.2,
+     "age_days": 1105.3,
      "category": "Other",
      "created_at": "2023-09-17T13:56:15-04:00",
      "id": "15291675",
@@ -2074,7 +2074,7 @@
     },
     {
      "address": "Poplar Park & Poplar St Gloucester, MA, 01930, USA",
-     "age_days": 812.0,
+     "age_days": 812.1,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2024-07-06T19:06:56-04:00",
      "id": "16987115",
@@ -2137,7 +2137,7 @@
     },
     {
      "address": "77 Hesperus Avenue Gloucester, Massachusetts, 01930",
-     "age_days": 390.2,
+     "age_days": 390.3,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2025-09-01T14:10:13-04:00",
      "id": "19888301",
@@ -2309,7 +2309,7 @@
    "oldest": [
     {
      "address": "1 Western Ave Gloucester MA 01930, United States",
-     "age_days": 2085.4,
+     "age_days": 2085.5,
      "category": "Illegal Dumping",
      "created_at": "2021-01-10T08:37:04-05:00",
      "id": "9172426",
@@ -2327,7 +2327,7 @@
     },
     {
      "address": "1062 Washington Street Gloucester, Massachusetts, 01930",
-     "age_days": 988.3,
+     "age_days": 988.4,
      "category": "Illegal Dumping",
      "created_at": "2024-01-12T10:52:02-05:00",
      "id": "15869845",
@@ -2372,7 +2372,7 @@
     },
     {
      "address": "7 Green St Gloucester, MA 01930, USA",
-     "age_days": 541.1,
+     "age_days": 541.2,
      "category": "Illegal Dumping",
      "created_at": "2025-04-03T16:24:03-04:00",
      "id": "18702264",
@@ -2381,7 +2381,7 @@
     },
     {
      "address": "11-17 Dogtown Rd Gloucester, MA, 01930, USA",
-     "age_days": 536.0,
+     "age_days": 536.1,
      "category": "Illegal Dumping",
      "created_at": "2025-04-08T18:37:52-04:00",
      "id": "18734346",
@@ -2390,7 +2390,7 @@
     },
     {
      "address": "1 Essex Avenue Gloucester, Massachusetts, 01930",
-     "age_days": 533.1,
+     "age_days": 533.2,
      "category": "Illegal Dumping",
      "created_at": "2025-04-11T16:43:38-04:00",
      "id": "18757557",
@@ -2562,7 +2562,7 @@
    "oldest": [
     {
      "address": "418r Essex Ave Gloucester, MA, 01930, USA",
-     "age_days": 31.0,
+     "age_days": 31.1,
      "category": "Health Department (General Nuisance/Inquiry)",
      "created_at": "2026-08-26T18:42:25-04:00",
      "id": "22620616",
@@ -2743,7 +2743,7 @@
    "oldest": [
     {
      "address": "Cedar St & Pleasant St Gloucester, MA, 01930, USA",
-     "age_days": 349.1,
+     "age_days": 349.2,
      "category": "Police Department (Non-Emergency)",
      "created_at": "2025-10-12T16:15:54-04:00",
      "id": "20193520",
@@ -2761,7 +2761,7 @@
     },
     {
      "address": "31 Mansfield St Gloucester, Massachusetts, 01930",
-     "age_days": 299.4,
+     "age_days": 299.5,
      "category": "Police Department (Non-Emergency)",
      "created_at": "2025-12-01T08:15:05-05:00",
      "id": "20508140",
@@ -2951,7 +2951,7 @@
     },
     {
      "address": "4 Sunset Point Road Gloucester, MA, 01930, USA",
-     "age_days": 997.2,
+     "age_days": 997.3,
      "category": "Street Light Issue",
      "created_at": "2024-01-03T13:02:05-05:00",
      "id": "15822316",
@@ -2978,7 +2978,7 @@
     },
     {
      "address": "Western Ave Gloucester, MA, 01930, USA",
-     "age_days": 908.8,
+     "age_days": 908.9,
      "category": "Street Light Issue",
      "created_at": "2024-03-31T23:45:04-04:00",
      "id": "16312470",
@@ -3005,7 +3005,7 @@
     },
     {
      "address": "84-84 Rogers St Gloucester, MA, 01930, USA",
-     "age_days": 789.1,
+     "age_days": 789.2,
      "category": "Street Light Issue",
      "created_at": "2024-07-29T16:29:44-04:00",
      "id": "17152891",
@@ -3204,7 +3204,7 @@
     },
     {
      "address": "59 Eastern Point Rd Gloucester, Massachusetts, 01930",
-     "age_days": 242.3,
+     "age_days": 242.4,
      "category": "Snow: Plow Request",
      "created_at": "2026-01-27T10:21:57-05:00",
      "id": "20877845",
@@ -3213,7 +3213,7 @@
     },
     {
      "address": "45 Friend St Gloucester, MA, 01930, USA",
-     "age_days": 242.3,
+     "age_days": 242.4,
      "category": "Snow: Plow Request",
      "created_at": "2026-01-27T10:44:13-05:00",
      "id": "20878230",
@@ -3231,7 +3231,7 @@
     },
     {
      "address": "Elm St Gloucester, Massachusetts, 01930",
-     "age_days": 219.1,
+     "age_days": 219.2,
      "category": "Snow: Plow Request",
      "created_at": "2026-02-19T15:38:25-05:00",
      "id": "21048112",
@@ -3240,7 +3240,7 @@
     },
     {
      "address": "12 Wiley St Gloucester, MA, 01930, USA",
-     "age_days": 215.0,
+     "age_days": 215.1,
      "category": "Snow: Plow Request",
      "created_at": "2026-02-23T17:35:21-05:00",
      "id": "21073163",
@@ -3267,7 +3267,7 @@
     },
     {
      "address": "Willow St Gloucester, Massachusetts, 01930",
-     "age_days": 214.2,
+     "age_days": 214.3,
      "category": "Snow: Plow Request",
      "created_at": "2026-02-24T12:46:12-05:00",
      "id": "21080926",
@@ -3466,7 +3466,7 @@
     },
     {
      "address": "6 Elm Street Gloucester, Massachusetts, 01930",
-     "age_days": 1263.2,
+     "age_days": 1263.3,
      "category": "Sidewalk Issue",
      "created_at": "2023-04-12T14:04:31-04:00",
      "id": "14354537",
@@ -3484,7 +3484,7 @@
     },
     {
      "address": "29 Emerson Avenue Gloucester, Massachusetts, 01930",
-     "age_days": 1227.3,
+     "age_days": 1227.4,
      "category": "Sidewalk Issue",
      "created_at": "2023-05-18T11:32:16-04:00",
      "id": "14555572",
@@ -3520,7 +3520,7 @@
     },
     {
      "address": "Burnham St & Sargent St Gloucester, MA, 01930, USA",
-     "age_days": 1090.2,
+     "age_days": 1090.3,
      "category": "Sidewalk Issue",
      "created_at": "2023-10-02T13:59:22-04:00",
      "id": "15376070",
@@ -3701,7 +3701,7 @@
     },
     {
      "address": "5 East Main Street Gloucester, MA, 01930, USA",
-     "age_days": 1241.0,
+     "age_days": 1241.1,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2023-05-04T19:16:20-04:00",
      "id": "14476765",
@@ -3710,7 +3710,7 @@
     },
     {
      "address": "81 Pleasant St Gloucester, MA 01930, USA",
-     "age_days": 1074.3,
+     "age_days": 1074.4,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2023-10-18T12:03:16-04:00",
      "id": "15482221",
@@ -3737,7 +3737,7 @@
     },
     {
      "address": "6 Lexington Ave Gloucester 01930, United States",
-     "age_days": 927.2,
+     "age_days": 927.3,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2024-03-13T14:03:19-04:00",
      "id": "16210258",
@@ -3999,7 +3999,7 @@
     },
     {
      "address": "54 A Laurel Street Gloucester, Massachusetts, 01930",
-     "age_days": 207.2,
+     "age_days": 207.3,
      "category": "Utilities (Water/Sewer)",
      "created_at": "2026-03-03T13:09:22-05:00",
      "id": "21137639",
@@ -4198,7 +4198,7 @@
    "oldest": [
     {
      "address": "24 Hough Ave Gloucester MA 01930, United States",
-     "age_days": 886.1,
+     "age_days": 886.2,
      "category": "Manhole Cover",
      "created_at": "2024-04-23T16:14:06-04:00",
      "id": "16463567",
@@ -4243,7 +4243,7 @@
     },
     {
      "address": "Middle St & Pleasant St Gloucester, MA, 01930, USA",
-     "age_days": 227.4,
+     "age_days": 227.5,
      "category": "Manhole Cover",
      "created_at": "2026-02-11T08:10:27-05:00",
      "id": "20988504",
@@ -4261,7 +4261,7 @@
     },
     {
      "address": "Mile 12 State Rte 127 N Gloucester, Massachusetts, 01930",
-     "age_days": 189.1,
+     "age_days": 189.2,
      "category": "Manhole Cover",
      "created_at": "2026-03-21T16:50:52-04:00",
      "id": "21282965",
@@ -4451,7 +4451,7 @@
    "oldest": [
     {
      "address": "1-99 Norseman Ave Gloucester, MA, 01930, USA",
-     "age_days": 951.9,
+     "age_days": 952.0,
      "category": "Street Sign Issue",
      "created_at": "2024-02-17T19:57:14-05:00",
      "id": "16071815",
@@ -4514,7 +4514,7 @@
     },
     {
      "address": "68 Poplar St Gloucester MA 01930, United States",
-     "age_days": 767.2,
+     "age_days": 767.3,
      "category": "Street Sign Issue",
      "created_at": "2024-08-20T13:51:55-04:00",
      "id": "17331821",
@@ -4532,7 +4532,7 @@
     },
     {
      "address": "Highland St & E Main St Gloucester, MA, 01930, USA",
-     "age_days": 591.2,
+     "age_days": 591.3,
      "category": "Street Sign Issue",
      "created_at": "2025-02-12T12:45:50-05:00",
      "id": "18368232",
@@ -4713,7 +4713,7 @@
     },
     {
      "address": "43 Prospect Street Gloucester, Massachusetts, 01930",
-     "age_days": 476.2,
+     "age_days": 476.3,
      "category": "Abandoned Vehicle",
      "created_at": "2025-06-07T14:07:39-04:00",
      "id": "19191537",
@@ -4966,7 +4966,7 @@
     },
     {
      "address": "46 Grove Street Gloucester, MA, 01930, USA",
-     "age_days": 834.1,
+     "age_days": 834.2,
      "category": "Brush",
      "created_at": "2024-06-14T16:27:45-04:00",
      "id": "16842275",
@@ -4993,7 +4993,7 @@
     },
     {
      "address": "15 Wheeler St Gloucester MA 01930, United States",
-     "age_days": 803.4,
+     "age_days": 803.5,
      "category": "Brush",
      "created_at": "2024-07-15T09:15:15-04:00",
      "id": "17045471",
@@ -5020,7 +5020,7 @@
     },
     {
      "address": "High Rock Gloucester MA 01930, United States",
-     "age_days": 515.9,
+     "age_days": 516.0,
      "category": "Brush",
      "created_at": "2025-04-28T21:13:06-04:00",
      "id": "18871532",
@@ -5210,7 +5210,7 @@
    "oldest": [
     {
      "address": "34 Cleveland St Gloucester MA 01930, United States",
-     "age_days": 1125.0,
+     "age_days": 1125.1,
      "category": "Tree Issues",
      "created_at": "2023-08-28T18:59:59-04:00",
      "id": "15175356",
@@ -5228,7 +5228,7 @@
     },
     {
      "address": "1085 Washington St Gloucester MA 01930, United States",
-     "age_days": 956.9,
+     "age_days": 957.0,
      "category": "Tree Issues",
      "created_at": "2024-02-12T20:28:38-05:00",
      "id": "16044822",
@@ -5291,7 +5291,7 @@
     },
     {
      "address": "103 Magnolia Avenue Gloucester, Massachusetts, 01930",
-     "age_days": 439.3,
+     "age_days": 439.4,
      "category": "Tree Issues",
      "created_at": "2025-07-14T11:21:25-04:00",
      "id": "19488761",
@@ -5463,7 +5463,7 @@
    "oldest": [
     {
      "address": "18–50 Hough Ave Gloucester MA 01930, United States",
-     "age_days": 983.5,
+     "age_days": 983.6,
      "category": "Beaches",
      "created_at": "2024-01-17T05:55:55-05:00",
      "id": "15890179",
@@ -5472,7 +5472,7 @@
     },
     {
      "address": "1-21 Eastern Point Blvd Gloucester, MA, 01930, USA",
-     "age_days": 822.0,
+     "age_days": 822.1,
      "category": "Beaches",
      "created_at": "2024-06-26T18:35:56-04:00",
      "id": "16924237",
@@ -5481,7 +5481,7 @@
     },
     {
      "address": "2 Nautilus Road Gloucester, MA, 01930, USA",
-     "age_days": 815.3,
+     "age_days": 815.4,
      "category": "Beaches",
      "created_at": "2024-07-03T11:20:47-04:00",
      "id": "16968916",
@@ -5490,7 +5490,7 @@
     },
     {
      "address": "Good Harbor Beach Inn",
-     "age_days": 464.3,
+     "age_days": 464.4,
      "category": "Beaches",
      "created_at": "2025-06-19T12:01:30-04:00",
      "id": "19289386",
@@ -5499,7 +5499,7 @@
     },
     {
      "address": "Mile 21.2 State Rte 127 S Gloucester, MA, 01930, USA",
-     "age_days": 201.1,
+     "age_days": 201.2,
      "category": "Beaches",
      "created_at": "2026-03-09T16:37:38-04:00",
      "id": "21184597",
@@ -5544,7 +5544,7 @@
     },
     {
      "address": "Atlantic St Gloucester, MA, 01930, USA",
-     "age_days": 80.4,
+     "age_days": 80.5,
      "category": "Beaches",
      "created_at": "2026-07-08T09:22:03-04:00",
      "id": "22184020",
@@ -6113,7 +6113,7 @@
     },
     {
      "address": "Butman Ave Gloucester, MA, 01930, USA",
-     "age_days": 373.3,
+     "age_days": 373.4,
      "category": "Crosswalks",
      "created_at": "2025-09-18T11:20:55-04:00",
      "id": "20024481",
@@ -6312,7 +6312,7 @@
    "oldest": [
     {
      "address": "6 Sadler St Gloucester MA 01930, United States",
-     "age_days": 2349.2,
+     "age_days": 2349.3,
      "category": "Private Property Issue",
      "created_at": "2020-04-21T13:57:09-04:00",
      "id": "7696257",
@@ -6321,7 +6321,7 @@
     },
     {
      "address": "16 Winthrop Avenue Gloucester, MA, 01930, USA",
-     "age_days": 1498.1,
+     "age_days": 1498.2,
      "category": "Private Property Issue",
      "created_at": "2022-08-20T16:29:51-04:00",
      "id": "13031515",
@@ -6330,7 +6330,7 @@
     },
     {
      "address": "11 Niles Pond Road Gloucester, MA, 01930, USA",
-     "age_days": 1391.9,
+     "age_days": 1392.0,
      "category": "Private Property Issue",
      "created_at": "2022-12-04T20:25:47-05:00",
      "id": "13778265",
@@ -6375,7 +6375,7 @@
     },
     {
      "address": "6 Sadler Street Gloucester, Massachusetts, 01930",
-     "age_days": 846.2,
+     "age_days": 846.3,
      "category": "Private Property Issue",
      "created_at": "2024-06-02T14:08:31-04:00",
      "id": "16746965",
@@ -6583,7 +6583,7 @@
     },
     {
      "address": "13-15 Revere St Gloucester, MA, 01930, USA",
-     "age_days": 1118.4,
+     "age_days": 1118.5,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2023-09-04T09:06:34-04:00",
      "id": "15210808",
@@ -6601,7 +6601,7 @@
     },
     {
      "address": "5 Saint Peters Lane Gloucester, MA, 01930, USA",
-     "age_days": 826.5,
+     "age_days": 826.6,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2024-06-22T07:10:05-04:00",
      "id": "16890827",
@@ -6628,7 +6628,7 @@
     },
     {
      "address": "359 Western Ave Gloucester, MA, 01930, USA",
-     "age_days": 200.0,
+     "age_days": 200.1,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2026-03-10T18:50:36-04:00",
      "id": "21195868",
@@ -6637,7 +6637,7 @@
     },
     {
      "address": "45 Dennison St Gloucester, MA, 01930, USA",
-     "age_days": 186.5,
+     "age_days": 186.6,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2026-03-24T07:12:02-04:00",
      "id": "21299390",
@@ -6809,7 +6809,7 @@
     },
     {
      "address": "Rogers St Gloucester, Massachusetts, 01930",
-     "age_days": 113.4,
+     "age_days": 113.5,
      "category": "Parking Kiosk",
      "created_at": "2026-06-05T09:08:30-04:00",
      "id": "21900777",
@@ -6836,7 +6836,7 @@
     },
     {
      "address": "52-76 Middle St Gloucester, MA, 01930, USA",
-     "age_days": 94.4,
+     "age_days": 94.5,
      "category": "Parking Kiosk",
      "created_at": "2026-06-24T09:36:19-04:00",
      "id": "22065341",
@@ -6999,7 +6999,7 @@
    "oldest": [
     {
      "address": "3 Pond Road Gloucester, Massachusetts, 01930",
-     "age_days": 535.4,
+     "age_days": 535.5,
      "category": "Community Development",
      "created_at": "2025-04-09T09:09:56-04:00",
      "id": "18736687",
@@ -7008,7 +7008,7 @@
     },
     {
      "address": "18a Beckford Street Gloucester, MA, 01930, USA",
-     "age_days": 507.3,
+     "age_days": 507.4,
      "category": "Community Development",
      "created_at": "2025-05-07T11:30:50-04:00",
      "id": "18936590",
@@ -7026,7 +7026,7 @@
     },
     {
      "address": "Friend St & Webster St Gloucester, MA, 01930, USA",
-     "age_days": 161.4,
+     "age_days": 161.5,
      "category": "Community Development",
      "created_at": "2026-04-18T09:36:07-04:00",
      "id": "21499754",
@@ -7062,7 +7062,7 @@
     },
     {
      "address": "1101 School House Rd Gloucester, MA, 01930, USA",
-     "age_days": 80.3,
+     "age_days": 80.4,
      "category": "Community Development",
      "created_at": "2026-07-08T11:41:48-04:00",
      "id": "22186135",
@@ -7378,7 +7378,7 @@
    "oldest": [
     {
      "address": "3 Cushing Lane Gloucester, MA, 01930, USA",
-     "age_days": 1407.1,
+     "age_days": 1407.2,
      "category": "Conservation",
      "created_at": "2022-11-19T15:15:58-05:00",
      "id": "13718695",
@@ -7387,7 +7387,7 @@
     },
     {
      "address": "15 Harriet Road Gloucester, Massachusetts, 01930",
-     "age_days": 1390.1,
+     "age_days": 1390.2,
      "category": "Conservation",
      "created_at": "2022-12-06T15:31:39-05:00",
      "id": "13786777",
@@ -7396,7 +7396,7 @@
     },
     {
      "address": "9-31 Niles Pond Rd Gloucester, MA, 01930, USA",
-     "age_days": 1252.2,
+     "age_days": 1252.3,
      "category": "Conservation",
      "created_at": "2023-04-23T14:11:53-04:00",
      "id": "14410904",
@@ -7405,7 +7405,7 @@
     },
     {
      "address": "9-31 Niles Pond Rd Gloucester, MA, 01930, USA",
-     "age_days": 1252.2,
+     "age_days": 1252.3,
      "category": "Conservation",
      "created_at": "2023-04-23T14:12:24-04:00",
      "id": "14410907",
@@ -7450,7 +7450,7 @@
     },
     {
      "address": "14 Ft Hill Ave Gloucester MA 01930, United States",
-     "age_days": 941.4,
+     "age_days": 941.5,
      "category": "Conservation",
      "created_at": "2024-02-28T08:07:09-05:00",
      "id": "16127461",
@@ -7613,7 +7613,7 @@
    "oldest": [
     {
      "address": "Maple St & Mount Vernon St Gloucester, MA, 01930, USA",
-     "age_days": 912.1,
+     "age_days": 912.2,
      "category": "Water Quality",
      "created_at": "2024-03-28T16:13:21-04:00",
      "id": "16299640",
@@ -7911,7 +7911,7 @@
     },
     {
      "address": "Cherry St Gloucester, Massachusetts, 01930",
-     "age_days": 36.3,
+     "age_days": 36.4,
      "category": "Graffiti",
      "created_at": "2026-08-21T11:49:57-04:00",
      "id": "22573738",
@@ -7920,7 +7920,7 @@
     },
     {
      "address": "Cherry St Gloucester, Massachusetts, 01930",
-     "age_days": 36.3,
+     "age_days": 36.4,
      "category": "Graffiti",
      "created_at": "2026-08-21T11:56:26-04:00",
      "id": "22573814",
@@ -8056,7 +8056,7 @@
    "oldest": [
     {
      "address": "Eastern Avenue School",
-     "age_days": 752.4,
+     "age_days": 752.5,
      "category": "Traffic Signal Issue",
      "created_at": "2024-09-04T08:58:50-04:00",
      "id": "17432993",
@@ -8183,7 +8183,7 @@
     },
     {
      "address": "59–99 Shore Rd Gloucester MA 01930, United States",
-     "age_days": 776.2,
+     "age_days": 776.3,
      "category": "Harbor Master's Office",
      "created_at": "2024-08-11T14:06:39-04:00",
      "id": "17251741",
@@ -8201,7 +8201,7 @@
     },
     {
      "address": "4 Stanwood Point Gloucester, MA, 01930, USA",
-     "age_days": 443.0,
+     "age_days": 443.1,
      "category": "Harbor Master's Office",
      "created_at": "2025-07-10T18:49:55-04:00",
      "id": "19464376",
@@ -8210,7 +8210,7 @@
     },
     {
      "address": "Lanes Cove Rd Gloucester, MA, 01930, USA",
-     "age_days": 62.2,
+     "age_days": 62.3,
      "category": "Harbor Master's Office",
      "created_at": "2026-07-26T14:06:14-04:00",
      "id": "22340243",
@@ -8594,7 +8594,7 @@
   }
  ],
  "data_since": "2020-04-21",
- "generated_at": "2026-09-26T19:44:41-04:00",
+ "generated_at": "2026-09-26T20:29:33-04:00",
  "min_sample": 5,
  "monthly": [
   {
@@ -9166,6 +9166,5272 @@
    "n": 2013,
    "p90": 75.34
   }
+ },
+ "recent_open": {
+  "days": 30,
+  "requests": [
+   {
+    "address": "1–99 Fuller St",
+    "category": "Road Issues Other Than Potholes",
+    "created_at": "2026-09-26T13:41:50-04:00",
+    "id": "22875887",
+    "lat": 42.575,
+    "lng": -70.7137,
+    "url": "https://seeclickfix.com/issues/22875887",
+    "ward": "5"
+   },
+   {
+    "address": "Railroad Ave & Washington St",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-25T14:36:28-04:00",
+    "id": "22870429",
+    "lat": 42.6162,
+    "lng": -70.6689,
+    "url": "https://seeclickfix.com/issues/22870429",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Hawthorne Ln",
+    "category": "Pothole",
+    "created_at": "2026-09-25T08:52:34-04:00",
+    "id": "22866274",
+    "lat": 42.6005,
+    "lng": -70.6553,
+    "url": "https://seeclickfix.com/issues/22866274",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Gee Ave",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-24T15:45:21-04:00",
+    "id": "22862273",
+    "lat": 42.6394,
+    "lng": -70.6712,
+    "url": "https://seeclickfix.com/issues/22862273",
+    "ward": "4"
+   },
+   {
+    "address": "100 block of Concord St",
+    "category": "Tree Issues",
+    "created_at": "2026-09-24T15:02:50-04:00",
+    "id": "22861734",
+    "lat": 42.6322,
+    "lng": -70.7077,
+    "url": "https://seeclickfix.com/issues/22861734",
+    "ward": "5"
+   },
+   {
+    "address": "Mile 14.7 State Rte 127 S",
+    "category": "Other",
+    "created_at": "2026-09-23T16:55:31-04:00",
+    "id": "22853717",
+    "lat": 42.6163,
+    "lng": -70.6549,
+    "url": "https://seeclickfix.com/issues/22853717",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Washington St",
+    "category": "Abandoned Vehicle",
+    "created_at": "2026-09-23T08:09:44-04:00",
+    "id": "22847027",
+    "lat": 42.6122,
+    "lng": -70.6673,
+    "url": "https://seeclickfix.com/issues/22847027",
+    "ward": "3"
+   },
+   {
+    "address": "Lake Rd",
+    "category": "Street Sign Issue",
+    "created_at": "2026-09-23T07:10:23-04:00",
+    "id": "22846788",
+    "lat": 42.5794,
+    "lng": -70.7098,
+    "url": "https://seeclickfix.com/issues/22846788",
+    "ward": "5"
+   },
+   {
+    "address": "Fears Ct",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-22T20:58:44-04:00",
+    "id": "22845736",
+    "lat": 42.616,
+    "lng": -70.6563,
+    "url": "https://seeclickfix.com/issues/22845736",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Pleasant St",
+    "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
+    "created_at": "2026-09-22T20:13:42-04:00",
+    "id": "22845472",
+    "lat": 42.6166,
+    "lng": -70.6626,
+    "url": "https://seeclickfix.com/issues/22845472",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Harbor Loop",
+    "category": "Parking Kiosk",
+    "created_at": "2026-09-22T16:27:30-04:00",
+    "id": "22843548",
+    "lat": 42.6115,
+    "lng": -70.6597,
+    "url": "https://seeclickfix.com/issues/22843548",
+    "ward": "2"
+   },
+   {
+    "address": "Middle St",
+    "category": "Street Light Issue",
+    "created_at": "2026-09-22T12:24:04-04:00",
+    "id": "22840198",
+    "lat": 42.6104,
+    "lng": -70.6687,
+    "url": "https://seeclickfix.com/issues/22840198",
+    "ward": "3"
+   },
+   {
+    "address": "Mile 15.2 State Rte 127 S",
+    "category": "Road Issues Other Than Potholes",
+    "created_at": "2026-09-22T08:16:36-04:00",
+    "id": "22836970",
+    "lat": 42.6203,
+    "lng": -70.6471,
+    "url": "https://seeclickfix.com/issues/22836970",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Elizabeth Rd",
+    "category": "Road Issues Other Than Potholes",
+    "created_at": "2026-09-21T17:02:30-04:00",
+    "id": "22833640",
+    "lat": 42.6198,
+    "lng": -70.6446,
+    "url": "https://seeclickfix.com/issues/22833640",
+    "ward": "1"
+   },
+   {
+    "address": "Moorland Rd",
+    "category": "Pothole",
+    "created_at": "2026-09-21T13:10:04-04:00",
+    "id": "22830407",
+    "lat": 42.6103,
+    "lng": -70.6341,
+    "url": "https://seeclickfix.com/issues/22830407",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Main St",
+    "category": "Street Sign Issue",
+    "created_at": "2026-09-21T10:53:54-04:00",
+    "id": "22828092",
+    "lat": 42.6118,
+    "lng": -70.6653,
+    "url": "https://seeclickfix.com/issues/22828092",
+    "ward": "2"
+   },
+   {
+    "address": "Corliss Ave",
+    "category": "Street Sign Issue",
+    "created_at": "2026-09-21T09:56:59-04:00",
+    "id": "22827165",
+    "lat": 42.6326,
+    "lng": -70.6821,
+    "url": "https://seeclickfix.com/issues/22827165",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Rocky Neck Ave",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-20T15:21:33-04:00",
+    "id": "22823189",
+    "lat": 42.6072,
+    "lng": -70.6567,
+    "url": "https://seeclickfix.com/issues/22823189",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 High St",
+    "category": "Pothole",
+    "created_at": "2026-09-19T20:05:06-04:00",
+    "id": "22820361",
+    "lat": 42.6734,
+    "lng": -70.6544,
+    "url": "https://seeclickfix.com/issues/22820361",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Rocky Neck Ave",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-19T09:38:20-04:00",
+    "id": "22817416",
+    "lat": 42.6082,
+    "lng": -70.6559,
+    "url": "https://seeclickfix.com/issues/22817416",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Barker Ave",
+    "category": "Pothole",
+    "created_at": "2026-09-18T17:44:08-04:00",
+    "id": "22815156",
+    "lat": 42.6729,
+    "lng": -70.6531,
+    "url": "https://seeclickfix.com/issues/22815156",
+    "ward": "4"
+   },
+   {
+    "address": "Magnolia Ave & Western Ave",
+    "category": "Street Sign Issue",
+    "created_at": "2026-09-17T15:09:32-04:00",
+    "id": "22804266",
+    "lat": 42.5853,
+    "lng": -70.7169,
+    "url": "https://seeclickfix.com/issues/22804266",
+    "ward": "5"
+   },
+   {
+    "address": "1100 block of Washington St",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-17T08:34:03-04:00",
+    "id": "22798902",
+    "lat": 42.6806,
+    "lng": -70.6486,
+    "url": "https://seeclickfix.com/issues/22798902",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Bellevue Ave",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-16T16:48:39-04:00",
+    "id": "22795472",
+    "lat": 42.6148,
+    "lng": -70.6729,
+    "url": "https://seeclickfix.com/issues/22795472",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Sargent St",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-16T11:17:14-04:00",
+    "id": "22791068",
+    "lat": 42.62,
+    "lng": -70.6633,
+    "url": "https://seeclickfix.com/issues/22791068",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 King Rd",
+    "category": "Tree Issues",
+    "created_at": "2026-09-15T15:42:10-04:00",
+    "id": "22784392",
+    "lat": 42.6233,
+    "lng": -70.673,
+    "url": "https://seeclickfix.com/issues/22784392",
+    "ward": "3"
+   },
+   {
+    "address": "Fair St",
+    "category": "Pothole",
+    "created_at": "2026-09-14T09:32:29-04:00",
+    "id": "22768085",
+    "lat": 42.6188,
+    "lng": -70.6507,
+    "url": "https://seeclickfix.com/issues/22768085",
+    "ward": "1"
+   },
+   {
+    "address": "Terrace Ln",
+    "category": "Street Sign Issue",
+    "created_at": "2026-09-14T08:21:14-04:00",
+    "id": "22767205",
+    "lat": 42.6066,
+    "lng": -70.6581,
+    "url": "https://seeclickfix.com/issues/22767205",
+    "ward": "1"
+   },
+   {
+    "address": "Ymca",
+    "category": "Utilities (Water/Sewer)",
+    "created_at": "2026-09-13T07:03:15-04:00",
+    "id": "22762306",
+    "lat": 42.624,
+    "lng": -70.6598,
+    "url": "https://seeclickfix.com/issues/22762306",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Mansfield St",
+    "category": "Other",
+    "created_at": "2026-09-12T13:38:07-04:00",
+    "id": "22759504",
+    "lat": 42.6116,
+    "lng": -70.6693,
+    "url": "https://seeclickfix.com/issues/22759504",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Commonwealth Ave",
+    "category": "Other",
+    "created_at": "2026-09-12T08:26:27-04:00",
+    "id": "22757899",
+    "lat": 42.6158,
+    "lng": -70.6714,
+    "url": "https://seeclickfix.com/issues/22757899",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Hammond St",
+    "category": "Other",
+    "created_at": "2026-09-11T19:39:04-04:00",
+    "id": "22756396",
+    "lat": 42.6141,
+    "lng": -70.6466,
+    "url": "https://seeclickfix.com/issues/22756396",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Wesley St",
+    "category": "Pothole",
+    "created_at": "2026-09-11T16:11:53-04:00",
+    "id": "22754816",
+    "lat": 42.6352,
+    "lng": -70.6798,
+    "url": "https://seeclickfix.com/issues/22754816",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Leonard St",
+    "category": "Pothole",
+    "created_at": "2026-09-11T12:39:17-04:00",
+    "id": "22752150",
+    "lat": 42.6546,
+    "lng": -70.6782,
+    "url": "https://seeclickfix.com/issues/22752150",
+    "ward": "4"
+   },
+   {
+    "address": "Poplar St",
+    "category": "Abandoned Vehicle",
+    "created_at": "2026-09-11T10:38:17-04:00",
+    "id": "22750512",
+    "lat": 42.623,
+    "lng": -70.6765,
+    "url": "https://seeclickfix.com/issues/22750512",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Thurston Point Rd",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-10T19:31:01-04:00",
+    "id": "22746942",
+    "lat": 42.6358,
+    "lng": -70.6823,
+    "url": "https://seeclickfix.com/issues/22746942",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Cherry St",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-10T18:30:35-04:00",
+    "id": "22746496",
+    "lat": 42.6306,
+    "lng": -70.6703,
+    "url": "https://seeclickfix.com/issues/22746496",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Cedar Ln",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-10T17:36:02-04:00",
+    "id": "22746014",
+    "lat": 42.6392,
+    "lng": -70.6831,
+    "url": "https://seeclickfix.com/issues/22746014",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Stanwood Ave",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-10T16:28:42-04:00",
+    "id": "22745227",
+    "lat": 42.616,
+    "lng": -70.6994,
+    "url": "https://seeclickfix.com/issues/22745227",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Elm St",
+    "category": "Sidewalk Issue",
+    "created_at": "2026-09-10T15:15:16-04:00",
+    "id": "22744249",
+    "lat": 42.6149,
+    "lng": -70.6612,
+    "url": "https://seeclickfix.com/issues/22744249",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Derby Ct",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-10T13:29:32-04:00",
+    "id": "22742721",
+    "lat": 42.619,
+    "lng": -70.668,
+    "url": "https://seeclickfix.com/issues/22742721",
+    "ward": "2"
+   },
+   {
+    "address": "Corliss Ave",
+    "category": "Pothole",
+    "created_at": "2026-09-10T12:51:47-04:00",
+    "id": "22742267",
+    "lat": 42.6326,
+    "lng": -70.6821,
+    "url": "https://seeclickfix.com/issues/22742267",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Witham St",
+    "category": "Manhole Cover",
+    "created_at": "2026-09-10T11:35:08-04:00",
+    "id": "22741113",
+    "lat": 42.6276,
+    "lng": -70.6341,
+    "url": "https://seeclickfix.com/issues/22741113",
+    "ward": "1"
+   },
+   {
+    "address": "Essex Ave",
+    "category": "Street Light Issue",
+    "created_at": "2026-09-10T09:21:10-04:00",
+    "id": "22739176",
+    "lat": 42.6094,
+    "lng": -70.6757,
+    "url": "https://seeclickfix.com/issues/22739176",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Oak St",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-09T14:55:23-04:00",
+    "id": "22733601",
+    "lat": 42.6181,
+    "lng": -70.6584,
+    "url": "https://seeclickfix.com/issues/22733601",
+    "ward": "2"
+   },
+   {
+    "address": "Mile 38.4 State Rte 133 E",
+    "category": "Crosswalks",
+    "created_at": "2026-09-08T16:38:57-04:00",
+    "id": "22724338",
+    "lat": 42.6179,
+    "lng": -70.7119,
+    "url": "https://seeclickfix.com/issues/22724338",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Wyoma Rd",
+    "category": "Street Light Issue",
+    "created_at": "2026-09-08T14:32:35-04:00",
+    "id": "22722492",
+    "lat": 42.6548,
+    "lng": -70.6909,
+    "url": "https://seeclickfix.com/issues/22722492",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Harrison Ave",
+    "category": "Road Issues Other Than Potholes",
+    "created_at": "2026-09-08T10:05:30-04:00",
+    "id": "22718002",
+    "lat": 42.6219,
+    "lng": -70.6482,
+    "url": "https://seeclickfix.com/issues/22718002",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Laurel St",
+    "category": "Road Issues Other Than Potholes",
+    "created_at": "2026-09-07T19:00:14-04:00",
+    "id": "22714535",
+    "lat": 42.6062,
+    "lng": -70.7135,
+    "url": "https://seeclickfix.com/issues/22714535",
+    "ward": "5"
+   },
+   {
+    "address": "100 block of Main St",
+    "category": "Sidewalk Issue",
+    "created_at": "2026-09-07T14:18:42-04:00",
+    "id": "22712931",
+    "lat": 42.6127,
+    "lng": -70.6643,
+    "url": "https://seeclickfix.com/issues/22712931",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 E Main St",
+    "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
+    "created_at": "2026-09-07T13:55:23-04:00",
+    "id": "22712764",
+    "lat": 42.6144,
+    "lng": -70.6482,
+    "url": "https://seeclickfix.com/issues/22712764",
+    "ward": "1"
+   },
+   {
+    "address": "Old Salem Rd",
+    "category": "Tree Issues",
+    "created_at": "2026-09-07T11:20:33-04:00",
+    "id": "22711766",
+    "lat": 42.6051,
+    "lng": -70.6826,
+    "url": "https://seeclickfix.com/issues/22711766",
+    "ward": "5"
+   },
+   {
+    "address": "Mile 13.4 State Rte 127 S",
+    "category": "Beaches",
+    "created_at": "2026-09-05T17:33:45-04:00",
+    "id": "22704673",
+    "lat": 42.6085,
+    "lng": -70.6766,
+    "url": "https://seeclickfix.com/issues/22704673",
+    "ward": "5"
+   },
+   {
+    "address": "Plum Cove Beach",
+    "category": "Tree Issues",
+    "created_at": "2026-09-05T15:07:05-04:00",
+    "id": "22704104",
+    "lat": 42.6733,
+    "lng": -70.6639,
+    "url": "https://seeclickfix.com/issues/22704104",
+    "ward": "4"
+   },
+   {
+    "address": "200 block of Main St",
+    "category": "Other",
+    "created_at": "2026-09-05T12:18:30-04:00",
+    "id": "22703295",
+    "lat": 42.6147,
+    "lng": -70.6591,
+    "url": "https://seeclickfix.com/issues/22703295",
+    "ward": "2"
+   },
+   {
+    "address": "Mile 14.5 State Rte 127 S",
+    "category": "Street Light Issue",
+    "created_at": "2026-09-05T10:31:57-04:00",
+    "id": "22702709",
+    "lat": 42.6143,
+    "lng": -70.6579,
+    "url": "https://seeclickfix.com/issues/22702709",
+    "ward": "2"
+   },
+   {
+    "address": "Mile 14.8 State Rte 127 S",
+    "category": "Illegal Dumping",
+    "created_at": "2026-09-05T09:42:43-04:00",
+    "id": "22702482",
+    "lat": 42.6168,
+    "lng": -70.6528,
+    "url": "https://seeclickfix.com/issues/22702482",
+    "ward": "1"
+   },
+   {
+    "address": "Mile 21.6 State Rte 127 N",
+    "category": "Brush",
+    "created_at": "2026-09-05T08:18:24-04:00",
+    "id": "22702223",
+    "lat": 42.6817,
+    "lng": -70.6462,
+    "url": "https://seeclickfix.com/issues/22702223",
+    "ward": "4"
+   },
+   {
+    "address": "Mile 25 State Rte 127 N",
+    "category": "Street Light Issue",
+    "created_at": "2026-09-04T18:05:30-04:00",
+    "id": "22700235",
+    "lat": 42.6441,
+    "lng": -70.6718,
+    "url": "https://seeclickfix.com/issues/22700235",
+    "ward": "4"
+   },
+   {
+    "address": "Rocky Neck",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-04T15:19:55-04:00",
+    "id": "22698713",
+    "lat": 42.6237,
+    "lng": -70.6578,
+    "url": "https://seeclickfix.com/issues/22698713",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Perkins St",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-04T08:03:27-04:00",
+    "id": "22693321",
+    "lat": 42.6186,
+    "lng": -70.6554,
+    "url": "https://seeclickfix.com/issues/22693321",
+    "ward": "2"
+   },
+   {
+    "address": "100 block of Prospect St",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-03T19:51:10-04:00",
+    "id": "22691545",
+    "lat": 42.6157,
+    "lng": -70.6562,
+    "url": "https://seeclickfix.com/issues/22691545",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Larose Ave",
+    "category": "Other",
+    "created_at": "2026-09-03T18:26:34-04:00",
+    "id": "22690822",
+    "lat": 42.6158,
+    "lng": -70.7166,
+    "url": "https://seeclickfix.com/issues/22690822",
+    "ward": "5"
+   },
+   {
+    "address": "300 block of Main St",
+    "category": "Storm Drain/Flooding Issue",
+    "created_at": "2026-09-03T12:06:14-04:00",
+    "id": "22686159",
+    "lat": 42.6176,
+    "lng": -70.6514,
+    "url": "https://seeclickfix.com/issues/22686159",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Edgewood Rd",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-02T18:15:41-04:00",
+    "id": "22680664",
+    "lat": 42.6116,
+    "lng": -70.691,
+    "url": "https://seeclickfix.com/issues/22680664",
+    "ward": "5"
+   },
+   {
+    "address": "Marion Way",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-02T16:22:20-04:00",
+    "id": "22679478",
+    "lat": 42.6189,
+    "lng": -70.6462,
+    "url": "https://seeclickfix.com/issues/22679478",
+    "ward": "1"
+   },
+   {
+    "address": "Mile 26.5 State Rte 127 S",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-02T13:08:58-04:00",
+    "id": "22676774",
+    "lat": 42.6246,
+    "lng": -70.6785,
+    "url": "https://seeclickfix.com/issues/22676774",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Proctor St",
+    "category": "Abandoned Vehicle",
+    "created_at": "2026-09-02T12:42:57-04:00",
+    "id": "22676424",
+    "lat": 42.6134,
+    "lng": -70.6655,
+    "url": "https://seeclickfix.com/issues/22676424",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Proctor St",
+    "category": "Abandoned Vehicle",
+    "created_at": "2026-09-02T12:42:44-04:00",
+    "id": "22676421",
+    "lat": 42.6134,
+    "lng": -70.6655,
+    "url": "https://seeclickfix.com/issues/22676421",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Proctor St",
+    "category": "Abandoned Vehicle",
+    "created_at": "2026-09-02T12:42:39-04:00",
+    "id": "22676420",
+    "lat": 42.6134,
+    "lng": -70.6655,
+    "url": "https://seeclickfix.com/issues/22676420",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 E Main St",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-02T09:27:04-04:00",
+    "id": "22673451",
+    "lat": 42.6143,
+    "lng": -70.6479,
+    "url": "https://seeclickfix.com/issues/22673451",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Armstrong Way",
+    "category": "Trash or Recycling",
+    "created_at": "2026-09-02T08:46:09-04:00",
+    "id": "22672981",
+    "lat": 42.625,
+    "lng": -70.6841,
+    "url": "https://seeclickfix.com/issues/22672981",
+    "ward": "3"
+   },
+   {
+    "address": "Mile 38.3 State Rte 133 W",
+    "category": "Sidewalk Issue",
+    "created_at": "2026-09-02T07:00:56-04:00",
+    "id": "22672384",
+    "lat": 42.6177,
+    "lng": -70.7141,
+    "url": "https://seeclickfix.com/issues/22672384",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Millett St",
+    "category": "Other",
+    "created_at": "2026-09-01T18:51:25-04:00",
+    "id": "22670379",
+    "lat": 42.6202,
+    "lng": -70.6627,
+    "url": "https://seeclickfix.com/issues/22670379",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Granite St",
+    "category": "Road Issues Other Than Potholes",
+    "created_at": "2026-09-01T17:03:16-04:00",
+    "id": "22669262",
+    "lat": 42.6137,
+    "lng": -70.6703,
+    "url": "https://seeclickfix.com/issues/22669262",
+    "ward": "3"
+   },
+   {
+    "address": "Mason St",
+    "category": "Other",
+    "created_at": "2026-09-01T07:54:58-04:00",
+    "id": "22661838",
+    "lat": 42.6145,
+    "lng": -70.6641,
+    "url": "https://seeclickfix.com/issues/22661838",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Bass Ave",
+    "category": "Other",
+    "created_at": "2026-08-31T20:08:22-04:00",
+    "id": "22660187",
+    "lat": 42.6175,
+    "lng": -70.6475,
+    "url": "https://seeclickfix.com/issues/22660187",
+    "ward": "1"
+   },
+   {
+    "address": "1100 block of School House Rd",
+    "category": "Other",
+    "created_at": "2026-08-31T12:31:24-04:00",
+    "id": "22654646",
+    "lat": 42.6227,
+    "lng": -70.6604,
+    "url": "https://seeclickfix.com/issues/22654646",
+    "ward": "2"
+   },
+   {
+    "address": "Speedway",
+    "category": "Pothole",
+    "created_at": "2026-08-31T12:23:46-04:00",
+    "id": "22654547",
+    "lat": 42.617,
+    "lng": -70.6535,
+    "url": "https://seeclickfix.com/issues/22654547",
+    "ward": "1"
+   },
+   {
+    "address": "Mansfield St & Washington St",
+    "category": "Other",
+    "created_at": "2026-08-30T21:33:51-04:00",
+    "id": "22649584",
+    "lat": 42.6127,
+    "lng": -70.6674,
+    "url": "https://seeclickfix.com/issues/22649584",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Veterans Way",
+    "category": "Trash or Recycling",
+    "created_at": "2026-08-30T14:21:53-04:00",
+    "id": "22647520",
+    "lat": 42.6268,
+    "lng": -70.6776,
+    "url": "https://seeclickfix.com/issues/22647520",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Witham St",
+    "category": "Beaches",
+    "created_at": "2026-08-29T16:29:54-04:00",
+    "id": "22643770",
+    "lat": 42.6219,
+    "lng": -70.6288,
+    "url": "https://seeclickfix.com/issues/22643770",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Witham St",
+    "category": "Other",
+    "created_at": "2026-08-29T13:17:04-04:00",
+    "id": "22642858",
+    "lat": 42.6246,
+    "lng": -70.6299,
+    "url": "https://seeclickfix.com/issues/22642858",
+    "ward": "1"
+   },
+   {
+    "address": "Mile 55.8 State Rte 128 N",
+    "category": "Community Development",
+    "created_at": "2026-08-29T12:20:28-04:00",
+    "id": "22642553",
+    "lat": 42.6222,
+    "lng": -70.6794,
+    "url": "https://seeclickfix.com/issues/22642553",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Davis Street Ext",
+    "category": "Other",
+    "created_at": "2026-08-29T07:56:46-04:00",
+    "id": "22641353",
+    "lat": 42.6101,
+    "lng": -70.6469,
+    "url": "https://seeclickfix.com/issues/22641353",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 King Philip Rd",
+    "category": "Trash or Recycling",
+    "created_at": "2026-08-28T20:55:08-04:00",
+    "id": "22640376",
+    "lat": 42.6196,
+    "lng": -70.6941,
+    "url": "https://seeclickfix.com/issues/22640376",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Veterans Way",
+    "category": "Trash or Recycling",
+    "created_at": "2026-08-28T18:46:32-04:00",
+    "id": "22639749",
+    "lat": 42.6268,
+    "lng": -70.6775,
+    "url": "https://seeclickfix.com/issues/22639749",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Veterans Way",
+    "category": "Trash or Recycling",
+    "created_at": "2026-08-28T16:20:12-04:00",
+    "id": "22638645",
+    "lat": 42.627,
+    "lng": -70.6786,
+    "url": "https://seeclickfix.com/issues/22638645",
+    "ward": "4"
+   },
+   {
+    "address": "Sumner St",
+    "category": "Road Issues Other Than Potholes",
+    "created_at": "2026-08-28T09:17:08-04:00",
+    "id": "22633313",
+    "lat": 42.6238,
+    "lng": -70.7362,
+    "url": "https://seeclickfix.com/issues/22633313",
+    "ward": "5"
+   }
+  ]
+ },
+ "repeats": {
+  "places": [
+   {
+    "address": "1–99 Bass Ave",
+    "again_after_close": 13,
+    "category": "Manhole Cover",
+    "first": "2025-10-02",
+    "last": "2026-05-01",
+    "lat": 42.6172,
+    "lng": -70.6466,
+    "open": 5,
+    "reports": 17,
+    "requests": [
+     {
+      "created_at": "2025-10-02",
+      "id": "20124129",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20124129"
+     },
+     {
+      "created_at": "2025-10-08",
+      "id": "20165403",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20165403"
+     },
+     {
+      "created_at": "2025-10-22",
+      "id": "20263860",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20263860"
+     },
+     {
+      "created_at": "2025-10-24",
+      "id": "20279134",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20279134"
+     },
+     {
+      "created_at": "2025-11-20",
+      "id": "20459985",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20459985"
+     },
+     {
+      "created_at": "2025-11-21",
+      "id": "20461070",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20461070"
+     },
+     {
+      "created_at": "2025-12-03",
+      "id": "20535172",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20535172"
+     },
+     {
+      "created_at": "2026-01-09",
+      "id": "20764634",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20764634"
+     },
+     {
+      "created_at": "2026-01-23",
+      "id": "20854458",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/20854458"
+     },
+     {
+      "created_at": "2026-03-09",
+      "id": "21185888",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21185888"
+     },
+     {
+      "created_at": "2026-03-22",
+      "id": "21285842",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21285842"
+     },
+     {
+      "created_at": "2026-04-10",
+      "id": "21439617",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21439617"
+     },
+     {
+      "created_at": "2026-04-17",
+      "id": "21495610",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21495610"
+     },
+     {
+      "created_at": "2026-04-21",
+      "id": "21518670",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21518670"
+     },
+     {
+      "created_at": "2026-04-22",
+      "id": "21533954",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21533954"
+     },
+     {
+      "created_at": "2026-05-01",
+      "id": "21603241",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21603241"
+     },
+     {
+      "created_at": "2026-05-01",
+      "id": "21603409",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21603409"
+     }
+    ],
+    "slug": "manhole-cover",
+    "ward": "1"
+   },
+   {
+    "address": "200 block of Main St",
+    "again_after_close": 11,
+    "category": "Other",
+    "first": "2026-04-27",
+    "last": "2026-09-05",
+    "lat": 42.6149,
+    "lng": -70.659,
+    "open": 1,
+    "reports": 13,
+    "requests": [
+     {
+      "created_at": "2026-04-27",
+      "id": "21564324",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21564324"
+     },
+     {
+      "created_at": "2026-04-27",
+      "id": "21564572",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21564572"
+     },
+     {
+      "created_at": "2026-04-28",
+      "id": "21574094",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21574094"
+     },
+     {
+      "created_at": "2026-05-22",
+      "id": "21778924",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21778924"
+     },
+     {
+      "created_at": "2026-05-29",
+      "id": "21835395",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21835395"
+     },
+     {
+      "created_at": "2026-06-02",
+      "id": "21867631",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21867631"
+     },
+     {
+      "created_at": "2026-06-10",
+      "id": "21941303",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21941303"
+     },
+     {
+      "created_at": "2026-06-18",
+      "id": "22016168",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22016168"
+     },
+     {
+      "created_at": "2026-06-22",
+      "id": "22041044",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22041044"
+     },
+     {
+      "created_at": "2026-07-20",
+      "id": "22289545",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22289545"
+     },
+     {
+      "created_at": "2026-07-20",
+      "id": "22291750",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22291750"
+     },
+     {
+      "created_at": "2026-07-26",
+      "id": "22342407",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22342407"
+     },
+     {
+      "created_at": "2026-09-05",
+      "id": "22703295",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22703295"
+     }
+    ],
+    "slug": "other",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Eastern Ave",
+    "again_after_close": 9,
+    "category": "Illegal Dumping",
+    "first": "2026-04-21",
+    "last": "2026-08-13",
+    "lat": 42.6174,
+    "lng": -70.651,
+    "open": 2,
+    "reports": 11,
+    "requests": [
+     {
+      "created_at": "2026-04-21",
+      "id": "21519918",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21519918"
+     },
+     {
+      "created_at": "2026-04-22",
+      "id": "21535489",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21535489"
+     },
+     {
+      "created_at": "2026-05-10",
+      "id": "21676950",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21676950"
+     },
+     {
+      "created_at": "2026-05-13",
+      "id": "21708143",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21708143"
+     },
+     {
+      "created_at": "2026-05-22",
+      "id": "21779280",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21779280"
+     },
+     {
+      "created_at": "2026-05-25",
+      "id": "21798164",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21798164"
+     },
+     {
+      "created_at": "2026-05-27",
+      "id": "21821696",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21821696"
+     },
+     {
+      "created_at": "2026-06-16",
+      "id": "22004694",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22004694"
+     },
+     {
+      "created_at": "2026-07-21",
+      "id": "22295991",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22295991"
+     },
+     {
+      "created_at": "2026-07-31",
+      "id": "22392953",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22392953"
+     },
+     {
+      "created_at": "2026-08-13",
+      "id": "22499587",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22499587"
+     }
+    ],
+    "slug": "illegal-dumping",
+    "ward": "1"
+   },
+   {
+    "address": "Mile 15.3 State Rte 127 N",
+    "again_after_close": 8,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-23",
+    "last": "2026-02-26",
+    "lat": 42.6206,
+    "lng": -70.6462,
+    "open": 0,
+    "reports": 9,
+    "requests": [
+     {
+      "created_at": "2026-01-23",
+      "id": "20852223",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20852223"
+     },
+     {
+      "created_at": "2026-01-27",
+      "id": "20880374",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20880374"
+     },
+     {
+      "created_at": "2026-01-28",
+      "id": "20887214",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20887214"
+     },
+     {
+      "created_at": "2026-01-28",
+      "id": "20889111",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20889111"
+     },
+     {
+      "created_at": "2026-01-28",
+      "id": "20897290",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20897290"
+     },
+     {
+      "created_at": "2026-02-12",
+      "id": "20996695",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20996695"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21084534",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21084534"
+     },
+     {
+      "created_at": "2026-02-25",
+      "id": "21087847",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21087847"
+     },
+     {
+      "created_at": "2026-02-26",
+      "id": "21100985",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21100985"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Great Hill Rd",
+    "again_after_close": 7,
+    "category": "Utilities (Water/Sewer)",
+    "first": "2026-07-29",
+    "last": "2026-08-27",
+    "lat": 42.634,
+    "lng": -70.7333,
+    "open": 6,
+    "reports": 8,
+    "requests": [
+     {
+      "created_at": "2026-07-29",
+      "id": "22373049",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22373049"
+     },
+     {
+      "created_at": "2026-08-20",
+      "id": "22560558",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22560558"
+     },
+     {
+      "created_at": "2026-08-22",
+      "id": "22580108",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22580108"
+     },
+     {
+      "created_at": "2026-08-24",
+      "id": "22590116",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22590116"
+     },
+     {
+      "created_at": "2026-08-25",
+      "id": "22601136",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22601136"
+     },
+     {
+      "created_at": "2026-08-25",
+      "id": "22601473",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22601473"
+     },
+     {
+      "created_at": "2026-08-27",
+      "id": "22625631",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22625631"
+     },
+     {
+      "created_at": "2026-08-27",
+      "id": "22626252",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22626252"
+     }
+    ],
+    "slug": "utilities-water-sewer",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Prospect St",
+    "again_after_close": 7,
+    "category": "Trash or Recycling",
+    "first": "2026-03-31",
+    "last": "2026-07-28",
+    "lat": 42.6149,
+    "lng": -70.6651,
+    "open": 0,
+    "reports": 8,
+    "requests": [
+     {
+      "created_at": "2026-03-31",
+      "id": "21360246",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21360246"
+     },
+     {
+      "created_at": "2026-04-04",
+      "id": "21389689",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21389689"
+     },
+     {
+      "created_at": "2026-04-17",
+      "id": "21492453",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21492453"
+     },
+     {
+      "created_at": "2026-04-24",
+      "id": "21548230",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21548230"
+     },
+     {
+      "created_at": "2026-05-22",
+      "id": "21780182",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21780182"
+     },
+     {
+      "created_at": "2026-06-28",
+      "id": "22099342",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22099342"
+     },
+     {
+      "created_at": "2026-07-05",
+      "id": "22155182",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22155182"
+     },
+     {
+      "created_at": "2026-07-28",
+      "id": "22362155",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22362155"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Witham St",
+    "again_after_close": 5,
+    "category": "Beaches",
+    "first": "2026-06-14",
+    "last": "2026-08-29",
+    "lat": 42.6219,
+    "lng": -70.6288,
+    "open": 1,
+    "reports": 7,
+    "requests": [
+     {
+      "created_at": "2026-06-14",
+      "id": "21978141",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21978141"
+     },
+     {
+      "created_at": "2026-06-16",
+      "id": "21995316",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21995316"
+     },
+     {
+      "created_at": "2026-06-23",
+      "id": "22053503",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22053503"
+     },
+     {
+      "created_at": "2026-06-25",
+      "id": "22074685",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22074685"
+     },
+     {
+      "created_at": "2026-07-15",
+      "id": "22252374",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22252374"
+     },
+     {
+      "created_at": "2026-07-30",
+      "id": "22375700",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22375700"
+     },
+     {
+      "created_at": "2026-08-29",
+      "id": "22643770",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22643770"
+     }
+    ],
+    "slug": "beaches",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Rogers St",
+    "again_after_close": 4,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-27",
+    "last": "2026-02-26",
+    "lat": 42.612,
+    "lng": -70.6649,
+    "open": 1,
+    "reports": 7,
+    "requests": [
+     {
+      "created_at": "2026-01-27",
+      "id": "20875628",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20875628"
+     },
+     {
+      "created_at": "2026-01-27",
+      "id": "20876038",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20876038"
+     },
+     {
+      "created_at": "2026-01-27",
+      "id": "20876074",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20876074"
+     },
+     {
+      "created_at": "2026-01-27",
+      "id": "20876306",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20876306"
+     },
+     {
+      "created_at": "2026-01-27",
+      "id": "20876429",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20876429"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21075920",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21075920"
+     },
+     {
+      "created_at": "2026-02-26",
+      "id": "21098869",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21098869"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Marion Way",
+    "again_after_close": 4,
+    "category": "Trash or Recycling",
+    "first": "2026-08-03",
+    "last": "2026-09-03",
+    "lat": 42.6188,
+    "lng": -70.6462,
+    "open": 1,
+    "reports": 6,
+    "requests": [
+     {
+      "created_at": "2026-08-03",
+      "id": "22408266",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22408266"
+     },
+     {
+      "created_at": "2026-08-18",
+      "id": "22544005",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22544005"
+     },
+     {
+      "created_at": "2026-08-31",
+      "id": "22659935",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22659935"
+     },
+     {
+      "created_at": "2026-09-01",
+      "id": "22670009",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22670009"
+     },
+     {
+      "created_at": "2026-09-02",
+      "id": "22679478",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22679478"
+     },
+     {
+      "created_at": "2026-09-03",
+      "id": "22682753",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22682753"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Haven Ter",
+    "again_after_close": 4,
+    "category": "Snow: Plow Request",
+    "first": "2026-01-26",
+    "last": "2026-02-24",
+    "lat": 42.6172,
+    "lng": -70.6541,
+    "open": 0,
+    "reports": 5,
+    "requests": [
+     {
+      "created_at": "2026-01-26",
+      "id": "20866644",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20866644"
+     },
+     {
+      "created_at": "2026-01-27",
+      "id": "20876881",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20876881"
+     },
+     {
+      "created_at": "2026-02-07",
+      "id": "20966030",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20966030"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21077458",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21077458"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21081473",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21081473"
+     }
+    ],
+    "slug": "snow-plow-request",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Willow St",
+    "again_after_close": 4,
+    "category": "Snow: Plow Request",
+    "first": "2026-01-25",
+    "last": "2026-02-24",
+    "lat": 42.6173,
+    "lng": -70.6643,
+    "open": 2,
+    "reports": 5,
+    "requests": [
+     {
+      "created_at": "2026-01-25",
+      "id": "20864459",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20864459"
+     },
+     {
+      "created_at": "2026-01-28",
+      "id": "20887046",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20887046"
+     },
+     {
+      "created_at": "2026-01-29",
+      "id": "20906074",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20906074"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21080764",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21080764"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21080926",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21080926"
+     }
+    ],
+    "slug": "snow-plow-request",
+    "ward": "2"
+   },
+   {
+    "address": "Edgewood Rd",
+    "again_after_close": 4,
+    "category": "Pothole",
+    "first": "2026-03-10",
+    "last": "2026-06-24",
+    "lat": 42.6138,
+    "lng": -70.6891,
+    "open": 0,
+    "reports": 5,
+    "requests": [
+     {
+      "created_at": "2026-03-10",
+      "id": "21188409",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21188409"
+     },
+     {
+      "created_at": "2026-04-30",
+      "id": "21597844",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21597844"
+     },
+     {
+      "created_at": "2026-05-10",
+      "id": "21677037",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21677037"
+     },
+     {
+      "created_at": "2026-05-22",
+      "id": "21780086",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21780086"
+     },
+     {
+      "created_at": "2026-06-24",
+      "id": "22070461",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22070461"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Revere St",
+    "again_after_close": 3,
+    "category": "Pothole",
+    "first": "2026-03-20",
+    "last": "2026-04-28",
+    "lat": 42.6626,
+    "lng": -70.6627,
+    "open": 0,
+    "reports": 5,
+    "requests": [
+     {
+      "created_at": "2026-03-20",
+      "id": "21275785",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21275785"
+     },
+     {
+      "created_at": "2026-03-21",
+      "id": "21282636",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21282636"
+     },
+     {
+      "created_at": "2026-04-09",
+      "id": "21431004",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21431004"
+     },
+     {
+      "created_at": "2026-04-22",
+      "id": "21532586",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21532586"
+     },
+     {
+      "created_at": "2026-04-28",
+      "id": "21579808",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21579808"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "4"
+   },
+   {
+    "address": "Spring Ct",
+    "again_after_close": 3,
+    "category": "Snow: Plow Request",
+    "first": "2026-01-26",
+    "last": "2026-02-24",
+    "lat": 42.6165,
+    "lng": -70.6575,
+    "open": 1,
+    "reports": 5,
+    "requests": [
+     {
+      "created_at": "2026-01-26",
+      "id": "20865747",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20865747"
+     },
+     {
+      "created_at": "2026-01-26",
+      "id": "20867096",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20867096"
+     },
+     {
+      "created_at": "2026-01-27",
+      "id": "20879837",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20879837"
+     },
+     {
+      "created_at": "2026-02-07",
+      "id": "20966489",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20966489"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21080984",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21080984"
+     }
+    ],
+    "slug": "snow-plow-request",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Bass Ave",
+    "again_after_close": 3,
+    "category": "Manhole Cover",
+    "first": "2026-05-21",
+    "last": "2026-06-30",
+    "lat": 42.617,
+    "lng": -70.6438,
+    "open": 0,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2026-05-21",
+      "id": "21776309",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21776309"
+     },
+     {
+      "created_at": "2026-06-10",
+      "id": "21941320",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21941320"
+     },
+     {
+      "created_at": "2026-06-12",
+      "id": "21963594",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21963594"
+     },
+     {
+      "created_at": "2026-06-30",
+      "id": "22115023",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22115023"
+     }
+    ],
+    "slug": "manhole-cover",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Elm St",
+    "again_after_close": 3,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-29",
+    "last": "2026-03-02",
+    "lat": 42.6152,
+    "lng": -70.6611,
+    "open": 0,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2026-01-29",
+      "id": "20904592",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20904592"
+     },
+     {
+      "created_at": "2026-02-08",
+      "id": "20969650",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20969650"
+     },
+     {
+      "created_at": "2026-02-25",
+      "id": "21093864",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21093864"
+     },
+     {
+      "created_at": "2026-03-02",
+      "id": "21128294",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21128294"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Elm St",
+    "again_after_close": 3,
+    "category": "Snow/Ice Removal",
+    "first": "2026-02-10",
+    "last": "2026-02-27",
+    "lat": 42.6142,
+    "lng": -70.6611,
+    "open": 2,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2026-02-10",
+      "id": "20985602",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20985602"
+     },
+     {
+      "created_at": "2026-02-12",
+      "id": "21001875",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21001875"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21082156",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21082156"
+     },
+     {
+      "created_at": "2026-02-27",
+      "id": "21112795",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21112795"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Friend St",
+    "again_after_close": 3,
+    "category": "Illegal Dumping",
+    "first": "2026-03-11",
+    "last": "2026-05-05",
+    "lat": 42.6181,
+    "lng": -70.654,
+    "open": 0,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2026-03-11",
+      "id": "21200624",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21200624"
+     },
+     {
+      "created_at": "2026-04-23",
+      "id": "21542124",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21542124"
+     },
+     {
+      "created_at": "2026-04-30",
+      "id": "21601134",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21601134"
+     },
+     {
+      "created_at": "2026-05-05",
+      "id": "21639843",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21639843"
+     }
+    ],
+    "slug": "illegal-dumping",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Herrick Ct",
+    "again_after_close": 3,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-26",
+    "last": "2026-03-03",
+    "lat": 42.6165,
+    "lng": -70.6547,
+    "open": 0,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2026-01-26",
+      "id": "20871953",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20871953"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21081401",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21081401"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21081403",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21081403"
+     },
+     {
+      "created_at": "2026-03-03",
+      "id": "21140898",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21140898"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Myrtle Sq",
+    "again_after_close": 3,
+    "category": "Clean Team/Volunteer Yellow Bag Pick Up",
+    "first": "2026-05-17",
+    "last": "2026-08-29",
+    "lat": 42.6182,
+    "lng": -70.6684,
+    "open": 0,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2026-05-17",
+      "id": "21734208",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21734208"
+     },
+     {
+      "created_at": "2026-06-09",
+      "id": "21939912",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21939912"
+     },
+     {
+      "created_at": "2026-07-28",
+      "id": "22355564",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22355564"
+     },
+     {
+      "created_at": "2026-08-29",
+      "id": "22643456",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22643456"
+     }
+    ],
+    "slug": "clean-team-volunteer-yellow-bag-pick-up",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Norman Ave",
+    "again_after_close": 3,
+    "category": "Snow/Ice Removal",
+    "first": "2025-12-02",
+    "last": "2026-01-29",
+    "lat": 42.5773,
+    "lng": -70.7113,
+    "open": 1,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2025-12-02",
+      "id": "20519433",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20519433"
+     },
+     {
+      "created_at": "2026-01-26",
+      "id": "20865862",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20865862"
+     },
+     {
+      "created_at": "2026-01-27",
+      "id": "20880100",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20880100"
+     },
+     {
+      "created_at": "2026-01-29",
+      "id": "20900785",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/20900785"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Prospect St",
+    "again_after_close": 3,
+    "category": "Trash or Recycling",
+    "first": "2025-10-22",
+    "last": "2025-12-22",
+    "lat": 42.6149,
+    "lng": -70.6651,
+    "open": 0,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2025-10-22",
+      "id": "20259935",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20259935"
+     },
+     {
+      "created_at": "2025-12-01",
+      "id": "20508011",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20508011"
+     },
+     {
+      "created_at": "2025-12-05",
+      "id": "20544710",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20544710"
+     },
+     {
+      "created_at": "2025-12-22",
+      "id": "20651240",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20651240"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Shepherd St",
+    "again_after_close": 3,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-29",
+    "last": "2026-02-24",
+    "lat": 42.6173,
+    "lng": -70.6642,
+    "open": 0,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2026-01-29",
+      "id": "20905762",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20905762"
+     },
+     {
+      "created_at": "2026-02-06",
+      "id": "20957558",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20957558"
+     },
+     {
+      "created_at": "2026-02-11",
+      "id": "20990005",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20990005"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21082782",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21082782"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "Marion Way",
+    "again_after_close": 3,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-26",
+    "last": "2026-02-21",
+    "lat": 42.619,
+    "lng": -70.6461,
+    "open": 1,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2026-01-26",
+      "id": "20868739",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20868739"
+     },
+     {
+      "created_at": "2026-02-16",
+      "id": "21020920",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21020920"
+     },
+     {
+      "created_at": "2026-02-16",
+      "id": "21021011",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21021011"
+     },
+     {
+      "created_at": "2026-02-21",
+      "id": "21060654",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21060654"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "1"
+   },
+   {
+    "address": "Mile 15 State Rte 127 N",
+    "again_after_close": 3,
+    "category": "Illegal Dumping",
+    "first": "2025-11-12",
+    "last": "2026-01-20",
+    "lat": 42.618,
+    "lng": -70.6508,
+    "open": 0,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2025-11-12",
+      "id": "20404699",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20404699"
+     },
+     {
+      "created_at": "2025-12-13",
+      "id": "20599148",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20599148"
+     },
+     {
+      "created_at": "2025-12-23",
+      "id": "20662778",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20662778"
+     },
+     {
+      "created_at": "2026-01-20",
+      "id": "20833089",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20833089"
+     }
+    ],
+    "slug": "illegal-dumping",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Friend St",
+    "again_after_close": 2,
+    "category": "Abandoned Vehicle",
+    "first": "2026-04-07",
+    "last": "2026-04-08",
+    "lat": 42.6182,
+    "lng": -70.6538,
+    "open": 0,
+    "reports": 6,
+    "requests": [
+     {
+      "created_at": "2026-04-07",
+      "id": "21407596",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21407596"
+     },
+     {
+      "created_at": "2026-04-07",
+      "id": "21407633",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21407633"
+     },
+     {
+      "created_at": "2026-04-07",
+      "id": "21407660",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21407660"
+     },
+     {
+      "created_at": "2026-04-07",
+      "id": "21407688",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21407688"
+     },
+     {
+      "created_at": "2026-04-08",
+      "id": "21420528",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21420528"
+     },
+     {
+      "created_at": "2026-04-08",
+      "id": "21420551",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21420551"
+     }
+    ],
+    "slug": "abandoned-vehicle",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Wesley St",
+    "again_after_close": 2,
+    "category": "Pothole",
+    "first": "2026-06-12",
+    "last": "2026-09-11",
+    "lat": 42.6349,
+    "lng": -70.6797,
+    "open": 1,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2026-06-12",
+      "id": "21967131",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21967131"
+     },
+     {
+      "created_at": "2026-07-11",
+      "id": "22214955",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22214955"
+     },
+     {
+      "created_at": "2026-08-27",
+      "id": "22625466",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22625466"
+     },
+     {
+      "created_at": "2026-09-11",
+      "id": "22754816",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22754816"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "4"
+   },
+   {
+    "address": "100 block of Cherry St",
+    "again_after_close": 2,
+    "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
+    "first": "2026-05-20",
+    "last": "2026-05-27",
+    "lat": 42.6371,
+    "lng": -70.6715,
+    "open": 1,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-05-20",
+      "id": "21760687",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21760687"
+     },
+     {
+      "created_at": "2026-05-27",
+      "id": "21819085",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21819085"
+     },
+     {
+      "created_at": "2026-05-27",
+      "id": "21819117",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21819117"
+     }
+    ],
+    "slug": "public-spaces-parks-playgrounds-boulevard",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Addison St",
+    "again_after_close": 2,
+    "category": "Trash or Recycling",
+    "first": "2025-11-12",
+    "last": "2026-03-03",
+    "lat": 42.6153,
+    "lng": -70.6681,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2025-11-12",
+      "id": "20403491",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20403491"
+     },
+     {
+      "created_at": "2026-01-06",
+      "id": "20741694",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20741694"
+     },
+     {
+      "created_at": "2026-03-03",
+      "id": "21139992",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21139992"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Cleveland St",
+    "again_after_close": 2,
+    "category": "Clean Team/Volunteer Yellow Bag Pick Up",
+    "first": "2026-07-01",
+    "last": "2026-08-04",
+    "lat": 42.62,
+    "lng": -70.6645,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-07-01",
+      "id": "22125942",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22125942"
+     },
+     {
+      "created_at": "2026-07-27",
+      "id": "22350351",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22350351"
+     },
+     {
+      "created_at": "2026-08-04",
+      "id": "22419747",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22419747"
+     }
+    ],
+    "slug": "clean-team-volunteer-yellow-bag-pick-up",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Hough Ave",
+    "again_after_close": 2,
+    "category": "Clean Team/Volunteer Yellow Bag Pick Up",
+    "first": "2026-07-16",
+    "last": "2026-09-21",
+    "lat": 42.6053,
+    "lng": -70.6785,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-07-16",
+      "id": "22262014",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22262014"
+     },
+     {
+      "created_at": "2026-08-05",
+      "id": "22429815",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22429815"
+     },
+     {
+      "created_at": "2026-09-21",
+      "id": "22825591",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22825591"
+     }
+    ],
+    "slug": "clean-team-volunteer-yellow-bag-pick-up",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Marchant St",
+    "again_after_close": 2,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-27",
+    "last": "2026-02-11",
+    "lat": 42.6159,
+    "lng": -70.6576,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-01-27",
+      "id": "20878324",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20878324"
+     },
+     {
+      "created_at": "2026-02-07",
+      "id": "20966006",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20966006"
+     },
+     {
+      "created_at": "2026-02-11",
+      "id": "20988888",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20988888"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Rocky Pasture Rd",
+    "again_after_close": 2,
+    "category": "Pothole",
+    "first": "2026-04-01",
+    "last": "2026-04-17",
+    "lat": 42.6123,
+    "lng": -70.6447,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-04-01",
+      "id": "21368687",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21368687"
+     },
+     {
+      "created_at": "2026-04-13",
+      "id": "21458396",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21458396"
+     },
+     {
+      "created_at": "2026-04-17",
+      "id": "21494994",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21494994"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Warner St",
+    "again_after_close": 2,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-26",
+    "last": "2026-02-24",
+    "lat": 42.6187,
+    "lng": -70.6625,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-01-26",
+      "id": "20868161",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20868161"
+     },
+     {
+      "created_at": "2026-02-21",
+      "id": "21059197",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21059197"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21079097",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21079097"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Washington Sq",
+    "again_after_close": 2,
+    "category": "Trash or Recycling",
+    "first": "2025-11-05",
+    "last": "2026-01-01",
+    "lat": 42.6126,
+    "lng": -70.6692,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2025-11-05",
+      "id": "20356402",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20356402"
+     },
+     {
+      "created_at": "2025-12-31",
+      "id": "20704516",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20704516"
+     },
+     {
+      "created_at": "2026-01-01",
+      "id": "20708250",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20708250"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Washington Sq",
+    "again_after_close": 2,
+    "category": "Snow/Ice Removal",
+    "first": "2026-02-24",
+    "last": "2026-02-26",
+    "lat": 42.6125,
+    "lng": -70.6691,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-02-24",
+      "id": "21076754",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21076754"
+     },
+     {
+      "created_at": "2026-02-25",
+      "id": "21097166",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21097166"
+     },
+     {
+      "created_at": "2026-02-26",
+      "id": "21100510",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21100510"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "3"
+   },
+   {
+    "address": "200 block of Main St",
+    "again_after_close": 2,
+    "category": "Parking Kiosk",
+    "first": "2026-05-01",
+    "last": "2026-06-23",
+    "lat": 42.6153,
+    "lng": -70.6582,
+    "open": 2,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-05-01",
+      "id": "21609077",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21609077"
+     },
+     {
+      "created_at": "2026-05-07",
+      "id": "21657249",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21657249"
+     },
+     {
+      "created_at": "2026-06-23",
+      "id": "22056481",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22056481"
+     }
+    ],
+    "slug": "parking-kiosk",
+    "ward": "2"
+   },
+   {
+    "address": "Beeman Memorial",
+    "again_after_close": 2,
+    "category": "Other",
+    "first": "2026-05-20",
+    "last": "2026-05-29",
+    "lat": 42.6372,
+    "lng": -70.6723,
+    "open": 1,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-05-20",
+      "id": "21759631",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21759631"
+     },
+     {
+      "created_at": "2026-05-20",
+      "id": "21761041",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21761041"
+     },
+     {
+      "created_at": "2026-05-29",
+      "id": "21839701",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21839701"
+     }
+    ],
+    "slug": "other",
+    "ward": "4"
+   },
+   {
+    "address": "Dove Ln",
+    "again_after_close": 2,
+    "category": "Snow: Plow Request",
+    "first": "2026-01-19",
+    "last": "2026-01-27",
+    "lat": 42.6216,
+    "lng": -70.6477,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-01-19",
+      "id": "20822899",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20822899"
+     },
+     {
+      "created_at": "2026-01-20",
+      "id": "20827381",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20827381"
+     },
+     {
+      "created_at": "2026-01-27",
+      "id": "20879640",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20879640"
+     }
+    ],
+    "slug": "snow-plow-request",
+    "ward": "1"
+   },
+   {
+    "address": "Field Rd",
+    "again_after_close": 2,
+    "category": "Pothole",
+    "first": "2026-03-16",
+    "last": "2026-05-12",
+    "lat": 42.5771,
+    "lng": -70.713,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-03-16",
+      "id": "21237040",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21237040"
+     },
+     {
+      "created_at": "2026-03-31",
+      "id": "21358051",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21358051"
+     },
+     {
+      "created_at": "2026-05-12",
+      "id": "21691388",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21691388"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "5"
+   },
+   {
+    "address": "Mansfield St & Washington St",
+    "again_after_close": 2,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-28",
+    "last": "2026-02-24",
+    "lat": 42.6126,
+    "lng": -70.6675,
+    "open": 1,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-01-28",
+      "id": "20888134",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20888134"
+     },
+     {
+      "created_at": "2026-02-09",
+      "id": "20977527",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20977527"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21080397",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21080397"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "3"
+   },
+   {
+    "address": "Mile 1 State Rte 127 N",
+    "again_after_close": 2,
+    "category": "Illegal Dumping",
+    "first": "2025-11-19",
+    "last": "2026-01-12",
+    "lat": 42.6223,
+    "lng": -70.638,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2025-11-19",
+      "id": "20445226",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20445226"
+     },
+     {
+      "created_at": "2025-12-24",
+      "id": "20665162",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20665162"
+     },
+     {
+      "created_at": "2026-01-12",
+      "id": "20776499",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20776499"
+     }
+    ],
+    "slug": "illegal-dumping",
+    "ward": "1"
+   },
+   {
+    "address": "Mile 22.7 State Rte 127 S",
+    "again_after_close": 2,
+    "category": "Beaches",
+    "first": "2026-05-17",
+    "last": "2026-06-15",
+    "lat": 42.6738,
+    "lng": -70.6633,
+    "open": 2,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-05-17",
+      "id": "21732915",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21732915"
+     },
+     {
+      "created_at": "2026-05-28",
+      "id": "21826609",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21826609"
+     },
+     {
+      "created_at": "2026-06-15",
+      "id": "21983322",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21983322"
+     }
+    ],
+    "slug": "beaches",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Acacia St",
+    "again_after_close": 1,
+    "category": "Pothole",
+    "first": "2026-04-02",
+    "last": "2026-05-18",
+    "lat": 42.6218,
+    "lng": -70.6697,
+    "open": 0,
+    "reports": 4,
+    "requests": [
+     {
+      "created_at": "2026-04-02",
+      "id": "21378943",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21378943"
+     },
+     {
+      "created_at": "2026-04-04",
+      "id": "21387789",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21387789"
+     },
+     {
+      "created_at": "2026-04-21",
+      "id": "21521352",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21521352"
+     },
+     {
+      "created_at": "2026-05-18",
+      "id": "21738512",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21738512"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Cleveland St",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2026-07-01",
+    "last": "2026-08-19",
+    "lat": 42.6196,
+    "lng": -70.6649,
+    "open": 1,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-07-01",
+      "id": "22126764",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22126764"
+     },
+     {
+      "created_at": "2026-07-01",
+      "id": "22126767",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22126767"
+     },
+     {
+      "created_at": "2026-08-19",
+      "id": "22558478",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22558478"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Grove St",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-02-03",
+    "last": "2026-02-09",
+    "lat": 42.6211,
+    "lng": -70.6695,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-02-03",
+      "id": "20937957",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20937957"
+     },
+     {
+      "created_at": "2026-02-05",
+      "id": "20953313",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20953313"
+     },
+     {
+      "created_at": "2026-02-09",
+      "id": "20974857",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20974857"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Hancock St",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2026-01-07",
+    "last": "2026-01-24",
+    "lat": 42.6132,
+    "lng": -70.6629,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-01-07",
+      "id": "20744082",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20744082"
+     },
+     {
+      "created_at": "2026-01-08",
+      "id": "20752653",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20752653"
+     },
+     {
+      "created_at": "2026-01-24",
+      "id": "20858026",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20858026"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Harrison Ave",
+    "again_after_close": 1,
+    "category": "Road Issues Other Than Potholes",
+    "first": "2026-08-06",
+    "last": "2026-09-08",
+    "lat": 42.6219,
+    "lng": -70.6484,
+    "open": 1,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-08-06",
+      "id": "22444761",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22444761"
+     },
+     {
+      "created_at": "2026-08-06",
+      "id": "22444828",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22444828"
+     },
+     {
+      "created_at": "2026-09-08",
+      "id": "22718002",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22718002"
+     }
+    ],
+    "slug": "road-issues-other-than-potholes",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Summer St",
+    "again_after_close": 1,
+    "category": "Sidewalk Issue",
+    "first": "2025-11-24",
+    "last": "2025-12-03",
+    "lat": 42.6141,
+    "lng": -70.67,
+    "open": 1,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2025-11-24",
+      "id": "20473770",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20473770"
+     },
+     {
+      "created_at": "2025-11-24",
+      "id": "20473772",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20473772"
+     },
+     {
+      "created_at": "2025-12-03",
+      "id": "20533791",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/20533791"
+     }
+    ],
+    "slug": "sidewalk-issue",
+    "ward": "3"
+   },
+   {
+    "address": "Beeman Memorial",
+    "again_after_close": 1,
+    "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
+    "first": "2026-05-20",
+    "last": "2026-05-20",
+    "lat": 42.6372,
+    "lng": -70.6723,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-05-20",
+      "id": "21759941",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21759941"
+     },
+     {
+      "created_at": "2026-05-20",
+      "id": "21760086",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21760086"
+     },
+     {
+      "created_at": "2026-05-20",
+      "id": "21762206",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21762206"
+     }
+    ],
+    "slug": "public-spaces-parks-playgrounds-boulevard",
+    "ward": "4"
+   },
+   {
+    "address": "Commercial St",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-02-09",
+    "last": "2026-02-11",
+    "lat": 42.6111,
+    "lng": -70.6659,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-02-09",
+      "id": "20971975",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20971975"
+     },
+     {
+      "created_at": "2026-02-09",
+      "id": "20971976",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20971976"
+     },
+     {
+      "created_at": "2026-02-11",
+      "id": "20994689",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20994689"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "E Main St & Main St",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-19",
+    "last": "2026-01-27",
+    "lat": 42.6174,
+    "lng": -70.6513,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-01-19",
+      "id": "20823932",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20823932"
+     },
+     {
+      "created_at": "2026-01-20",
+      "id": "20833940",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20833940"
+     },
+     {
+      "created_at": "2026-01-27",
+      "id": "20879850",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20879850"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "1"
+   },
+   {
+    "address": "Stanwood Ave",
+    "again_after_close": 1,
+    "category": "Pothole",
+    "first": "2026-04-07",
+    "last": "2026-04-22",
+    "lat": 42.6157,
+    "lng": -70.6989,
+    "open": 0,
+    "reports": 3,
+    "requests": [
+     {
+      "created_at": "2026-04-07",
+      "id": "21412201",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21412201"
+     },
+     {
+      "created_at": "2026-04-08",
+      "id": "21417790",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21417790"
+     },
+     {
+      "created_at": "2026-04-22",
+      "id": "21537076",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21537076"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "5"
+   },
+   {
+    "address": "",
+    "again_after_close": 1,
+    "category": "Other",
+    "first": "2026-04-04",
+    "last": "2026-04-20",
+    "lat": 42.6201,
+    "lng": -70.7113,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-04-04",
+      "id": "21389468",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21389468"
+     },
+     {
+      "created_at": "2026-04-20",
+      "id": "21508449",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21508449"
+     }
+    ],
+    "slug": "other",
+    "ward": "5"
+   },
+   {
+    "address": "100 block of Centennial Ave",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-27",
+    "last": "2026-02-25",
+    "lat": 42.6179,
+    "lng": -70.6726,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-27",
+      "id": "20883574",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20883574"
+     },
+     {
+      "created_at": "2026-02-25",
+      "id": "21088271",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21088271"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "3"
+   },
+   {
+    "address": "100 block of Centennial Ave",
+    "again_after_close": 1,
+    "category": "Pothole",
+    "first": "2026-07-14",
+    "last": "2026-07-25",
+    "lat": 42.6179,
+    "lng": -70.6727,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-07-14",
+      "id": "22238724",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22238724"
+     },
+     {
+      "created_at": "2026-07-25",
+      "id": "22336319",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22336319"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "3"
+   },
+   {
+    "address": "1000 block of Washington St",
+    "again_after_close": 1,
+    "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
+    "first": "2026-06-15",
+    "last": "2026-07-06",
+    "lat": 42.6742,
+    "lng": -70.6623,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-06-15",
+      "id": "21992063",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21992063"
+     },
+     {
+      "created_at": "2026-07-06",
+      "id": "22168983",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22168983"
+     }
+    ],
+    "slug": "public-spaces-parks-playgrounds-boulevard",
+    "ward": "4"
+   },
+   {
+    "address": "1000 block of Washington St",
+    "again_after_close": 1,
+    "category": "Beaches",
+    "first": "2026-06-17",
+    "last": "2026-07-29",
+    "lat": 42.6733,
+    "lng": -70.6639,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-06-17",
+      "id": "22013840",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22013840"
+     },
+     {
+      "created_at": "2026-07-29",
+      "id": "22368614",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22368614"
+     }
+    ],
+    "slug": "beaches",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Bennett St N",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2025-10-23",
+    "last": "2025-11-14",
+    "lat": 42.656,
+    "lng": -70.6672,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-10-23",
+      "id": "20273726",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20273726"
+     },
+     {
+      "created_at": "2025-11-14",
+      "id": "20413714",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20413714"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Bertoni Rd",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2025-11-13",
+    "last": "2025-12-17",
+    "lat": 42.6232,
+    "lng": -70.6733,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-11-13",
+      "id": "20409065",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20409065"
+     },
+     {
+      "created_at": "2025-12-17",
+      "id": "20622873",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20622873"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Bittersweet Rd",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2025-10-23",
+    "last": "2025-11-07",
+    "lat": 42.6552,
+    "lng": -70.6723,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-10-23",
+      "id": "20272291",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20272291"
+     },
+     {
+      "created_at": "2025-11-07",
+      "id": "20369367",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20369367"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Butternut Ln",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-27",
+    "last": "2026-02-22",
+    "lat": 42.6538,
+    "lng": -70.6739,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-27",
+      "id": "20878221",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20878221"
+     },
+     {
+      "created_at": "2026-02-22",
+      "id": "21063461",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21063461"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Cape Ter",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2026-02-24",
+    "last": "2026-02-25",
+    "lat": 42.6052,
+    "lng": -70.6508,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-02-24",
+      "id": "21087473",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21087473"
+     },
+     {
+      "created_at": "2026-02-25",
+      "id": "21090825",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21090825"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Cleveland St",
+    "again_after_close": 1,
+    "category": "Clean Team/Volunteer Yellow Bag Pick Up",
+    "first": "2025-11-13",
+    "last": "2026-01-10",
+    "lat": 42.62,
+    "lng": -70.6644,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-11-13",
+      "id": "20406231",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20406231"
+     },
+     {
+      "created_at": "2026-01-10",
+      "id": "20770807",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20770807"
+     }
+    ],
+    "slug": "clean-team-volunteer-yellow-bag-pick-up",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Cleveland St",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-25",
+    "last": "2026-01-26",
+    "lat": 42.6193,
+    "lng": -70.6667,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-25",
+      "id": "20863390",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20863390"
+     },
+     {
+      "created_at": "2026-01-26",
+      "id": "20873441",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20873441"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Cleveland St",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-30",
+    "last": "2026-02-22",
+    "lat": 42.6194,
+    "lng": -70.665,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-30",
+      "id": "20909799",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20909799"
+     },
+     {
+      "created_at": "2026-02-22",
+      "id": "21064708",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21064708"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Commercial St",
+    "again_after_close": 1,
+    "category": "Illegal Dumping",
+    "first": "2026-08-29",
+    "last": "2026-09-07",
+    "lat": 42.6109,
+    "lng": -70.6654,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-08-29",
+      "id": "22644975",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22644975"
+     },
+     {
+      "created_at": "2026-09-07",
+      "id": "22712088",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22712088"
+     }
+    ],
+    "slug": "illegal-dumping",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Commonwealth Ave",
+    "again_after_close": 1,
+    "category": "Illegal Dumping",
+    "first": "2026-05-01",
+    "last": "2026-06-19",
+    "lat": 42.6157,
+    "lng": -70.6709,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-05-01",
+      "id": "21606109",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21606109"
+     },
+     {
+      "created_at": "2026-06-19",
+      "id": "22030986",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22030986"
+     }
+    ],
+    "slug": "illegal-dumping",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Commonwealth Ave",
+    "again_after_close": 1,
+    "category": "Brush",
+    "first": "2026-06-20",
+    "last": "2026-06-25",
+    "lat": 42.6157,
+    "lng": -70.6707,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-06-20",
+      "id": "22032269",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22032269"
+     },
+     {
+      "created_at": "2026-06-25",
+      "id": "22078468",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22078468"
+     }
+    ],
+    "slug": "brush",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Eastern Point Blvd",
+    "again_after_close": 1,
+    "category": "Beaches",
+    "first": "2026-07-14",
+    "last": "2026-08-22",
+    "lat": 42.5973,
+    "lng": -70.6545,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-07-14",
+      "id": "22239946",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22239946"
+     },
+     {
+      "created_at": "2026-08-22",
+      "id": "22583410",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22583410"
+     }
+    ],
+    "slug": "beaches",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Elm St",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2026-08-04",
+    "last": "2026-09-16",
+    "lat": 42.6147,
+    "lng": -70.6612,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-08-04",
+      "id": "22416804",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22416804"
+     },
+     {
+      "created_at": "2026-09-16",
+      "id": "22789039",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22789039"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Fleetwoods Dr",
+    "again_after_close": 1,
+    "category": "Pothole",
+    "first": "2026-07-17",
+    "last": "2026-08-04",
+    "lat": 42.6138,
+    "lng": -70.6876,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-07-17",
+      "id": "22271713",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22271713"
+     },
+     {
+      "created_at": "2026-08-04",
+      "id": "22415811",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22415811"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Forest St",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-26",
+    "last": "2026-02-27",
+    "lat": 42.6195,
+    "lng": -70.6621,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-26",
+      "id": "20871897",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20871897"
+     },
+     {
+      "created_at": "2026-02-27",
+      "id": "21108925",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21108925"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Gee Ave",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2025-12-28",
+    "last": "2026-01-02",
+    "lat": 42.6407,
+    "lng": -70.6674,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-12-28",
+      "id": "20682227",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20682227"
+     },
+     {
+      "created_at": "2026-01-02",
+      "id": "20709561",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20709561"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Griffin Ct",
+    "again_after_close": 1,
+    "category": "Illegal Dumping",
+    "first": "2026-08-17",
+    "last": "2026-08-24",
+    "lat": 42.6167,
+    "lng": -70.6749,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-08-17",
+      "id": "22529401",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22529401"
+     },
+     {
+      "created_at": "2026-08-24",
+      "id": "22589717",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22589717"
+     }
+    ],
+    "slug": "illegal-dumping",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Haven Ter",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-27",
+    "last": "2026-02-24",
+    "lat": 42.6174,
+    "lng": -70.654,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-27",
+      "id": "20877100",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20877100"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21082634",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21082634"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Hawthorne Rd",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2026-01-15",
+    "last": "2026-03-04",
+    "lat": 42.6231,
+    "lng": -70.6649,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-15",
+      "id": "20805667",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20805667"
+     },
+     {
+      "created_at": "2026-03-04",
+      "id": "21146722",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21146722"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Hodgkins St",
+    "again_after_close": 1,
+    "category": "Brush",
+    "first": "2026-08-04",
+    "last": "2026-08-25",
+    "lat": 42.6331,
+    "lng": -70.6782,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-08-04",
+      "id": "22415623",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22415623"
+     },
+     {
+      "created_at": "2026-08-25",
+      "id": "22603718",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22603718"
+     }
+    ],
+    "slug": "brush",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Hough Ave",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2026-07-05",
+    "last": "2026-08-10",
+    "lat": 42.6047,
+    "lng": -70.6789,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-07-05",
+      "id": "22155320",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22155320"
+     },
+     {
+      "created_at": "2026-08-10",
+      "id": "22465124",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22465124"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Lake Rd",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2025-12-13",
+    "last": "2026-01-19",
+    "lat": 42.5807,
+    "lng": -70.7106,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-12-13",
+      "id": "20598676",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20598676"
+     },
+     {
+      "created_at": "2026-01-19",
+      "id": "20821688",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20821688"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Lantern Ln",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2026-02-25",
+    "last": "2026-02-26",
+    "lat": 42.6073,
+    "lng": -70.6476,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-02-25",
+      "id": "21096056",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21096056"
+     },
+     {
+      "created_at": "2026-02-26",
+      "id": "21098834",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21098834"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Lloyd St",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2026-01-16",
+    "last": "2026-03-11",
+    "lat": 42.6121,
+    "lng": -70.6721,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-16",
+      "id": "20813794",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20813794"
+     },
+     {
+      "created_at": "2026-03-11",
+      "id": "21206424",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21206424"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Lookout St",
+    "again_after_close": 1,
+    "category": "Abandoned Vehicle",
+    "first": "2026-03-04",
+    "last": "2026-04-21",
+    "lat": 42.6155,
+    "lng": -70.6714,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-03-04",
+      "id": "21148856",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21148856"
+     },
+     {
+      "created_at": "2026-04-21",
+      "id": "21526156",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21526156"
+     }
+    ],
+    "slug": "abandoned-vehicle",
+    "ward": "3"
+   },
+   {
+    "address": "1–99 Lowe Dr",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2025-12-27",
+    "last": "2026-02-14",
+    "lat": 42.5785,
+    "lng": -70.7135,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-12-27",
+      "id": "20678019",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20678019"
+     },
+     {
+      "created_at": "2026-02-14",
+      "id": "21011459",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21011459"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Manuel F Lewis St",
+    "again_after_close": 1,
+    "category": "Street Light Issue",
+    "first": "2025-11-10",
+    "last": "2025-12-23",
+    "lat": 42.6137,
+    "lng": -70.6589,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-11-10",
+      "id": "20388267",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20388267"
+     },
+     {
+      "created_at": "2025-12-23",
+      "id": "20658567",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/20658567"
+     }
+    ],
+    "slug": "street-light-issue",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Maplewood Ave",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-02-01",
+    "last": "2026-02-08",
+    "lat": 42.6196,
+    "lng": -70.6679,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-02-01",
+      "id": "20921246",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20921246"
+     },
+     {
+      "created_at": "2026-02-08",
+      "id": "20970768",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/20970768"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Nautilus Rd",
+    "again_after_close": 1,
+    "category": "Pothole",
+    "first": "2026-05-01",
+    "last": "2026-06-09",
+    "lat": 42.6159,
+    "lng": -70.6343,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-05-01",
+      "id": "21604731",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21604731"
+     },
+     {
+      "created_at": "2026-06-09",
+      "id": "21931658",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21931658"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Nautilus Rd",
+    "again_after_close": 1,
+    "category": "Utilities (Water/Sewer)",
+    "first": "2026-06-08",
+    "last": "2026-07-02",
+    "lat": 42.6165,
+    "lng": -70.6345,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-06-08",
+      "id": "21919173",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21919173"
+     },
+     {
+      "created_at": "2026-07-02",
+      "id": "22136868",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22136868"
+     }
+    ],
+    "slug": "utilities-water-sewer",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Nautilus Rd",
+    "again_after_close": 1,
+    "category": "Beaches",
+    "first": "2026-07-05",
+    "last": "2026-07-15",
+    "lat": 42.6178,
+    "lng": -70.6353,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-07-05",
+      "id": "22154308",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22154308"
+     },
+     {
+      "created_at": "2026-07-15",
+      "id": "22249400",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22249400"
+     }
+    ],
+    "slug": "beaches",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Nautilus Rd",
+    "again_after_close": 1,
+    "category": "Beaches",
+    "first": "2026-08-15",
+    "last": "2026-08-27",
+    "lat": 42.6181,
+    "lng": -70.6367,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-08-15",
+      "id": "22519080",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22519080"
+     },
+     {
+      "created_at": "2026-08-27",
+      "id": "22628498",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22628498"
+     }
+    ],
+    "slug": "beaches",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Proctor St",
+    "again_after_close": 1,
+    "category": "Brush",
+    "first": "2026-06-25",
+    "last": "2026-06-26",
+    "lat": 42.6135,
+    "lng": -70.6655,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-06-25",
+      "id": "22074492",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22074492"
+     },
+     {
+      "created_at": "2026-06-26",
+      "id": "22085977",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22085977"
+     }
+    ],
+    "slug": "brush",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Rio Dr",
+    "again_after_close": 1,
+    "category": "Brush",
+    "first": "2026-06-18",
+    "last": "2026-06-30",
+    "lat": 42.6194,
+    "lng": -70.6406,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-06-18",
+      "id": "22020520",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22020520"
+     },
+     {
+      "created_at": "2026-06-30",
+      "id": "22118787",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22118787"
+     }
+    ],
+    "slug": "brush",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 River Rd",
+    "again_after_close": 1,
+    "category": "Street Light Issue",
+    "first": "2026-07-03",
+    "last": "2026-08-04",
+    "lat": 42.655,
+    "lng": -70.6761,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-07-03",
+      "id": "22148178",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22148178"
+     },
+     {
+      "created_at": "2026-08-04",
+      "id": "22425006",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22425006"
+     }
+    ],
+    "slug": "street-light-issue",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Rocky Neck Ave",
+    "again_after_close": 1,
+    "category": "Street Light Issue",
+    "first": "2025-10-01",
+    "last": "2025-11-06",
+    "lat": 42.6039,
+    "lng": -70.6555,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-10-01",
+      "id": "20120372",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20120372"
+     },
+     {
+      "created_at": "2025-11-06",
+      "id": "20368033",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20368033"
+     }
+    ],
+    "slug": "street-light-issue",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Samuel Riggs Cir",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2026-09-16",
+    "last": "2026-09-21",
+    "lat": 42.6427,
+    "lng": -70.6758,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-09-16",
+      "id": "22791187",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22791187"
+     },
+     {
+      "created_at": "2026-09-21",
+      "id": "22834270",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22834270"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Sawyer Ave",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2025-10-30",
+    "last": "2025-11-05",
+    "lat": 42.6746,
+    "lng": -70.6606,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-10-30",
+      "id": "20319965",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20319965"
+     },
+     {
+      "created_at": "2025-11-05",
+      "id": "20355285",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20355285"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Spring St",
+    "again_after_close": 1,
+    "category": "Abandoned Vehicle",
+    "first": "2026-04-13",
+    "last": "2026-04-18",
+    "lat": 42.616,
+    "lng": -70.6571,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-04-13",
+      "id": "21454241",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21454241"
+     },
+     {
+      "created_at": "2026-04-18",
+      "id": "21499423",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21499423"
+     }
+    ],
+    "slug": "abandoned-vehicle",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Stage Fort Ave",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2025-12-19",
+    "last": "2026-01-26",
+    "lat": 42.6067,
+    "lng": -70.6808,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-12-19",
+      "id": "20637128",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20637128"
+     },
+     {
+      "created_at": "2026-01-26",
+      "id": "20871900",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20871900"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "5"
+   },
+   {
+    "address": "1–99 Stanley Ct",
+    "again_after_close": 1,
+    "category": "Snow: Plow Request",
+    "first": "2026-02-07",
+    "last": "2026-02-24",
+    "lat": 42.6162,
+    "lng": -70.6493,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-02-07",
+      "id": "20966511",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20966511"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21076337",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21076337"
+     }
+    ],
+    "slug": "snow-plow-request",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Thatcher Rd",
+    "again_after_close": 1,
+    "category": "Beaches",
+    "first": "2026-05-23",
+    "last": "2026-07-08",
+    "lat": 42.6229,
+    "lng": -70.6296,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-05-23",
+      "id": "21788277",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21788277"
+     },
+     {
+      "created_at": "2026-07-08",
+      "id": "22182791",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22182791"
+     }
+    ],
+    "slug": "beaches",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Tragabigzanda Rd",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2026-01-13",
+    "last": "2026-02-10",
+    "lat": 42.6143,
+    "lng": -70.6361,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-13",
+      "id": "20790071",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20790071"
+     },
+     {
+      "created_at": "2026-02-10",
+      "id": "20986103",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20986103"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "1"
+   },
+   {
+    "address": "1–99 Tufts Ln",
+    "again_after_close": 1,
+    "category": "Pothole",
+    "first": "2026-03-09",
+    "last": "2026-03-28",
+    "lat": 42.656,
+    "lng": -70.6663,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-03-09",
+      "id": "21184790",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21184790"
+     },
+     {
+      "created_at": "2026-03-28",
+      "id": "21335393",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21335393"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Warner St",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2025-11-12",
+    "last": "2025-12-09",
+    "lat": 42.6188,
+    "lng": -70.6607,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-11-12",
+      "id": "20404287",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20404287"
+     },
+     {
+      "created_at": "2025-12-09",
+      "id": "20574068",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20574068"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Warner St",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-26",
+    "last": "2026-02-27",
+    "lat": 42.619,
+    "lng": -70.6617,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-26",
+      "id": "20873279",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20873279"
+     },
+     {
+      "created_at": "2026-02-27",
+      "id": "21114035",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21114035"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "1–99 Washington St",
+    "again_after_close": 1,
+    "category": "Other",
+    "first": "2026-08-07",
+    "last": "2026-08-30",
+    "lat": 42.6125,
+    "lng": -70.6673,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-08-07",
+      "id": "22451039",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22451039"
+     },
+     {
+      "created_at": "2026-08-30",
+      "id": "22649584",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22649584"
+     }
+    ],
+    "slug": "other",
+    "ward": "3"
+   },
+   {
+    "address": "200 block of E Main St",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-02-04",
+    "last": "2026-02-06",
+    "lat": 42.6045,
+    "lng": -70.654,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-02-04",
+      "id": "20943153",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20943153"
+     },
+     {
+      "created_at": "2026-02-06",
+      "id": "20961384",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/20961384"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "1"
+   },
+   {
+    "address": "200 block of Washington St",
+    "again_after_close": 1,
+    "category": "Street Light Issue",
+    "first": "2026-08-03",
+    "last": "2026-08-21",
+    "lat": 42.6255,
+    "lng": -70.6793,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-08-03",
+      "id": "22413176",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22413176"
+     },
+     {
+      "created_at": "2026-08-21",
+      "id": "22574878",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22574878"
+     }
+    ],
+    "slug": "street-light-issue",
+    "ward": "3"
+   },
+   {
+    "address": "Burnham'S Field",
+    "again_after_close": 1,
+    "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
+    "first": "2026-07-18",
+    "last": "2026-08-02",
+    "lat": 42.6173,
+    "lng": -70.662,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-07-18",
+      "id": "22272733",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22272733"
+     },
+     {
+      "created_at": "2026-08-02",
+      "id": "22399093",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22399093"
+     }
+    ],
+    "slug": "public-spaces-parks-playgrounds-boulevard",
+    "ward": "2"
+   },
+   {
+    "address": "Centennial Ave & Lloyd St",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-28",
+    "last": "2026-02-07",
+    "lat": 42.612,
+    "lng": -70.6731,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-28",
+      "id": "20888054",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20888054"
+     },
+     {
+      "created_at": "2026-02-07",
+      "id": "20964881",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/20964881"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "3"
+   },
+   {
+    "address": "Cherry St",
+    "again_after_close": 1,
+    "category": "Graffiti",
+    "first": "2026-08-18",
+    "last": "2026-08-21",
+    "lat": 42.625,
+    "lng": -70.6722,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-08-18",
+      "id": "22541408",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22541408"
+     },
+     {
+      "created_at": "2026-08-21",
+      "id": "22573738",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/22573738"
+     }
+    ],
+    "slug": "graffiti",
+    "ward": "4"
+   },
+   {
+    "address": "Concord St",
+    "again_after_close": 1,
+    "category": "Road Issues Other Than Potholes",
+    "first": "2026-06-12",
+    "last": "2026-06-25",
+    "lat": 42.6414,
+    "lng": -70.7171,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-06-12",
+      "id": "21965302",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21965302"
+     },
+     {
+      "created_at": "2026-06-25",
+      "id": "22074885",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22074885"
+     }
+    ],
+    "slug": "road-issues-other-than-potholes",
+    "ward": "5"
+   },
+   {
+    "address": "Crossing St",
+    "again_after_close": 1,
+    "category": "Snow: Plow Request",
+    "first": "2026-01-28",
+    "last": "2026-02-24",
+    "lat": 42.6178,
+    "lng": -70.6505,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-28",
+      "id": "20890446",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20890446"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21076382",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21076382"
+     }
+    ],
+    "slug": "snow-plow-request",
+    "ward": "1"
+   },
+   {
+    "address": "Day Ave & High St",
+    "again_after_close": 1,
+    "category": "Manhole Cover",
+    "first": "2026-03-02",
+    "last": "2026-03-11",
+    "lat": 42.6764,
+    "lng": -70.6592,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-03-02",
+      "id": "21124550",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21124550"
+     },
+     {
+      "created_at": "2026-03-11",
+      "id": "21202662",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21202662"
+     }
+    ],
+    "slug": "manhole-cover",
+    "ward": "4"
+   },
+   {
+    "address": "Exit 53",
+    "again_after_close": 1,
+    "category": "Clean Team/Volunteer Yellow Bag Pick Up",
+    "first": "2026-04-13",
+    "last": "2026-04-27",
+    "lat": 42.6194,
+    "lng": -70.7201,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-04-13",
+      "id": "21452194",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21452194"
+     },
+     {
+      "created_at": "2026-04-27",
+      "id": "21565396",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21565396"
+     }
+    ],
+    "slug": "clean-team-volunteer-yellow-bag-pick-up",
+    "ward": "5"
+   },
+   {
+    "address": "Gloucester Massachusetts",
+    "again_after_close": 1,
+    "category": "Other",
+    "first": "2026-04-22",
+    "last": "2026-05-13",
+    "lat": 42.6162,
+    "lng": -70.6689,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-04-22",
+      "id": "21528318",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21528318"
+     },
+     {
+      "created_at": "2026-05-13",
+      "id": "21708150",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21708150"
+     }
+    ],
+    "slug": "other",
+    "ward": "2"
+   },
+   {
+    "address": "Harbor View Ct",
+    "again_after_close": 1,
+    "category": "Snow: Plow Request",
+    "first": "2026-01-27",
+    "last": "2026-02-24",
+    "lat": 42.6151,
+    "lng": -70.6487,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-27",
+      "id": "20876664",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20876664"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21077939",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21077939"
+     }
+    ],
+    "slug": "snow-plow-request",
+    "ward": "1"
+   },
+   {
+    "address": "Hartz St",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-26",
+    "last": "2026-02-01",
+    "lat": 42.6167,
+    "lng": -70.6457,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-26",
+      "id": "20865966",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20865966"
+     },
+     {
+      "created_at": "2026-02-01",
+      "id": "20919394",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20919394"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "1"
+   },
+   {
+    "address": "Hesperus Ave & Western Ave",
+    "again_after_close": 1,
+    "category": "Street Sign Issue",
+    "first": "2026-03-01",
+    "last": "2026-04-19",
+    "lat": 42.5938,
+    "lng": -70.6893,
+    "open": 1,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-03-01",
+      "id": "21120580",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21120580"
+     },
+     {
+      "created_at": "2026-04-19",
+      "id": "21504069",
+      "status": "open",
+      "url": "https://seeclickfix.com/issues/21504069"
+     }
+    ],
+    "slug": "street-sign-issue",
+    "ward": "5"
+   },
+   {
+    "address": "King Philip Rd",
+    "again_after_close": 1,
+    "category": "Pothole",
+    "first": "2026-01-19",
+    "last": "2026-03-13",
+    "lat": 42.6165,
+    "lng": -70.696,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-19",
+      "id": "20824475",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20824475"
+     },
+     {
+      "created_at": "2026-03-13",
+      "id": "21218481",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21218481"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "5"
+   },
+   {
+    "address": "Lawndale Cir & Western Ave",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-31",
+    "last": "2026-02-25",
+    "lat": 42.5887,
+    "lng": -70.7121,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-31",
+      "id": "20915374",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20915374"
+     },
+     {
+      "created_at": "2026-02-25",
+      "id": "21090357",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21090357"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "5"
+   },
+   {
+    "address": "Leighton Ct",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-27",
+    "last": "2026-02-26",
+    "lat": 42.6153,
+    "lng": -70.6666,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-27",
+      "id": "20878909",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20878909"
+     },
+     {
+      "created_at": "2026-02-26",
+      "id": "21106622",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21106622"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "Mile 0.3 State Rte 127 S",
+    "again_after_close": 1,
+    "category": "Illegal Dumping",
+    "first": "2026-07-12",
+    "last": "2026-07-18",
+    "lat": 42.6167,
+    "lng": -70.6457,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-07-12",
+      "id": "22218484",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22218484"
+     },
+     {
+      "created_at": "2026-07-18",
+      "id": "22273180",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22273180"
+     }
+    ],
+    "slug": "illegal-dumping",
+    "ward": "1"
+   },
+   {
+    "address": "Mile 0.5 State Rte 127 N",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2026-02-24",
+    "last": "2026-02-24",
+    "lat": 42.6172,
+    "lng": -70.643,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-02-24",
+      "id": "21079625",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21079625"
+     },
+     {
+      "created_at": "2026-02-24",
+      "id": "21079750",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21079750"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "1"
+   },
+   {
+    "address": "Mile 15 State Rte 127 N",
+    "again_after_close": 1,
+    "category": "Trash or Recycling",
+    "first": "2025-10-27",
+    "last": "2025-12-09",
+    "lat": 42.6182,
+    "lng": -70.6507,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-10-27",
+      "id": "20290162",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20290162"
+     },
+     {
+      "created_at": "2025-12-09",
+      "id": "20568051",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20568051"
+     }
+    ],
+    "slug": "trash-or-recycling",
+    "ward": "1"
+   },
+   {
+    "address": "Mile 23 State Rte 127 N",
+    "again_after_close": 1,
+    "category": "Road Issues Other Than Potholes",
+    "first": "2026-06-13",
+    "last": "2026-07-29",
+    "lat": 42.6704,
+    "lng": -70.6656,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-06-13",
+      "id": "21972842",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21972842"
+     },
+     {
+      "created_at": "2026-07-29",
+      "id": "22368846",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/22368846"
+     }
+    ],
+    "slug": "road-issues-other-than-potholes",
+    "ward": "4"
+   },
+   {
+    "address": "Mile 38.2 State Rte 133 E",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-28",
+    "last": "2026-02-02",
+    "lat": 42.6176,
+    "lng": -70.7152,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-28",
+      "id": "20891745",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20891745"
+     },
+     {
+      "created_at": "2026-02-02",
+      "id": "20930880",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20930880"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "5"
+   },
+   {
+    "address": "Mile 55.2 State Rte 128 S",
+    "again_after_close": 1,
+    "category": "Road Issues Other Than Potholes",
+    "first": "2025-11-15",
+    "last": "2025-12-13",
+    "lat": 42.6254,
+    "lng": -70.6902,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2025-11-15",
+      "id": "20422193",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20422193"
+     },
+     {
+      "created_at": "2025-12-13",
+      "id": "20599495",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20599495"
+     }
+    ],
+    "slug": "road-issues-other-than-potholes",
+    "ward": "5"
+   },
+   {
+    "address": "Prospect Sq & Prospect St",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-02-07",
+    "last": "2026-02-25",
+    "lat": 42.616,
+    "lng": -70.6596,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-02-07",
+      "id": "20965645",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20965645"
+     },
+     {
+      "created_at": "2026-02-25",
+      "id": "21090231",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21090231"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "Shore Hill Rd",
+    "again_after_close": 1,
+    "category": "Pothole",
+    "first": "2026-03-18",
+    "last": "2026-05-07",
+    "lat": 42.6415,
+    "lng": -70.6805,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-03-18",
+      "id": "21254580",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21254580"
+     },
+     {
+      "created_at": "2026-05-07",
+      "id": "21653368",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21653368"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "4"
+   },
+   {
+    "address": "Warner St",
+    "again_after_close": 1,
+    "category": "Snow/Ice Removal",
+    "first": "2026-01-19",
+    "last": "2026-02-12",
+    "lat": 42.6169,
+    "lng": -70.6594,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-01-19",
+      "id": "20826244",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/20826244"
+     },
+     {
+      "created_at": "2026-02-12",
+      "id": "21001537",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21001537"
+     }
+    ],
+    "slug": "snow-ice-removal",
+    "ward": "2"
+   },
+   {
+    "address": "Woodward Ave",
+    "again_after_close": 1,
+    "category": "Pothole",
+    "first": "2026-04-30",
+    "last": "2026-05-11",
+    "lat": 42.6124,
+    "lng": -70.7059,
+    "open": 0,
+    "reports": 2,
+    "requests": [
+     {
+      "created_at": "2026-04-30",
+      "id": "21597702",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21597702"
+     },
+     {
+      "created_at": "2026-05-11",
+      "id": "21683072",
+      "status": "closed",
+      "url": "https://seeclickfix.com/issues/21683072"
+     }
+    ],
+    "slug": "pothole",
+    "ward": "5"
+   }
+  ],
+  "radius_m": 50,
+  "window_days": 60
  },
  "requests_recorded": 8055,
  "wards": [
@@ -9883,7 +15149,7 @@
     },
     {
      "address": "11 Niles Pond Road Gloucester, MA, 01930, USA",
-     "age_days": 1391.9,
+     "age_days": 1392.0,
      "category": "Private Property Issue",
      "created_at": "2022-12-04T20:25:47-05:00",
      "id": "13778265",
@@ -9892,7 +15158,7 @@
     },
     {
      "address": "15 Harriet Road Gloucester, Massachusetts, 01930",
-     "age_days": 1390.1,
+     "age_days": 1390.2,
      "category": "Conservation",
      "created_at": "2022-12-06T15:31:39-05:00",
      "id": "13786777",
@@ -9919,7 +15185,7 @@
     },
     {
      "address": "9-31 Niles Pond Rd Gloucester, MA, 01930, USA",
-     "age_days": 1252.2,
+     "age_days": 1252.3,
      "category": "Conservation",
      "created_at": "2023-04-23T14:11:53-04:00",
      "id": "14410904",
@@ -9928,7 +15194,7 @@
     },
     {
      "address": "9-31 Niles Pond Rd Gloucester, MA, 01930, USA",
-     "age_days": 1252.2,
+     "age_days": 1252.3,
      "category": "Conservation",
      "created_at": "2023-04-23T14:12:24-04:00",
      "id": "14410907",
@@ -9937,7 +15203,7 @@
     },
     {
      "address": "5 East Main Street Gloucester, MA, 01930, USA",
-     "age_days": 1241.0,
+     "age_days": 1241.1,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2023-05-04T19:16:20-04:00",
      "id": "14476765",
@@ -10606,7 +15872,7 @@
    "oldest": [
     {
      "address": "6 Sadler St Gloucester MA 01930, United States",
-     "age_days": 2349.2,
+     "age_days": 2349.3,
      "category": "Private Property Issue",
      "created_at": "2020-04-21T13:57:09-04:00",
      "id": "7696257",
@@ -10624,7 +15890,7 @@
     },
     {
      "address": "67 Middle St Gloucester, MA 01930, USA",
-     "age_days": 1898.4,
+     "age_days": 1898.5,
      "category": "Health Department",
      "created_at": "2021-07-16T09:01:28-04:00",
      "id": "10427677",
@@ -11300,7 +16566,7 @@
    "oldest": [
     {
      "address": "1 Western Ave Gloucester MA 01930, United States",
-     "age_days": 2085.4,
+     "age_days": 2085.5,
      "category": "Illegal Dumping",
      "created_at": "2021-01-10T08:37:04-05:00",
      "id": "9172426",
@@ -11318,7 +16584,7 @@
     },
     {
      "address": "Lookout Park Governors Hill",
-     "age_days": 1593.5,
+     "age_days": 1593.6,
      "category": "Health Department",
      "created_at": "2022-05-17T06:38:41-04:00",
      "id": "12339682",
@@ -11336,7 +16602,7 @@
     },
     {
      "address": "29 Emerson Avenue Gloucester, Massachusetts, 01930",
-     "age_days": 1227.3,
+     "age_days": 1227.4,
      "category": "Sidewalk Issue",
      "created_at": "2023-05-18T11:32:16-04:00",
      "id": "14555572",
@@ -11345,7 +16611,7 @@
     },
     {
      "address": "115 Western Avenue Gloucester, MA, 01930, USA",
-     "age_days": 1105.2,
+     "age_days": 1105.3,
      "category": "Other",
      "created_at": "2023-09-17T13:56:15-04:00",
      "id": "15291675",
@@ -12096,7 +17362,7 @@
     },
     {
      "address": "498 Washington Street Gloucester, MA, 01930, USA",
-     "age_days": 1499.4,
+     "age_days": 1499.5,
      "category": "Health Department",
      "created_at": "2022-08-19T09:17:45-04:00",
      "id": "13025668",
@@ -12105,7 +17371,7 @@
     },
     {
      "address": "3 Cushing Lane Gloucester, MA, 01930, USA",
-     "age_days": 1407.1,
+     "age_days": 1407.2,
      "category": "Conservation",
      "created_at": "2022-11-19T15:15:58-05:00",
      "id": "13718695",
@@ -12114,7 +17380,7 @@
     },
     {
      "address": "749 Washington Street Gloucester, Massachusetts, 01930",
-     "age_days": 1293.3,
+     "age_days": 1293.4,
      "category": "Other",
      "created_at": "2023-03-13T11:58:23-04:00",
      "id": "14198625",
@@ -12773,7 +18039,7 @@
     },
     {
      "address": "16 Winthrop Avenue Gloucester, MA, 01930, USA",
-     "age_days": 1498.1,
+     "age_days": 1498.2,
      "category": "Private Property Issue",
      "created_at": "2022-08-20T16:29:51-04:00",
      "id": "13031515",
@@ -12791,7 +18057,7 @@
     },
     {
      "address": "470-580 Western Ave Gloucester, MA, 01930, USA",
-     "age_days": 1252.2,
+     "age_days": 1252.3,
      "category": "Other",
      "created_at": "2023-04-23T14:22:12-04:00",
      "id": "14410932",
@@ -12845,7 +18111,7 @@
     },
     {
      "address": "18–50 Hough Ave Gloucester MA 01930, United States",
-     "age_days": 983.5,
+     "age_days": 983.6,
      "category": "Beaches",
      "created_at": "2024-01-17T05:55:55-05:00",
      "id": "15890179",

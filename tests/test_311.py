@@ -108,3 +108,63 @@ def test_month_windows_cover_every_month():
     windows = list(fetch_311.month_windows(date(2024, 11, 1), date(2025, 2, 10)))
     assert [w[0].isoformat() for w in windows] == ["2024-11-01", "2024-12-01", "2025-01-01", "2025-02-01"]
     assert windows[-1][1].isoformat() == "2025-03-01"
+
+
+def test_block_address_hides_house_numbers():
+    from pipeline.seeclickfix import block_address
+    assert block_address("229 Main St Gloucester, Massachusetts, 01930") == "200 block of Main St"
+    assert block_address("30 Reservoir Rd Gloucester MA 01930, United States") == "1–99 Reservoir Rd"
+    assert block_address("470-580 Western Ave") == "400 block of Western Ave"
+    assert block_address("124r Centennial Avenue") == "100 block of Centennial Avenue"
+    assert block_address("Bray St & Salt Marsh Ln") == "Bray St & Salt Marsh Ln"
+    assert block_address("01930") == ""
+
+
+def request(id, created, lat=42.6150, lng=-70.6600, status="closed", closed=None, category="Pothole"):
+    return {"id": id, "category": category, "address": "12 Main St", "ward": "2", "status": status,
+            "created_at": created, "updated_at": closed or created, "lat": lat, "lng": lng,
+            "detail": {"closed_at": closed} if closed else None}
+
+
+def test_repeat_locations():
+    records = [
+        request("1", "2026-05-01T09:00:00-04:00", closed="2026-05-03T09:00:00-04:00"),
+        # 20 meters away, after the first was closed: a repeat.
+        request("2", "2026-05-20T09:00:00-04:00", lat=42.61518, status="open"),
+        # Same spot, but a different category.
+        request("3", "2026-05-21T09:00:00-04:00", category="Sidewalk Issue", closed="2026-05-22T09:00:00-04:00"),
+        # Far away.
+        request("4", "2026-05-22T09:00:00-04:00", lat=42.62, closed="2026-05-23T09:00:00-04:00"),
+        # Same spot, but more than 60 days after the last request there.
+        request("5", "2026-09-01T09:00:00-04:00", closed="2026-09-02T09:00:00-04:00"),
+        # Two reports of the same problem before any close: not a repeat.
+        request("6", "2026-06-01T09:00:00-04:00", lat=42.63, status="open"),
+        request("7", "2026-06-02T09:00:00-04:00", lat=42.63, status="open"),
+    ]
+    places = compute_311.repeat_locations(records, 50, 60, "https://seeclickfix.com/issues")
+    assert len(places) == 1
+    p = places[0]
+    assert [r["id"] for r in p["requests"]] == ["1", "2"]
+    assert p["reports"] == 2 and p["again_after_close"] == 1 and p["open"] == 1
+    assert p["address"] == "1–99 Main St"
+    assert p["requests"][-1]["url"] == "https://seeclickfix.com/issues/2"
+
+
+def test_private_categories_stay_off_maps(config):
+    exclude = config["seeclickfix"]["repeats"]["exclude"]
+    records = [request("1", "2026-09-01T09:00:00-04:00", category=c)
+               for c in ("Pothole", "Health Department (Housing) - Internal", "Private Property Issue",
+                         "Animal Issues", "Police Department (Non-Emergency)")]
+    records.append(request("2", "2026-09-01T09:00:00-04:00", lat=None))
+    assert [r["category"] for r in compute_311.mappable(records, exclude)] == ["Pothole"]
+
+
+def test_scorecard_has_recent_open_and_repeats(config, data):
+    fetch_311.run(config, FakeSeeClickFix(), data, now=FETCHED_AT, detail_limit=500)
+    sc = compute_311.compute(config, data, now=FETCHED_AT)
+    recent = sc["recent_open"]["requests"]
+    assert recent and all(r["created_at"] >= "2026-08-27" for r in recent)
+    assert [r["created_at"] for r in recent] == sorted((r["created_at"] for r in recent), reverse=True)
+    assert all(not r["address"] or not r["address"][0].isdigit() or " block of " in r["address"] or r["address"].startswith("1–99")
+               for r in recent)
+    assert "places" in sc["repeats"]

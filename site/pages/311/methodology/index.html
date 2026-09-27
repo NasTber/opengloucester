@@ -32,12 +32,21 @@
   <dt>Per 1,000 residents</dt><dd>Requests divided by the ward's 2020 census population, times 1,000.</dd>
 </dl>
 
+<h2 id="locations">Maps and locations</h2>
+<dl class="defs">
+  <dt>Locations shown</dt><dd>Addresses are shown by block, such as "200 block of Main St", not by house number. Intersections and landmarks are shown as listed.</dd>
+  <dt>Left off maps and lists</dt><dd>Requests about private homes, people, and animals: Health Department, Private Property, Animal, and Police Department categories. They still count in the totals.</dd>
+  <dt>Repeat location</dt><dd>Requests in the same category within {{ config.seeclickfix.repeats.radius_m }} meters and {{ config.seeclickfix.repeats.window_days }} days of each other, in a chain, count as one place. A place is listed when a request there came in after an earlier request at that place was closed. Past 12 months.</dd>
+  <dt>Map</dt><dd>Points are placed within about 10 meters. Map data from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>. Every place on a map is also listed on the page.</dd>
+</dl>
+
 <h2 id="limits">Keep in mind</h2>
 <ul>
   <li>A closed request isn't always a fixed problem. Duplicates and requests outside the city's responsibility also get closed.</li>
   <li>Some departments use SeeClickFix more than others.</li>
   <li>Ward differences reflect how often people report problems, not only how the city responds.</li>
   <li>Recent months will change as requests close.</li>
+  <li>A repeat location isn't always the same problem. It can be a problem that came back, a fix that didn't hold, or a separate problem nearby.</li>
   <li>Numbers based on fewer than 5 requests aren't shown.</li>
 </ul>
 

@@ -29,6 +29,7 @@ data/                       Collected data, committed by the daily job
 site/templates/             Shared layout and per-record templates (meeting, board)
 site/pages/                 One folder per section; each index.html becomes /<section>/
 site/static/                CSS, icons, and other files copied as-is
+site/static/vendor/leaflet/ Leaflet 1.9.4 map library, self-hosted (BSD-2-Clause)
 tests/                      Pipeline, structure, link, and accessibility checks (offline)
 .github/workflows/          Daily update, test, and deploy to GitHub Pages
 ```

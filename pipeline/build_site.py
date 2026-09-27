@@ -31,6 +31,7 @@ from markupsafe import Markup, escape
 from pipeline.config import DATA_DIR, ROOT, load_config
 from pipeline import summarize
 from pipeline.fetch_meetings import slugify
+from pipeline.seeclickfix import short_address
 
 SITE_DIR = ROOT / "site"
 PAGES_DIR = SITE_DIR / "pages"
@@ -129,12 +130,6 @@ def format_duration_cell(days: float | None) -> str:
 def model_name(model_id: str) -> str:
     """'claude-sonnet-5' -> 'Claude Sonnet 5'."""
     return " ".join(part.capitalize() for part in model_id.split("-"))
-
-
-def short_address(address: str) -> str:
-    """'29 Emerson Avenue Gloucester, Massachusetts, 01930' -> '29 Emerson Avenue'."""
-    short = re.split(r",?\s+Gloucester\b", address or "", maxsplit=1, flags=re.I)[0].strip(" ,")
-    return short or address
 
 
 def format_number(n: float | int | None) -> str:
@@ -300,6 +295,27 @@ def headline_numbers(data_dir: Path, scorecard: dict | None) -> list[dict]:
     return numbers
 
 
+def plural(n: int, word: str) -> str:
+    return f"{n:,} {word}{'' if n == 1 else 's'}"
+
+
+def map_points(sc: dict | None) -> dict:
+    """Points for the 311 maps. The pages list the same places as text."""
+    if not sc:
+        return {"recent": [], "repeats": []}
+    recent = [{
+        "lat": r["lat"], "lng": r["lng"], "title": r["category"], "url": r["url"],
+        "text": f"{r['address'] or 'No street address'}. Submitted {format_date(r['created_at'][:10], 'plain')}.",
+    } for r in sc.get("recent_open", {}).get("requests", [])]
+    repeats = [{
+        "lat": p["lat"], "lng": p["lng"], "title": p["address"] or "No street address",
+        "text": f"{p['category']}. {plural(p['reports'], 'request')}, {p['again_after_close']:,} after an earlier one was closed.",
+        "url": p["requests"][-1]["url"], "link": "Latest request on SeeClickFix",
+        "size": 5 + min(p["again_after_close"], 8),
+    } for p in sc.get("repeats", {}).get("places", [])]
+    return {"recent": recent, "repeats": repeats}
+
+
 # ---- Build -----------------------------------------------------------------
 
 def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | None = None) -> list[str]:
@@ -325,7 +341,12 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
                        model_name=model_name, capitalize_first=lambda t: Markup(t[:1].upper() + t[1:]))
     # Versioned asset URLs, so a browser never pairs new pages with an old cached stylesheet.
     css_version = hashlib.sha256((STATIC_DIR / "css" / "site.css").read_bytes()).hexdigest()[:10]
-    env.globals.update(group_by=group_by, today=built_at.date().isoformat(), css_version=css_version,
+    def versioned(path: str) -> str:
+        """'/static/js/map.js' -> '/static/js/map.js?v=<hash>'."""
+        digest = hashlib.sha256((STATIC_DIR / path.removeprefix("/static/")).read_bytes()).hexdigest()[:10]
+        return f"{path}?v={digest}"
+    env.filters["versioned"] = versioned
+    env.globals.update(group_by=group_by, today=built_at.date().isoformat(), css_version=css_version, plural=plural,
                        change=lambda diff, since: change_text(diff, "", since))
 
     if out_dir.exists():
@@ -336,7 +357,7 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     sections = config["sections"]
     common = dict(config=config, site=site, town=config["town"], sections=sections,
                   built_at=built_at, meetings=meetings, scorecard=scorecard,
-                  headline=headline_numbers(data_dir, scorecard))
+                  headline=headline_numbers(data_dir, scorecard), map_points=map_points(scorecard))
     urls = []
 
     def render(template: str, url: str, **context) -> None:
@@ -397,6 +418,13 @@ def write_311_csvs(folder: Path, sc: dict) -> None:
     write_csv(folder / "by-ward.csv", ["ward", "population_2020", "per_1000_residents", *summary],
               [[w["ward"], w.get("population_2020"), w.get("per_1000_residents"), *row(w)] for w in sc["by_ward"]])
     write_csv(folder / "by-category.csv", ["category", *summary], [[c["category"], *row(c)] for c in sc["categories"]])
+    write_csv(folder / "recent-open.csv", ["id", "submitted", "category", "location", "ward", "url"],
+              [[r["id"], r["created_at"][:10], r["category"], r["address"], r["ward"], r["url"]]
+               for r in sc.get("recent_open", {}).get("requests", [])])
+    write_csv(folder / "repeat-locations.csv",
+              ["location", "category", "ward", "requests", "after_a_close", "still_open", "first", "last", "request_urls"],
+              [[p["address"], p["category"], p["ward"], p["reports"], p["again_after_close"], p["open"], p["first"], p["last"],
+                " ".join(r["url"] for r in p["requests"])] for p in sc.get("repeats", {}).get("places", [])])
     write_csv(folder / "open-by-age.csv", ["open_for", "requests"], [[b["label"], b["count"]] for b in sc["backlog"]["buckets"]])
     for w in sc.get("wards", []):
         write_csv(folder / f"ward-{w['ward']}.csv", ["category", *summary], [[c["category"], *row(c)] for c in w["by_category"]])

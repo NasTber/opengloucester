@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-{% from "charts.html" import month_columns, bars, chart_links %}
+{% from "charts.html" import month_columns, bars, chart_links, map_figure, map_assets %}
 {% block title %}311 Requests{% endblock %}
 {% block description %}How quickly the City of {{ town.name }} acknowledges and closes public service requests, how many are still open, by category and ward.{% endblock %}
 {% set sc = scorecard %}
+{% block head %}{% if scorecard %}{{ map_assets() }}{% endif %}{% endblock %}
 {% block content %}
 <div class="page-head">
   <h1>311 Requests</h1>
@@ -12,6 +13,7 @@
   {% endif %}
   <ul class="link-row">
     <li><a href="/311/methodology/">How these numbers are calculated</a></li>
+    <li><a href="/311/repeat-locations/">Repeat locations</a></li>
     <li><a href="{{ config.seeclickfix.report_url }}">Report a problem to the city</a></li>
   </ul>
 </div>
@@ -142,6 +144,40 @@
   <li><a href="{{ r.url }}">{{ r.category }}</a>, {{ (r.address | street) or "no address" }}{% if r.ward %}, Ward {{ r.ward }}{% endif %}. Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>
   {% endfor %}
 </ol>
+
+{# ---- Newest open ---- #}
+{% set recent = sc.get("recent_open", {"days": 30, "requests": []}) %}
+<h2 id="recent">Opened in the past {{ recent.days }} days</h2>
+{% if recent.requests %}
+<p>{{ plural(recent.requests | length, "request") }} from the past {{ recent.days }} days {{ "is" if recent.requests | length == 1 else "are" }} still open. Requests about private homes, people, and animals aren't mapped.</p>
+{{ map_figure("recent", map_points.recent, "Map of open requests from the past " ~ recent.days ~ " days. The same requests are listed below.") }}
+<details class="expand">
+  <summary>See as a list</summary>
+  <ol class="plain-list">
+    {% for r in recent.requests %}
+    <li><a href="{{ r.url }}">{{ r.category }}</a>, {{ r.address or "no street address" }}{% if r.ward %}, Ward {{ r.ward }}{% endif %}. Submitted <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>
+    {% endfor %}
+  </ol>
+</details>
+{% else %}
+<p>No mapped requests from the past {{ recent.days }} days are open.</p>
+{% endif %}
+{{ chart_links("recent", "/311/data/recent-open.csv") }}
+
+{# ---- Repeat locations ---- #}
+{% set places = sc.get("repeats", {"places": []}).places %}
+<h2 id="repeats">Repeat locations</h2>
+<p>{{ plural(places | length, "place") }} had a problem reported again after an earlier request there was closed, in the past 12 months.</p>
+{% if places %}
+<ol class="plain-list">
+  {% for pl in places[:5] %}
+  <li>{{ pl.address or "No street address" }}{% if pl.ward %}, Ward {{ pl.ward }}{% endif %}: <a href="/311/category/{{ pl.slug }}/">{{ pl.category }}</a>. {{ plural(pl.reports, "request") }}, {{ pl.again_after_close | number }} after a close.</li>
+  {% endfor %}
+</ol>
+{% endif %}
+<ul class="link-row">
+  <li><a href="/311/repeat-locations/">All repeat locations</a></li>
+</ul>
 
 <p class="source-note">Data from <a href="https://seeclickfix.com">seeclickfix.com</a>, used under the <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a> license. Public requests only; recorded back to {{ sc.data_since | date("plain") }}. Figures from fewer than {{ sc.min_sample }} requests show "Not enough data". <a href="/311/methodology/">Methodology</a>.</p>
 {% endif %}

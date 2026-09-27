@@ -75,6 +75,16 @@ max_details_per_run = 700
 time_budget_seconds = 2400
 precincts_file = "gloucester-precincts-2022.geojson"
 
+# Repeat locations: requests in the same category within radius_m meters and
+# window_days days of each other are grouped as one place. Categories matching
+# these patterns (private homes, people, animals) are counted in the totals but
+# left off the map and the repeat list.
+[seeclickfix.repeats]
+radius_m = 50
+window_days = 60
+recent_open_days = 30
+exclude = ["^Health Department", "^Private Property", "^Animal", "^Police Department"]
+
 # Plain-English agenda text and previews, written by a language model and
 # labeled as AI-generated on the site. Cached by document hash.
 [summaries]

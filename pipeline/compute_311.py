@@ -11,7 +11,9 @@ from __future__ import annotations
 
 import argparse
 import json
-from collections import defaultdict
+import math
+import re
+from collections import Counter, defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
 from statistics import median, quantiles
@@ -21,6 +23,7 @@ from pipeline.config import DATA_DIR, load_config
 from pipeline.fetch_311 import load_store, save_json, store_dir, tag_wards
 from pipeline.fetch_meetings import slugify
 from pipeline.geo import PrecinctLookup
+from pipeline.seeclickfix import block_address
 
 # Statistics from fewer requests than this are not shown.
 MIN_SAMPLE = 5
@@ -125,6 +128,96 @@ def backlog(open_records: list[dict], now: datetime, link_base: str) -> dict:
     }
 
 
+def distance_m(a: dict, b: dict) -> float:
+    """Distance in meters between two requests' map points (haversine)."""
+    lat1, lng1, lat2, lng2 = map(math.radians, (a["lat"], a["lng"], b["lat"], b["lng"]))
+    h = math.sin((lat2 - lat1) / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin((lng2 - lng1) / 2) ** 2
+    return 2 * 6371000 * math.asin(math.sqrt(h))
+
+
+def mappable(records: list[dict], exclude: list[str]) -> list[dict]:
+    """Requests that can be shown on the map and the repeat list."""
+    patterns = [re.compile(p) for p in exclude]
+    return [r for r in records if r.get("lat") is not None and r.get("lng") is not None
+            and not any(p.search(r["category"]) for p in patterns)]
+
+
+def point(r: dict) -> dict:
+    # Four decimal places: about 10 meters, enough to place a marker.
+    return {"lat": round(r["lat"], 4), "lng": round(r["lng"], 4)}
+
+
+def repeat_locations(records: list[dict], radius_m: float, window_days: int, link_base: str) -> list[dict]:
+    """Places where the same kind of problem was reported more than once.
+
+    Requests in the same category are grouped when they are within radius_m of
+    each other and submitted within window_days of each other, in a chain. A
+    place is listed when a request there came in after an earlier one at the
+    same place had been closed.
+    """
+    parent = {r["id"]: r["id"] for r in records}
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    by_category = defaultdict(list)
+    for r in records:
+        by_category[r["category"]].append(r)
+    window = timedelta(days=window_days)
+    for rs in by_category.values():
+        rs.sort(key=lambda r: r["created_at"])
+        times = [parse(r["created_at"]) for r in rs]
+        for i, a in enumerate(rs):
+            for j in range(i + 1, len(rs)):
+                if times[j] - times[i] > window:
+                    break
+                if distance_m(a, rs[j]) <= radius_m:
+                    parent[find(a["id"])] = find(rs[j]["id"])
+
+    groups = defaultdict(list)
+    for r in records:
+        groups[find(r["id"])].append(r)
+    places = []
+    for rs in groups.values():
+        if len(rs) < 2:
+            continue
+        rs.sort(key=lambda r: r["created_at"])
+        closes = [closed_time(r) for r in rs]
+        again = sum(1 for i, r in enumerate(rs)
+                    if any(c and c < parse(r["created_at"]) for c in closes[:i]))
+        if not again:
+            continue
+        block = Counter(block_address(r["address"]) for r in rs).most_common(1)[0][0]
+        ward = Counter(r.get("ward") for r in rs).most_common(1)[0][0]
+        places.append({
+            "category": rs[0]["category"], "slug": slugify(rs[0]["category"]),
+            "address": block, "ward": ward,
+            "reports": len(rs), "again_after_close": again,
+            "open": sum(1 for r in rs if r["status"] == "open"),
+            "first": rs[0]["created_at"][:10], "last": rs[-1]["created_at"][:10],
+            "lat": round(sum(r["lat"] for r in rs) / len(rs), 4),
+            "lng": round(sum(r["lng"] for r in rs) / len(rs), 4),
+            "requests": [{"id": r["id"], "created_at": r["created_at"][:10], "status": r["status"],
+                          "url": f"{link_base}/{r['id']}"} for r in rs],
+        })
+    places.sort(key=lambda p: (-p["again_after_close"], -p["reports"], p["address"]))
+    return places
+
+
+def recent_open(records: list[dict], now: datetime, days: int, link_base: str) -> list[dict]:
+    """Open requests submitted in the last few days, newest first."""
+    since = now - timedelta(days=days)
+    rs = [r for r in records if r["status"] == "open" and parse(r["created_at"]) >= since]
+    return [{
+        "id": r["id"], "category": r["category"], "address": block_address(r["address"]),
+        "ward": r.get("ward"), "created_at": r["created_at"], **point(r),
+        "url": f"{link_base}/{r['id']}",
+    } for r in sorted(rs, key=lambda r: r["created_at"], reverse=True)]
+
+
 def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
     tz = ZoneInfo(config["site"]["timezone"])
     now = now or datetime.now(tz)
@@ -184,6 +277,10 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
             "oldest": oldest_open([r for r in open_records if (r.get("ward") or "outside") == w], now, link_base),
         })
 
+    rep = config["seeclickfix"]["repeats"]
+    on_map = mappable(records, rep["exclude"])
+    on_map_window = [r for r in on_map if parse(r["created_at"]) >= window_start]
+
     return {
         "generated_at": now.isoformat(timespec="seconds"),
         "window": {"start": window_start.date().isoformat(), "end": now.date().isoformat(), "days": 365},
@@ -209,6 +306,10 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
         ],
         "categories": categories,
         "wards": wards_detail,
+        "repeats": {"radius_m": rep["radius_m"], "window_days": rep["window_days"],
+                    "places": repeat_locations(on_map_window, rep["radius_m"], rep["window_days"], link_base)},
+        "recent_open": {"days": rep["recent_open_days"],
+                        "requests": recent_open(on_map, now, rep["recent_open_days"], link_base)},
     }
 
 

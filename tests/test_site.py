@@ -201,3 +201,21 @@ def test_preview_line_fallbacks():
     assert len(clipped) <= 141 and clipped.endswith("…")
     assert preview_line({"minutes_summary": {"is_minutes": False, "decisions": []}, "preview": {"headline": "H"}}) == "H"
     assert preview_line({}) is None
+
+
+def test_repeat_locations_page_and_maps(site_dir):
+    import csv
+    page = (site_dir / "311" / "repeat-locations" / "index.html").read_text()
+    assert "<h1>Repeat locations</h1>" in page
+    assert "/static/js/map.js?v=" in page
+    main = (site_dir / "311" / "index.html").read_text()
+    data = json.loads(main.split('id="map-data-recent">')[1].split("</script>")[0])
+    assert data and all({"lat", "lng", "title", "url"} <= p.keys() for p in data)
+    assert not any(p["title"].startswith(("Health Department", "Private Property", "Animal", "Police"))
+                   for p in data)
+    # The map is an extra: the same requests are listed as text.
+    assert main.count('href="https://seeclickfix.com/issues/') >= len(data)
+    rows = list(csv.reader((site_dir / "311" / "data" / "recent-open.csv").open()))
+    assert rows[0] == ["id", "submitted", "category", "location", "ward", "url"] and len(rows) == len(data) + 1
+    assert (site_dir / "311" / "data" / "repeat-locations.csv").exists()
+    assert (site_dir / "static" / "vendor" / "leaflet" / "leaflet.js").exists()
