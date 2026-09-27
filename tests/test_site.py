@@ -65,6 +65,12 @@ def test_support_files(site_dir, config):
     assert "sitemap.xml" in (site_dir / "robots.txt").read_text()
 
 
+def test_share_image(site_dir, config):
+    image = f"https://{config['site']['domain']}/static/share/{config['slug']}.png"
+    assert f'<meta property="og:image" content="{image}">' in (site_dir / "311" / "index.html").read_text()
+    assert (site_dir / "static" / "share" / f"{config['slug']}.png").exists()
+
+
 def test_every_page_has_accessible_structure(page_files):
     titles = set()
     for path in page_files:

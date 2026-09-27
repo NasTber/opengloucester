@@ -248,7 +248,9 @@ main .hbars > li { max-width: none; margin: 0; }
   font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
 }
 .data-table tbody th { font-weight: 600; }
+.data-table .cell-note { font-weight: 400; font-size: 0.875rem; }
 .data-table .num { text-align: right; white-space: nowrap; }
+.data-table thead th.num { white-space: normal; }
 .data-table .wide { display: none; }
 @media (min-width: 48rem) { .data-table .wide { display: table-cell; } }
 

@@ -28,12 +28,11 @@
 <p class="small">Sorted by requests submitted after an earlier request at the same place was closed.</p>
 <div class="table-wrap">
 <table class="data-table">
-  <thead><tr><th scope="col">Location</th><th scope="col">Category</th><th scope="col" class="num">Requests</th><th scope="col" class="num">After a close</th><th scope="col" class="num wide">Still open</th><th scope="col" class="wide">Dates</th></tr></thead>
+  <thead><tr><th scope="col">Location and category</th><th scope="col" class="num">Requests</th><th scope="col" class="num">After a close</th><th scope="col" class="num wide">Still open</th><th scope="col" class="wide">Dates</th></tr></thead>
   <tbody>
   {% for pl in places %}
     <tr>
-      <th scope="row"><a href="{{ pl.requests[-1].url }}">{{ pl.address or "No street address" }}</a>{% if pl.ward %}<span class="small">, Ward {{ pl.ward }}</span>{% endif %}</th>
-      <td><a href="/311/category/{{ pl.slug }}/">{{ pl.category }}</a></td>
+      <th scope="row"><a href="{{ pl.requests[-1].url }}">{{ pl.address or "No street address" }}</a>{% if pl.ward %}<span class="small">, Ward {{ pl.ward }}</span>{% endif %}<br><span class="cell-note"><a href="/311/category/{{ pl.slug }}/">{{ pl.category }}</a></span></th>
       <td class="num">{{ pl.reports | number }}</td>
       <td class="num">{{ pl.again_after_close | number }}</td>
       <td class="num wide">{{ pl.open | number }}</td>

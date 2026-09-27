@@ -83,6 +83,14 @@ Rules for new pages:
 - Pages work without JavaScript wherever possible.
 - Check each new section by hand with a keyboard and a screen reader before launch.
 
+## Share image
+
+The picture shown when a page is shared is `site/static/share/<town>.png`. Redraw it after changing the site name or tagline:
+
+```
+python -m pipeline.make_share_image --town gloucester
+```
+
 ## Deploying
 
 Pushes to `main` test, build, and deploy. Pull requests test only. The daily schedule and the **Run workflow** button also fetch new data first.
@@ -99,7 +107,7 @@ One-time setup:
 
 ## Data and licenses
 
-See [`data/README.md`](data/README.md). 311 data comes from [SeeClickFix](https://seeclickfix.com) under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/). Other sources are listed on the site's [About page](https://opengloucester.org/about/).
+The code is under the [MIT License](LICENSE). Data keeps the terms of its source. See [`data/README.md`](data/README.md). 311 data comes from [SeeClickFix](https://seeclickfix.com) under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/). Other sources are listed on the site's [About page](https://opengloucester.org/about/).
 
 ## Secrets
 

@@ -363,7 +363,9 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
 
     own_hosts = {site["domain"], "www." + site["domain"]}
     sections = config["sections"]
-    common = dict(config=config, site=site, town=config["town"], sections=sections,
+    share_path = STATIC_DIR / "share" / f"{town}.png"
+    share_image = f"{base_url}/static/share/{town}.png" if share_path.exists() else None
+    common = dict(config=config, site=site, town=config["town"], sections=sections, share_image=share_image,
                   built_at=built_at, meetings=meetings, scorecard=scorecard, schools=schools,
                   headline=headline_numbers(data_dir, scorecard), map_points=map_points(scorecard))
     urls = []
