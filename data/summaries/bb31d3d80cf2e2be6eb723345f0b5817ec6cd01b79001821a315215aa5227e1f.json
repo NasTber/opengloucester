@@ -1,17 +1,18 @@
 {
-  "transcript": "This meeting is recorded\n\nCity Clerk posting date: 2026 SEP 23 AM 10:02\n\n# GLOUCESTER CITY COUNCIL\n## Ordinances & Administration Committee\n### Monday, October 5, 2026 - 6:00 p.m.\n### City Hall\n### 9 Dale Avenue, Gloucester, MA 01930\n### 1st Floor Council Conference Room\n\nThe public is welcome to attend in person. Zoom link to access the meeting remotely is also available:\nJoin from Computer, Smart Device: https://gloucester-ma-gov.zoom.us/j/89822548343\nJoin via Phone: 1 305 224 1968 or 1 309 205 3325\nMeeting ID: 898 2254 8343\n\n*Please note that the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.*\n\n## AGENDA\n**Individual items from committee reports may be consolidated into a consent agenda**\n\n1. CC#2026-018 (Gross): Amend Ch. 2 \"Administration,\" Art. 2 \"City Council,\" Sec. 28 \"Fees\" by DELETING \"and published in a local newspaper whenever fee changes or new fees are approved by the City Council.\"\n\n### COMMITTEE\nChair, Councilor Sean Nolan\nVice Chair, Frank Margiotta\nCouncilor Marjorie Grace\n\nCC: Mayor Paul Lundberg; Kelly Dolan; Grace E. Poirier; Suzanne P. Egan\n\nThe listing of matters is those reasonably anticipated by the Chair which may be discussed at the meeting. Not all items listed may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law",
-  "summary": "The Gloucester City Council Ordinances & Administration Committee will meet on Monday, October 5, 2026 at 6:00 p.m. at City Hall. The committee will discuss CC#2026-018 (Gross), which would amend Chapter 2 \"Administration,\" Article 2 \"City Council,\" Section 28 \"Fees\" by deleting the requirement that fee changes or new fees be published in a local newspaper when approved by the City Council.",
+  "transcript": "# GLOUCESTER CITY COUNCIL\n## Ordinances & Administration Committee\n### Monday, October 5, 2026 - 6:00 p.m.\n### City Hall\n### 9 Dale Avenue, Gloucester, MA 01930\n### 1st Floor Council Conference Room\n\nPosted: 2026 SEP 23 AM 10:02\n\nThe public is welcome to attend in person. Zoom link to access the meeting remotely is also available:\nJoin from Computer, Smart Device: https://gloucester-ma-gov.zoom.us/j/89822548343\nJoin via Phone: 1 305 224 1968 or 1 309 205 3325\nMeeting ID: 898 2254 8343\n\n*Please note that the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.*\n\n## AGENDA\n**Individual items from committee reports may be consolidated into a consent agenda**\n\n1. CC#2026-018 (Gross): Amend Ch. 2 \"Administration,\" Art. 2 \"City Council,\" Sec. 28 \"Fees\" by DELETING \"and published in a local newspaper whenever fee changes or new fees are approved by the City Council.\"\n\n## COMMITTEE\nChair, Councilor Sean Nolan\nVice Chair, Frank Margiotta\nCouncilor Marjorie Grace\n\nCC: Mayor Paul Lundberg; Kelly Dolan; Grace E. Poirier; Suzanne P. Egan\n\nThe listing of matters is those reasonably anticipated by the Chair which may be discussed at the meeting. Not all items listed may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law",
+  "headline": "Committee to consider amending city fee ordinance to remove newspaper publication requirement for fee changes.",
+  "summary": "The committee will discuss CC#2026-018, a proposed change to Chapter 2, Article 2, Section 28 of city code. The change would delete the requirement that fee changes be published in a local newspaper.",
   "items": [
-    "CC#2026-018 (Gross): Amend Chapter 2 \"Administration,\" Article 2 \"City Council,\" Section 28 \"Fees\" by deleting the requirement that fee changes or new fees be published in a local newspaper when approved by the City Council"
+    "CC#2026-018 (Gross): Amend Ch. 2 \"Administration,\" Art. 2 \"City Council,\" Sec. 28 \"Fees\" by deleting the requirement that fee changes or new fees be published in a local newspaper"
   ],
   "kind": "agenda",
   "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20131",
   "source_sha256": "bb31d3d80cf2e2be6eb723345f0b5817ec6cd01b79001821a315215aa5227e1f",
   "model": "claude-sonnet-5",
-  "prompt_version": 2,
-  "generated_at": "2026-09-26T17:45:38-04:00",
+  "prompt_version": 3,
+  "generated_at": "2026-09-27T09:29:25-04:00",
   "usage": {
-    "input_tokens": 2379,
-    "output_tokens": 988
+    "input_tokens": 2498,
+    "output_tokens": 916
   }
 }

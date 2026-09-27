@@ -1,20 +1,21 @@
 {
-  "transcript": "City Clerk posting date: 2026 SEP 22 PM 1:10\n\n# Human Rights Commission\n## Hybrid Meeting Agenda\n## Gloucester City Hall\n## Council Conference Room\n## 9 Dale Avenue\n## Gloucester, MA 01930\n## September 28, 2026\n## 6:00 pm\n\nThe public is welcome to attend in person or remotely. A Zoom link to access the meeting remotely is also available.\n\n*Participants will need to download Zoom to their phone, tablet or computer. Join from Computer, Smart Device* https://gloucester-ma-gov.zoom.us/j/86129893412\n\n*Meeting ID: 86129893412*\n\n*Please visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join a remote meeting.*\n\n1. Call to order.\n2. Review and approval of July 27, 2026 minutes\n3. Meeting Joe Lucido, Assistant Director of Operations on City ADA compliance\n4. Review HRC Student Member Recruitment Search Draft Description\n5. Community updates.\n6. Next Meeting: October 26\n\n*The listing of matters is those reasonably anticipated by the chair, which may be discussed at the meeting. Not all items may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.*",
-  "summary": "The Gloucester Human Rights Commission will meet on September 28, 2026 to discuss City ADA compliance with Joe Lucido, Assistant Director of Operations, and to review a draft description for the HRC Student Member Recruitment Search. The commission will also share community updates and set the next meeting for October 26.",
+  "transcript": "# Human Rights Commission\n# Hybrid Meeting Agenda\n# Gloucester City Hall\n# Council Conference Room\n# 9 Dale Avenue\n# Gloucester, MA 01930\n# September 28, 2026\n# 6:00 pm\n\nCity Clerk, Gloucester, MA - posted 2026 SEP 22 PM 1:10\n\nThe public is welcome to attend in person or remotely. A Zoom link to access the meeting remotely is also available.\n\n*Participants will need to download Zoom to their phone, tablet or computer. Join from Computer, Smart Device* https://gloucester-ma-gov.zoom.us/j/86129893412\n\n*Meeting ID: 86129893412*\n\n*Please visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join a remote meeting.*\n\n1. Call to order.\n2. Review and approval of July 27, 2026 minutes\n3. Meeting Joe Lucido, Assistant Director of Operations on City ADA compliance\n4. Review HRC Student Member Recruitment Search Draft Description\n5. Community updates.\n6. Next Meeting: October 26\n\n*The listing of matters is those reasonably anticipated by the chair, which may be discussed at the meeting. Not all items may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.*",
+  "headline": "Commission to meet with Assistant Director of Operations on ADA compliance and review a student member recruitment description.",
+  "summary": "The commission will meet with Joe Lucido, Assistant Director of Operations, to discuss city ADA compliance. It will also review a draft description for HRC Student Member Recruitment Search and hear community updates.",
   "items": [
     "Meeting with Joe Lucido, Assistant Director of Operations, on City ADA compliance",
     "Review of HRC Student Member Recruitment Search Draft Description",
     "Community updates",
-    "Next meeting scheduled for October 26"
+    "Next meeting set for October 26"
   ],
   "kind": "agenda",
   "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20124",
   "source_sha256": "55449c061253c5be549f832f4f79f6e83d97b3df44784fdb8a8957b76c4bd227",
   "model": "claude-sonnet-5",
-  "prompt_version": 2,
-  "generated_at": "2026-09-26T17:45:38-04:00",
+  "prompt_version": 3,
+  "generated_at": "2026-09-27T09:29:25-04:00",
   "usage": {
-    "input_tokens": 2374,
-    "output_tokens": 764
+    "input_tokens": 2493,
+    "output_tokens": 769
   }
 }

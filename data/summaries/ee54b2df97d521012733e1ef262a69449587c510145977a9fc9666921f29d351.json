@@ -1,17 +1,18 @@
 {
-  "transcript": "# GLOUCESTER CITY COUNCIL CALENDAR OF BUSINESS\n# JOINT SPECIAL CITY COUNCIL & PLANNING BOARD MEETING #2026-005\n\n**TUESDAY, September 29, 2026**\n**6:30 P.M.**\n**KYROUZ AUDITORIUM, CITY HALL**\n**9 DALE AVENUE, GLOUCESTER MA 01930**\n**MEETINGS ARE RECORDED**\n\nThe public is welcome to attend in person. Zoom link to access the meeting remotely is also available.\n\nJoin from computer, smart device: https://gloucester-ma-gov.zoom.us/j/88973754678\nJoin via phone: 301 715 8592 & 305 224 1968\nMeeting ID: 889 7375 4678\n\n## AGENDA\n\n### PUBLIC HEARING\n1. PH2026-023: Consideration of the 2026 Housing Compass Plan\n\n**ROLL CALL** – Councilor Francisco Margiotta\n\n[Signature]\nCity Clerk\n\n**Meeting dates are subject to change. Check with City Clerk's Office**\n\n**NEXT REGULAR CITY COUNCIL MEETING, October 13, 2026**\n\n### NOTE: The Council President may rearrange the Order of Business in the interest of public convenience.\n\nThe listing of matters is those reasonably anticipated by the Chair, which may be discussed at the meeting. Not all items listed may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.\n\n*Posted: City Clerk, Gloucester, MA — 2026 SEP 11 AM 8:27*",
-  "summary": "The Gloucester City Council and Planning Board will hold a joint special meeting on September 29, 2026, at 6:30 P.M. in the Kyrouz Auditorium at City Hall. The meeting includes a public hearing labeled PH2026-023 to consider the 2026 Housing Compass Plan.",
+  "transcript": "# GLOUCESTER CITY COUNCIL CALENDAR OF BUSINESS\n# JOINT SPECIAL CITY COUNCIL & PLANNING BOARD MEETING #2026-005\n**TUESDAY, September 29, 2026**\n**6:30 P.M.**\n**KYROUZ AUDITORIUM, CITY HALL**\n**9 DALE AVENUE, GLOUCESTER MA 01930**\n**MEETINGS ARE RECORDED**\n\nThe public is welcome to attend in person. Zoom link to access the meeting remotely is also available.\n\nJoin from computer, smart device: https://gloucester-ma-gov.zoom.us/j/88973754678\nJoin via phone: 301 715 8592 & 305 224 1968\nMeeting ID: 889 7375 4678\n\n## AGENDA\n\n**PUBLIC HEARING**\n1. PH2026-023: Consideration of the 2026 Housing Compass Plan\n\nROLL CALL – Councilor Francisco Margiotta\n\n---\n\nMeeting dates are subject to change. Check with City Clerk's Office\n\nNEXT REGULAR CITY COUNCIL MEETING, October 13, 2026\n\nCity Clerk\n\n**NOTE: The Council President may rearrange the Order of Business in the interest of public convenience.**\n\nThe listing of matters is those reasonably anticipated by the Chair, which may be discussed at the meeting. Not all items listed may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.\n\nPosted: 2026 SEP 11 AM 8:27, City Clerk, Gloucester, MA",
+  "headline": "Council and Planning Board will hold a public hearing on the 2026 Housing Compass Plan.",
+  "summary": "The meeting includes a public hearing labeled PH2026-023 to consider the 2026 Housing Compass Plan.",
   "items": [
-    "Public hearing PH2026-023: Consideration of the 2026 Housing Compass Plan"
+    "Public Hearing PH2026-023: Consideration of the 2026 Housing Compass Plan"
   ],
   "kind": "agenda",
   "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20101",
   "source_sha256": "ee54b2df97d521012733e1ef262a69449587c510145977a9fc9666921f29d351",
   "model": "claude-sonnet-5",
-  "prompt_version": 2,
-  "generated_at": "2026-09-26T17:45:38-04:00",
+  "prompt_version": 3,
+  "generated_at": "2026-09-27T09:29:25-04:00",
   "usage": {
-    "input_tokens": 2384,
-    "output_tokens": 883
+    "input_tokens": 2503,
+    "output_tokens": 793
   }
 }

@@ -1,17 +1,18 @@
 {
-  "transcript": "# Gloucester Public Schools\n*Every Day Matters. Everybody Belongs. Everybody Learns.*\n\nCity Clerk posting date: 2026 SEP 25 AM 9:25\n\n## PROGRAM SUBCOMMITTEE MEETING\nWEDNESDAY, September 30, 2026\n5:30pm\nGloucester High School Library, 32 Leslie O. Johnson Road, Gloucester, MA 01930\nMeetings are Recorded\n\nThe public is welcome to attend meetings in person or, alternatively, through the Zoom link provided on the agenda. The meeting notice will reflect if the meeting is via Zoom only. As Open Meeting Law allows, the School Committee may continue to hold meetings remotely. Please note the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\n*If you are calling in on a phone, you can press Star 9 (*9) to request to speak. If you are watching on a computer or device, there is a \"raise hand\" button that you can tap or press to request to speak. Please use either of these options during oral communications to be recognized to speak.*\n\nPlease click the link below to join the webinar:\nhttps://gloucester-ma-gov.zoom.us/j/83701084611\nOr Telephone: (309) 205-3325 or (312) 626-6799\nWebinar ID: 837 0108 4611\n\n*Please visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join a remote meeting.*\n\n## AGENDA\n\n### I. CALL TO ORDER\n\n### II. REPORTS/DELIBERATIONS/DISCUSSION/ACTION\n- A. School Committee Operating Protocols\n\n### III. ADJOURNMENT\n\nThe listing of matters is those reasonably anticipated by the Chair, which may be discussed at the meeting. Not all items may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.\n\n*Our Mission is for all Students to be Successful, Engaged, Lifelong Learners*",
-  "summary": "The Program Subcommittee will meet on September 30, 2026 to discuss the School Committee Operating Protocols.",
+  "transcript": "# Gloucester Public Schools\n*Every Day Matters. Everybody Belongs. Everybody Learns.*\n\nPosted: 2026 SEP 25 AM 9:25\n\n## PROGRAM SUBCOMMITTEE MEETING\n\nWEDNESDAY, September 30, 2026\n5:30pm\nGloucester High School Library, 32 Leslie O. Johnson Road, Gloucester, MA 01930\nMeetings are Recorded\n\nThe public is welcome to attend meetings in person or, alternatively, through the Zoom link provided on the agenda. The meeting notice will reflect if the meeting is via Zoom only. As Open Meeting Law allows, the School Committee may continue to hold meetings remotely. Please note the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\n*If you are calling in on a phone, you can press Star 9 (*9) to request to speak. If you are watching on a computer or device, there is a \"raise hand\" button that you can tap or press to request to speak. Please use either of these options during oral communications to be recognized to speak.*\n\nPlease click the link below to join the webinar:\nhttps://gloucester-ma-gov.zoom.us/j/83701084611\nOr Telephone: (309) 205-3325 or (312) 626-6799\nWebinar ID: 837 0108 4611\n\n*Please visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join a remote meeting.*\n\n## AGENDA\n\n### I. CALL TO ORDER\n\n### II. REPORTS/DELIBERATIONS/DISCUSSION/ACTION\n\n- A. School Committee Operating Protocols\n\n### III. ADJOURNMENT\n\nThe listing of matters is those reasonably anticipated by the Chair, which may be discussed at the meeting. Not all items may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.\n\n*Our Mission is for all Students to be Successful, Engaged, Lifelong Learners*",
+  "headline": "Subcommittee will discuss School Committee Operating Protocols.",
+  "summary": "The meeting will cover a discussion of School Committee Operating Protocols under reports and deliberations.",
   "items": [
-    "Discuss School Committee Operating Protocols"
+    "School Committee Operating Protocols"
   ],
   "kind": "agenda",
   "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20140",
   "source_sha256": "820d77fd49d8499935e2683a503ec582e79694f4c7a2e46fa71f9fad7df4fcf0",
   "model": "claude-sonnet-5",
-  "prompt_version": 2,
-  "generated_at": "2026-09-26T17:45:38-04:00",
+  "prompt_version": 3,
+  "generated_at": "2026-09-27T09:29:25-04:00",
   "usage": {
-    "input_tokens": 2378,
-    "output_tokens": 952
+    "input_tokens": 2497,
+    "output_tokens": 949
   }
 }
