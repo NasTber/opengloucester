@@ -1,5 +1,5 @@
 {
-  "method": "bulk",
+  "method": "api",
   "months": [
     {
       "month": 6,
@@ -265,5 +265,5 @@
   "series_id": "LAUCT252615000000003",
   "source": "U.S. Bureau of Labor Statistics, Local Area Unemployment Statistics",
   "source_url": "https://data.bls.gov/timeseries/LAUCT252615000000003",
-  "updated_at": "2026-09-26T19:29:02-04:00"
+  "updated_at": "2026-09-27T07:59:56-04:00"
 }
