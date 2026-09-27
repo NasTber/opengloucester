@@ -178,3 +178,33 @@ class FakeBudgetDLS:
                     "FreeCash2": "free_cash.xlsx", "Dashboard.TrendAnalysisReports.StabFund": "stabilization.xlsx",
                     "351GenFunperCapita": "per_capita.xlsx"}[report]
         return FakeResponse((folder / name).read_bytes())
+
+
+class FakeHousing:
+    """Serves trimmed Census permit files, a saved Census Reporter response, a
+    stand-in PDF, and DLS parcel counts. Patch fetch_housing.pdf_text with
+    shi_pdf_text so the stand-in PDF reads as the saved inventory text."""
+
+    def __init__(self):
+        self.urls = []
+
+    def get(self, url):
+        import json
+        self.urls.append(url)
+        folder = FIXTURES / "housing"
+        if "census.gov/econ/bps" in url:
+            name = url.rsplit("/", 1)[1]
+            path = folder / f"bps_{name}"
+            text = path.read_bytes() if path.exists() else (folder / "bps_ne2025a.txt").read_bytes().split(b"\n \n")[0]
+            return FakeResponse(text)
+        if "censusreporter" in url:
+            return FakeJSONResponse(json.loads((folder / "census_reporter.json").read_text()))
+        if "mass.gov" in url:
+            return FakeResponse(b"%PDF-1.7 stand-in")
+        if "Parcel_counts" in url:
+            return FakeResponse((folder / "dls_parcels.xlsx").read_bytes())
+        raise AssertionError(url)
+
+
+def shi_pdf_text(pdf: bytes) -> str:
+    return (FIXTURES / "housing" / "shi_text.txt").read_text()

@@ -53,6 +53,12 @@ summary = "Where general fund money comes from and how it is spent, reserves, an
 status = "live"
 
 [[sections]]
+slug = "housing"
+title = "Housing"
+summary = "New homes permitted, home values and rents, affordable housing, and the housing stock."
+status = "live"
+
+[[sections]]
 slug = "about"
 title = "About"
 summary = "Data sources, update schedule, metric definitions, and corrections."
@@ -144,6 +150,19 @@ report_url = "https://gloucesterschoolsreport.com"
 [finance]
 dls_municipality = "Gloucester"
 dls_code = "107"
+
+# Housing: Census building permits (state and place FIPS codes), American
+# Community Survey through Census Reporter (geo ids), and the state's
+# Subsidized Housing Inventory PDF (the town's name as the PDF lists it).
+[housing]
+bps_region = "Northeast Region"
+bps_prefix = "ne"
+bps_state = "25"
+bps_place = "26150"
+census_geo = "16000US2526150"
+state_geo = "04000US25"
+shi_url = "https://www.mass.gov/doc/subsidized-housing-inventory-2/download"
+shi_name = "Gloucester"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics). City rates are
 # not seasonally adjusted; the state series is shown for context.

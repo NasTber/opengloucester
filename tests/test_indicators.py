@@ -117,3 +117,48 @@ def test_money_format():
     assert build_site.format_money(139295, "short") == "$139K"
     assert build_site.format_money(4711) == "$4,711"
     assert build_site.format_money(None) == "–"
+
+
+def test_housing_fetch(tmp_path, monkeypatch):
+    from fakes import FakeHousing, shi_pdf_text
+    from pipeline import fetch_housing
+    monkeypatch.setattr(fetch_housing, "pdf_text", shi_pdf_text)
+    config = load_config("gloucester")
+    result = fetch_housing.run(config, FakeHousing(), tmp_path, now=NOW)
+    assert result["problems"] == []
+    h = json.loads((tmp_path / "housing" / "housing.json").read_text())
+    # Only the Massachusetts Gloucester, not New Gloucester, ME or Gloucester City, NJ.
+    assert h["permits"]["years"] == [
+        {"year": 2024, "units": 79, "by_size": {"1 unit": 19, "2 units": 20, "3-4 units": 0, "5+ units": 40},
+         "months_reported": 0, "estimated": True},
+        {"year": 2025, "units": 77, "by_size": {"1 unit": 28, "2 units": 8, "3-4 units": 11, "5+ units": 30},
+         "months_reported": 12, "estimated": False}]
+    assert h["permits"]["year_to_date"] == {"year": 2026, "through_month": 8, "units": 50, "estimated": True}
+    town, state = h["acs"]["town"], h["acs"]["state"]
+    assert town["median_home_value"] == {"value": 600600, "moe": 17698}
+    assert town["median_rent"] == {"value": 1411, "moe": 94}
+    assert town["rent_30_plus"]["value"] == 55.1 and 0 < town["rent_30_plus"]["moe"] < 10
+    assert town["owner_occupied"] + town["renter_occupied"] + town["vacant"] == town["homes"]
+    assert state["median_rent"]["value"] > 0
+    assert h["shi"]["percent"] == 8.04 and h["shi"]["as_of"] == "2025-09-30" and h["shi"]["shi_units"] == 1117
+    assert h["parcels"]["fiscal_year"] == 2026 and h["parcels"]["types"]["Single-family homes"] == 7226
+
+
+def test_housing_keeps_last_figures_when_a_source_fails(tmp_path, monkeypatch):
+    from fakes import FakeHousing, shi_pdf_text
+    from pipeline import fetch_housing
+    from pipeline.http import FetchError
+    monkeypatch.setattr(fetch_housing, "pdf_text", shi_pdf_text)
+    config = load_config("gloucester")
+    fetch_housing.run(config, FakeHousing(), tmp_path, now=NOW)
+
+    class Blocked(FakeHousing):
+        def get(self, url):
+            if "mass.gov" in url:
+                raise FetchError("HTTP 403", 403)
+            return super().get(url)
+
+    result = fetch_housing.run(config, Blocked(), tmp_path, now=NOW.replace(month=11))
+    assert result["problems"] and result["problems"][0].startswith("shi:")
+    h = json.loads((tmp_path / "housing" / "housing.json").read_text())
+    assert h["shi"]["percent"] == 8.04

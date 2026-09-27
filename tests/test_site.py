@@ -261,3 +261,11 @@ def test_budget_page(site_dir):
     assert spending[0].startswith("fiscal_year,total,") and spending[-1].startswith("2025,140559783,")
     reserves = (site_dir / "budget" / "data" / "reserves.csv").read_text().splitlines()
     assert reserves[-1] == "2026,4112161,"
+
+
+def test_housing_page(site_dir):
+    page = (site_dir / "housing" / "index.html").read_text()
+    assert "8.04%" in page and "$601K" in page and "±$17,698" in page
+    assert "2020–2024" in page and "partly estimated" in page
+    permits = (site_dir / "housing" / "data" / "permits.csv").read_text().splitlines()
+    assert permits[0].startswith("year,homes,") and permits[-1].startswith("2025,77,")

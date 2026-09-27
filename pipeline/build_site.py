@@ -370,6 +370,8 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     schools = json.loads(schools_path.read_text(encoding="utf-8")) if schools_path.exists() else None
     budget_path = data_dir / "finance" / "budget.json"
     budget = json.loads(budget_path.read_text(encoding="utf-8")) if budget_path.exists() else None
+    housing_path = data_dir / "housing" / "housing.json"
+    housing = json.loads(housing_path.read_text(encoding="utf-8")) if housing_path.exists() else None
 
     env = Environment(
         loader=FileSystemLoader([SITE_DIR / "templates", PAGES_DIR]),
@@ -405,7 +407,7 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     share_path = STATIC_DIR / "share" / f"{town}.png"
     share_image = f"{base_url}/static/share/{town}.png" if share_path.exists() else None
     common = dict(config=config, site=site, town=config["town"], sections=sections, share_image=share_image, search_url=search_url,
-                  built_at=built_at, meetings=meetings, scorecard=scorecard, schools=schools, budget=budget,
+                  built_at=built_at, meetings=meetings, scorecard=scorecard, schools=schools, budget=budget, housing=housing,
                   headline=headline_numbers(data_dir, scorecard), map_points=map_points(scorecard))
     urls = []
 
@@ -440,6 +442,11 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         write_311_csvs(out_dir / "311" / "data", scorecard)
     if budget:
         write_budget_csvs(out_dir / "budget" / "data", budget)
+    if housing and housing.get("permits"):
+        write_csv(out_dir / "housing" / "data" / "permits.csv",
+                  ["year", "homes", "in_1_unit_buildings", "in_2_unit_buildings", "in_3_4_unit_buildings",
+                   "in_5_plus_unit_buildings", "partly_estimated"],
+                  [[y["year"], y["units"], *y["by_size"].values(), y["estimated"]] for y in housing["permits"]["years"]])
 
     for folder in ("agendas", "minutes"):
         src = data_dir / "meetings" / folder

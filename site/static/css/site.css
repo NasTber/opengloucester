@@ -265,6 +265,7 @@ main .hbars > li { max-width: none; margin: 0; }
 }
 .data-table tbody th { font-weight: 600; }
 .data-table .cell-note { font-weight: 400; font-size: 0.875rem; }
+.data-table .moe { display: block; color: var(--muted); }
 .data-table .num { text-align: right; white-space: nowrap; }
 .data-table thead th.num { white-space: normal; }
 .data-table .wide { display: none; }
