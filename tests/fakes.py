@@ -238,6 +238,8 @@ class FakeDrive:
         if "embeddedfolderview?id=" in url:
             page = FIXTURES / "drive" / f"{url.rsplit('=', 1)[1]}.html"
             return FakeResponse(page.read_bytes() if page.exists() else self.EMPTY_FOLDER)
+        if url.endswith("/meeting-schedule"):
+            return FakeResponse((FIXTURES / "drive" / "schedule.html").read_bytes())
         if "uc?export=download&id=" in url:
             return FakeResponse(self.pdf + f"\n% drive file {url.rsplit('=', 1)[1]}\n".encode())
         raise AssertionError(f"unexpected URL {url}")

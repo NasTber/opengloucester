@@ -163,7 +163,7 @@
 {% if m.source == "archive" %}
 <p>This meeting is known from its <a href="{{ m.minutes_doc.source_url }}">minutes in the City of {{ town.name }} Archive Center</a>. First recorded by {{ site.name }} on <time datetime="{{ m.first_seen }}">{{ m.first_seen | timestamp }}</time>.</p>
 {% elif m.source == "drive" %}
-<p>This meeting is known from documents {{ m.source_name }} posted on <a href="{{ m.source_url }}">its website</a>. It was not found on the City of {{ town.name }} calendar. First recorded by {{ site.name }} on <time datetime="{{ m.first_seen }}">{{ m.first_seen | timestamp }}</time>.</p>
+<p>This meeting is known from the <a href="{{ m.source_url }}">{{ m.source_name }} website</a>. It was not found on the City of {{ town.name }} calendar. First recorded by {{ site.name }} on <time datetime="{{ m.first_seen }}">{{ m.first_seen | timestamp }}</time>.</p>
 {% else %}
 <p><a href="{{ m.source_url }}">This meeting on the City of {{ town.name }} calendar</a>. First recorded by {{ site.name }} on <time datetime="{{ m.first_seen }}">{{ m.first_seen | timestamp }}</time>.</p>
 {% endif %}

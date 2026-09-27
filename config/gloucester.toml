@@ -307,6 +307,10 @@ page_url = "https://schoolcommittee.gloucesterschools.com/"
 agendas_folder = "1u0gqwhSFwcyDGzaTmXkdV-yLzgevHozW"
 minutes_folder = "1uDibz6g_fSFrl7MwqyU_bt__Sb2C_iPB"
 since = "2026-06-28"
+# The district's list of meeting dates for the year; upcoming meetings are
+# shown from it up to schedule_days_ahead days out, before agendas are posted.
+schedule_url = "https://schoolcommittee.gloucesterschools.com/meeting-schedule"
+schedule_days_ahead = 45
 abbreviations = ["SC", "B&F", "B & F", "Program", "Personnel", "Ad Hoc Communications", "Communications"]
 
 [drive_meetings.bodies]

@@ -10,7 +10,7 @@
 {% macro meeting_flags(m) -%}
 {%- set parts = [] -%}
 {%- if m.status != "scheduled" %}{% set _ = parts.append(m.status | capitalize) %}{% endif -%}
-{%- if not m.listed %}{% set _ = parts.append("Removed from city calendar") %}{% endif -%}
+{%- if not m.listed %}{% set _ = parts.append("Removed from the " ~ m.source_name ~ " schedule" if m.get("source") == "drive" else "Removed from city calendar") %}{% endif -%}
 {%- for p in parts %}<span class="flag">{{ p }}</span>{% if not loop.last %} · {% endif %}{% endfor -%}
 {%- endmacro %}
 
