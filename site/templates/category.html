@@ -12,8 +12,8 @@
 <ul class="stats">
   <li class="stat"><div><span class="stat-label">Requests</span><span class="stat-value">{{ c.received | number }}</span></div></li>
   <li class="stat"><div><span class="stat-label">Still open</span><span class="stat-value">{{ c.open | number }}</span></div></li>
-  <li class="stat"><div><span class="stat-label">Typical time to acknowledge</span><span class="stat-value">{{ c.time_to_acknowledge.median | duration }}</span><span class="stat-change">Median</span></div></li>
-  <li class="stat"><div><span class="stat-label">Typical time to close</span><span class="stat-value">{{ c.time_to_close.median | duration }}</span><span class="stat-change">Median{% if c.time_to_close.p90 %} · 1 in 10 over {{ c.time_to_close.p90 | duration }}{% endif %}</span></div></li>
+  <li class="stat"><div><span class="stat-label">Typical time to acknowledge</span><span class="stat-value">{{ c.time_to_acknowledge.median | duration }}</span><span class="stat-change">Median of {{ c.acknowledged | number }} acknowledged</span></div></li>
+  <li class="stat"><div><span class="stat-label">Typical time to close</span><span class="stat-value">{{ c.time_to_close.median | duration }}</span><span class="stat-change">Median of {{ c.closed | number }} closed{% if c.time_to_close.p90 %} · 1 in 10 over {{ c.time_to_close.p90 | duration }}{% endif %}</span></div></li>
 </ul>
 
 <h2 id="monthly">Requests by month</h2>
@@ -31,8 +31,6 @@
 <ol class="plain-list">
   {% for r in c.oldest %}<li><a href="{{ r.url }}">{{ r.address or "No street address" }}</a>{% if r.ward %}, Ward {{ r.ward }}{% endif %}. Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>{% endfor %}
 </ol>
-{% elif c.open %}
-<p>Open requests in this category aren't listed by location because they can be about private homes, people, or animals. They count in the totals above.</p>
 {% endif %}
 <p class="source-note"><a href="/311/methodology/">How these numbers are calculated</a>.</p>
 {% endblock %}

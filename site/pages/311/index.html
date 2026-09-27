@@ -35,13 +35,13 @@
     {% if o.time_to_acknowledge.median is none and o.checked < o.received %}
     <span class="stat-value">…</span><span class="stat-change">Still being collected</span>
     {% else %}
-    <span class="stat-value">{{ o.time_to_acknowledge.median | duration }}</span><span class="stat-change">Median</span>
+    <span class="stat-value">{{ o.time_to_acknowledge.median | duration }}</span><span class="stat-change">Median of acknowledged requests</span>
     {% endif %}
   </div></li>
   <li class="stat"><div>
     <span class="stat-label">Typical time to close</span>
     <span class="stat-value">{{ o.time_to_close.median | duration }}</span>
-    <span class="stat-change">Median · 1 in 10 took over {{ o.time_to_close.p90 | duration }}</span>
+    <span class="stat-change">Median of closed requests · 1 in 10 took over {{ o.time_to_close.p90 | duration }}</span>
   </div></li>
   <li class="stat"><div>
     <span class="stat-label">Requests, past 12 months</span>
@@ -49,8 +49,8 @@
     <span class="stat-change">{{ o.closed | number }} closed</span>
   </div></li>
 </ul>
-{% if o.checked < o.received %}
-<p class="small">Acknowledgment times are known for {{ o.checked | number }} of {{ o.received | number }} requests so far; the rest are being looked up.</p>
+{% if o.checked %}
+<p class="small">{{ o.acknowledged | number }} of {{ o.checked | number }} requests ({{ (o.acknowledged / o.checked * 100) | round | int }}%) were acknowledged by city staff{% if o.get("closed_unacknowledged") %}; another {{ o.closed_unacknowledged | number }} were closed without being acknowledged first{% endif %}. Time to close counts only closed requests; the {{ o.open | number }} still open are left out.{% if o.checked < o.received %} Acknowledgment times are known for {{ o.checked | number }} of {{ o.received | number }} requests so far; the rest are being looked up.{% endif %}</p>
 {% endif %}
 
 {# ---- Monthly ---- #}
@@ -115,7 +115,7 @@
 </div>
 {% if sc.categories | length > 10 %}
 <details class="expand">
-  <summary>All {{ sc.categories | length }} categories</summary>
+  <summary>{{ sc.categories | length - 10 }} more categories</summary>
   <div class="table-wrap">
   <table class="data-table">
     <thead><tr><th scope="col">Category</th><th scope="col" class="num">Requests</th><th scope="col" class="num">Typical close</th></tr></thead>
@@ -139,7 +139,6 @@
 {{ chart_links("open", "/311/data/open-by-age.csv") }}
 
 <h3 id="longest-open">Longest-open requests</h3>
-<p>Requests about private homes, people, and animals aren't listed.</p>
 <ol class="plain-list">
   {% for r in b.oldest %}
   <li><a href="{{ r.url }}">{{ r.category }}</a>, {{ r.address or "no street address" }}{% if r.ward %}, Ward {{ r.ward }}{% endif %}. Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>
@@ -150,7 +149,8 @@
 {% set recent = sc.get("recent_open", {"days": 30, "requests": []}) %}
 <h2 id="recent">Opened in the past {{ recent.days }} days</h2>
 {% if recent.requests %}
-<p>{{ plural(recent.requests | length, "request") }} from the past {{ recent.days }} days {{ "is" if recent.requests | length == 1 else "are" }} still open. Requests about private homes, people, and animals aren't mapped.</p>
+{% set unmapped = recent.requests | length - map_points.recent | length %}
+<p>{{ plural(recent.requests | length, "request") }} from the past {{ recent.days }} days {{ "is" if recent.requests | length == 1 else "are" }} still open.{% if unmapped %} {{ unmapped | number }} {{ "has" if unmapped == 1 else "have" }} no map location and {{ "is" if unmapped == 1 else "are" }} only in the list.{% endif %}</p>
 {{ map_figure("recent", map_points.recent, "Map of open requests from the past " ~ recent.days ~ " days. The same requests are listed below.") }}
 <details class="expand">
   <summary>See as a list</summary>
@@ -161,7 +161,7 @@
   </ol>
 </details>
 {% else %}
-<p>No mapped requests from the past {{ recent.days }} days are open.</p>
+<p>No requests from the past {{ recent.days }} days are open.</p>
 {% endif %}
 {{ chart_links("recent", "/311/data/recent-open.csv") }}
 

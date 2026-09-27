@@ -28,11 +28,12 @@
 {% set has_where = m.location_name or m.address or m.location %}
 {% if has_where or m.remote_url or m.source != "archive" %}
 <dl class="facts">
-  <div><dt>Where</dt><dd>{% if m.location_name %}{{ m.location_name }}<br>{% endif %}{{ m.address or m.location or "Not listed" }}</dd></div>
+  <div><dt>Where</dt><dd>{% if m.location_name %}{{ m.location_name }}<br>{% endif %}{{ m.address or m.location or ("Not listed" if m.source == "archive" else "Not listed on the city calendar") }}</dd></div>
   {% if m.remote_url %}<div><dt>Online</dt><dd><a href="{{ m.remote_url }}">Join by Zoom</a></dd></div>{% endif %}
   {% if not m.start_time and m.source != "archive" %}<div><dt>Time</dt><dd>Not listed</dd></div>{% endif %}
   {% if m.end_time %}<div><dt>Scheduled until</dt><dd>{{ m.end_time | time }}</dd></div>{% endif %}
 </dl>
+{% if m.source != "archive" and m.agenda %}<p class="small">Location from the city calendar. The posted agenda is the official notice; check it if the two differ.</p>{% endif %}
 {% endif %}
 
 {% if m.minutes_doc %}

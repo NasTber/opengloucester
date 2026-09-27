@@ -13,9 +13,6 @@ from __future__ import annotations
 
 import re
 
-# A leading house number, or a range like "2-98" or "101/2", then the street.
-HOUSE_NUMBER_RE = re.compile(r"^(\d+)[A-Za-z]?(?:\s*[-–/]\s*\d+[A-Za-z]?)?\s+(\D.*)$")
-
 
 def short_address(address: str) -> str:
     """'29 Emerson Avenue Gloucester, Massachusetts, 01930' -> '29 Emerson Avenue'."""
@@ -23,20 +20,10 @@ def short_address(address: str) -> str:
     return short or address
 
 
-def block_address(address: str) -> str:
-    """The block, not the house: '229 Main St ...' -> '200 block of Main St'.
-
-    Intersections, landmarks, and streets without a number are kept as they are.
-    """
+def street_address(address: str) -> str:
+    """The address as SeeClickFix lists it, without the town, state, and ZIP code."""
     short = short_address(address)
-    if re.fullmatch(r"\d{5}", short):  # a ZIP code alone
-        return ""
-    match = HOUSE_NUMBER_RE.match(short)
-    if not match:
-        return short
-    block = int(match.group(1)) // 100 * 100
-    street = match.group(2).strip()
-    return f"{block} block of {street}" if block else f"1–99 {street}"
+    return "" if re.fullmatch(r"\d{5}", short) else short  # a ZIP code alone
 
 
 def parse_open311(item: dict) -> dict:

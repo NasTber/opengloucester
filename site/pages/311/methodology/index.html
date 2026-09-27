@@ -16,7 +16,7 @@
 
 <h2 id="statuses">Statuses</h2>
 <dl class="defs">
-  <dt>Open</dt><dd>Submitted, not yet acknowledged.</dd>
+  <dt>New</dt><dd>Submitted, not yet acknowledged. Counts as open.</dd>
   <dt>Acknowledged</dt><dd>City staff marked it as seen. Still counts as open. Only staff can do this.</dd>
   <dt>Closed</dt><dd>Marked resolved. Anyone with an account can close a request, including the person who reported it.</dd>
   <dt>Archived</dt><dd>Closed requests are archived after 7 days. Counts as closed.</dd>
@@ -24,18 +24,17 @@
 
 <h2 id="measures">Measures</h2>
 <dl class="defs">
-  <dt>Time to acknowledge</dt><dd>Submission to staff acknowledgment. Requests never acknowledged are left out. Since only staff can acknowledge, this is the most direct measure of the city's response.</dd>
-  <dt>Time to close</dt><dd>Submission to the latest close. If a request was archived without a close time, the archive time is used.</dd>
+  <dt>Time to acknowledge</dt><dd>Submission to staff acknowledgment. Since only staff can acknowledge, this is the most direct measure of the city's response. Requests never acknowledged are left out, so the share that were acknowledged is shown alongside it. Many requests are closed without being acknowledged first.</dd>
+  <dt>Time to close</dt><dd>Submission to the latest close. If a request was archived without a close time, the archive time is used. Requests still open are left out, so the typical time to close is for closed requests only.</dd>
   <dt>Typical (median)</dt><dd>Half took less time, half took more. Unlike an average, a few very old requests don't skew it.</dd>
   <dt>1 in 10 took over</dt><dd>The 90th percentile: how long the slowest requests take.</dd>
   <dt>Ward</dt><dd>Based on the request's map location and the <a href="https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a">2022 MassGIS ward boundaries</a>.</dd>
-  <dt>Per 1,000 residents</dt><dd>Requests divided by the ward's 2020 census population, times 1,000.</dd>
+  <dt>Per 1,000 residents</dt><dd>Requests divided by the ward's 2020 census population, times 1,000. Ward populations come from the census, so they differ slightly from the state's newer citywide estimate used on the budget page.</dd>
 </dl>
 
 <h2 id="locations">Maps and locations</h2>
 <dl class="defs">
-  <dt>Locations shown</dt><dd>Addresses are shown by block, such as "200 block of Main St", not by house number. Intersections and landmarks are shown as listed.</dd>
-  <dt>Left off maps and lists</dt><dd>Requests about private homes, people, and animals: Health Department, Private Property, Animal, and Police Department categories. They still count in the totals.</dd>
+  <dt>Locations shown</dt><dd>Addresses, intersections, and landmarks are shown as they appear on SeeClickFix. Every public request can appear on the maps and lists, in every category. Requests without a map location are listed but not mapped.</dd>
   <dt>Repeat location</dt><dd>Requests in the same category within {{ config.seeclickfix.repeats.radius_m }} meters and {{ config.seeclickfix.repeats.window_days }} days of each other, in a chain, count as one place. A place is listed when a request there came in after an earlier request at that place was closed. Past 12 months.</dd>
   <dt>Map</dt><dd>Points are placed within about 10 meters. Map data from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>. Every place on a map is also listed on the page.</dd>
 </dl>

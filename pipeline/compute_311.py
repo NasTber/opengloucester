@@ -12,7 +12,6 @@ from __future__ import annotations
 import argparse
 import json
 import math
-import re
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -23,11 +22,11 @@ from pipeline.config import DATA_DIR, load_config
 from pipeline.fetch_311 import load_store, save_json, store_dir, tag_wards
 from pipeline.fetch_meetings import slugify
 from pipeline.geo import PrecinctLookup
-from pipeline.seeclickfix import block_address
+from pipeline.seeclickfix import street_address
 
 # Statistics from fewer requests than this are not shown.
 MIN_SAMPLE = 5
-BACKLOG_BUCKETS = [(7, "Under 1 week"), (30, "1 to 4 weeks"), (90, "1 to 3 months"),
+BACKLOG_BUCKETS = [(7, "Under 1 week"), (30, "1 week to 1 month"), (90, "1 to 3 months"),
                    (365, "3 to 12 months"), (None, "Over 1 year")]
 
 
@@ -78,6 +77,8 @@ def summarize(records: list[dict]) -> dict:
         "time_to_acknowledge": stats([days_between(parse(r["created_at"]), acknowledged_time(r)) for r in acked]),
         "checked": len(with_detail),
         "acknowledged": len(acked),
+        # Closed without ever being acknowledged, among requests looked up.
+        "closed_unacknowledged": sum(1 for r in with_detail if r["status"] == "closed" and not acknowledged_time(r)),
     }
 
 
@@ -97,13 +98,13 @@ def open_at(record: dict, when: datetime) -> bool:
     return closed is None or closed > when
 
 
-def oldest_open(records: list[dict], now: datetime, link_base: str, exclude: list[str], n: int = 10) -> list[dict]:
-    """Longest-open requests, by block, without the categories kept off lists."""
+def oldest_open(records: list[dict], now: datetime, link_base: str, n: int = 10) -> list[dict]:
+    """Longest-open requests."""
     return [{
-        "id": r["id"], "category": r["category"], "address": block_address(r["address"]), "ward": r.get("ward"),
+        "id": r["id"], "category": r["category"], "address": street_address(r["address"]), "ward": r.get("ward"),
         "created_at": r["created_at"], "age_days": round(days_between(parse(r["created_at"]), now), 1),
         "url": f"{link_base}/{r['id']}",
-    } for r in sorted(listable(records, exclude), key=lambda r: r["created_at"])[:n]]
+    } for r in sorted(records, key=lambda r: r["created_at"])[:n]]
 
 
 def month_counts(records: list[dict], months: list[str]) -> list[dict]:
@@ -113,7 +114,7 @@ def month_counts(records: list[dict], months: list[str]) -> list[dict]:
     return [{"month": m, "received": counts.get(m, 0)} for m in months]
 
 
-def backlog(open_records: list[dict], now: datetime, link_base: str, exclude: list[str]) -> dict:
+def backlog(open_records: list[dict], now: datetime, link_base: str) -> dict:
     buckets = [{"label": label, "max_days": limit, "count": 0} for limit, label in BACKLOG_BUCKETS]
     for r in open_records:
         age = days_between(parse(r["created_at"]), now)
@@ -125,7 +126,7 @@ def backlog(open_records: list[dict], now: datetime, link_base: str, exclude: li
         "open": len(open_records),
         "median_age_days": round(median([days_between(parse(r["created_at"]), now) for r in open_records]), 1) if open_records else None,
         "buckets": buckets,
-        "oldest": oldest_open(open_records, now, link_base, exclude),
+        "oldest": oldest_open(open_records, now, link_base),
     }
 
 
@@ -136,15 +137,9 @@ def distance_m(a: dict, b: dict) -> float:
     return 2 * 6371000 * math.asin(math.sqrt(h))
 
 
-def listable(records: list[dict], exclude: list[str]) -> list[dict]:
-    """Requests whose category can be shown on maps and lists."""
-    patterns = [re.compile(p) for p in exclude]
-    return [r for r in records if not any(p.search(r["category"]) for p in patterns)]
-
-
-def mappable(records: list[dict], exclude: list[str]) -> list[dict]:
-    """Requests that can be shown on the map and the repeat list."""
-    return [r for r in listable(records, exclude) if r.get("lat") is not None and r.get("lng") is not None]
+def mappable(records: list[dict]) -> list[dict]:
+    """Requests with a map location, for the map and the repeat list."""
+    return [r for r in records if r.get("lat") is not None and r.get("lng") is not None]
 
 
 def point(r: dict) -> dict:
@@ -195,11 +190,11 @@ def repeat_locations(records: list[dict], radius_m: float, window_days: int, lin
                     if any(c and c < parse(r["created_at"]) for c in closes[:i]))
         if not again:
             continue
-        block = Counter(block_address(r["address"]) for r in rs).most_common(1)[0][0]
+        address = Counter(street_address(r["address"]) for r in rs).most_common(1)[0][0]
         ward = Counter(r.get("ward") for r in rs).most_common(1)[0][0]
         places.append({
             "category": rs[0]["category"], "slug": slugify(rs[0]["category"]),
-            "address": block, "ward": ward,
+            "address": address, "ward": ward,
             "reports": len(rs), "again_after_close": again,
             "open": sum(1 for r in rs if r["status"] == "open"),
             "first": rs[0]["created_at"][:10], "last": rs[-1]["created_at"][:10],
@@ -213,12 +208,12 @@ def repeat_locations(records: list[dict], radius_m: float, window_days: int, lin
 
 
 def recent_open(records: list[dict], now: datetime, days: int, link_base: str) -> list[dict]:
-    """Open requests submitted in the last few days, newest first."""
+    """Open requests submitted in the last few days, newest first. Map points where known."""
     since = now - timedelta(days=days)
     rs = [r for r in records if r["status"] == "open" and parse(r["created_at"]) >= since]
     return [{
-        "id": r["id"], "category": r["category"], "address": block_address(r["address"]),
-        "ward": r.get("ward"), "created_at": r["created_at"], **point(r),
+        "id": r["id"], "category": r["category"], "address": street_address(r["address"]),
+        "ward": r.get("ward"), "created_at": r["created_at"], **(point(r) if mappable([r]) else {}),
         "url": f"{link_base}/{r['id']}",
     } for r in sorted(rs, key=lambda r: r["created_at"], reverse=True)]
 
@@ -254,7 +249,7 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
     open_records = [r for r in records if r["status"] == "open"]
     earliest = min((r["created_at"] for r in records), default=None)
     rep = config["seeclickfix"]["repeats"]
-    backlog_now = backlog(open_records, now, link_base, rep["exclude"])
+    backlog_now = backlog(open_records, now, link_base)
     backlog_now["open_week_ago"] = sum(open_at(r, now - timedelta(days=7)) for r in records)
 
     # Detail for the per-category and per-ward pages: past 12 months.
@@ -268,7 +263,7 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
             "category": c, "slug": slugify(c), **summarize(rs),
             "monthly": month_counts(rs, last_months),
             "by_ward": [{"ward": w, **summarize(ws)} for w, ws in sorted(wards.items(), key=lambda x: (x[0] == "outside", x[0]))],
-            "oldest": oldest_open([r for r in open_records if r["category"] == c], now, link_base, rep["exclude"]),
+            "oldest": oldest_open([r for r in open_records if r["category"] == c], now, link_base),
         })
     wards_detail = []
     for w, rs in sorted(by_ward.items(), key=lambda x: (x[0] == "outside", x[0])):
@@ -280,11 +275,10 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
             "monthly": month_counts(rs, last_months),
             "by_category": sorted(({"category": c, "slug": slugify(c), **summarize(cs)} for c, cs in cats.items()),
                                   key=lambda x: (-x["received"], x["category"])),
-            "oldest": oldest_open([r for r in open_records if (r.get("ward") or "outside") == w], now, link_base, rep["exclude"]),
+            "oldest": oldest_open([r for r in open_records if (r.get("ward") or "outside") == w], now, link_base),
         })
 
-    on_map = mappable(records, rep["exclude"])
-    on_map_window = [r for r in on_map if parse(r["created_at"]) >= window_start]
+    on_map_window = [r for r in mappable(records) if parse(r["created_at"]) >= window_start]
 
     return {
         "generated_at": now.isoformat(timespec="seconds"),
@@ -314,7 +308,7 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
         "repeats": {"radius_m": rep["radius_m"], "window_days": rep["window_days"],
                     "places": repeat_locations(on_map_window, rep["radius_m"], rep["window_days"], link_base)},
         "recent_open": {"days": rep["recent_open_days"],
-                        "requests": recent_open(on_map, now, rep["recent_open_days"], link_base)},
+                        "requests": recent_open(records, now, rep["recent_open_days"], link_base)},
     }
 
 

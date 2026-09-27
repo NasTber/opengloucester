@@ -12,8 +12,8 @@
 <ul class="stats">
   <li class="stat"><div><span class="stat-label">Requests</span><span class="stat-value">{{ w.received | number }}</span>{% if w.per_1000_residents %}<span class="stat-change">{{ w.per_1000_residents | round | int }} per 1,000 residents</span>{% endif %}</div></li>
   <li class="stat"><div><span class="stat-label">Still open</span><span class="stat-value">{{ w.open | number }}</span></div></li>
-  <li class="stat"><div><span class="stat-label">Typical time to acknowledge</span><span class="stat-value">{{ w.time_to_acknowledge.median | duration }}</span><span class="stat-change">Median</span></div></li>
-  <li class="stat"><div><span class="stat-label">Typical time to close</span><span class="stat-value">{{ w.time_to_close.median | duration }}</span><span class="stat-change">Median</span></div></li>
+  <li class="stat"><div><span class="stat-label">Typical time to acknowledge</span><span class="stat-value">{{ w.time_to_acknowledge.median | duration }}</span><span class="stat-change">Median of {{ w.acknowledged | number }} acknowledged</span></div></li>
+  <li class="stat"><div><span class="stat-label">Typical time to close</span><span class="stat-value">{{ w.time_to_close.median | duration }}</span><span class="stat-change">Median of {{ w.closed | number }} closed</span></div></li>
 </ul>
 
 <h2 id="monthly">Requests by month</h2>

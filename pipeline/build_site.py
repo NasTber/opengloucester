@@ -309,10 +309,14 @@ def headline_numbers(data_dir: Path, scorecard: dict | None) -> list[dict]:
             "label": "Open 311 requests", "value": f"{backlog['open']:,}", "href": "/311/#open",
             "change": change_text(backlog["open"] - backlog.get("open_week_ago", backlog["open"]), "", "last week"),
         })
-        ack = scorecard["overall"]["time_to_acknowledge"]
+        overall = scorecard["overall"]
+        # The median leaves out requests never acknowledged, so show how many were.
+        change = "Median, past 12 months"
+        if overall.get("checked"):
+            change += f" · {round(overall['acknowledged'] / overall['checked'] * 100)}% of requests were acknowledged"
         numbers.append({
-            "label": "Typical time for the city to acknowledge a request", "value": format_duration(ack["median"]),
-            "href": "/311/#speed", "change": "Median, past 12 months",
+            "label": "Typical time for the city to acknowledge a request",
+            "value": format_duration(overall["time_to_acknowledge"]["median"]), "href": "/311/#speed", "change": change,
         })
     tax_path = data_dir / "finance" / "tax_bill.json"
     if tax_path.exists():
@@ -353,7 +357,7 @@ def map_points(sc: dict | None) -> dict:
     recent = [{
         "lat": r["lat"], "lng": r["lng"], "title": r["category"], "url": r["url"],
         "text": f"{r['address'] or 'No street address'}. Submitted {format_date(r['created_at'][:10], 'plain')}.",
-    } for r in sc.get("recent_open", {}).get("requests", [])]
+    } for r in sc.get("recent_open", {}).get("requests", []) if r.get("lat") is not None]
     repeats = [{
         "lat": p["lat"], "lng": p["lng"], "title": p["address"] or "No street address",
         "text": f"{p['category']}. {plural(p['reports'], 'request')}, {p['again_after_close']:,} after an earlier one was closed.",
@@ -482,7 +486,7 @@ def write_budget_csvs(folder: Path, b: dict) -> None:
     sources = list(b["revenue"][-1]["sources"]) if b["revenue"] else []
     write_csv(folder / "revenue.csv", ["fiscal_year", "total", *sources],
               [[y["fiscal_year"], y["total"], *(y["sources"].get(s) for s in sources)] for y in b["revenue"]])
-    write_csv(folder / "levy.csv", ["fiscal_year", "levy", "levy_limit", "unused_levy_capacity", "levy_ceiling", "assessed_value"],
+    write_csv(folder / "levy.csv", ["fiscal_year", "levy", "max_allowable_levy", "unused_levy_capacity", "levy_ceiling", "assessed_value"],
               [[y["fiscal_year"], y["levy"], y["max_levy"], y["excess_capacity"], y["levy_ceiling"], y["assessed_value"]]
                for y in b["levy"]])
     write_csv(folder / "reserves.csv", ["fiscal_year", "free_cash", "stabilization_fund"],
