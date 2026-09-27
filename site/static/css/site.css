@@ -200,7 +200,6 @@ main .meeting-list > li { max-width: none; margin: 0; }
   margin: 0.25rem 0 0; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.45;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
-.meeting-preview .ai-label { font-weight: 700; }
 .meeting-meta { display: block; margin-top: 0.3rem; color: var(--muted); font-size: 0.875rem; }
 .meeting-meta .flag { color: var(--accent); }
 @media (max-width: 22rem) { .meeting-item { grid-template-columns: 1fr; } }
