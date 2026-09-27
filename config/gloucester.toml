@@ -71,7 +71,7 @@ status = "live"
 # empty to count nothing. public_stats is the account's public dashboard URL,
 # if it has one; the About page links it.
 [analytics]
-goatcounter = ""
+goatcounter = "opengloucester"
 public_stats = ""
 
 # Public meetings, from the city's CivicPlus calendar.

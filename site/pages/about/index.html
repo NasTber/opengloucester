@@ -46,7 +46,7 @@
 
 {% if config.get("analytics", {}).get("goatcounter") %}
 <h2 id="privacy">Privacy</h2>
-<p>This site counts page views with <a href="https://www.goatcounter.com">GoatCounter</a>. It uses no cookies and collects no personal information. It records which page was viewed, the site you came from, and your screen size. It never records what you search for or which street you look up.{% if config.analytics.public_stats %} The counts are <a href="{{ config.analytics.public_stats }}">public</a>.{% endif %}</p>
+<p>This site counts page views with <a href="https://www.goatcounter.com">GoatCounter</a>, which uses no cookies and doesn't store IP addresses. It records which page was viewed, the site you came from, and your screen size, plus the browser type and approximate location that any website can see. It never records what you search for or which street you look up.{% if config.analytics.public_stats %} The counts are <a href="{{ config.analytics.public_stats }}">public</a>.{% endif %}</p>
 {% endif %}
 
 <h2 id="corrections">Corrections and contact</h2>
