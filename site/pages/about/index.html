@@ -23,6 +23,9 @@
   <li><strong>311 requests:</strong> <a href="https://seeclickfix.com">SeeClickFix</a>, public requests only, under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a> license. <a href="/311/methodology/">How the 311 numbers work</a>.</li>
   {% endif %}
   <li><strong>Meetings, agendas, and minutes:</strong> the city's <a href="{{ config.meetings.base_url }}/calendar.aspx">calendar</a> and <a href="{{ config.meetings.base_url }}/Archive.aspx">Archive Center</a>. Copies are saved when posted. Minutes are collected from {{ config.archive.minutes_since | date("month") }} on.</li>
+  {% if config.drive_meetings is defined %}
+  <li><strong>School Committee agendas and minutes:</strong> {{ config.drive_meetings.source_name }}, from the public folders linked on the <a href="{{ config.drive_meetings.page_url }}">School Committee website</a>, from {{ config.drive_meetings.since | date("month") }} on.</li>
+  {% endif %}
   {% if config.finance is defined %}
   <li><strong>Tax bill and city budget:</strong> Mass. <a href="https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=AverageSingleTaxBill.SingleFamTaxBill_wRange">Division of Local Services</a> Municipal Databank, from the city's filings with the state.</li>
   {% endif %}

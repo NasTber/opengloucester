@@ -55,6 +55,12 @@ jobs:
         continue-on-error: true
         run: python -m pipeline.fetch_minutes --town "$TOWN"
 
+      # School Committee agendas and minutes, from the school district's Google Drive.
+      - name: Fetch School Committee documents
+        if: inputs.sources != '311'
+        continue-on-error: true
+        run: python -m pipeline.fetch_drive_meetings --town "$TOWN"
+
       # Readable text and summaries of new agendas and minutes (skipped if no API key).
       - name: Summarize agendas
         if: inputs.sources != '311'

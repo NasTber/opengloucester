@@ -15,10 +15,10 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 import shutil  # noqa: E402
 
-from fakes import (FIXTURES, FakeAnthropic, FakeBudgetDLS, FakeCityClient, FakeDESE, FakeHousing,  # noqa: E402
+from fakes import (FIXTURES, FakeAnthropic, FakeBudgetDLS, FakeCityClient, FakeDESE, FakeDrive, FakeHousing,  # noqa: E402
                    FakePermits, FakeSeeClickFix, shi_pdf_text)
-from pipeline import (build_site, compute_311, fetch_311, fetch_budget, fetch_housing, fetch_meetings,  # noqa: E402
-                      fetch_minutes, fetch_permits, fetch_schools, summarize)
+from pipeline import (build_site, compute_311, fetch_311, fetch_budget, fetch_drive_meetings,  # noqa: E402
+                      fetch_housing, fetch_meetings, fetch_minutes, fetch_permits, fetch_schools, summarize)
 from pipeline.config import DATA_DIR as REAL_DATA_DIR  # noqa: E402
 from pipeline.config import load_config  # noqa: E402
 
@@ -42,6 +42,7 @@ def make_fixture_data(data_dir: Path) -> None:
     feed = feed[:start] + feed[feed.index("</item>", start) + len("</item>"):]
     fetch_meetings.run(config, FakeCityClient(feed=feed.encode()), data_dir, now=FETCHED_AT.replace(day=27))
     fetch_minutes.run(config, FakeCityClient(), data_dir, now=FETCHED_AT)
+    fetch_drive_meetings.run(config, FakeDrive(), data_dir, now=FETCHED_AT)
     summarize.run(config, FakeAnthropic(), data_dir, limit=50, now=FETCHED_AT)
 
     shutil.copytree(REAL_DATA_DIR / "static", data_dir / "static")

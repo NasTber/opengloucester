@@ -11,6 +11,7 @@ config/<town>.toml          Everything town-specific: name, domain, sources, sec
 pipeline/                   Python package
   fetch_meetings.py         Daily: city calendar -> data/meetings/
   fetch_minutes.py          Daily: Archive Center minutes -> data/meetings/minutes/
+  fetch_drive_meetings.py   Daily: School Committee agendas and minutes (Google Drive) -> data/meetings/
   summarize.py              Daily: agenda and minutes PDFs -> readable text + summaries (AI) -> data/summaries/
   fetch_311.py              Daily: SeeClickFix -> data/311/requests.json (also --backfill YYYY-MM)
   compute_311.py            Daily: requests -> data/311/scorecard.json
@@ -66,6 +67,7 @@ Each town gets its own copy of this repository, its own `config/<town>.toml`, an
    | Table | Source | Works for |
    |---|---|---|
    | `[meetings]`, `[archive]` | CivicPlus calendar and Archive Center | Towns whose website runs on CivicPlus |
+   | `[drive_meetings]` | Agendas and minutes in public Google Drive folders (Gloucester's School Committee) | Any board whose folders are laid out one per committee, with dates in file names |
    | `[seeclickfix]` | SeeClickFix 311 requests | Towns on SeeClickFix; needs a ward boundary file in `data/static/` whose features carry `ward` and `population_2020`, like Gloucester's from MassGIS |
    | `[finance]` | Tax bill and budget (Mass. DLS) | Massachusetts |
    | `[schools]` | DESE | Massachusetts districts |

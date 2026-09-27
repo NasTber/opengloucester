@@ -222,3 +222,22 @@ class FakePermits:
         if "id=NEWFILE" in url:
             return FakeResponse((FIXTURES / "permits" / "inspsrvcs.csv").read_bytes())
         raise AssertionError(f"unexpected URL {url}")
+
+
+class FakeDrive:
+    """The school district's public Drive folders, saved as served. A folder
+    with no saved page is empty; every file downloads as a distinct PDF."""
+    EMPTY_FOLDER = b'<html><body><div class="flip-entries"></div></body></html>'
+
+    def __init__(self):
+        self.urls = []
+        self.pdf = (FIXTURES / "civicplus_agenda_scanned.pdf").read_bytes()
+
+    def get(self, url):
+        self.urls.append(url)
+        if "embeddedfolderview?id=" in url:
+            page = FIXTURES / "drive" / f"{url.rsplit('=', 1)[1]}.html"
+            return FakeResponse(page.read_bytes() if page.exists() else self.EMPTY_FOLDER)
+        if "uc?export=download&id=" in url:
+            return FakeResponse(self.pdf + f"\n% drive file {url.rsplit('=', 1)[1]}\n".encode())
+        raise AssertionError(f"unexpected URL {url}")

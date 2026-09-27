@@ -13,7 +13,7 @@ from pipeline.config import configured, load_config
 from pipeline.seeclickfix import street_address
 
 OPTIONAL = ["seeclickfix", "finance", "labor", "schools", "housing", "permits", "summaries", "freshness",
-            "analytics", "participation", "glossary"]
+            "analytics", "participation", "glossary", "drive_meetings"]
 
 
 def meetings_only(config: dict) -> dict:
