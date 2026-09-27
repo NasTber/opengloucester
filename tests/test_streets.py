@@ -11,13 +11,13 @@ from pipeline.streets import addresses_in, street_keys, street_name
 
 def test_street_names_match_across_sources():
     # The city, agendas, and SeeClickFix write the same street differently.
-    assert street_keys("33 MAPLEWOOD AV, GLOUCESTER") == ["MAPLEWOOD AVE"]
-    assert street_keys("33 Maplewood Avenue") == ["MAPLEWOOD AVE"]
-    assert street_keys("33 Maplewood Ave Gloucester MA 01930, United States") == ["MAPLEWOOD AVE"]
-    assert street_keys("62, 62R, 64 Eastern Point Boulevard") == ["EASTERN POINT BLVD"]
-    assert street_keys("Railroad Ave & Washington St") == ["RAILROAD AVE", "WASHINGTON ST"]
-    assert street_keys("12 Main St Unit 3") == ["MAIN ST"]
-    assert street_keys("Ymca") == [] and street_keys("") == []
+    assert street_keys("33 MAPLEWOOD AV, GLOUCESTER", "Gloucester") == ["MAPLEWOOD AVE"]
+    assert street_keys("33 Maplewood Avenue", "Gloucester") == ["MAPLEWOOD AVE"]
+    assert street_keys("33 Maplewood Ave Gloucester MA 01930, United States", "Gloucester") == ["MAPLEWOOD AVE"]
+    assert street_keys("62, 62R, 64 Eastern Point Boulevard", "Gloucester") == ["EASTERN POINT BLVD"]
+    assert street_keys("Railroad Ave & Washington St", "Gloucester") == ["RAILROAD AVE", "WASHINGTON ST"]
+    assert street_keys("12 Main St Unit 3", "Gloucester") == ["MAIN ST"]
+    assert street_keys("Ymca", "Gloucester") == [] and street_keys("", "Gloucester") == []
     assert street_name("EASTERN POINT BLVD") == "Eastern Point Boulevard"
 
 

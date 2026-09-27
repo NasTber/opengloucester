@@ -112,11 +112,11 @@ def test_month_windows_cover_every_month():
 
 def test_street_address_keeps_what_seeclickfix_shows():
     from pipeline.seeclickfix import street_address
-    assert street_address("229 Main St Gloucester, Massachusetts, 01930") == "229 Main St"
-    assert street_address("30 Reservoir Rd Gloucester MA 01930, United States") == "30 Reservoir Rd"
-    assert street_address("470-580 Western Ave") == "470-580 Western Ave"
-    assert street_address("Bray St & Salt Marsh Ln") == "Bray St & Salt Marsh Ln"
-    assert street_address("01930") == ""
+    assert street_address("229 Main St Gloucester, Massachusetts, 01930", "Gloucester") == "229 Main St"
+    assert street_address("30 Reservoir Rd Gloucester MA 01930, United States", "Gloucester") == "30 Reservoir Rd"
+    assert street_address("470-580 Western Ave", "Gloucester") == "470-580 Western Ave"
+    assert street_address("Bray St & Salt Marsh Ln", "Gloucester") == "Bray St & Salt Marsh Ln"
+    assert street_address("01930", "Gloucester") == ""
 
 
 def request(id, created, lat=42.6150, lng=-70.6600, status="closed", closed=None, category="Pothole"):
@@ -140,7 +140,7 @@ def test_repeat_locations():
         request("6", "2026-06-01T09:00:00-04:00", lat=42.63, status="open"),
         request("7", "2026-06-02T09:00:00-04:00", lat=42.63, status="open"),
     ]
-    places = compute_311.repeat_locations(records, 50, 60, "https://seeclickfix.com/issues")
+    places = compute_311.repeat_locations(records, 50, 60, "https://seeclickfix.com/issues", "Gloucester")
     assert len(places) == 1
     p = places[0]
     assert [r["id"] for r in p["requests"]] == ["1", "2"]
@@ -161,7 +161,7 @@ def test_longest_open_lists_every_category():
     records = [request("1", "2026-01-01T09:00:00-04:00", status="open", category="Health Department (Housing) - Internal"),
                request("2", "2026-02-01T09:00:00-04:00", status="open", lat=None),
                request("3", "2026-03-01T09:00:00-04:00", status="open")]
-    oldest = compute_311.oldest_open(records, FETCHED_AT, "https://seeclickfix.com/issues")
+    oldest = compute_311.oldest_open(records, FETCHED_AT, "https://seeclickfix.com/issues", "Gloucester")
     assert [r["id"] for r in oldest] == ["1", "2", "3"]
     assert {r["address"] for r in oldest} == {"12 Main St"}
 

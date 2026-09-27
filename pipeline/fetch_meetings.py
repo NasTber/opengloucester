@@ -24,7 +24,7 @@ from zoneinfo import ZoneInfo
 from pypdf import PdfReader
 
 from pipeline import civicplus
-from pipeline.config import DATA_DIR, load_config
+from pipeline.config import DATA_DIR, DEFAULT_TOWN, configured, load_config
 from pipeline.http import FetchError, PoliteClient
 
 # Fields whose changes are recorded in a meeting's history.
@@ -195,10 +195,12 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--town", default="gloucester")
+    parser.add_argument("--town", default=DEFAULT_TOWN)
     parser.add_argument("--data", type=Path, default=DATA_DIR)
     args = parser.parse_args()
     config = load_config(args.town)
+    if not configured(config, "meetings"):
+        return 0
     client = PoliteClient(config["site"]["user_agent"], delay=config["meetings"].get("request_delay", 3.0))
     try:
         status = run(config, client, args.data)

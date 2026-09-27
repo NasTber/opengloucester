@@ -49,9 +49,10 @@ def street_key(part: str) -> str | None:
     return " ".join(words[:-1] + [SUFFIXES[words[-1]]])
 
 
-def street_keys(address: str) -> list[str]:
-    """Every street in an address; an intersection has two."""
-    short = short_address(address or "")
+def street_keys(address: str, town: str) -> list[str]:
+    """Every street in an address; an intersection has two. town is the town's
+    name, which addresses from the city and SeeClickFix end with."""
+    short = short_address(address or "", town)
     parts = re.split(r"\s+(?:&|and|at)\s+|/", short, flags=re.I)
     return list(dict.fromkeys(k for p in parts if (k := street_key(p))))
 

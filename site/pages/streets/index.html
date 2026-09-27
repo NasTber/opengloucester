@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block title %}Your street{% endblock %}
-{% block description %}Agenda items, building permits, and 311 requests on any street in {{ town.name }}, from public records.{% endblock %}
+{% block description %}{{ street_sources | capitalize_first }} on any street in {{ town.name }}, from public records.{% endblock %}
 {% block content %}
 <div class="page-head">
   <h1>What's happening on your street</h1>
-  <p class="lede">Agenda items, building and demolition permits, and 311 requests for one street, from public records.</p>
+  <p class="lede">{{ street_sources | capitalize_first }} for one street, from public records.</p>
 </div>
 
 <form class="search-form" role="search" action="/streets/" method="get">
@@ -17,7 +17,7 @@
   <datalist id="street-names"></datalist>
 </form>
 
-<div id="street" data-index="{{ streets_url }}">
+<div id="street" data-index="{{ streets_url }}" data-sources="meetings{% if config.permits is defined %} permits{% endif %}{% if config.seeclickfix is defined %} requests{% endif %}">
   <p id="street-status" role="status" aria-live="polite"></p>
   <div id="street-results"></div>
 </div>
@@ -26,8 +26,12 @@
 <h2 id="sources">Where this comes from</h2>
 <ul>
   <li><strong>Agendas and minutes:</strong> any line naming an address on the street, from the documents saved on this site's <a href="/meetings/">meeting pages</a>.</li>
+  {% if config.permits is defined %}
   <li><strong>Building and demolition permits:</strong> the city's <a href="{{ config.permits.page_url }}">Inspectional Services permit data</a>{% if permits %}, since {{ permits.since | date("month") }}. The city updates the file about weekly; last checked <time datetime="{{ permits.updated_at }}">{{ permits.updated_at | timestamp }}</time>{% endif %}. Estimated costs are as the applicant gave them.</li>
+  {% endif %}
+  {% if config.seeclickfix is defined %}
   <li><strong>311 requests:</strong> public requests on <a href="https://seeclickfix.com">SeeClickFix</a> from the past 12 months. <a href="/311/methodology/">How the 311 numbers work</a>.</li>
+  {% endif %}
 </ul>
 <p class="source-note">Addresses are matched by street name, so a street that shares its name with another spelling may need both tried. Spot a mistake? See <a href="/about/#corrections">Corrections</a>.</p>
 <script src="{{ "/static/js/streets.js" | versioned }}" defer></script>

@@ -14,15 +14,16 @@ from __future__ import annotations
 import re
 
 
-def short_address(address: str) -> str:
-    """'29 Emerson Avenue Gloucester, Massachusetts, 01930' -> '29 Emerson Avenue'."""
-    short = re.split(r",?\s+Gloucester\b", address or "", maxsplit=1, flags=re.I)[0].strip(" ,")
+def short_address(address: str, town: str) -> str:
+    """'29 Emerson Avenue Gloucester, Massachusetts, 01930' -> '29 Emerson Avenue',
+    given the town's name ('Gloucester')."""
+    short = re.split(rf",?\s+{re.escape(town)}\b", address or "", maxsplit=1, flags=re.I)[0].strip(" ,")
     return short or address
 
 
-def street_address(address: str) -> str:
+def street_address(address: str, town: str) -> str:
     """The address as SeeClickFix lists it, without the town, state, and ZIP code."""
-    short = short_address(address)
+    short = short_address(address, town)
     return "" if re.fullmatch(r"\d{5}", short) else short  # a ZIP code alone
 
 
