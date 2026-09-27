@@ -204,6 +204,17 @@ main .meeting-list > li { max-width: none; margin: 0; }
 .meeting-meta .flag { color: var(--accent); }
 @media (max-width: 22rem) { .meeting-item { grid-template-columns: 1fr; } }
 
+/* Decisions: one block per meeting, its votes as a plain list. */
+.decision-list { margin: 0; padding: 0; list-style: none; }
+main .decision-list > li { max-width: none; margin: 0; }
+.decision-meeting { padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+.decision-meeting h3 { margin: 0; }
+.decision-meeting h3 a { color: var(--primary-dark); text-decoration: none; }
+.decision-meeting h3 a:hover { text-decoration: underline; }
+.decision-meeting > .item-detail { margin: 0.2rem 0 0.6rem; }
+.decision-meeting ul { margin: 0; padding-left: 1.25rem; }
+.decision-meeting details.expand { margin-top: 0.5rem; border-top: 0; padding: 0; }
+
 .board-list { margin: 0; padding: 0; list-style: none; columns: 1; }
 @media (min-width: 48rem) { .board-list { columns: 2; column-gap: 2rem; } }
 main .board-list > li { max-width: none; margin: 0; break-inside: avoid; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }

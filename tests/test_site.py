@@ -292,3 +292,13 @@ def test_glossary_matches_terms_and_boards():
     meeting = {"body": "Historic District Commission", "preview": {"summary": "A COA for 38 Pleasant St; perac is not an acronym here."}}
     assert [e["term"] for e in glossary_for(meeting, entries)] == ["COA"]
     assert glossary_for({"body": "X"}, entries) == []
+
+
+def test_decisions_page_and_csv(site_dir):
+    import csv
+    page = (site_dir / "meetings" / "decisions" / "index.html").read_text()
+    assert "<h1>Decisions</h1>" in page
+    rows = list(csv.reader((site_dir / "meetings" / "data" / "decisions.csv").open()))
+    assert rows[0] == ["meeting_date", "board", "decision", "meeting_url", "minutes_url"]
+    home = (site_dir / "index.html").read_text()
+    assert ('href="/meetings/decisions/"' in home) == (len(rows) > 1)

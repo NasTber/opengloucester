@@ -245,11 +245,15 @@ def load_meetings(data_dir: Path, today: date, summary_model: str | None = None,
         key=lambda b: b["name"].lower(),
     )
     week_end = (today + timedelta(days=7)).isoformat()
+    # Meetings whose minutes record decisions, newest first. Minutes that turned
+    # out to be another document (an agenda filed as minutes) are left out.
+    decided = [m for m in past if (s := m["minutes_summary"]) and s.get("is_minutes", True) and s.get("decisions")]
     return {
         "all": meetings,
         "upcoming": upcoming,
         "this_week": [m for m in upcoming if m["date"] < week_end],
         "past": past,
+        "decided": decided,
         "boards": board_list,
         "status": status,
         "tracking_since": min((m["first_seen"] for m in meetings), default=None),
@@ -466,6 +470,9 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         render("meeting.html", m["url"], meeting=m)
     for b in meetings["boards"]:
         render("board.html", b["url"], board=b)
+    write_csv(out_dir / "meetings" / "data" / "decisions.csv", ["meeting_date", "board", "decision", "meeting_url", "minutes_url"],
+              [[m["date"], m["body"], d, base_url + m["url"], m["minutes_doc"]["source_url"]]
+               for m in meetings["decided"] for d in m["minutes_summary"]["decisions"]])
     if scorecard:
         populations = {w["ward"]: w for w in scorecard["by_ward"]}
         for w in scorecard.get("wards", []):

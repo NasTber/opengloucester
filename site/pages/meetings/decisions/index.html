@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Decisions{% endblock %}
+{% block description %}Votes and other decisions recorded in the minutes of {{ town.name }}'s City Council, boards, and committees, newest meeting first.{% endblock %}
+{% set shown = 5 %}
+{% block content %}
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol><li><a href="/meetings/">Meetings</a></li></ol>
+</nav>
+<div class="page-head">
+  <h1>Decisions</h1>
+  <p class="lede">Votes and other decisions recorded in the minutes of the City Council, boards, and committees, newest meeting first.</p>
+  <p class="small">Minutes are posted after a board approves them, usually a few weeks after the meeting. So the newest decisions here are often a few weeks old.</p>
+</div>
+
+{% if meetings.decided %}
+<p class="credit">Decisions are pulled from each meeting's minutes by AI. Check the minutes before relying on one. <a href="/about/#ai">About AI summaries</a></p>
+{% for month, items in group_by(meetings.decided, "month") %}
+<h2 id="m-{{ month[:7] }}">{{ month | date("month") }}</h2>
+<ul class="decision-list">
+  {% for m in items %}
+  {% set ds = m.minutes_summary.decisions %}
+  <li class="decision-meeting">
+    <h3><a href="{{ m.url }}#minutes">{{ m.body }}</a></h3>
+    <p class="item-detail"><time datetime="{{ m.date }}">{{ m.date | date }}</time> · {{ plural(ds | length, "decision") }} · <a href="{{ m.minutes_doc.source_url }}">Minutes</a></p>
+    <ul>
+      {% for d in ds[:shown] %}<li>{{ d }}</li>{% endfor %}
+    </ul>
+    {% if ds | length > shown %}
+    <details class="expand">
+      <summary>{{ ds | length - shown }} more {{ "decision" if ds | length - shown == 1 else "decisions" }}</summary>
+      <ul>
+        {% for d in ds[shown:] %}<li>{{ d }}</li>{% endfor %}
+      </ul>
+    </details>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endfor %}
+<ul class="link-row">
+  <li><a href="/meetings/data/decisions.csv" download>Download all decisions (CSV)</a></li>
+</ul>
+{% else %}
+<p>No decisions have been recorded yet. This page fills in as minutes are posted.</p>
+{% endif %}
+<p class="source-note">From minutes posted on the <a href="{{ config.meetings.base_url }}/{{ config.archive.index }}">city's Archive Center</a>, for meetings since {{ config.archive.minutes_since | date }}.</p>
+{% endblock %}

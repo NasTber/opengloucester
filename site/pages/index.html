@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros.html" import day_group %}
+{% from "macros.html" import day_group, meeting_item %}
 {% block title %}{{ town.name }} this week{% endblock %}
 {% block content %}
 <p class="dateline"><time datetime="{{ built_at.date().isoformat() }}">{{ built_at.date() | date }}</time></p>
@@ -29,6 +29,17 @@
 <p>No public meetings are listed on the city calendar for the next seven days.</p>
 {% endif %}
 <a class="more" href="/meetings/">All meetings →</a>
+
+{% if meetings.decided %}
+<div class="section-head">
+  <h2 id="decided">Recently decided</h2>
+</div>
+<p class="small">From the latest minutes the city has posted, usually a few weeks after each meeting.</p>
+<ul class="meeting-list">
+  {% for m in meetings.decided[:4] %}{{ meeting_item(m, show_date=true) }}{% endfor %}
+</ul>
+<a class="more" href="/meetings/decisions/">All decisions →</a>
+{% endif %}
 
 <h2>Sections</h2>
 <ul class="meeting-list">
