@@ -1,0 +1,19 @@
+{
+  "transcript": "# GLOUCESTER SCHOOL COMMITTEE MEETING\n\n## MONDAY, July 20, 2026\n## 5:00 pm\n\n### REMOTE MEETING ONLY\n**Meetings are Recorded**\n\nThe public is welcome to attend meetings in person or, alternatively, through the Zoom link provided on the agenda. The meeting notice will reflect if the meeting is via Zoom only. As amendments to the Open Meeting Law allow, the School Committee may continue to hold meetings remotely. Please note the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\nIf you are calling in on a phone, you can press Star 9 (*9) to request to speak. If you are watching on a computer or device, there is a \"raise hand\" button that you can tap or press to request to speak. Please use either of these options during oral communications to be recognized to speak.\n\nPlease click the link below to join the webinar:\nhttps://gloucester-ma-gov.zoom.us/j/87538795096\nOr Telephone: (309) 205-3325 or (312) 626-6799\nWebinar ID: 875 3879 5096\nPlease visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join a remote meeting\n\n## AGENDA\n\nI. CALL TO ORDER\n\nII. DELIBERATION ON EDUCATION ISSUES\n\nA. Governor Healey's Bill \"An Act Making Appropriations for Fiscal Year 2027 (FY27) to Provide for Supplementing Certain Existing Appropriations and for Certain Other Activities and Projects\"\n\nIII. EXECUTIVE SESSION\n\nTo enter Executive Session, pursuant to Executive Session Purpose 1 of MGL 30A §21(a)\n\nIV. ADJOURNMENT\n\nThe listing of matters is those reasonably anticipated by the Chair, which may be discussed at the meeting. Not all items may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.\n\nOur Mission is for all Students to be Successful, Engaged, Lifelong Learners",
+  "headline": "Deliberation on Governor Healey's FY27 supplemental appropriations bill and entry into executive session.",
+  "summary": "The meeting will cover deliberation on Governor Healey's bill making supplemental appropriations for Fiscal Year 2027 (FY27). The committee will then enter executive session under MGL 30A §21(a) Purpose 1.",
+  "items": [
+    "Deliberation on Governor Healey's Bill \"An Act Making Appropriations for Fiscal Year 2027 (FY27) to Provide for Supplementing Certain Existing Appropriations and for Certain Other Activities and Projects\"",
+    "Enter Executive Session, pursuant to Executive Session Purpose 1 of MGL 30A §21(a)"
+  ],
+  "kind": "agenda",
+  "source_url": "https://drive.google.com/file/d/1tgIfP-x66TKCymvA5d9RXkhyRSv6CVBO/view",
+  "source_sha256": "add3b97a7235b4e67c9dc499bec47de591691c01fc95697367ad3b09b27a1c81",
+  "model": "claude-sonnet-5",
+  "prompt_version": 4,
+  "generated_at": "2026-09-27T14:52:51-04:00",
+  "usage": {
+    "input_tokens": 2544,
+    "output_tokens": 1051
+  }
+}

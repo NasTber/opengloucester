@@ -1,0 +1,18 @@
+{
+  "transcript": "# GLOUCESTER SPECIAL SCHOOL COMMITTEE MEETING\n\n**THURSDAY, July 23, 2026**\n\n**4:30 pm**\n\n**REMOTE MEETING ONLY - Meetings are Recorded**\n\nThe public is welcome to attend meetings in person or, alternatively, through the Zoom link provided on the agenda. The meeting notice will reflect if the meeting is via Zoom only. As the Open Meeting Law allows, the School Committee may hold meetings remotely. Please note the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\nIf you are calling in on a phone, you can press Star 9 (*9) to request to speak. If you are watching on a computer or device, there is a \"raise hand\" button that you can tap or press to request to speak. Please use either of these options during oral communications to be recognized to speak.\n\nPlease click the link below to join the webinar:\nhttps://gloucester-ma-gov.zoom.us/j/82060068607\nOr Telephone: (309) 205-3325 or (312) 626-6799\nWebinar ID: 820 6006 8607\nPlease visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join a remote meeting\n\n## AGENDA\n\nI. CALL TO ORDER\n\nII. EXECUTIVE SESSION\n\nTo enter Executive Session, pursuant to Executive Session Purpose 1 of MGL 30A §21(a)\n\nIII. ADJOURNMENT\n\nThe listing of matters is those reasonably anticipated by the Chair, which may be discussed at the meeting. Not all items may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.\n\nOur Mission is for all Students to be Successful, Engaged, Lifelong Learners\n\n---\nPosted: City Clerk, Gloucester, MA, 2026 JUL 21 AM 10:59",
+  "headline": "Executive session under MGL 30A §21(a), Purpose 1.",
+  "summary": "The committee will hold an executive session under Purpose 1 of MGL 30A §21(a). No other business is listed.",
+  "items": [
+    "Executive Session, pursuant to Executive Session Purpose 1 of MGL 30A §21(a)"
+  ],
+  "kind": "agenda",
+  "source_url": "https://drive.google.com/file/d/1x6t-gQsNyeop_294GodQ8gA6EkuZ0qCP/view",
+  "source_sha256": "a4d330bed55259f9123951bfe38ae18b5beacebfd8a1dea3ccc5eb76bcef0340",
+  "model": "claude-sonnet-5",
+  "prompt_version": 4,
+  "generated_at": "2026-09-27T14:52:51-04:00",
+  "usage": {
+    "input_tokens": 2544,
+    "output_tokens": 961
+  }
+}

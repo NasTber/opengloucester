@@ -1,0 +1,27 @@
+{
+  "transcript": "# Gloucester Public Schools\n# B&F SubCommittee\n\n*Every Day Matters. Everybody Belongs. Everybody Learns.*\n\n## BUILDING & FINANCE SUBCOMMITTEE MEETING\nWEDNESDAY, September 16, 2026\n5:00 pm\nGloucester High School Library, 32 Leslie O. Johnson Road, Gloucester, MA 01930\nMeetings are Recorded\n\nThe public is welcome to attend meetings in person or, alternatively, through the Zoom link provided on the agenda. The meeting notice will reflect if the meeting is via Zoom only. As Open Meeting Law allows, the School Committee may continue to hold meetings remotely. Please note the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\n*If you are calling in on a phone, you can press Star 9 (*9) to request to speak. If you are watching on a computer or device, there is a “raise hand” button that you can tap or press to request to speak. Please use either of these options during oral communications to be recognized to speak.*\n\nPlease click the link below to join the webinar:\nhttps://gloucester-ma-gov.zoom.us/j/83677594050\nOr Telephone: (309) 205-3325 or (312) 626-6799\nWebinar ID: 836 7759 4050\n\n*Please visit http://gloucester-ma.gov/remote-public-meetings for instructions and guidance on how to join a remote meeting.*\n\n## AGENDA\n\n### I. CALL TO ORDER\n\n### II. CHIEF FINANCIAL OFFICER'S REPORT\n\n### III. REPORTS/DELIBERATIONS/DISCUSSIONS\nA. DPW Tickets\n1. Closed - Past 60 Days\n2. Open - All\n\nB. FY25 End of Year Report Audit\n\nC. Special Education\n1. Out of District Tuition\n2. Out of District Transportation\n3. Staffing Update\n\nD. Budget Transfers\n\nE. Content Planning\n\nF. GHS Library - Technical Issues\n\n### IV. ACTION\n\n### V. ADJOURNMENT\nThe listing of matters is those reasonably anticipated by the Chair, in accordance with M.G.L., Chapter 30A, Section 18-25, which may be discussed at the meeting. Not all items may in fact be discussed and other items not listed may also be brought up for discussion to the extent permitted by law.",
+  "headline": "Discussion of DPW tickets, FY25 year-end audit, special education costs, budget transfers, and library technical issues.",
+  "summary": "The subcommittee will review a Chief Financial Officer's report, DPW tickets, the FY25 end of year report audit, and special education out-of-district tuition, transportation, and staffing. It will also discuss budget transfers, content planning, and technical issues in the GHS Library.",
+  "items": [
+    "Chief Financial Officer's Report",
+    "DPW Tickets - Closed, Past 60 Days",
+    "DPW Tickets - Open, All",
+    "FY25 End of Year Report Audit",
+    "Special Education - Out of District Tuition",
+    "Special Education - Out of District Transportation",
+    "Special Education - Staffing Update",
+    "Budget Transfers",
+    "Content Planning",
+    "GHS Library - Technical Issues"
+  ],
+  "kind": "agenda",
+  "source_url": "https://drive.google.com/file/d/12p_RRRvru5opX1UBZIcBabSoKv3Sh1Ok/view",
+  "source_sha256": "15ed6bb7da155e7728fa967799ab0c5c2f374e62e6f329473fcf753b88799687",
+  "model": "claude-sonnet-5",
+  "prompt_version": 4,
+  "generated_at": "2026-09-27T14:52:51-04:00",
+  "usage": {
+    "input_tokens": 4909,
+    "output_tokens": 1159
+  }
+}

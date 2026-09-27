@@ -1,20 +1,20 @@
 {
-  "transcript": "# MINUTES OF MEETING\n# BOARD OF ASSESSORS\n### July 1, 2026\n\n**Office of the Assessor**\n**9 Dale Avenue**\n**Gloucester, MA 01930**\n\nMs. Papows called the meeting to order at 3:00 PM and announced the following:\n\nPresent for the meeting were: Nancy Papows, Chairperson, Tim Good, Vice Chair and Ashley Curley, Secretary. A quorum was present. Also present was Erin Nicolosi, Assistant Assessor\n\n## Approval of Minutes:\n\nUpon **MOTION** of Ms. Papows to approve open session minutes of the meeting of June 15, 2026, which was SECONDED by Mr. Good: a vote was taken:\n\n**3 in favor – None opposed   MOTION PASSED**\n\n**Executive session under Massachusetts General Laws Chapter 30A, Section 21(a), subsection 7 to comply with MGL Chapter 59 Section 60.**\n\n3:01 PM Upon **MOTION** of Ms. Papows, to enter into executive session under Massachusetts General Laws Chapter 30A, Section 21(a), subsection 7 to comply with MGL Chapter 59 Section 60 to approve Executive Session Minutes from the meeting of June 15, 2026 and discuss exemption applications. **SECONDED** by Mr. Good; a roll call vote was taken:\n\nMs. Papows: Yes  Mr. Good: Yes  Ms. Curley: Yes\n\n**3 in favor - None opposed – MOTION PASSED**\n\nThe Board will adjorn the meeting in Executive Session.\n\nThe next meeting date is scheduled for Monday, July 6, 2026 at 3:00 PM.\n\nOpen Session Minutes of July 1, 2026 - Submitted by: Ashley A Curley",
-  "headline": "Board approved prior meeting minutes and voted to enter executive session to discuss exemption applications.",
-  "summary": "The Board of Assessors approved the open session minutes from June 15, 2026 by a vote of 3 in favor and none opposed. The Board then voted 3-0 by roll call to enter executive session to approve the executive session minutes from June 15, 2026 and to discuss exemption applications, after which the meeting was adjourned in executive session.",
+  "transcript": "# MINUTES OF MEETING\n# BOARD OF ASSESSORS\n## July 1, 2026\n\n**Office of the Assessor**\n**9 Dale Avenue**\n**Gloucester, MA 01930**\n\nMs. Papows called the meeting to order at 3:00 PM and announced the following:\n\nPresent for the meeting were: Nancy Papows, Chairperson, Tim Good, Vice Chair and Ashley Curley, Secretary. A quorum was present. Also present was Erin Nicolosi, Assistant Assessor\n\n## Approval of Minutes:\n\nUpon **MOTION** of Ms. Papows to approve open session minutes of the meeting of June 15, 2026, which was SECONDED by Mr. Good: a vote was taken:\n\n**3 in favor – None opposed   MOTION PASSED**\n\n## Executive session under Massachusetts General Laws Chapter 30A, Section 21(a), subsection 7 to comply with MGL Chapter 59 Section 60.\n\n3:01 PM Upon **MOTION** of Ms. Papows, to enter into executive session under Massachusetts General Laws Chapter 30A, Section 21(a), subsection 7 to comply with MGL Chapter 59 Section 60 to approve Executive Session Minutes from the meeting of June 15, 2026 and discuss exemption applications. **SECONDED** by Mr. Good; a roll call vote was taken:\n\nMs. Papows: Yes  Mr. Good: Yes  Ms. Curley: Yes\n\n**3 in favor - None opposed – MOTION PASSED**\n\nThe Board will adjorn the meeting in Executive Session.\n\nThe next meeting date is scheduled for Monday, July 6, 2026 at 3:00 PM.\n\nOpen Session Minutes of July 1, 2026 - Submitted by: Ashley A Curley",
+  "headline": "Approved June 15, 2026 open session minutes and voted to enter executive session to discuss exemption applications.",
+  "summary": "The board approved the open session minutes from the June 15, 2026 meeting. It then voted to enter executive session to approve executive session minutes from that same date and to discuss exemption applications. Both votes passed 3 in favor with none opposed.",
   "is_minutes": true,
   "decisions": [
-    "Approved open session minutes of the meeting of June 15, 2026 — 3 in favor, none opposed.",
-    "Voted to enter executive session under MGL Chapter 30A, Section 21(a), subsection 7 to approve Executive Session Minutes from June 15, 2026 and discuss exemption applications — 3 in favor, none opposed (roll call: Papows-Yes, Good-Yes, Curley-Yes)."
+    "Approved open session minutes of the June 15, 2026 meeting, 3 in favor - none opposed.",
+    "Voted to enter executive session to approve executive session minutes from June 15, 2026 and discuss exemption applications, 3 in favor - none opposed (roll call: Papows yes, Good yes, Curley yes)."
   ],
   "kind": "minutes",
   "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=19946",
   "source_sha256": "aaba7a14432f2a3d0bd38647f56f0ffa041ce0e8117550fd8222b60ecc98471a",
   "model": "claude-sonnet-5",
-  "prompt_version": 1,
-  "generated_at": "2026-09-27T06:58:21-04:00",
+  "prompt_version": 2,
+  "generated_at": "2026-09-27T14:52:51-04:00",
   "usage": {
-    "input_tokens": 2688,
-    "output_tokens": 1326
+    "input_tokens": 2765,
+    "output_tokens": 1397
   }
 }
