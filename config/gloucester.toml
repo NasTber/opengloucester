@@ -128,6 +128,70 @@ text = "The Republic Services strike that began July 1 went on until a deal was 
 source_title = "WBUR, September 19, 2025"
 source_url = "https://www.wbur.org/news/2025/09/19/massachusetts-republic-teamsters-trash-strike-ends"
 
+# Terms that come up on agendas and minutes, explained on each meeting page
+# where they appear. Acronyms match exactly; other terms ignore case. Use
+# "bodies" for a term that means something different at other boards.
+[[glossary]]
+term = "executive session"
+definition = "A part of a public meeting closed to the public. State law allows it only for specific reasons, such as lawsuits, negotiations, or personnel matters."
+
+[[glossary]]
+term = "M.G.L."
+definition = "Massachusetts General Laws, the state's laws."
+
+[[glossary]]
+term = "ADA"
+definition = "Americans with Disabilities Act, the federal law on access for people with disabilities."
+
+[[glossary]]
+term = "CPA"
+definition = "Community Preservation Act. A local property tax surcharge, with state matching money, that pays for open space, historic preservation, affordable housing, and recreation."
+
+[[glossary]]
+term = "ZBA"
+definition = "Zoning Board of Appeals."
+
+[[glossary]]
+term = "MACRIS"
+definition = "Massachusetts Cultural Resource Information System, the state's inventory of historic buildings and places."
+
+[[glossary]]
+term = "COA"
+definition = "Certificate of Appropriateness: the commission's approval for exterior changes to a building in a historic district."
+bodies = ["Historic District Commission"]
+
+[[glossary]]
+term = "PERAC"
+definition = "Public Employee Retirement Administration Commission, the state agency that oversees Massachusetts public retirement systems."
+
+[[glossary]]
+term = "PRIT"
+definition = "Pension Reserves Investment Trust, the state-run investment fund that local retirement systems can invest in."
+
+[[glossary]]
+term = "PRIM"
+definition = "Pension Reserves Investment Management Board, which manages the PRIT fund."
+
+[[glossary]]
+term = "warrant"
+definition = "The list of payments, such as pension checks and bills, that the board approves."
+bodies = ["Gloucester Retirement Board"]
+
+[[glossary]]
+term = "superannuation"
+definition = "Retirement based on age and years of service, rather than disability."
+bodies = ["Gloucester Retirement Board"]
+
+[[glossary]]
+term = "creditable service"
+definition = "Time worked that counts toward a pension."
+bodies = ["Gloucester Retirement Board"]
+
+[[glossary]]
+term = "COLA"
+definition = "Cost-of-living adjustment: an increase to retirees' pensions."
+bodies = ["Gloucester Retirement Board"]
+
 # Minutes from the city's Archive Center. Minutes for meetings on or after
 # minutes_since are collected; earlier ones can be added by moving the date back.
 [archive]

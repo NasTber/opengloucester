@@ -85,6 +85,7 @@
 {% if m.preview %}
 <p>{{ m.preview.summary }}</p>
 {% if m.preview["items"] %}
+<h3 id="agenda-items">Agenda items</h3>
 <ul>
   {% for item in m.preview["items"] %}<li>{{ item }}</li>{% endfor %}
 </ul>
@@ -117,6 +118,13 @@
 <p>Agenda not recorded here. It may be in the city's <a href="{{ config.meetings.base_url }}/Archive.aspx">Archive Center</a>.</p>
 {% else %}
 <p>No agenda was posted.</p>
+{% endif %}
+
+{% if m.glossary %}
+<h2 id="terms">Terms used here</h2>
+<dl class="defs">
+  {% for g in m.glossary %}<dt>{{ g.term }}</dt><dd>{{ g.definition }}</dd>{% endfor %}
+</dl>
 {% endif %}
 
 {% if m.history %}

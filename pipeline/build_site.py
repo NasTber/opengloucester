@@ -181,7 +181,28 @@ def format_timestamp(value: str) -> str:
 
 # ---- Data ------------------------------------------------------------------
 
-def load_meetings(data_dir: Path, today: date, summary_model: str | None = None) -> dict:
+def glossary_for(meeting: dict, entries: list[dict]) -> list[dict]:
+    """Glossary entries whose term appears in a meeting's summaries or document text.
+
+    Acronyms match exactly; other terms ignore case. An entry with "bodies"
+    applies only to those boards, for terms that mean different things elsewhere.
+    """
+    texts = []
+    for doc in (meeting.get("preview"), meeting.get("minutes_summary")):
+        if doc:
+            texts += [doc.get("summary") or "", doc.get("transcript") or "", *doc.get("items", []), *doc.get("decisions", [])]
+    text = "\n".join(texts)
+    found = []
+    for e in entries:
+        if e.get("bodies") and meeting["body"] not in e["bodies"]:
+            continue
+        pattern = rf"(?<![\w.]){re.escape(e['term'])}(?!\w)"
+        if re.search(pattern, text, 0 if e["term"].isupper() or "." in e["term"] else re.I):
+            found.append(e)
+    return found
+
+
+def load_meetings(data_dir: Path, today: date, summary_model: str | None = None, glossary: list[dict] | None = None) -> dict:
     path = data_dir / "meetings" / "meetings.json"
     store = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     status_path = data_dir / "meetings" / "status.json"
@@ -209,6 +230,7 @@ def load_meetings(data_dir: Path, today: date, summary_model: str | None = None)
         )
         m["minutes_too_large"] = bool(m["minutes_doc"]) and summarize.too_large(m["minutes_doc"])
         m["preview_line"] = preview_line(m)
+        m["glossary"] = glossary_for(m, glossary or [])
 
     today_s = today.isoformat()
     upcoming = [m for m in meetings if m["date"] >= today_s]
@@ -375,7 +397,7 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     site = config["site"]
     base_url = f"https://{site['domain']}"
     built_at = now or datetime.now(ZoneInfo(site["timezone"]))
-    meetings = load_meetings(data_dir, built_at.date(), config.get("summaries", {}).get("model"))
+    meetings = load_meetings(data_dir, built_at.date(), config.get("summaries", {}).get("model"), config.get("glossary", []))
     scorecard_path = data_dir / "311" / "scorecard.json"
     scorecard = json.loads(scorecard_path.read_text(encoding="utf-8")) if scorecard_path.exists() else None
     schools_path = data_dir / "schools" / "schools.json"

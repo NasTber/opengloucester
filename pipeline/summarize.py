@@ -36,7 +36,7 @@ TRANSCRIPT_RULES = """Transcript rules:
 SUMMARY_RULES = """Summary rules:
 - Use only what the document says. Do not add background, predictions, opinions, likely outcomes, or categories the document does not use.
 - Neutral tone. No adjectives that judge (such as important, controversial, significant).
-- Plain English at about an 8th-grade reading level.
+- Plain English at about an 8th-grade reading level. Short sentences, one idea each.
 - Keep names, dollar amounts, dates, and case or application numbers exactly as written."""
 
 # Each kind of document has its own instructions and output. Bump a kind's
@@ -44,7 +44,7 @@ SUMMARY_RULES = """Summary rules:
 # version (or another model) are regenerated on the next run.
 KINDS = {
     "agenda": {
-        "version": 2,
+        "version": 3,
         "folder": "agendas",
         "max_tokens": 16000,
         "system": "You convert public meeting agendas from a city government into accessible text for residents. The agendas are usually scanned images, so read every character carefully.\n\n"
@@ -54,7 +54,7 @@ KINDS = {
 Return:
 - transcript: the full text of the agenda in reading order, as Markdown. Use headings for the document's own headings and lists for its lists. Leave out stamps, seals, and page decorations, but keep the clerk's posting date if shown.
 - headline: one sentence of at most 25 words saying what the meeting will take up, naming the main business. Do not mention the board's name, the date, the time, or the place; readers already see those.
-- summary: 1 to 3 sentences on what the meeting will cover. Name the main business items.
+- summary: 1 or 2 short sentences on what the meeting will cover. Name the main business items. Do not repeat the board's name, the date, the time, or the place.
 - items: each agenda item, in order, as short plain-English phrases. Skip routine items such as call to order, roll call, approval of minutes, and adjournment.""",
         "schema": {
             "type": "object",
@@ -81,7 +81,7 @@ Return:
 Return:
 - transcript: the full text of the minutes in reading order, as Markdown. Use headings for the document's own headings and lists for its lists. Leave out stamps, seals, and page decorations.
 - headline: one sentence of at most 25 words on what the meeting decided, or what it discussed if it decided nothing. Do not mention the board's name, the date, the time, or the place; readers already see those.
-- summary: 1 to 3 sentences on what the meeting covered and what was decided.
+- summary: 1 to 3 short sentences on what the meeting covered and what was decided. Do not repeat the board's name, the date, the time, or the place.
 - is_minutes: true if this document is minutes of a meeting that took place; false if it is something else, such as an agenda or notice filed under minutes.
 - decisions: each motion, vote, or other decision the minutes record, in order, as a short plain-English sentence that includes the outcome (for example "Approved ... 5-0" or "Continued ... to October 22, 2026"). Skip procedural motions such as adjourning or accepting the agenda.""",
         "schema": {

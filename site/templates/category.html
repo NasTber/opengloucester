@@ -29,7 +29,7 @@
 {% if c.oldest %}
 <h2 id="longest-open">Longest-open {{ c.category }} requests</h2>
 <ol class="plain-list">
-  {% for r in c.oldest %}<li><a href="{{ r.url }}">{{ r.address or "No street address" }}</a>{% if r.ward %}, Ward {{ r.ward }}{% endif %}. Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>{% endfor %}
+  {% for r in c.oldest %}<li><a href="{{ r.url }}">{{ r.address or "No street address" }}</a><span class="item-detail">{% if r.ward %}Ward {{ r.ward }} · {% endif %}Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time></span></li>{% endfor %}
 </ol>
 {% endif %}
 <p class="source-note"><a href="/311/methodology/">How these numbers are calculated</a>.</p>

@@ -280,3 +280,15 @@ def test_pages_set_a_content_security_policy(page_files):
     for path in page_files:
         html = path.read_text()
         assert "Content-Security-Policy" in html and "script-src 'self'" in html, path
+
+
+def test_glossary_matches_terms_and_boards():
+    from pipeline.build_site import glossary_for
+    entries = [{"term": "PERAC", "definition": "d"}, {"term": "executive session", "definition": "d"},
+               {"term": "M.G.L.", "definition": "d"}, {"term": "COA", "definition": "d", "bodies": ["Historic District Commission"]}]
+    meeting = {"body": "Council on Aging Board",
+               "preview": {"summary": "Enter Executive Session under M.G.L. Ch. 30A.", "items": ["Review of COA budget"], "transcript": ""}}
+    assert [e["term"] for e in glossary_for(meeting, entries)] == ["executive session", "M.G.L."]
+    meeting = {"body": "Historic District Commission", "preview": {"summary": "A COA for 38 Pleasant St; perac is not an acronym here."}}
+    assert [e["term"] for e in glossary_for(meeting, entries)] == ["COA"]
+    assert glossary_for({"body": "X"}, entries) == []

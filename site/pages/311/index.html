@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "macros.html" import on_this_page %}
 {% from "charts.html" import month_columns, bars, chart_links, map_figure, map_assets %}
 {% block title %}311 Requests{% endblock %}
 {% block description %}How quickly the City of {{ town.name }} acknowledges and closes public service requests, how many are still open, by category and ward.{% endblock %}
@@ -50,8 +51,14 @@
   </div></li>
 </ul>
 {% if o.checked %}
-<p class="small">{{ o.acknowledged | number }} of {{ o.checked | number }} requests ({{ (o.acknowledged / o.checked * 100) | round | int }}%) were acknowledged by city staff{% if o.get("closed_unacknowledged") %}; another {{ o.closed_unacknowledged | number }} were closed without being acknowledged first{% endif %}. Time to close counts only closed requests; the {{ o.open | number }} still open are left out.{% if o.checked < o.received %} Acknowledgment times are known for {{ o.checked | number }} of {{ o.received | number }} requests so far; the rest are being looked up.{% endif %}</p>
+<ul class="small plain-list">
+  <li>City staff acknowledged {{ o.acknowledged | number }} of {{ o.checked | number }} requests ({{ (o.acknowledged / o.checked * 100) | round | int }}%).{% if o.get("closed_unacknowledged") %} Another {{ o.closed_unacknowledged | number }} were closed without being acknowledged first.{% endif %}</li>
+  <li>Time to close counts only the {{ o.closed | number }} closed requests. The {{ o.open | number }} still open are left out.</li>
+  {% if o.checked < o.received %}<li>Acknowledgment times are known for {{ o.checked | number }} of {{ o.received | number }} requests so far. The rest are being looked up.</li>{% endif %}
+</ul>
 {% endif %}
+
+{{ on_this_page([("monthly", "By month"), ("wards", "By ward"), ("categories", "By category"), ("open", "Open requests"), ("recent", "Past 30 days"), ("repeats", "Repeat locations")]) }}
 
 {# ---- Monthly ---- #}
 {% set months = sc.monthly %}
@@ -141,7 +148,7 @@
 <h3 id="longest-open">Longest-open requests</h3>
 <ol class="plain-list">
   {% for r in b.oldest %}
-  <li><a href="{{ r.url }}">{{ r.category }}</a>, {{ r.address or "no street address" }}{% if r.ward %}, Ward {{ r.ward }}{% endif %}. Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>
+  <li><a href="{{ r.url }}">{{ r.category }}</a><span class="item-detail">{{ r.address or "No street address" }}{% if r.ward %} · Ward {{ r.ward }}{% endif %} · Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time></span></li>
   {% endfor %}
 </ol>
 
@@ -156,7 +163,7 @@
   <summary>See as a list</summary>
   <ol class="plain-list">
     {% for r in recent.requests %}
-    <li><a href="{{ r.url }}">{{ r.category }}</a>, {{ r.address or "no street address" }}{% if r.ward %}, Ward {{ r.ward }}{% endif %}. Submitted <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>
+    <li><a href="{{ r.url }}">{{ r.category }}</a><span class="item-detail">{{ r.address or "No street address" }}{% if r.ward %} · Ward {{ r.ward }}{% endif %} · Submitted <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time></span></li>
     {% endfor %}
   </ol>
 </details>
@@ -172,7 +179,7 @@
 {% if places %}
 <ol class="plain-list">
   {% for pl in places[:5] %}
-  <li>{{ pl.address or "No street address" }}{% if pl.ward %}, Ward {{ pl.ward }}{% endif %}: <a href="/311/category/{{ pl.slug }}/">{{ pl.category }}</a>. {{ plural(pl.reports, "request") }}, {{ pl.again_after_close | number }} after a close.</li>
+  <li><a href="/311/category/{{ pl.slug }}/">{{ pl.category }}</a><span class="item-detail">{{ pl.address or "No street address" }}{% if pl.ward %} · Ward {{ pl.ward }}{% endif %} · {{ plural(pl.reports, "request") }}, {{ pl.again_after_close | number }} after a close</span></li>
   {% endfor %}
 </ol>
 {% endif %}

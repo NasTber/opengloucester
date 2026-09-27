@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "macros.html" import on_this_page %}
 {% from "charts.html" import year_columns, bars, chart_links %}
 {% block title %}City budget{% endblock %}
 {% block description %}Where {{ town.name }}'s general fund money comes from and how it is spent, from the city's filings with the state.{% endblock %}
@@ -45,6 +46,7 @@
   </a></li>
   {% endif %}
 </ul>
+{{ on_this_page([("spending", "Spending"), ("revenue", "Revenue"), ("levy", "Property tax limit"), ("reserves", "Reserves"), ("per-resident", "Per resident")]) }}
 
 {# ---- Spending ---- #}
 <h2 id="spending">Spending</h2>
@@ -124,7 +126,7 @@
 </table>
 </div>
 {% set fc = budget.free_cash[-1].fiscal_year if budget.free_cash else none %}
-<p class="small">Free cash as listed by DLS, by the fiscal year it can be spent in: {% if fc %}the fiscal year {{ fc }} figure was certified as of July 1, {{ fc - 1 }}{% else %}each figure is certified as of July 1, the start of that fiscal year{% endif %}. – means not yet reported. Sources: <a href="{{ budget.source_urls.free_cash }}">DLS Certified Free Cash</a>, <a href="{{ budget.source_urls.stabilization }}">DLS Stabilization Fund</a>.</p>
+<p class="small">Free cash is listed by the fiscal year it can be spent in. {% if fc %}The fiscal year {{ fc }} figure was certified as of July 1, {{ fc - 1 }}.{% else %}Each figure is certified as of July 1, the start of that year.{% endif %} – means not yet reported. Sources: <a href="{{ budget.source_urls.free_cash }}">DLS Certified Free Cash</a>, <a href="{{ budget.source_urls.stabilization }}">DLS Stabilization Fund</a>.</p>
 {{ chart_links("reserves", "/budget/data/reserves.csv") }}
 
 {% if budget.bond_ratings %}
