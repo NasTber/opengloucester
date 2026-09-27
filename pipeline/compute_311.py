@@ -28,6 +28,10 @@ from pipeline.seeclickfix import street_address
 MIN_SAMPLE = 5
 BACKLOG_BUCKETS = [(7, "Under 1 week"), (30, "1 week to 1 month"), (90, "1 to 3 months"),
                    (365, "3 to 12 months"), (None, "Over 1 year")]
+# Open requests with no update on SeeClickFix for this long are counted
+# separately: the data can't show whether they were fixed and never closed,
+# or never handled.
+NO_UPDATE_DAYS = 365
 
 
 def parse(ts: str | None) -> datetime | None:
@@ -114,6 +118,24 @@ def month_counts(records: list[dict], months: list[str]) -> list[dict]:
     return [{"month": m, "received": counts.get(m, 0)} for m in months]
 
 
+def last_update(record: dict) -> datetime:
+    """The latest change SeeClickFix shows for a request: a status change, comment, or edit."""
+    detail = record.get("detail") or {}
+    return max(t for t in (parse(record["created_at"]), parse(record.get("updated_at")), parse(detail.get("updated_at"))) if t)
+
+
+def no_update(open_records: list[dict], now: datetime) -> dict:
+    """Open requests with no update in NO_UPDATE_DAYS, in all and by category and ward."""
+    quiet = [r for r in open_records if days_between(last_update(r), now) >= NO_UPDATE_DAYS]
+    def counts(key) -> list[dict]:
+        tally = defaultdict(int)
+        for r in quiet:
+            tally[key(r)] += 1
+        return [{"name": k, "count": n} for k, n in sorted(tally.items(), key=lambda kv: (-kv[1], kv[0]))]
+    return {"days": NO_UPDATE_DAYS, "count": len(quiet),
+            "by_category": counts(lambda r: r["category"]), "by_ward": counts(lambda r: r.get("ward") or "outside")}
+
+
 def backlog(open_records: list[dict], now: datetime, link_base: str, town: str) -> dict:
     buckets = [{"label": label, "max_days": limit, "count": 0} for limit, label in BACKLOG_BUCKETS]
     for r in open_records:
@@ -126,6 +148,7 @@ def backlog(open_records: list[dict], now: datetime, link_base: str, town: str) 
         "open": len(open_records),
         "median_age_days": round(median([days_between(parse(r["created_at"]), now) for r in open_records]), 1) if open_records else None,
         "buckets": buckets,
+        "no_update": no_update(open_records, now),
         "oldest": oldest_open(open_records, now, link_base, town),
     }
 
