@@ -5,6 +5,8 @@ finds a subset of accessibility problems; manual keyboard and screen reader
 checks are still needed when new sections are added.
 """
 
+import time
+
 import pytest
 from conftest import PAGE_PATHS
 
@@ -28,6 +30,17 @@ def browser():
 @pytest.fixture(scope="module")
 def axe():
     return axe_module.Axe()
+
+
+def wait_until(page, js, timeout=2.0):
+    """Poll a condition. page.wait_for_function evaluates strings with eval, which
+    the site's Content Security Policy blocks."""
+    end = time.monotonic() + timeout
+    while time.monotonic() < end:
+        if page.evaluate(js):
+            return
+        page.wait_for_timeout(50)
+    raise AssertionError(f"timed out waiting for {js}")
 
 
 def format_violations(results):
@@ -82,7 +95,7 @@ def test_skip_link_is_first_tab_stop_and_moves_focus(browser, server_url):
     assert page.evaluate("document.activeElement.getBoundingClientRect().top") >= 0, "skip link should be visible on focus"
     page.keyboard.press("Enter")
     # Focus moves to <main> once the browser finishes the in-page jump.
-    page.wait_for_function("document.activeElement && document.activeElement.id === 'main'", timeout=2000)
+    wait_until(page, "document.activeElement && document.activeElement.id === 'main'")
     context.close()
 
 
@@ -107,7 +120,7 @@ def test_meeting_search_results(browser, axe, server_url, viewport):
     results = axe.run(page, options={"runOnly": {"type": "tag", "values": WCAG_TAGS}})
     overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
     page.goto(server_url + "/meetings/search/?q=zzzqqq")
-    page.wait_for_function("document.getElementById('search-status').textContent.startsWith('No meetings')")
+    wait_until(page, "document.getElementById('search-status').textContent.startsWith('No meetings')", timeout=10)
     context.close()
     assert results.violations_count == 0, format_violations(results)
     assert overflow <= 0

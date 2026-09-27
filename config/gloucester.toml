@@ -92,6 +92,9 @@ request_delay = 3.2
 recent_days = 21
 max_details_per_run = 700
 time_budget_seconds = 2400
+# The month the full history starts (python -m pipeline.fetch_311 --backfill).
+# Older requests are included only while they are still open.
+history_since = "2024-01"
 precincts_file = "gloucester-precincts-2022.geojson"
 
 # Repeat locations: requests in the same category within radius_m meters and
@@ -150,6 +153,8 @@ report_url = "https://gloucesterschoolsreport.com"
 [finance]
 dls_municipality = "Gloucester"
 dls_code = "107"
+# The city's own budget documents, linked from the budget page.
+budget_documents_url = "https://www.gloucester-ma.gov/559/Budgets"
 
 # Housing: Census building permits (state and place FIPS codes), American
 # Community Survey through Census Reporter (geo ids), and the state's

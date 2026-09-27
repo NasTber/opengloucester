@@ -195,6 +195,7 @@
   },
   "shi": {
     "as_of": "2025-09-30",
+    "census_year": 2020,
     "development_units": 1330,
     "goal_percent": 10,
     "percent": 8.04,

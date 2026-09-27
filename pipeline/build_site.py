@@ -158,10 +158,17 @@ def format_month(value: str) -> str:
     return f"{d.strftime('%b')} {d.year}"
 
 
+SAFE_HREF = re.compile(r"(https?://|mailto:)", re.I)
+
+
 def render_markdown(text: str) -> Markup:
-    """Render model-written Markdown safely: escape any HTML first, and demote
-    headings so they sit below the page's own h2."""
+    """Render model-written Markdown safely: escape any HTML first, keep only
+    web and mail links (no javascript: and the like), drop images (they would
+    load from other sites), and demote headings below the page's own h2."""
     html = markdown.markdown(escape(text), extensions=["sane_lists"])
+    html = re.sub(r'<a href="([^"]*)"[^>]*>(.*?)</a>',
+                  lambda m: m.group(0) if SAFE_HREF.match(m.group(1)) else m.group(2), html, flags=re.S)
+    html = re.sub(r'<img [^>]*?alt="([^"]*)"[^>]*>|<img [^>]*>', lambda m: m.group(1) or "", html)
     for level in (3, 2, 1):
         html = html.replace(f"<h{level}>", f"<h{level + 2}>").replace(f"</h{level}>", f"</h{level + 2}>")
     return Markup(html)

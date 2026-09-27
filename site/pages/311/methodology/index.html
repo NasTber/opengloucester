@@ -8,7 +8,7 @@
 
 <h2 id="collection">What's collected</h2>
 <ul>
-  <li>Every public request since January 2024, checked daily.</li>
+  <li>Every public request since {{ (config.seeclickfix.history_since ~ "-01") | date("month") }}, plus older ones still open, checked daily.</li>
   <li>For each one: category, location, and when it was submitted, acknowledged, closed, or reopened.</li>
   <li>Not collected: descriptions, photos, or who submitted it.</li>
   <li>Private requests and internal work orders aren't public, so they aren't counted. Requests later deleted or made private are removed.</li>

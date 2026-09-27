@@ -269,3 +269,16 @@ def test_housing_page(site_dir):
     assert "2020–2024" in page and "partly estimated" in page
     permits = (site_dir / "housing" / "data" / "permits.csv").read_text().splitlines()
     assert permits[0].startswith("year,homes,") and permits[-1].startswith("2025,77,")
+
+
+def test_model_markdown_keeps_only_safe_links():
+    html = build_site.render_markdown(
+        "[a](javascript:alert(1)) [b](https://example.org) ![c](https://tracker.example/p.png) <script>x</script>")
+    assert "javascript:" not in html and "<img" not in html and "<script" not in html
+    assert '<a href="https://example.org">b</a>' in html and "c" in html
+
+
+def test_pages_set_a_content_security_policy(page_files):
+    for path in page_files:
+        html = path.read_text()
+        assert "Content-Security-Policy" in html and "script-src 'self'" in html, path

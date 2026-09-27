@@ -182,8 +182,10 @@ def parse_shi(text: str, town: str) -> dict:
     if not row or not as_of:
         raise FetchError(f"{town} not found in the Subsidized Housing Inventory")
     as_of_date = datetime.strptime(as_of.group(1), "%B %d, %Y").date().isoformat()
+    census = re.search(r"(\d{4}) Census", text)
     return {
         "as_of": as_of_date,
+        "census_year": int(census.group(1)) if census else None,
         "year_round_homes": int(row.group(1).replace(",", "")),
         "development_units": int(row.group(2).replace(",", "")),
         "shi_units": int(row.group(3).replace(",", "")),

@@ -142,6 +142,8 @@
 <p class="small">Spending per resident depends on which services a community provides itself, such as its own school system, trash pickup, or a harbor, and on seasonal population. Population: {{ pr.population | number }}. Source: <a href="{{ budget.source_urls.per_resident }}">DLS General Fund per Capita</a>.</p>
 {% endif %}
 
-<p class="source-note">City budget documents, including department detail, are on the <a href="{{ town.official_site }}/559/Budgets">city website</a>.</p>
+{% if config.finance.get("budget_documents_url") %}
+<p class="source-note">City budget documents, including department detail, are on the <a href="{{ config.finance.budget_documents_url }}">city website</a>.</p>
+{% endif %}
 {% endif %}
 {% endblock %}

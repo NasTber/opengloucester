@@ -93,9 +93,9 @@
 {# ---- Affordable housing ---- #}
 {% if h.shi %}{% set s = h.shi %}
 <h2 id="affordable">Affordable housing</h2>
-<p>Massachusetts counts homes that are kept affordable to lower-income households on its Subsidized Housing Inventory. Under Chapter 40B, the goal is for 10% of each community's year-round homes to be on the list. Below 10%, the state can override local zoning decisions on qualifying projects that include affordable homes.</p>
+<p>Massachusetts counts homes that are kept affordable to lower-income households on its Subsidized Housing Inventory. Under Chapter 40B, the goal is for {{ s.goal_percent }}% of each community's year-round homes to be on the list. Below {{ s.goal_percent }}%, the state can override local zoning decisions on qualifying projects that include affordable homes.</p>
 <p>As of {{ s.as_of | date("plain") }}, {{ s.shi_units | number }} of {{ town.name }}'s {{ s.year_round_homes | number }} year-round homes were on the list: <strong>{{ s.percent }}%</strong>.</p>
-<p class="small">Year-round homes are from the 2020 Census. The state updates the list about every two years, with some changes in between. Source: <a href="{{ s.source_url }}">Executive Office of Housing and Livable Communities, Subsidized Housing Inventory</a>.</p>
+<p class="small">{% if s.get("census_year") %}Year-round homes are from the {{ s.census_year }} Census. {% endif %} The state updates the list about every two years, with some changes in between. Source: <a href="{{ s.source_url }}">Executive Office of Housing and Livable Communities, Subsidized Housing Inventory</a>.</p>
 {% endif %}
 
 {# ---- Housing stock ---- #}
