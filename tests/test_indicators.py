@@ -70,3 +70,50 @@ def test_school_figures_compare_like_with_like(tmp_path):
 
 def test_school_year_label():
     assert build_site.school_year(2026) == "2025–26"
+
+
+def test_budget_fetch(tmp_path):
+    from fakes import FakeBudgetDLS
+    from pipeline import fetch_budget
+    config = load_config("gloucester")
+    client = FakeBudgetDLS()
+    fetch_budget.run(config, client, tmp_path, now=NOW)
+    b = json.loads((tmp_path / "finance" / "budget.json").read_text())
+    # FY2026 Schedule A is all zeros (not yet reported) and is skipped.
+    assert [y["fiscal_year"] for y in b["spending"]] == [2024, 2025]
+    fy25 = b["spending"][-1]
+    assert fy25["total"] == 140559783 and fy25["functions"]["Education"] == 45682762
+    assert sum(fy25["functions"].values()) == fy25["total"]
+    assert b["revenue"][-1] == {"fiscal_year": 2026, "total": 153398542, "sources": {
+        "Property tax": 109650852, "State aid": 17960146, "Local receipts": 19102669, "Other": 6684875}}
+    assert len(b["revenue"]) == fetch_budget.YEARS
+    assert b["levy"][-1]["excess_capacity"] == 139295
+    assert b["free_cash"][-1] == {"fiscal_year": 2026, "amount": 4112161}
+    assert b["stabilization"][-1] == {"fiscal_year": 2025, "amount": 3802715}
+    assert b["bond_ratings"] == [{"agency": "Moody's", "rating": "Aa3", "fiscal_year": 2026},
+                                 {"agency": "S&P", "rating": "AA", "fiscal_year": 2026}]
+    # Per resident: the latest year nearly every community has reported.
+    assert b["per_resident"] == {"fiscal_year": 2025, "town": 4711, "population": 29836,
+                                 "state_median": 4297, "communities": 349}
+    assert any("iclMuni=107" in u and "ScheduleA" in u for u in client.urls)
+
+    # A second run within a week does not fetch again.
+    before = len(client.urls)
+    assert "skipped" in fetch_budget.run(config, client, tmp_path, now=NOW)
+    assert len(client.urls) == before
+
+
+def test_budget_rejects_error_page():
+    import pytest
+    from pipeline import fetch_budget
+    from pipeline.http import FetchError
+    with pytest.raises(FetchError):
+        fetch_budget.rows(b"<html>ORA-01722</html>")
+
+
+def test_money_format():
+    assert build_site.format_money(140559783) == "$140.6 million"
+    assert build_site.format_money(140559783, "short") == "$140.6M"
+    assert build_site.format_money(139295, "short") == "$139K"
+    assert build_site.format_money(4711) == "$4,711"
+    assert build_site.format_money(None) == "–"

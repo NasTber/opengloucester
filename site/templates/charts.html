@@ -14,10 +14,23 @@
 </figure>
 {%- endmacro %}
 
-{# Horizontal bars. rows: [{label, value, text, href?}] #}
-{% macro bars(rows, label) -%}
+{# Column chart by year. rows: [{label, short, value, text}] #}
+{% macro year_columns(rows, label) -%}
 {% set peak = rows | map(attribute="value") | max %}
-<ul class="hbars" aria-label="{{ label }}">
+<figure class="chart">
+  <div class="columns" role="img" aria-label="{{ label }}: {% for r in rows %}{{ r.label }} {{ r.text }}{% if not loop.last %}, {% endif %}{% endfor %}.">
+    {% for r in rows %}<div class="col" style="height: {{ (r.value / peak * 100) if peak else 0 }}%"></div>{% endfor %}
+  </div>
+  <div class="col-labels" aria-hidden="true">
+    {% for r in rows %}<span>{{ r.short }}</span>{% endfor %}
+  </div>
+</figure>
+{%- endmacro %}
+
+{# Horizontal bars. rows: [{label, value, text, href?}] #}
+{% macro bars(rows, label, wide_numbers=false) -%}
+{% set peak = rows | map(attribute="value") | max %}
+<ul class="hbars{% if wide_numbers %} wide-n{% endif %}" aria-label="{{ label }}">
   {% for r in rows %}
   <li class="hbar">
     <span>{% if r.get("href") %}<a href="{{ r.href }}">{{ r.label }}</a>{% else %}{{ r.label }}{% endif %}</span>

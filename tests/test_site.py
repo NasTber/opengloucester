@@ -250,3 +250,14 @@ def test_meeting_search_index(site_dir):
 
 def test_plain_text():
     assert build_site.plain_text("# Agenda\n\n**1.** Call to order  |  x\n") == "Agenda\n1. Call to order x"
+
+
+def test_budget_page(site_dir):
+    page = (site_dir / "budget" / "index.html").read_text()
+    assert "$140.6M" in page and "Fiscal year 2025" in page
+    assert "State median $4,297" in page
+    assert 'href="/budget/"' in (site_dir / "index.html").read_text()
+    spending = (site_dir / "budget" / "data" / "spending.csv").read_text().splitlines()
+    assert spending[0].startswith("fiscal_year,total,") and spending[-1].startswith("2025,140559783,")
+    reserves = (site_dir / "budget" / "data" / "reserves.csv").read_text().splitlines()
+    assert reserves[-1] == "2026,4112161,"

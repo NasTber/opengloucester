@@ -153,3 +153,28 @@ class FakeDESE:
         query = unquote_plus(url)
         name = next(n for n, m in MEASURES.items() if m["dataset"] in url and m["where"] in query)
         return FakeJSONResponse(json.loads((FIXTURES / f"dese_{name}.json").read_text()))
+
+
+class FakeBudgetDLS:
+    """Serves saved DLS budget workbooks. Schedule A has FY2024 and FY2025; later
+    years come back as zeros, earlier ones as an empty table (as the site does)."""
+
+    def __init__(self):
+        self.urls = []
+
+    def get(self, url):
+        from urllib.parse import parse_qs, urlparse
+        self.urls.append(url)
+        q = {k: v[0] for k, v in parse_qs(urlparse(url).query).items()}
+        folder = FIXTURES / "dls_budget"
+        report = q["rdReport"]
+        if report == "ScheduleA.GeneralFund":
+            year = int(q["islYear"])
+            name = f"schedule_a_{year}.xlsx" if year in (2024, 2025) else "schedule_a_2026.xlsx"
+        elif report == "DLS_Bond_Ratings":
+            name = "bonds_moodys.xlsx" if q["islCompany"] == "Moodys" else "bonds_sp.xlsx"
+        else:
+            name = {"RevenueBySource.RBS.RevbySource2": "revenue.xlsx", "Prop2.5.ExcessLevyCapandOverride_10_pres": "levy.xlsx",
+                    "FreeCash2": "free_cash.xlsx", "Dashboard.TrendAnalysisReports.StabFund": "stabilization.xlsx",
+                    "351GenFunperCapita": "per_capita.xlsx"}[report]
+        return FakeResponse((folder / name).read_bytes())

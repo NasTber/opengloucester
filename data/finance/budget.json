@@ -1,0 +1,462 @@
+{
+  "bond_ratings": [
+    {
+      "agency": "Moody's",
+      "fiscal_year": 2026,
+      "rating": "Aa3"
+    },
+    {
+      "agency": "S&P",
+      "fiscal_year": 2026,
+      "rating": "AA"
+    }
+  ],
+  "free_cash": [
+    {
+      "amount": 2269409,
+      "fiscal_year": 2017
+    },
+    {
+      "amount": 3706217,
+      "fiscal_year": 2018
+    },
+    {
+      "amount": 2218814,
+      "fiscal_year": 2019
+    },
+    {
+      "amount": 2647061,
+      "fiscal_year": 2020
+    },
+    {
+      "amount": 3498853,
+      "fiscal_year": 2021
+    },
+    {
+      "amount": 5555801,
+      "fiscal_year": 2022
+    },
+    {
+      "amount": 4304608,
+      "fiscal_year": 2023
+    },
+    {
+      "amount": 4280089,
+      "fiscal_year": 2024
+    },
+    {
+      "amount": 3953068,
+      "fiscal_year": 2025
+    },
+    {
+      "amount": 4112161,
+      "fiscal_year": 2026
+    }
+  ],
+  "levy": [
+    {
+      "assessed_value": 5930512360,
+      "excess_capacity": 80187,
+      "fiscal_year": 2017,
+      "levy": 78489679,
+      "levy_ceiling": 148262809,
+      "max_levy": 78569866
+    },
+    {
+      "assessed_value": 6267400150,
+      "excess_capacity": 2077,
+      "fiscal_year": 2018,
+      "levy": 81310484,
+      "levy_ceiling": 156685004,
+      "max_levy": 81312561
+    },
+    {
+      "assessed_value": 6614057190,
+      "excess_capacity": 3527,
+      "fiscal_year": 2019,
+      "levy": 84202727,
+      "levy_ceiling": 165351430,
+      "max_levy": 84206254
+    },
+    {
+      "assessed_value": 7042607930,
+      "excess_capacity": 27736,
+      "fiscal_year": 2020,
+      "levy": 87107363,
+      "levy_ceiling": 176065198,
+      "max_levy": 87135099
+    },
+    {
+      "assessed_value": 7222710570,
+      "excess_capacity": 45505,
+      "fiscal_year": 2021,
+      "levy": 90137377,
+      "levy_ceiling": 180567764,
+      "max_levy": 90182882
+    },
+    {
+      "assessed_value": 7947549060,
+      "excess_capacity": 75207,
+      "fiscal_year": 2022,
+      "levy": 93514953,
+      "levy_ceiling": 198688727,
+      "max_levy": 93590160
+    },
+    {
+      "assessed_value": 9226949330,
+      "excess_capacity": 34419,
+      "fiscal_year": 2023,
+      "levy": 97994705,
+      "levy_ceiling": 230673733,
+      "max_levy": 98029124
+    },
+    {
+      "assessed_value": 10415981060,
+      "excess_capacity": 48681,
+      "fiscal_year": 2024,
+      "levy": 101622847,
+      "levy_ceiling": 260399527,
+      "max_levy": 101671528
+    },
+    {
+      "assessed_value": 10848765600,
+      "excess_capacity": 104750,
+      "fiscal_year": 2025,
+      "levy": 105742264,
+      "levy_ceiling": 271219140,
+      "max_levy": 105847014
+    },
+    {
+      "assessed_value": 11746151070,
+      "excess_capacity": 139295,
+      "fiscal_year": 2026,
+      "levy": 109650852,
+      "levy_ceiling": 293653777,
+      "max_levy": 109790147
+    }
+  ],
+  "per_resident": {
+    "communities": 349,
+    "fiscal_year": 2025,
+    "population": 29836,
+    "state_median": 4297,
+    "town": 4711
+  },
+  "revenue": [
+    {
+      "fiscal_year": 2017,
+      "sources": {
+        "Local receipts": 13129939,
+        "Other": 6010356,
+        "Property tax": 78489679,
+        "State aid": 12372180
+      },
+      "total": 110002154
+    },
+    {
+      "fiscal_year": 2018,
+      "sources": {
+        "Local receipts": 12869600,
+        "Other": 5898596,
+        "Property tax": 81310484,
+        "State aid": 11146219
+      },
+      "total": 111224899
+    },
+    {
+      "fiscal_year": 2019,
+      "sources": {
+        "Local receipts": 13294508,
+        "Other": 3623612,
+        "Property tax": 84202727,
+        "State aid": 11375799
+      },
+      "total": 112496646
+    },
+    {
+      "fiscal_year": 2020,
+      "sources": {
+        "Local receipts": 13657009,
+        "Other": 4328403,
+        "Property tax": 87107363,
+        "State aid": 11671966
+      },
+      "total": 116764741
+    },
+    {
+      "fiscal_year": 2021,
+      "sources": {
+        "Local receipts": 14064574,
+        "Other": 5375173,
+        "Property tax": 90137377,
+        "State aid": 11672673
+      },
+      "total": 121249797
+    },
+    {
+      "fiscal_year": 2022,
+      "sources": {
+        "Local receipts": 14684394,
+        "Other": 4225288,
+        "Property tax": 93514953,
+        "State aid": 11986880
+      },
+      "total": 124411515
+    },
+    {
+      "fiscal_year": 2023,
+      "sources": {
+        "Local receipts": 14760265,
+        "Other": 6149198,
+        "Property tax": 97994705,
+        "State aid": 15018504
+      },
+      "total": 133922672
+    },
+    {
+      "fiscal_year": 2024,
+      "sources": {
+        "Local receipts": 15061190,
+        "Other": 4859310,
+        "Property tax": 101622847,
+        "State aid": 16762750
+      },
+      "total": 138306097
+    },
+    {
+      "fiscal_year": 2025,
+      "sources": {
+        "Local receipts": 16236265,
+        "Other": 7692407,
+        "Property tax": 105742264,
+        "State aid": 17322524
+      },
+      "total": 146993460
+    },
+    {
+      "fiscal_year": 2026,
+      "sources": {
+        "Local receipts": 19102669,
+        "Other": 6684875,
+        "Property tax": 109650852,
+        "State aid": 17960146
+      },
+      "total": 153398542
+    }
+  ],
+  "source": "Massachusetts Department of Revenue, Division of Local Services, Municipal Databank",
+  "source_urls": {
+    "bond_ratings": "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=DLS_bond_ratings",
+    "free_cash": "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=FreeCash2",
+    "levy": "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=Prop2.5.ExcessLevyCapandOverride_MAIN",
+    "per_resident": "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=351GenFunperCapita",
+    "revenue": "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=RevenueBySource.RBS.RevbySourceMAIN",
+    "spending": "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=ScheduleA.GenFund_MAIN",
+    "stabilization": "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=Dashboard.TrendAnalysisReports.StabFund"
+  },
+  "spending": [
+    {
+      "fiscal_year": 2016,
+      "functions": {
+        "Culture and recreation": 865099,
+        "Debt service": 13362460,
+        "Education": 35438445,
+        "Fixed costs": 19648982,
+        "General government": 4680527,
+        "Human services": 1066175,
+        "Other": 721143,
+        "Public safety": 15369279,
+        "Public works": 9445760,
+        "State and county assessments": 2328208
+      },
+      "total": 102926078
+    },
+    {
+      "fiscal_year": 2017,
+      "functions": {
+        "Culture and recreation": 903207,
+        "Debt service": 12292178,
+        "Education": 35550676,
+        "Fixed costs": 20428341,
+        "General government": 4763638,
+        "Human services": 1208822,
+        "Other": 719280,
+        "Public safety": 15801502,
+        "Public works": 10801438,
+        "State and county assessments": 2344811
+      },
+      "total": 104813893
+    },
+    {
+      "fiscal_year": 2018,
+      "functions": {
+        "Culture and recreation": 944751,
+        "Debt service": 11625914,
+        "Education": 36593503,
+        "Fixed costs": 21920074,
+        "General government": 4793863,
+        "Human services": 1212769,
+        "Other": 673793,
+        "Public safety": 15911373,
+        "Public works": 11227247,
+        "State and county assessments": 2620836
+      },
+      "total": 107524123
+    },
+    {
+      "fiscal_year": 2019,
+      "functions": {
+        "Culture and recreation": 934586,
+        "Debt service": 11901330,
+        "Education": 37669124,
+        "Fixed costs": 22517036,
+        "General government": 5360240,
+        "Human services": 1224895,
+        "Other": 628089,
+        "Public safety": 16202954,
+        "Public works": 10992773,
+        "State and county assessments": 2636256
+      },
+      "total": 110067283
+    },
+    {
+      "fiscal_year": 2020,
+      "functions": {
+        "Culture and recreation": 1114185,
+        "Debt service": 12065767,
+        "Education": 38661296,
+        "Fixed costs": 23830923,
+        "General government": 5111757,
+        "Human services": 1286450,
+        "Other": 651169,
+        "Public safety": 16375528,
+        "Public works": 10845567,
+        "State and county assessments": 2512110
+      },
+      "total": 112454752
+    },
+    {
+      "fiscal_year": 2021,
+      "functions": {
+        "Culture and recreation": 1170571,
+        "Debt service": 12004239,
+        "Education": 38810553,
+        "Fixed costs": 25330240,
+        "General government": 5148468,
+        "Human services": 1207261,
+        "Other": 786925,
+        "Public safety": 18059061,
+        "Public works": 11242881,
+        "State and county assessments": 2586150
+      },
+      "total": 116346349
+    },
+    {
+      "fiscal_year": 2022,
+      "functions": {
+        "Culture and recreation": 1119646,
+        "Debt service": 10542716,
+        "Education": 40003819,
+        "Fixed costs": 26802248,
+        "General government": 5382273,
+        "Human services": 1228175,
+        "Other": 796919,
+        "Public safety": 18310640,
+        "Public works": 13287304,
+        "State and county assessments": 2666865
+      },
+      "total": 120140605
+    },
+    {
+      "fiscal_year": 2023,
+      "functions": {
+        "Culture and recreation": 1181343,
+        "Debt service": 11767770,
+        "Education": 42308932,
+        "Fixed costs": 28553028,
+        "General government": 5788369,
+        "Human services": 1108578,
+        "Other": 874230,
+        "Public safety": 19724482,
+        "Public works": 13268571,
+        "State and county assessments": 2572470
+      },
+      "total": 127147773
+    },
+    {
+      "fiscal_year": 2024,
+      "functions": {
+        "Culture and recreation": 1251536,
+        "Debt service": 12572358,
+        "Education": 44754900,
+        "Fixed costs": 29665858,
+        "General government": 6242025,
+        "Human services": 1204156,
+        "Other": 1878239,
+        "Public safety": 20395309,
+        "Public works": 13798943,
+        "State and county assessments": 2626719
+      },
+      "total": 134390043
+    },
+    {
+      "fiscal_year": 2025,
+      "functions": {
+        "Culture and recreation": 1285707,
+        "Debt service": 13169452,
+        "Education": 45682762,
+        "Fixed costs": 31612894,
+        "General government": 6093069,
+        "Human services": 1335904,
+        "Other": 1147067,
+        "Public safety": 21152374,
+        "Public works": 16425219,
+        "State and county assessments": 2655335
+      },
+      "total": 140559783
+    }
+  ],
+  "stabilization": [
+    {
+      "amount": 2195053,
+      "fiscal_year": 2016
+    },
+    {
+      "amount": 1953544,
+      "fiscal_year": 2017
+    },
+    {
+      "amount": 2221662,
+      "fiscal_year": 2018
+    },
+    {
+      "amount": 6380723,
+      "fiscal_year": 2019
+    },
+    {
+      "amount": 6282661,
+      "fiscal_year": 2020
+    },
+    {
+      "amount": 6548502,
+      "fiscal_year": 2021
+    },
+    {
+      "amount": 7027380,
+      "fiscal_year": 2022
+    },
+    {
+      "amount": 7452678,
+      "fiscal_year": 2023
+    },
+    {
+      "amount": 4706467,
+      "fiscal_year": 2024
+    },
+    {
+      "amount": 3802715,
+      "fiscal_year": 2025
+    }
+  ],
+  "updated_at": "2026-09-27T06:20:54-04:00"
+}

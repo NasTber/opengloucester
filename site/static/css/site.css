@@ -252,6 +252,8 @@ main .hbars > li { max-width: none; margin: 0; }
 .hbar { display: grid; grid-template-columns: 5.5rem 1fr 3.5rem; align-items: center; gap: 0.6rem; padding: 0.2rem 0; font-size: 0.9rem; }
 .hbar .bar { height: 0.85rem; min-width: 2px; background: var(--primary); border-radius: 2px; }
 .hbar .n { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.hbars.wide-n .hbar { grid-template-columns: 5.5rem 1fr auto; }
+.hbars.wide-n .n { white-space: nowrap; }
 .hbar a { font-weight: 600; }
 
 .table-wrap { overflow-x: auto; }

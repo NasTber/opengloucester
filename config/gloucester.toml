@@ -46,6 +46,13 @@ summary = "Graduation, attendance, and MCAS results compared with the state, and
 status = "live"
 
 [[sections]]
+slug = "budget"
+title = "City budget"
+nav = "Budget"
+summary = "Where general fund money comes from and how it is spent, reserves, and the property tax limit."
+status = "live"
+
+[[sections]]
 slug = "about"
 title = "About"
 summary = "Data sources, update schedule, metric definitions, and corrections."
@@ -132,9 +139,11 @@ portal = "https://educationtocareer.data.mass.gov"
 report_name = "Gloucester Schools Report"
 report_url = "https://gloucesterschoolsreport.com"
 
-# Average single-family tax bill (Mass. Division of Local Services).
+# Tax bill and budget figures (Mass. Division of Local Services). Some DLS
+# reports take the name, others the DOR code.
 [finance]
 dls_municipality = "Gloucester"
+dls_code = "107"
 
 # Unemployment rate (BLS Local Area Unemployment Statistics). City rates are
 # not seasonally adjusted; the state series is shown for context.

@@ -69,6 +69,12 @@ jobs:
         env:
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
 
+      # Weekly at most; skipped when the saved figures are recent.
+      - name: Fetch budget figures
+        if: inputs.sources != '311'
+        continue-on-error: true
+        run: python -m pipeline.fetch_budget --town gloucester
+
       # Commit meetings first so they are not held up by the longer 311 step.
       - name: Commit meetings
         if: inputs.sources != '311'

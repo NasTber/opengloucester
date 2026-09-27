@@ -141,6 +141,18 @@ def format_number(n: float | int | None) -> str:
     return "–" if n is None else f"{n:,}"
 
 
+def format_money(n: float | int | None, style: str = "long") -> str:
+    """140559783 -> '$140.6 million' (long) or '$140.6M' (short). Short rounds
+    thousands too ('$139K'); long gives amounts under a million in full."""
+    if n is None:
+        return "–"
+    if abs(n) >= 1_000_000:
+        return f"${n / 1_000_000:,.1f}" + ("M" if style == "short" else " million")
+    if style == "short" and abs(n) >= 10_000:
+        return f"${n / 1000:,.0f}K"
+    return f"${n:,.0f}"
+
+
 def format_month(value: str) -> str:
     d = date.fromisoformat(value + "-01")
     return f"{d.strftime('%b')} {d.year}"
@@ -356,6 +368,8 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     scorecard = json.loads(scorecard_path.read_text(encoding="utf-8")) if scorecard_path.exists() else None
     schools_path = data_dir / "schools" / "schools.json"
     schools = json.loads(schools_path.read_text(encoding="utf-8")) if schools_path.exists() else None
+    budget_path = data_dir / "finance" / "budget.json"
+    budget = json.loads(budget_path.read_text(encoding="utf-8")) if budget_path.exists() else None
 
     env = Environment(
         loader=FileSystemLoader([SITE_DIR / "templates", PAGES_DIR]),
@@ -365,7 +379,7 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         lstrip_blocks=True,
     )
     env.filters.update(date=format_date, time=format_time, filesize=format_bytes, timestamp=format_timestamp,
-                       duration=format_duration, number=format_number, month=format_month,
+                       duration=format_duration, number=format_number, money=format_money, month=format_month,
                        markdown=render_markdown, duration_cell=format_duration_cell, street=short_address,
                        model_name=model_name, capitalize_first=lambda t: Markup(t[:1].upper() + t[1:]),
                        school_year=school_year)
@@ -376,7 +390,7 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         digest = hashlib.sha256((STATIC_DIR / path.removeprefix("/static/")).read_bytes()).hexdigest()[:10]
         return f"{path}?v={digest}"
     env.filters["versioned"] = versioned
-    env.globals.update(group_by=group_by, today=built_at.date().isoformat(), css_version=css_version, plural=plural,
+    env.globals.update(group_by=group_by, reserve_rows=reserve_rows, today=built_at.date().isoformat(), css_version=css_version, plural=plural,
                        change=lambda diff, since: change_text(diff, "", since))
 
     if out_dir.exists():
@@ -391,7 +405,7 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     share_path = STATIC_DIR / "share" / f"{town}.png"
     share_image = f"{base_url}/static/share/{town}.png" if share_path.exists() else None
     common = dict(config=config, site=site, town=config["town"], sections=sections, share_image=share_image, search_url=search_url,
-                  built_at=built_at, meetings=meetings, scorecard=scorecard, schools=schools,
+                  built_at=built_at, meetings=meetings, scorecard=scorecard, schools=schools, budget=budget,
                   headline=headline_numbers(data_dir, scorecard), map_points=map_points(scorecard))
     urls = []
 
@@ -424,6 +438,8 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         for c in scorecard.get("categories", []):
             render("category.html", f"/311/category/{c['slug']}/", category=c)
         write_311_csvs(out_dir / "311" / "data", scorecard)
+    if budget:
+        write_budget_csvs(out_dir / "budget" / "data", budget)
 
     for folder in ("agendas", "minutes"):
         src = data_dir / "meetings" / folder
@@ -441,6 +457,28 @@ def write_csv(path: Path, header: list[str], rows: list[list]) -> None:
         writer = csv.writer(f)
         writer.writerow(header)
         writer.writerows(rows)
+
+
+def write_budget_csvs(folder: Path, b: dict) -> None:
+    """Downloadable tables behind the budget page. Amounts are in dollars."""
+    functions = list(b["spending"][-1]["functions"]) if b["spending"] else []
+    write_csv(folder / "spending.csv", ["fiscal_year", "total", *functions],
+              [[y["fiscal_year"], y["total"], *(y["functions"].get(f) for f in functions)] for y in b["spending"]])
+    sources = list(b["revenue"][-1]["sources"]) if b["revenue"] else []
+    write_csv(folder / "revenue.csv", ["fiscal_year", "total", *sources],
+              [[y["fiscal_year"], y["total"], *(y["sources"].get(s) for s in sources)] for y in b["revenue"]])
+    write_csv(folder / "levy.csv", ["fiscal_year", "levy", "levy_limit", "unused_levy_capacity", "levy_ceiling", "assessed_value"],
+              [[y["fiscal_year"], y["levy"], y["max_levy"], y["excess_capacity"], y["levy_ceiling"], y["assessed_value"]]
+               for y in b["levy"]])
+    write_csv(folder / "reserves.csv", ["fiscal_year", "free_cash", "stabilization_fund"],
+              [[y, *rv] for y, rv in reserve_rows(b)])
+
+
+def reserve_rows(b: dict) -> list[tuple[int, tuple]]:
+    """[(fiscal_year, (free_cash, stabilization))], oldest first; None where not reported."""
+    free = {y["fiscal_year"]: y["amount"] for y in b["free_cash"]}
+    stab = {y["fiscal_year"]: y["amount"] for y in b["stabilization"]}
+    return [(y, (free.get(y), stab.get(y))) for y in sorted(set(free) | set(stab))]
 
 
 def write_311_csvs(folder: Path, sc: dict) -> None:

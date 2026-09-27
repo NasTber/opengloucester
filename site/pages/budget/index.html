@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% from "charts.html" import year_columns, bars, chart_links %}
+{% block title %}City budget{% endblock %}
+{% block description %}Where {{ town.name }}'s general fund money comes from and how it is spent, from the city's filings with the state.{% endblock %}
+{% block content %}
+<div class="page-head">
+  <h1>City budget</h1>
+  <p class="lede">Where the city's general fund money comes from and how it is spent, from the city's annual filings with the Massachusetts Division of Local Services (DLS).</p>
+  {% if budget %}
+  <p class="source-note">Checked <time datetime="{{ budget.updated_at }}">{{ budget.updated_at | timestamp }}</time>. The state adds each year's figures after the city files them. Years are fiscal years, which start July 1: fiscal year {{ budget.revenue[-1].fiscal_year }} runs from July {{ budget.revenue[-1].fiscal_year - 1 }} to June {{ budget.revenue[-1].fiscal_year }}.</p>
+  {% endif %}
+</div>
+
+{% if not budget %}
+<p>Figures will appear here after the next data update.</p>
+{% else %}
+{% set sp = budget.spending[-1] %}
+{% set rv = budget.revenue[-1] %}
+{% set lv = budget.levy[-1] if budget.levy else none %}
+{% set pr = budget.per_resident %}
+<h2 class="visually-hidden">Summary</h2>
+<ul class="stats">
+  <li class="stat"><a href="#spending">
+    <span class="stat-label">General fund spending</span>
+    <span class="stat-value">{{ sp.total | money("short") }}</span>
+    <span class="stat-change">Fiscal year {{ sp.fiscal_year }}</span>
+  </a></li>
+  {% if pr %}
+  <li class="stat"><a href="#per-resident">
+    <span class="stat-label">Spending per resident</span>
+    <span class="stat-value">{{ pr.town | money }}</span>
+    <span class="stat-change">Fiscal year {{ pr.fiscal_year }} · State median {{ pr.state_median | money }}</span>
+  </a></li>
+  {% endif %}
+  <li class="stat"><a href="#revenue">
+    <span class="stat-label">Paid by property tax</span>
+    <span class="stat-value">{{ (rv.sources["Property tax"] / rv.total * 100) | round | int }}%</span>
+    <span class="stat-change">Of revenue, fiscal year {{ rv.fiscal_year }}</span>
+  </a></li>
+  {% if lv %}
+  <li class="stat"><a href="#levy">
+    <span class="stat-label">Unused levy capacity</span>
+    <span class="stat-value">{{ lv.excess_capacity | money("short") }}</span>
+    <span class="stat-change">Fiscal year {{ lv.fiscal_year }} · {{ "%.2f" | format(lv.excess_capacity / lv.max_levy * 100) }}% of the limit</span>
+  </a></li>
+  {% endif %}
+</ul>
+
+{# ---- Spending ---- #}
+<h2 id="spending">Spending</h2>
+<p>General fund spending in fiscal year {{ sp.fiscal_year }}, by what it paid for. The general fund covers most city services; water, sewer, and other self-funded services are budgeted separately.</p>
+{% set rows = [] %}
+{% for name, amount in sp.functions | dictsort(by="value", reverse=true) %}{% set _ = rows.append({"label": name, "value": amount, "text": (amount | money("short")) ~ " · " ~ ((amount / sp.total * 100) | round | int) ~ "%"}) %}{% endfor %}
+{{ bars(rows, "General fund spending by function, fiscal year " ~ sp.fiscal_year, wide_numbers=true) }}
+<p class="small">Fixed costs include employee and retiree health insurance, pensions, and other insurance. School employees' benefits are counted there, not under education.</p>
+
+<h3 id="spending-by-year">Total by year</h3>
+{% set cols = [] %}
+{% for y in budget.spending %}{% set _ = cols.append({"label": "fiscal year " ~ y.fiscal_year, "short": "’" ~ (y.fiscal_year | string)[2:], "value": y.total, "text": y.total | money}) %}{% endfor %}
+{{ year_columns(cols, "General fund spending by fiscal year") }}
+<div class="table-wrap">
+<table class="data-table">
+  <thead><tr><th scope="col">Fiscal year</th><th scope="col" class="num">Spending</th><th scope="col" class="num">Change</th></tr></thead>
+  <tbody>
+  {% for y in budget.spending | reverse %}
+    {% set prev = budget.spending[budget.spending | length - loop.index - 1] if loop.index < budget.spending | length else none %}
+    <tr><th scope="row">{{ y.fiscal_year }}</th><td class="num">{{ y.total | money("short") }}</td><td class="num">{% if prev %}{{ "%+.1f" | format((y.total - prev.total) / prev.total * 100) }}%{% else %}–{% endif %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<p class="small">Amounts are not adjusted for inflation. Source: <a href="{{ budget.source_urls.spending }}">DLS Schedule A, general fund</a>.</p>
+{{ chart_links("spending", "/budget/data/spending.csv") }}
+
+{# ---- Revenue ---- #}
+<h2 id="revenue">Revenue</h2>
+<p>Where general fund money came from in fiscal year {{ rv.fiscal_year }}, as budgeted when the tax rate was set.</p>
+{% set rows = [] %}
+{% for name, amount in rv.sources.items() %}{% set _ = rows.append({"label": name, "value": amount, "text": (amount | money("short")) ~ " · " ~ ((amount / rv.total * 100) | round | int) ~ "%"}) %}{% endfor %}
+{{ bars(rows, "General fund revenue by source, fiscal year " ~ rv.fiscal_year, wide_numbers=true) }}
+<p class="small">Local receipts include motor vehicle excise, fees, permits, and meals and room taxes.</p>
+<div class="table-wrap">
+<table class="data-table">
+  <thead><tr><th scope="col">Fiscal year</th><th scope="col" class="num">Revenue</th><th scope="col" class="num">Property tax share</th></tr></thead>
+  <tbody>
+  {% for y in budget.revenue | reverse %}
+    <tr><th scope="row">{{ y.fiscal_year }}</th><td class="num">{{ y.total | money("short") }}</td><td class="num">{{ "%.1f" | format(y.sources["Property tax"] / y.total * 100) }}%</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<p class="small">Source: <a href="{{ budget.source_urls.revenue }}">DLS Revenue by Source</a>.</p>
+{{ chart_links("revenue", "/budget/data/revenue.csv") }}
+
+{# ---- Levy limit ---- #}
+{% if lv %}
+<h2 id="levy">Property tax limit</h2>
+<p>Under Proposition 2½, the amount a city raises from property tax (the levy) can grow by 2.5% a year plus new construction, unless voters approve more. The difference between the most the city could levy and what it did levy is its unused levy capacity.</p>
+<div class="table-wrap">
+<table class="data-table">
+  <thead><tr><th scope="col">Fiscal year</th><th scope="col" class="num">Levy</th><th scope="col" class="num wide">Levy limit</th><th scope="col" class="num">Unused</th></tr></thead>
+  <tbody>
+  {% for y in budget.levy | reverse %}
+    <tr><th scope="row">{{ y.fiscal_year }}</th><td class="num">{{ y.levy | money("short") }}</td><td class="num wide">{{ y.max_levy | money("short") }}</td><td class="num">{{ y.excess_capacity | money }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<p class="small">The levy limit here includes voter-approved debt exclusions. Source: <a href="{{ budget.source_urls.levy }}">DLS Excess Levy Capacity</a>.</p>
+{{ chart_links("levy", "/budget/data/levy.csv") }}
+{% endif %}
+
+{# ---- Reserves ---- #}
+<h2 id="reserves">Reserves and bond ratings</h2>
+<p>Free cash is money left from past years that the state certifies as available to spend. The stabilization fund is a savings account; spending from it takes a two-thirds vote of the City Council.</p>
+<div class="table-wrap">
+<table class="data-table">
+  <thead><tr><th scope="col">Fiscal year</th><th scope="col" class="num">Free cash</th><th scope="col" class="num">Stabilization fund</th></tr></thead>
+  <tbody>
+  {% for y, amounts in reserve_rows(budget) | reverse %}
+    <tr><th scope="row">{{ y }}</th><td class="num">{{ amounts[0] | money("short") }}</td><td class="num">{{ amounts[1] | money("short") }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<p class="small">Free cash as listed by DLS: certified as of July 1. – means not yet reported. Sources: <a href="{{ budget.source_urls.free_cash }}">DLS Certified Free Cash</a>, <a href="{{ budget.source_urls.stabilization }}">DLS Stabilization Fund</a>.</p>
+{{ chart_links("reserves", "/budget/data/reserves.csv") }}
+
+{% if budget.bond_ratings %}
+<h3 id="bond-ratings">Bond ratings</h3>
+<p>Credit ratings affect how much the city pays to borrow.</p>
+<ul>
+  {% for r in budget.bond_ratings %}<li>{{ r.agency }}: <strong>{{ r.rating }}</strong> (latest rating, fiscal year {{ r.fiscal_year }})</li>{% endfor %}
+</ul>
+<p class="small">Source: <a href="{{ budget.source_urls.bond_ratings }}">DLS Bond Ratings</a>.</p>
+{% endif %}
+
+{# ---- Per resident ---- #}
+{% if pr %}
+<h2 id="per-resident">Spending per resident</h2>
+<p>In fiscal year {{ pr.fiscal_year }}, general fund spending was {{ pr.town | money }} per resident. The median across {{ pr.communities }} Massachusetts cities and towns was {{ pr.state_median | money }}.</p>
+<p class="small">Spending per resident depends on which services a community provides itself, such as its own school system, trash pickup, or a harbor, and on seasonal population. Population: {{ pr.population | number }}. Source: <a href="{{ budget.source_urls.per_resident }}">DLS General Fund per Capita</a>.</p>
+{% endif %}
+
+<p class="source-note">City budget documents, including department detail, are on the <a href="{{ town.official_site }}/559/Budgets">city website</a>.</p>
+{% endif %}
+{% endblock %}
