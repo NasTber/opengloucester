@@ -169,3 +169,26 @@ def test_dls_error_page_is_reported():
     from pipeline.http import FetchError
     with pytest.raises(FetchError, match="not a workbook: 'Access denied'"):
         fetch_finance.parse_workbook(b"<html><title>Access denied</title></html>")
+
+
+def test_dls_download_retried_when_empty(monkeypatch):
+    """DLS can answer an export's download link with nothing if the file isn't written yet."""
+    monkeypatch.setattr(fetch_finance.time, "sleep", lambda s: None)
+    sheet = (FIXTURES / "dls_tax_bill.xlsx").read_bytes()
+
+    class Response:
+        def __init__(self, content, url):
+            self.content, self.url = content, url
+
+    class Client:
+        def __init__(self):
+            self.urls = []
+
+        def get(self, url):
+            self.urls.append(url)
+            link = "https://dls-gw.dor.state.ma.us/reports/rdDownload/rdExport-1/file"
+            return Response(b"" if len(self.urls) < 3 else sheet, link)
+
+    client = Client()
+    assert fetch_finance.dls_get(client, "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?x=1") == sheet
+    assert len(client.urls) == 3 and client.urls[1].endswith("/rdExport-1/file")

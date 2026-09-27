@@ -12,7 +12,9 @@ from __future__ import annotations
 import argparse
 import io
 import json
+import re
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlencode
@@ -40,10 +42,29 @@ def report_url(municipality: str, fiscal_year: int) -> str:
     })
 
 
+def not_a_workbook(content: bytes) -> FetchError:
+    """An error that shows the start of what DLS sent back, to tell a block page from an error page."""
+    text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", content[:3000].decode("utf-8", "replace"))).strip()
+    return FetchError(f"DLS returned {len(content)} bytes that are not a workbook: {text[:200]!r}")
+
+
+def dls_get(client, url: str) -> bytes:
+    """A DLS export. The report builds the file, then redirects to a download link;
+    a fast client can reach the link before the file is written and get an empty
+    reply, so the link is tried again after a pause."""
+    response = client.get(url)
+    for attempt in range(3):
+        download = getattr(response, "url", "") or ""
+        if response.content.startswith(b"PK") or "rdDownload" not in download:
+            break
+        time.sleep(2 * (attempt + 1))
+        response = client.get(download)
+    return response.content
+
+
 def parse_workbook(content: bytes) -> dict | None:
     """Read the one data row of the report. None if the year has no certified figures."""
     if not content.startswith(b"PK"):
-        from pipeline.fetch_budget import not_a_workbook
         raise not_a_workbook(content)
     sheet = openpyxl.load_workbook(io.BytesIO(content), read_only=True).worksheets[0]
     rows = list(sheet.iter_rows(values_only=True))
@@ -70,7 +91,7 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
     newest = now.year + 1 if now.month >= 7 else now.year
     years = []
     for fy in range(newest, newest - YEARS - 1, -1):
-        record = parse_workbook(client.get(report_url(municipality, fy)).content)
+        record = parse_workbook(dls_get(client, report_url(municipality, fy)))
         if record:
             years.append(record)
         if len(years) >= YEARS:

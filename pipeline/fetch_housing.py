@@ -34,6 +34,7 @@ from pypdf import PdfReader
 
 from pipeline.config import DATA_DIR, load_config
 from pipeline.fetch_budget import REPORT_URL, rows as dls_rows
+from pipeline.fetch_finance import dls_get
 from pipeline.fetch_meetings import save_json
 from pipeline.http import FetchError, PoliteClient
 
@@ -208,7 +209,7 @@ def parcels(client, config: dict, now: datetime) -> dict:
         url = REPORT_URL + "?" + urlencode({
             "rdReport": PARCELS_REPORT, "rdReportFormat": "NativeExcel", "rdExportTableID": "xtParcels",
             "rdExcelOutputFormat": "Excel2007", "iclMuni": name, "islYear": fy})
-        found = dls_rows(client.get(url).content)
+        found = dls_rows(dls_get(client, url))
         if found and found[0].get("Single Family 101"):
             row = found[0]
             return {"fiscal_year": int(row["Fiscal Year"]),
