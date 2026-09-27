@@ -15,6 +15,12 @@ city calendar when there is one; otherwise the meeting is recorded from its
 documents. Executive session minutes and joint meetings with other boards
 are left out; their names are listed in the run's summary.
 
+Agendas are often posted only days before a meeting, so upcoming meetings
+come from the district's published meeting schedule ("School Committee -
+October 14th and 28th, 2026; ..."), for the next few weeks. Documents attach to
+those meetings when they are posted. A scheduled meeting that drops off the
+schedule before it happens is marked as no longer listed, not deleted.
+
 Usage:
     python -m pipeline.fetch_drive_meetings [--town gloucester]
 """
@@ -27,7 +33,7 @@ import html
 import json
 import re
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -46,6 +52,10 @@ SCHOOL_YEAR = re.compile(r"\b(\d{4})-(\d{4})\b")
 # Words in a file name that describe the document, not which meeting it is.
 DOCUMENT_WORDS = re.compile(r"\b(?:agenda|minutes|revised|amended|special|online|sub-?committee)\b", re.I)
 LEFT_OUT = re.compile(r"\b(?:ES|executive session|joint)\b", re.I)
+MONTHS = {name: n for n, name in enumerate(["january", "february", "march", "april", "may", "june", "july", "august",
+                                              "september", "october", "november", "december"], 1)}
+# "School Committee - " or "Building and Finance Subcommittee - " starts a committee's dates.
+SCHEDULE_ENTRY = re.compile(r"([A-Z][A-Za-z& ]*?(?:Committee|Subcommittee)) ?- ")
 
 
 def list_folder(page: str) -> list[dict]:
@@ -97,8 +107,64 @@ def committee_files(client, folder_id: str, since: str) -> list[dict]:
 
 
 def body_for(folder_name: str, bodies: dict) -> str | None:
-    """'Program Subcommittee Agendas' -> the configured body for 'Program Subcommittee'."""
-    return next((body for prefix, body in bodies.items() if folder_name.lower().startswith(prefix.lower())), None)
+    """'Program Subcommittee Agendas' -> the configured body for 'Program Subcommittee'.
+    'and' and '&' are the same ('Building and Finance Subcommittee')."""
+    return next((body for prefix, body in bodies.items() if slugify(folder_name).startswith(slugify(prefix))), None)
+
+
+def parse_schedule(page: str) -> list[tuple[str, str]]:
+    """(committee, date) pairs from the district's meeting schedule page:
+    'School Committee - September 9th and 23rd, 2026; October 14th and 28th, 2026'.
+    The page's formatting splits numbers and their endings ('2 3rd', '202 6',
+    '9t h'), so those are rejoined first."""
+    text = re.sub(r"<script.*?</script>|<style.*?</style>", " ", page, flags=re.S | re.I)
+    text = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", text)))
+    text = re.sub(r"(?<=\d) (?=\d)", "", text)
+    text = re.sub(r"(\d) ?(?:s ?t|n ?d|r ?d|t ?h)\b", r"\1", text)
+    entries = list(SCHEDULE_ENTRY.finditer(text))
+    found = []
+    for i, entry in enumerate(entries):
+        # A committee's dates run to the next committee, or to the page footer ("... | Phone").
+        end = entries[i + 1].start() if i + 1 < len(entries) else len(text)
+        month, pending = None, []
+        for token in re.findall(r"[A-Za-z]+|\d+", text[entry.end():end].split("|")[0]):
+            if token.lower() in MONTHS:
+                month = MONTHS[token.lower()]
+            elif token.isdigit() and len(token) == 4:
+                for m, d in pending:
+                    try:
+                        found.append((entry.group(1).strip(), date(int(token), m, d).isoformat()))
+                    except ValueError:
+                        pass
+                pending = []
+            elif token.isdigit() and month:
+                pending.append((month, int(token)))
+    return found
+
+
+def update_schedule(store: dict, page: str, settings: dict, today: date, stamp: str) -> int:
+    """Record scheduled meetings from `since` to a few weeks ahead. Returns how many are new."""
+    ahead = (today + timedelta(days=settings.get("schedule_days_ahead", 45))).isoformat()
+    scheduled = {(body, day) for name, day in parse_schedule(page)
+                 if (body := body_for(name, settings["bodies"])) and settings["since"] <= day <= ahead}
+    added = 0
+    for body, day in sorted(scheduled):
+        meeting = find_meeting(store, body, day, "")
+        if meeting is None:
+            new_meeting(store, f"schedule-{slugify(body)}-{day}", body, {"date": day, "variant": "", "special": False},
+                        settings, stamp, source_url=settings["schedule_url"])
+            added += 1
+        elif not meeting.get("listed", True) and meeting["id"].startswith("schedule-"):
+            record_change(meeting, "listed", False, True, stamp)
+            meeting["listed"] = True
+    # An upcoming meeting known only from the schedule that has left it was probably moved or cancelled.
+    if scheduled:
+        for m in store.values():
+            if (m["id"].startswith("schedule-") and m.get("listed", True) and m["date"] >= today.isoformat()
+                    and (m["body"], m["date"]) not in scheduled and not m.get("agendas") and not m.get("minutes")):
+                record_change(m, "listed", True, False, stamp)
+                m["listed"] = False
+    return added
 
 
 def find_meeting(store: dict, body: str, day: str, variant: str) -> dict | None:
@@ -106,12 +172,13 @@ def find_meeting(store: dict, body: str, day: str, variant: str) -> dict | None:
                  if m["date"] == day and slugify(m["body"]) == slugify(body) and m.get("variant", "") == variant), None)
 
 
-def new_meeting(store: dict, file_id: str, body: str, info: dict, settings: dict, stamp: str) -> dict:
+def new_meeting(store: dict, meeting_id: str, body: str, info: dict, settings: dict, stamp: str,
+                source_url: str | None = None) -> dict:
     title = f"{body}: {info['variant']}" if info["variant"] else body
     meeting = {
-        "id": f"drive-{file_id}",
+        "id": meeting_id,
         "source": "drive",
-        "source_url": settings["page_url"],
+        "source_url": source_url or settings["page_url"],
         "source_name": settings["source_name"],
         "first_seen": stamp,
         "last_seen": stamp,
@@ -159,6 +226,8 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
     since = settings["since"]
     store = load_store(data_dir)
     known = {doc["id"] for m in store.values() for field in ("agendas", "minutes") for doc in m.get(field, [])}
+    scheduled = (update_schedule(store, client.get(settings["schedule_url"]).text, settings, now.date(), stamp)
+                 if settings.get("schedule_url") else 0)
 
     found = []
     for kind, root in (("agendas", settings["agendas_folder"]), ("minutes", settings["minutes_folder"])):
@@ -186,7 +255,7 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
             continue
         meeting = find_meeting(store, body, info["date"], info["variant"])
         if meeting is None:
-            meeting = new_meeting(store, file["id"], body, info, settings, stamp)
+            meeting = new_meeting(store, f"drive-{file['id']}", body, info, settings, stamp)
             created += 1
         docs = meeting.setdefault(kind, [])
         if docs:
@@ -203,6 +272,7 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
         "files_listed": len(found),
         "documents_added": added,
         "meetings_created": created,
+        "scheduled_meetings_added": scheduled,
         "left_out": sorted(left_out),
         # File names without a readable date ("B & F Agenda 6_17_2.pdf"): check these by hand.
         "unreadable_names": sorted(unreadable),

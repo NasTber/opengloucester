@@ -61,10 +61,18 @@ def test_collects_documents_from_the_saved_folders(tmp_path):
         ("2026-08-26", "School Committee", 1, 1),
         ("2026-09-09", "School Committee", 1, 1),
         ("2026-09-16", "School Committee Building & Finance Subcommittee", 1, 0),
+        # From the district's schedule, up to 45 days ahead; documents attach when posted.
+        ("2026-09-23", "School Committee", 0, 0),
+        ("2026-10-07", "School Committee Building & Finance Subcommittee", 0, 0),
+        ("2026-10-14", "School Committee", 0, 0),
+        ("2026-10-28", "School Committee", 0, 0),
+        ("2026-11-04", "School Committee", 0, 0),
+        ("2026-11-09", "School Committee Building & Finance Subcommittee", 0, 0),
     ]
+    assert status["scheduled_meetings_added"] == 8
     assert status["unreadable_names"] == ["B & F Agenda 6_17_2.pdf"]
     meeting = next(m for m in store.values() if m["date"] == "2026-09-09")
-    assert meeting["source"] == "drive" and meeting["source_url"] == "https://schoolcommittee.gloucesterschools.com/"
+    assert meeting["id"] == "schedule-school-committee-2026-09-09" and meeting["source"] == "drive"
     minutes = meeting["minutes"][0]
     assert minutes["original_filename"] == "SC Minutes 9_9_26.pdf"
     assert minutes["source_url"] == f"https://drive.google.com/file/d/{minutes['id']}/view"
@@ -98,6 +106,7 @@ class MadeUpDrive(FakeDrive):
 def test_versions_variants_and_calendar_meetings(tmp_path):
     config = load_config("gloucester")
     settings = config["drive_meetings"]
+    del settings["schedule_url"]
     save_json(tmp_path / "meetings" / "meetings.json", {"12999": {
         "id": "12999", "date": "2026-10-14", "body": "School Committee", "title": "School Committee Meeting",
         "slug": "2026-10-14-school-committee", "first_seen": "2026-10-01T08:00:00-04:00"}})
@@ -139,7 +148,7 @@ def test_site_shows_school_committee_documents(site_dir):
     assert "Minutes on the School Committee&#39;s Google Drive" in page
     assert "Agenda on the School Committee&#39;s Google Drive" in page
     assert "Gloucester Public Schools posted this as a scanned image." in page
-    assert "known from documents Gloucester Public Schools posted" in page
+    assert "known from the <a" in page and "Gloucester Public Schools website" in page
     assert "minutes posted by Gloucester Public Schools<span" in page and "city&#39;s minutes" not in page
     assert "Not listed on the city calendar" not in page
     about = (site_dir / "about" / "index.html").read_text()
@@ -157,6 +166,7 @@ def test_calendar_takes_over_a_meeting_first_recorded_from_drive(tmp_path):
     event = next(e for e in civicplus.parse_calendar_feed(feed.encode(), config["meetings"]["base_url"])
                  if e["body"] == "School Committee")
     settings = config["drive_meetings"]
+    del settings["schedule_url"]
     drive = MadeUpDrive({settings["agendas_folder"]: [("sca", "School Committee Agendas", True)],
                          "sca": [("early", f"SC Agenda {int(event['date'][5:7])}_{int(event['date'][8:])}_26.pdf")]})
     fetch_drive_meetings.run(config, drive, tmp_path, now=NOW)
@@ -172,3 +182,47 @@ def test_calendar_takes_over_a_meeting_first_recorded_from_drive(tmp_path):
     assert "source" not in meeting and meeting["agendas"][0]["id"] == "early"
     assert meeting["start_time"] == "18:00"
     assert not any(h["field"] in ("title", "start_time") for h in meeting.get("history", []))
+
+
+def test_schedule_page():
+    from fakes import FIXTURES
+
+    from pipeline.fetch_drive_meetings import parse_schedule
+    dates = parse_schedule((FIXTURES / "drive" / "schedule.html").read_text())
+    school = [d for name, d in dates if name == "School Committee"]
+    finance = [d for name, d in dates if name == "Building and Finance Subcommittee"]
+    # "September 9t h and 2 3rd , 202 6" as the page writes it.
+    assert school[:4] == ["2026-09-09", "2026-09-23", "2026-10-14", "2026-10-28"]
+    assert school[-1] == "2027-06-23" and len(school) == 19
+    # "February 3rd, 4 th, 10th, 2027".
+    assert ["2027-02-03", "2027-02-04", "2027-02-10"] == [d for d in finance if d.startswith("2027-02")]
+    assert len(finance) == 12
+
+
+def test_schedule_changes(tmp_path):
+    from pipeline.fetch_drive_meetings import update_schedule
+    settings = load_config("gloucester")["drive_meetings"]
+    page = "<p>School Committee - October 14th and 28th, 2026</p><p>Gloucester Public Schools | 2 Blackburn Drive</p>"
+    store = {}
+    today = NOW.date()
+    assert update_schedule(store, page, settings, today, "t1") == 2
+    assert update_schedule(store, page, settings, today, "t2") == 0
+    # October 28 moves to October 29: the old date is marked as no longer listed, not deleted.
+    moved = page.replace("28th", "29th")
+    assert update_schedule(store, moved, settings, today, "t3") == 1
+    old = store["schedule-school-committee-2026-10-28"]
+    assert old["listed"] is False and old["history"][-1] == {"at": "t3", "field": "listed", "old": True, "new": False}
+    assert store["schedule-school-committee-2026-10-29"]["listed"] is True
+    # Back on the schedule: listed again.
+    update_schedule(store, page, settings, today, "t4")
+    assert old["listed"] is True
+    # Dates past schedule_days_ahead aren't added yet.
+    assert update_schedule({}, "<p>School Committee - March 10th, 2027 |</p>", settings, today, "t5") == 0
+
+
+def test_site_lists_upcoming_school_committee_meetings(site_dir):
+    upcoming = (site_dir / "meetings" / "index.html").read_text()
+    assert "/meetings/2026-10-14-school-committee/" in upcoming
+    page = (site_dir / "meetings" / "2026-10-14-school-committee" / "index.html").read_text()
+    assert "No agenda posted yet." in page
+    assert "known from the <a" in page
