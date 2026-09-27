@@ -29,7 +29,7 @@ official_site = "https://gloucester-ma.gov"
 [[sections]]
 slug = "meetings"
 title = "Meetings"
-summary = "Every board and committee meeting, with agendas, minutes, and what was decided."
+summary = "Every board and committee meeting on the city calendar, with agendas, and minutes from late June 2026 on."
 status = "live"
 
 [[sections]]
@@ -80,6 +80,7 @@ max_event_pages = 40
 "Ordinances & Administration" = "City Council Ordinances & Administration Committee"
 "Planning & Development" = "City Council Planning & Development Committee"
 "Budget & Finance" = "City Council Budget & Finance Committee"
+"Program Subcommittee" = "School Committee Program Subcommittee"
 
 # 311 requests, from SeeClickFix (public requests only).
 [seeclickfix]
@@ -98,14 +99,11 @@ history_since = "2024-01"
 precincts_file = "gloucester-precincts-2022.geojson"
 
 # Repeat locations: requests in the same category within radius_m meters and
-# window_days days of each other are grouped as one place. Categories matching
-# these patterns (private homes, people, animals) are counted in the totals but
-# left off the map and the repeat list.
+# window_days days of each other are grouped as one place.
 [seeclickfix.repeats]
 radius_m = 50
 window_days = 60
 recent_open_days = 30
-exclude = ["^Health Department", "^Private Property", "^Animal", "^Police Department"]
 
 # Plain-English agenda text and previews, written by a language model and
 # labeled as AI-generated on the site. Cached by document hash.
@@ -123,6 +121,12 @@ month = "2025-07"
 text = "Republic Services trash and recycling workers went on strike July 1, 2025, and pickups were missed in parts of Gloucester."
 source_title = "WBUR, July 21, 2025"
 source_url = "https://www.wbur.org/news/2025/07/21/gloucester-massachusetts-republic-services-garbage-worker-strike"
+
+[[seeclickfix.annotations]]
+month = "2025-09"
+text = "The Republic Services strike that began July 1 went on until a deal was reached September 19, 2025."
+source_title = "WBUR, September 19, 2025"
+source_url = "https://www.wbur.org/news/2025/09/19/massachusetts-republic-teamsters-trash-strike-ends"
 
 # Minutes from the city's Archive Center. Minutes for meetings on or after
 # minutes_since are collected; earlier ones can be added by moving the date back.

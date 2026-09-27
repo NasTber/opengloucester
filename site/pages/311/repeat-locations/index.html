@@ -18,7 +18,7 @@
 <p>This list will appear after the next data update.</p>
 {% else %}
 {% set places = rep.places %}
-<p>Requests in the same category within {{ rep.radius_m }} meters and {{ rep.window_days }} days of each other count as one place. A new request after a close can mean the problem came back, the first fix didn't hold, or a separate problem nearby. Requests about private homes, people, and animals are left out.</p>
+<p>Requests in the same category within {{ rep.radius_m }} meters and {{ rep.window_days }} days of each other count as one place. A new request after a close can mean the problem came back, the first fix didn't hold, or a separate problem nearby.</p>
 
 {% if places %}
 <h2 id="map">Map</h2>

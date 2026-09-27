@@ -39,12 +39,12 @@
   <li class="stat"><a href="#mcas-english">
     <span class="stat-label">MCAS English, grades 3–8</span>
     <span class="stat-value">{{ ela.town | round | int }}%</span>
-    <span class="stat-change">Meeting or exceeding · State {{ ela.state | round | int }}%</span>
+    <span class="stat-change">Spring {{ ela.year }}, meeting or exceeding · State {{ ela.state | round | int }}%</span>
   </a></li>
   <li class="stat"><a href="#mcas-math">
     <span class="stat-label">MCAS math, grades 3–8</span>
     <span class="stat-value">{{ math.town | round | int }}%</span>
-    <span class="stat-change">Meeting or exceeding · State {{ math.state | round | int }}%</span>
+    <span class="stat-change">Spring {{ math.year }}, meeting or exceeding · State {{ math.state | round | int }}%</span>
   </a></li>
 </ul>
 
@@ -91,7 +91,7 @@
 </table>
 </div>
 {% endfor %}
-<p class="small">No MCAS tests were given in 2020. Source: <a href="{{ ms.mcas_ela.dataset_url }}">DESE MCAS Achievement Results</a>.</p>
+<p class="small">No MCAS tests were given in 2020. In spring 2021, tests for grades 3 to 8 were shortened and fewer students took part, so 2021 results aren't directly comparable with other years. Source: <a href="{{ ms.mcas_ela.dataset_url }}">DESE MCAS Achievement Results</a>.</p>
 
 <p class="source-note">All figures from the state's <a href="{{ sch.portal }}">Education-to-Career (E2C) data hub</a>, published by DESE. School-by-school figures and more are on the <a href="{{ sch.report_url }}">{{ sch.report_name }}</a>.</p>
 {% endif %}

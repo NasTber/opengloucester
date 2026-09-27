@@ -110,14 +110,13 @@ def test_month_windows_cover_every_month():
     assert windows[-1][1].isoformat() == "2025-03-01"
 
 
-def test_block_address_hides_house_numbers():
-    from pipeline.seeclickfix import block_address
-    assert block_address("229 Main St Gloucester, Massachusetts, 01930") == "200 block of Main St"
-    assert block_address("30 Reservoir Rd Gloucester MA 01930, United States") == "1–99 Reservoir Rd"
-    assert block_address("470-580 Western Ave") == "400 block of Western Ave"
-    assert block_address("124r Centennial Avenue") == "100 block of Centennial Avenue"
-    assert block_address("Bray St & Salt Marsh Ln") == "Bray St & Salt Marsh Ln"
-    assert block_address("01930") == ""
+def test_street_address_keeps_what_seeclickfix_shows():
+    from pipeline.seeclickfix import street_address
+    assert street_address("229 Main St Gloucester, Massachusetts, 01930") == "229 Main St"
+    assert street_address("30 Reservoir Rd Gloucester MA 01930, United States") == "30 Reservoir Rd"
+    assert street_address("470-580 Western Ave") == "470-580 Western Ave"
+    assert street_address("Bray St & Salt Marsh Ln") == "Bray St & Salt Marsh Ln"
+    assert street_address("01930") == ""
 
 
 def request(id, created, lat=42.6150, lng=-70.6600, status="closed", closed=None, category="Pothole"):
@@ -146,27 +145,25 @@ def test_repeat_locations():
     p = places[0]
     assert [r["id"] for r in p["requests"]] == ["1", "2"]
     assert p["reports"] == 2 and p["again_after_close"] == 1 and p["open"] == 1
-    assert p["address"] == "1–99 Main St"
+    assert p["address"] == "12 Main St"
     assert p["requests"][-1]["url"] == "https://seeclickfix.com/issues/2"
 
 
-def test_private_categories_stay_off_maps(config):
-    exclude = config["seeclickfix"]["repeats"]["exclude"]
-    records = [request("1", "2026-09-01T09:00:00-04:00", category=c)
-               for c in ("Pothole", "Health Department (Housing) - Internal", "Private Property Issue",
-                         "Animal Issues", "Police Department (Non-Emergency)")]
+def test_every_public_category_is_mapped():
+    categories = ("Pothole", "Health Department (Housing) - Internal", "Private Property Issue",
+                  "Animal Issues", "Police Department (Non-Emergency)")
+    records = [request("1", "2026-09-01T09:00:00-04:00", category=c) for c in categories]
     records.append(request("2", "2026-09-01T09:00:00-04:00", lat=None))
-    assert [r["category"] for r in compute_311.mappable(records, exclude)] == ["Pothole"]
+    assert [r["category"] for r in compute_311.mappable(records)] == list(categories)
 
 
-def test_longest_open_by_block_without_private_categories(config):
-    exclude = config["seeclickfix"]["repeats"]["exclude"]
+def test_longest_open_lists_every_category():
     records = [request("1", "2026-01-01T09:00:00-04:00", status="open", category="Health Department (Housing) - Internal"),
                request("2", "2026-02-01T09:00:00-04:00", status="open", lat=None),
                request("3", "2026-03-01T09:00:00-04:00", status="open")]
-    oldest = compute_311.oldest_open(records, FETCHED_AT, "https://seeclickfix.com/issues", exclude)
-    assert [r["id"] for r in oldest] == ["2", "3"]
-    assert {r["address"] for r in oldest} == {"1–99 Main St"}
+    oldest = compute_311.oldest_open(records, FETCHED_AT, "https://seeclickfix.com/issues")
+    assert [r["id"] for r in oldest] == ["1", "2", "3"]
+    assert {r["address"] for r in oldest} == {"12 Main St"}
 
 
 def test_scorecard_has_recent_open_and_repeats(config, data):
@@ -175,6 +172,4 @@ def test_scorecard_has_recent_open_and_repeats(config, data):
     recent = sc["recent_open"]["requests"]
     assert recent and all(r["created_at"] >= "2026-08-27" for r in recent)
     assert [r["created_at"] for r in recent] == sorted((r["created_at"] for r in recent), reverse=True)
-    assert all(not r["address"] or not r["address"][0].isdigit() or " block of " in r["address"] or r["address"].startswith("1–99")
-               for r in recent)
     assert "places" in sc["repeats"]

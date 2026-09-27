@@ -220,12 +220,10 @@ def test_repeat_locations_page_and_maps(site_dir):
     main = (site_dir / "311" / "index.html").read_text()
     data = json.loads(main.split('id="map-data-recent">')[1].split("</script>")[0])
     assert data and all({"lat", "lng", "title", "url"} <= p.keys() for p in data)
-    assert not any(p["title"].startswith(("Health Department", "Private Property", "Animal", "Police"))
-                   for p in data)
-    # The map is an extra: the same requests are listed as text.
+    # The map is an extra: the same requests are listed as text, including any without a map location.
     assert main.count('href="https://seeclickfix.com/issues/') >= len(data)
     rows = list(csv.reader((site_dir / "311" / "data" / "recent-open.csv").open()))
-    assert rows[0] == ["id", "submitted", "category", "location", "ward", "url"] and len(rows) == len(data) + 1
+    assert rows[0] == ["id", "submitted", "category", "location", "ward", "url"] and len(rows) >= len(data) + 1
     assert (site_dir / "311" / "data" / "repeat-locations.csv").exists()
     assert (site_dir / "static" / "vendor" / "leaflet" / "leaflet.js").exists()
 

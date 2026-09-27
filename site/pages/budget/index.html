@@ -41,7 +41,7 @@
   <li class="stat"><a href="#levy">
     <span class="stat-label">Unused levy capacity</span>
     <span class="stat-value">{{ lv.excess_capacity | money("short") }}</span>
-    <span class="stat-change">Fiscal year {{ lv.fiscal_year }} · {{ "%.2f" | format(lv.excess_capacity / lv.max_levy * 100) }}% of the limit</span>
+    <span class="stat-change">Fiscal year {{ lv.fiscal_year }} · {{ "%.2f" | format(lv.excess_capacity / lv.max_levy * 100) }}% of the maximum</span>
   </a></li>
   {% endif %}
 </ul>
@@ -98,7 +98,7 @@
 <p>Under Proposition 2½, the amount a city raises from property tax (the levy) can grow by 2.5% a year plus new construction, unless voters approve more. The difference between the most the city could levy and what it did levy is its unused levy capacity.</p>
 <div class="table-wrap">
 <table class="data-table">
-  <thead><tr><th scope="col">Fiscal year</th><th scope="col" class="num">Levy</th><th scope="col" class="num wide">Levy limit</th><th scope="col" class="num">Unused</th></tr></thead>
+  <thead><tr><th scope="col">Fiscal year</th><th scope="col" class="num">Levy</th><th scope="col" class="num wide">Maximum allowable levy</th><th scope="col" class="num">Unused</th></tr></thead>
   <tbody>
   {% for y in budget.levy | reverse %}
     <tr><th scope="row">{{ y.fiscal_year }}</th><td class="num">{{ y.levy | money("short") }}</td><td class="num wide">{{ y.max_levy | money("short") }}</td><td class="num">{{ y.excess_capacity | money }}</td></tr>
@@ -106,7 +106,7 @@
   </tbody>
 </table>
 </div>
-<p class="small">The levy limit here includes voter-approved debt exclusions. Source: <a href="{{ budget.source_urls.levy }}">DLS Excess Levy Capacity</a>.</p>
+<p class="small">The maximum allowable levy is the Proposition 2½ levy limit plus voter-approved debt exclusions. Source: <a href="{{ budget.source_urls.levy }}">DLS Excess Levy Capacity</a>.</p>
 {{ chart_links("levy", "/budget/data/levy.csv") }}
 {% endif %}
 
@@ -123,7 +123,8 @@
   </tbody>
 </table>
 </div>
-<p class="small">Free cash as listed by DLS: certified as of July 1. – means not yet reported. Sources: <a href="{{ budget.source_urls.free_cash }}">DLS Certified Free Cash</a>, <a href="{{ budget.source_urls.stabilization }}">DLS Stabilization Fund</a>.</p>
+{% set fc = budget.free_cash[-1].fiscal_year if budget.free_cash else none %}
+<p class="small">Free cash as listed by DLS, by the fiscal year it can be spent in: {% if fc %}the fiscal year {{ fc }} figure was certified as of July 1, {{ fc - 1 }}{% else %}each figure is certified as of July 1, the start of that fiscal year{% endif %}. – means not yet reported. Sources: <a href="{{ budget.source_urls.free_cash }}">DLS Certified Free Cash</a>, <a href="{{ budget.source_urls.stabilization }}">DLS Stabilization Fund</a>.</p>
 {{ chart_links("reserves", "/budget/data/reserves.csv") }}
 
 {% if budget.bond_ratings %}
