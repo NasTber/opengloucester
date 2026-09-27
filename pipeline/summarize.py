@@ -197,6 +197,10 @@ def run(config: dict, client, data_dir: Path, limit: int, now: datetime | None =
         try:
             result, usage = summarize_pdf(client, settings["model"], kind, pdf, meeting["title"], meeting["date"])
         except Exception as e:  # one bad document must not stop the rest
+            if "credit balance" in str(e).lower():
+                # Out of API credit: every remaining request would fail the same way.
+                errors.append("stopped: the Anthropic account is out of credit; summaries resume when credit is added")
+                break
             errors.append(f"{kind} {doc['id']}: {e}")
             continue
         record = {

@@ -68,3 +68,28 @@ def test_new_prompt_version_or_model_regenerates(tmp_path, monkeypatch):
     assert summarize.run(config, again, tmp_path, limit=5, now=FETCHED_AT)["summarized"] == 1
     config["summaries"]["model"] = "another-model"
     assert summarize.run(config, FakeAnthropic(), tmp_path, limit=5, now=FETCHED_AT)["summarized"] == 1
+
+
+def test_out_of_credit_stops_after_first_failure(tmp_path):
+    config = setup(tmp_path)
+    # Make the documents distinct so there is more than one to process.
+    from pipeline import fetch_minutes
+    from fakes import FakeCityClient
+    fetch_minutes.run(config, FakeCityClient(), tmp_path, now=FETCHED_AT)
+
+    class Broke(FakeAnthropic):
+        def __init__(self):
+            super().__init__()
+            outer = self
+
+            class Messages:
+                def stream(self, **kwargs):
+                    outer.calls.append(kwargs)
+                    raise RuntimeError("Your credit balance is too low to access the Anthropic API.")
+
+            self.messages = Messages()
+
+    client = Broke()
+    result = summarize.run(config, client, tmp_path, limit=50, now=FETCHED_AT)
+    assert len(client.calls) == 1
+    assert result["summarized"] == 0 and "out of credit" in result["errors"][0]

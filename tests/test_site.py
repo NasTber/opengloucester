@@ -195,6 +195,9 @@ def test_meeting_list_preview_is_about_the_business(site_dir):
 def test_preview_line_fallbacks():
     from pipeline.build_site import preview_line
     assert preview_line({"preview": {"items": ["Budget transfer", "Grant acceptance."]}}) == "Budget transfer; Grant acceptance."
-    assert preview_line({"minutes_summary": {"decisions": ["Approved X, 5-0."]}, "preview": {"headline": "H"}}) == "Approved X, 5-0."
+    assert preview_line({"minutes_summary": {"decisions": ["Approved X, 5-0.", "Denied Y"]}, "preview": {"headline": "H"}}) == "Approved X, 5-0."
+    long = "Recommended the City Council approve payment of prior year invoices and obligations from the School CFO's memo dated August 31, 2026, in the amount of $51,317.23"
+    clipped = preview_line({"minutes_summary": {"decisions": [long]}})
+    assert len(clipped) <= 141 and clipped.endswith("…")
     assert preview_line({"minutes_summary": {"is_minutes": False, "decisions": []}, "preview": {"headline": "H"}}) == "H"
     assert preview_line({}) is None

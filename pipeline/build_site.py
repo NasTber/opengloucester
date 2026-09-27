@@ -232,6 +232,14 @@ def change_text(diff: float, unit: str, since: str, digits: int = 0) -> str:
     return f"{arrow} {amount}{unit} from {since}"
 
 
+def clip(text: str, limit: int = 140) -> str:
+    """Shorten to a whole word within limit characters."""
+    text = " ".join(text.split())
+    if len(text) <= limit:
+        return text
+    return text[:limit].rsplit(" ", 1)[0].rstrip(",;:—– ") + "…"
+
+
 def preview_line(meeting: dict) -> str | None:
     """One line for meeting lists: what the meeting is about, never the board,
     date, or time (those are already shown). Prefers the AI headline; older
@@ -241,12 +249,12 @@ def preview_line(meeting: dict) -> str | None:
         if minutes.get("headline"):
             return minutes["headline"]
         if minutes.get("decisions"):
-            return "; ".join(d.rstrip(".") for d in minutes["decisions"][:3]) + "."
+            return clip(minutes["decisions"][0])
     if agenda:
         if agenda.get("headline"):
             return agenda["headline"]
         if agenda.get("items"):
-            return "; ".join(i.rstrip(".") for i in agenda["items"][:4]) + "."
+            return clip("; ".join(i.rstrip(".") for i in agenda["items"][:4]) + ".")
     return None
 
 
