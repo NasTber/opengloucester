@@ -75,7 +75,7 @@
 {% else %}
 <p>The minutes do not record any votes or decisions.</p>
 {% endif %}
-{{ ai_credit("minutes", ms.source_url, report_url) }}
+{{ ai_credit("minutes", ms.source_url, report_url, m.minutes_doc.get("posted_by")) }}
 <details class="expand">
   <summary>Read the full minutes</summary>
   <div class="transcript-body">{{ ms.transcript | markdown }}</div>
@@ -111,7 +111,7 @@
   {% for item in m.preview["items"] %}<li>{{ item }}</li>{% endfor %}
 </ul>
 {% endif %}
-{{ ai_credit("agenda", m.preview.source_url, report_url) }}
+{{ ai_credit("agenda", m.preview.source_url, report_url, m.agenda.get("posted_by") if m.agenda else none) }}
 <details class="expand">
   <summary>Read the full agenda</summary>
   <div class="transcript-body">{{ m.preview.transcript | markdown }}</div>

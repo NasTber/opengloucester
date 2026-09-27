@@ -140,6 +140,7 @@ def test_site_shows_school_committee_documents(site_dir):
     assert "Agenda on the School Committee&#39;s Google Drive" in page
     assert "Gloucester Public Schools posted this as a scanned image." in page
     assert "known from documents Gloucester Public Schools posted" in page
+    assert "minutes posted by Gloucester Public Schools<span" in page and "city&#39;s minutes" not in page
     assert "Not listed on the city calendar" not in page
     about = (site_dir / "about" / "index.html").read_text()
     assert "School Committee agendas and minutes:" in about
