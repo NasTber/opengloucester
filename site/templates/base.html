@@ -54,7 +54,7 @@
       <p>An independent project. Not affiliated with or endorsed by the City of {{ town.name }}. Official information: <a href="{{ town.official_site }}">{{ town.official_site | replace("https://", "") }}</a>.</p>
       <p>Updated <time datetime="{{ built_at.isoformat(timespec='minutes') }}">{{ built_at.strftime("%A") }}, {{ built_at.strftime("%B") }} {{ built_at.day }}, {{ built_at.year }}</time>.</p>
       <ul class="footer-links">
-        <li><a href="/about/">About and methodology</a></li>
+        <li><a href="/about/">About</a></li>
         <li><a href="/about/#corrections">Corrections</a></li>
         <li><a href="/about/accessibility/">Accessibility</a></li>
         <li><a href="{{ site.repo_url }}">Source code and data</a></li>

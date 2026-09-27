@@ -1,60 +1,31 @@
 {% extends "base.html" %}
 {% from "macros.html" import contact %}
-{% block title %}About and methodology{% endblock %}
-{% block description %}How {{ site.name }} collects, measures, and explains public data about {{ town.name }}, {{ town.state_abbr }}.{% endblock %}
+{% block title %}About{% endblock %}
+{% block description %}What {{ site.name }} is, where its data comes from, and how to report a mistake.{% endblock %}
 {% block content %}
-<h1>About and methodology</h1>
-<p class="lede">{{ site.name }} is an independent, read-only site. It publishes public data about the City of {{ town.name }}, {{ town.state }}, and does not accept reports, comments, or accounts.</p>
+<h1>About</h1>
+<p class="lede">An independent site tracking public data about the City of {{ town.name }}. Not run by or affiliated with the city.</p>
 
-<nav aria-label="On this page" class="toc">
-  <h2 id="toc-heading">On this page</h2>
-  <ul>
-    <li><a href="#principles">Principles</a></li>
-    <li><a href="#sources">Data sources</a></li>
-    <li><a href="#updates">Update schedule</a></li>
-    <li><a href="#ai">AI-generated summaries</a></li>
-    <li><a href="#corrections">Corrections</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<h2 id="principles">Principles</h2>
+<h2 id="how">How it works</h2>
 <ul>
-  <li>Every number and every summary links to its source.</li>
-  <li>Text written by software is labeled as AI-generated.</li>
-  <li>The site reports figures without commentary.</li>
-  <li>Corrections are shown on the page, not made silently.</li>
-  <li>History is kept. When the city replaces or removes a document, the earlier version stays available here.</li>
+  <li>Updated every morning from public sources.</li>
+  <li>Every number links to where it came from.</li>
+  <li>Summaries written by AI are labeled.</li>
+  <li>Mistakes are corrected openly, with a note on the page.</li>
 </ul>
 
-<h2 id="sources">Data sources</h2>
-<p>Sources are listed here as each section goes live, with a link to the original data and its license.</p>
+<h2 id="sources">Sources</h2>
 <ul>
-  <li><strong>311 requests:</strong> public service requests from SeeClickFix. Data from <a href="https://seeclickfix.com">seeclickfix.com</a>, used under the <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons BY-NC-SA 3.0</a> license. Private requests are not available and are not counted.</li>
-  <li><strong>Meetings:</strong> the <a href="{{ config.meetings.base_url }}/calendar.aspx">City of {{ town.name }} calendar</a> and the agendas attached to each meeting, which the city stores in its <a href="{{ config.meetings.base_url }}/Archive.aspx">Archive Center</a>. Entries that are not meetings of a public body, such as community events, are left out. Each agenda is saved when it is first posted, and later versions are saved alongside it.</li>
-  <li><strong>Minutes:</strong> minutes the city posts in its <a href="{{ config.meetings.base_url }}/Archive.aspx">Archive Center</a> for meetings on or after {{ config.archive.minutes_since | date("plain") }}. Minutes are attached to the matching meeting. A meeting that was not on the calendar when this site checked it gets a page from its minutes.</li>
-  <li><strong>Average single-family tax bill:</strong> Massachusetts Department of Revenue, Division of Local Services, <a href="https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=AverageSingleTaxBill.SingleFamTaxBill_wRange">Municipal Databank</a>. The average bill is the total tax on single-family homes divided by the number of single-family parcels, for each fiscal year once the tax rate is certified.</li>
-  <li><strong>Unemployment rate:</strong> U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/lau/">Local Area Unemployment Statistics</a>, for Gloucester city. City rates are not seasonally adjusted, so each month is compared with the same month a year earlier. The latest month is preliminary and may be revised.</li>
-  <li><strong>Ward boundaries:</strong> MassGIS, the Commonwealth of Massachusetts' geographic information office.</li>
-</ul>
-<p>Metric definitions, including how each request status is counted, will be published here before the figures that use them.</p>
-
-<h2 id="updates">Update schedule</h2>
-<p>An automated job collects new data once a day and rebuilds the site. The date at the bottom of every page shows the last update.</p>
-
-<h2 id="ai">AI-generated summaries</h2>
-<p>Meeting previews, summaries of decisions in minutes, and the readable text of agendas and minutes are written by an AI language model ({{ config.summaries.model }}, made by Anthropic) from the documents the city posted. The city posts most of these documents as scanned images, so this text also makes them usable with screen readers and search.</p>
-<ul>
-  <li>Each preview is labeled as AI-generated, links to the original document, and shows which model wrote it and when.</li>
-  <li>The model is instructed to use only what the document says, without opinions or predictions.</li>
-  <li>Previews are not reviewed by a person before they are published. The original document is the authoritative source.</li>
-  <li>Decisions are listed only as the minutes record them, with the vote when the minutes give one.</li>
-  <li>A document is processed once. If the city posts a revised version, a new summary is written from it.</li>
+  <li><strong>311 requests:</strong> <a href="https://seeclickfix.com">SeeClickFix</a>, public requests only, under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a> license. <a href="/311/methodology/">How the 311 numbers work</a>.</li>
+  <li><strong>Meetings, agendas, and minutes:</strong> the city's <a href="{{ config.meetings.base_url }}/calendar.aspx">calendar</a> and <a href="{{ config.meetings.base_url }}/Archive.aspx">Archive Center</a>. Copies are saved when posted. Minutes are collected from {{ config.archive.minutes_since | date("month") }} on.</li>
+  <li><strong>Tax bill:</strong> Mass. <a href="https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=AverageSingleTaxBill.SingleFamTaxBill_wRange">Division of Local Services</a>.</li>
+  <li><strong>Unemployment:</strong> U.S. <a href="https://www.bls.gov/lau/">Bureau of Labor Statistics</a>. City rates aren't seasonally adjusted, so each month is compared with the same month last year.</li>
+  <li><strong>Ward maps:</strong> <a href="https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a">MassGIS</a>, 2022 boundaries.</li>
 </ul>
 
-<h2 id="corrections">Corrections</h2>
-<p>If a figure or summary is wrong, please report it. Confirmed errors are fixed and a correction note is added to the affected page, stating what changed and when.</p>
+<h2 id="ai">AI summaries</h2>
+<p>Meeting summaries, and the readable text of scanned agendas and minutes, are written by AI ({{ config.summaries.model | model_name }}, by Anthropic). They aren't checked by a person before posting. The city's document is the official record, and every summary links to it.</p>
 
-<h2 id="contact">Contact</h2>
-<p>To report an error or ask a question, {{ contact(site) }}.</p>
+<h2 id="corrections">Corrections and contact</h2>
+<p>Spot a mistake or have a question? {{ contact(site) | capitalize_first }}. Fixes are noted on the page they affect.</p>
 {% endblock %}

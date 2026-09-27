@@ -126,6 +126,11 @@ def format_duration_cell(days: float | None) -> str:
     return "–" if days is None else format_duration(days)
 
 
+def model_name(model_id: str) -> str:
+    """'claude-sonnet-5' -> 'Claude Sonnet 5'."""
+    return " ".join(part.capitalize() for part in model_id.split("-"))
+
+
 def short_address(address: str) -> str:
     """'29 Emerson Avenue Gloucester, Massachusetts, 01930' -> '29 Emerson Avenue'."""
     short = re.split(r",?\s+Gloucester\b", address or "", maxsplit=1, flags=re.I)[0].strip(" ,")
@@ -308,7 +313,8 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     )
     env.filters.update(date=format_date, time=format_time, filesize=format_bytes, timestamp=format_timestamp,
                        duration=format_duration, number=format_number, month=format_month,
-                       markdown=render_markdown, duration_cell=format_duration_cell, street=short_address)
+                       markdown=render_markdown, duration_cell=format_duration_cell, street=short_address,
+                       model_name=model_name, capitalize_first=lambda t: Markup(t[:1].upper() + t[1:]))
     # Versioned asset URLs, so a browser never pairs new pages with an old cached stylesheet.
     css_version = hashlib.sha256((STATIC_DIR / "css" / "site.css").read_bytes()).hexdigest()[:10]
     env.globals.update(group_by=group_by, today=built_at.date().isoformat(), css_version=css_version,

@@ -40,7 +40,7 @@
 <h2 id="minutes">What was decided</h2>
 {% if ms %}
 {% if ms.get("is_minutes") == false %}
-<p>The document the city filed as minutes for this meeting is not minutes; it appears to be {{ "an agenda" if "agenda" in ms.summary.lower() else "another kind of document" }}. Minutes may be posted later.</p>
+<p>The city filed {{ "an agenda" if "agenda" in ms.summary.lower() else "a different document" }} here instead of minutes. Minutes may be posted later.</p>
 {% else %}
 <p>{{ ms.summary }}</p>
 {% endif %}
@@ -59,7 +59,7 @@
   <div class="transcript-body">{{ ms.transcript | markdown }}</div>
 </details>
 {% else %}
-<p>The city has posted minutes for this meeting. A summary will be added here after the next update.</p>
+<p>Minutes are posted. A summary will be added in the next update.</p>
 {% endif %}
 <ul>
   <li><a href="{{ m.minutes_doc.source_url }}">Minutes on the city website</a> · PDF, {{ m.minutes_doc.bytes | filesize }}</li>
@@ -75,7 +75,7 @@
 {% endif %}
 {% elif m.date < built_at.date().isoformat() %}
 <h2 id="minutes">What was decided</h2>
-<p>Minutes for this meeting have not been posted yet. Boards usually approve minutes at a later meeting, and the city posts them after that.</p>
+<p>Minutes not posted yet. They usually come out after the board approves them at a later meeting.</p>
 {% endif %}
 
 <h2 id="agenda">{% if m.date >= built_at.date().isoformat() %}What's on the agenda{% else %}Agenda{% endif %}</h2>
@@ -98,7 +98,7 @@
   <li><a href="/meetings/agendas/{{ m.agenda.file }}">Saved copy of the agenda</a> · saved <time datetime="{{ m.agenda.fetched_at }}">{{ m.agenda.fetched_at | timestamp }}</time></li>
 </ul>
 {% if m.agenda.has_text == false %}
-<p class="small">The city posted this agenda as a scanned image, which screen readers cannot read.{% if m.preview %} The full agenda text above is a readable version.{% endif %}</p>
+<p class="small">The city posted this as a scanned image.{% if m.preview %} The full text above is a readable version.{% endif %}</p>
 {% endif %}
 {% if m.agendas | length > 1 %}
 <p>Earlier versions of this agenda:</p>
@@ -109,11 +109,11 @@
 </ul>
 {% endif %}
 {% elif m.date >= built_at.date().isoformat() %}
-<p>The city has not posted an agenda for this meeting yet. Under state law, notice of a meeting is generally posted at least 48 hours ahead, not counting weekends and legal holidays.</p>
+<p>No agenda posted yet.</p>
 {% elif m.source == "archive" %}
-<p>{{ site.name }} did not record this meeting's agenda. It may be in the <a href="{{ config.meetings.base_url }}/Archive.aspx">city's Archive Center</a>.</p>
+<p>Agenda not recorded here. It may be in the city's <a href="{{ config.meetings.base_url }}/Archive.aspx">Archive Center</a>.</p>
 {% else %}
-<p>No agenda was posted with this meeting on the city calendar.</p>
+<p>No agenda was posted.</p>
 {% endif %}
 
 {% if m.history %}

@@ -1,58 +1,45 @@
 {% extends "base.html" %}
-{% block title %}311 methodology{% endblock %}
-{% block description %}How {{ site.name }} collects {{ town.name }}'s 311 requests from SeeClickFix and calculates each figure on the scorecard.{% endblock %}
+{% block title %}How the 311 numbers work{% endblock %}
+{% block description %}How {{ site.name }} collects {{ town.name }}'s 311 requests from SeeClickFix and calculates each number.{% endblock %}
 {% block content %}
-<nav aria-label="Breadcrumb" class="breadcrumb">
-  <ol><li><a href="/311/">311 Requests</a></li></ol>
-</nav>
-<h1>How the 311 figures are calculated</h1>
-<p class="lede">Every figure on the scorecard comes from public requests on SeeClickFix, the system the City of {{ town.name }} uses for service requests.</p>
+<nav aria-label="Breadcrumb" class="breadcrumb"><ol><li><a href="/311/">311 Requests</a></li></ol></nav>
+<h1>How the 311 numbers work</h1>
+<p class="lede">Everything comes from public requests on SeeClickFix, the city's service request system.</p>
 
-<h2 id="collection">What is collected</h2>
+<h2 id="collection">What's collected</h2>
 <ul>
-  <li>Every public request for the City of {{ town.name }} on SeeClickFix, from January 2024 on, is recorded once a day.</li>
-  <li>For each request: the category, the location, when it was submitted, and when it was acknowledged, closed, or reopened.</li>
-  <li>Descriptions, photos, and the names of the people who submitted requests are not collected.</li>
-  <li>Requests the city keeps private, and internal work orders, are not available to the public and are not counted.</li>
-  <li>If a request is deleted or made private after it was recorded, it is removed from the figures.</li>
+  <li>Every public request since January 2024, checked daily.</li>
+  <li>For each one: category, location, and when it was submitted, acknowledged, closed, or reopened.</li>
+  <li>Not collected: descriptions, photos, or who submitted it.</li>
+  <li>Private requests and internal work orders aren't public, so they aren't counted. Requests later deleted or made private are removed.</li>
 </ul>
 
-<h2 id="statuses">How each status is counted</h2>
+<h2 id="statuses">Statuses</h2>
 <dl class="defs">
-  <dt>Open</dt><dd>Submitted and not yet acknowledged. Counted as open.</dd>
-  <dt>Acknowledged</dt><dd>A city staff member has marked the request as seen. Counted as open. Only city staff can acknowledge a request.</dd>
-  <dt>Closed</dt><dd>Marked resolved. Anyone with a SeeClickFix account, including the person who reported it, can close a request.</dd>
-  <dt>Archived</dt><dd>SeeClickFix archives closed requests automatically after 7 days, and staff can archive requests directly. Counted as closed.</dd>
+  <dt>Open</dt><dd>Submitted, not yet acknowledged.</dd>
+  <dt>Acknowledged</dt><dd>City staff marked it as seen. Still counts as open. Only staff can do this.</dd>
+  <dt>Closed</dt><dd>Marked resolved. Anyone with an account can close a request, including the person who reported it.</dd>
+  <dt>Archived</dt><dd>Closed requests are archived after 7 days. Counts as closed.</dd>
 </dl>
 
 <h2 id="measures">Measures</h2>
 <dl class="defs">
-  <dt>Time to acknowledge</dt>
-  <dd>From when a request was submitted to when city staff acknowledged it. Requests that were never acknowledged are not included. Because only city staff can acknowledge, this is the most direct measure of the city's response.</dd>
-  <dt>Time to close</dt>
-  <dd>From submission to the most recent close. For a request that was reopened and closed again, the later close is used. A request archived without a recorded close time uses its archive time. Requests whose exact times have not been looked up yet use the time SeeClickFix last updated them, which matches the close time in most cases.</dd>
-  <dt>Median</dt>
-  <dd>The middle value: half of requests took less time, half took more. Medians are used instead of averages so a few very old requests do not distort the figure.</dd>
-  <dt>1 in 10 took longer than</dt>
-  <dd>The 90th percentile, showing how long the slowest requests take.</dd>
-  <dt>Open for</dt>
-  <dd>For requests still open, the time from submission to today.</dd>
-  <dt>Ward</dt>
-  <dd>The ward containing the request's map location, using the <a href="https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a">2022 ward and precinct boundaries from MassGIS</a>. Requests placed outside the city's boundaries are listed separately.</dd>
-  <dt>Per 1,000 residents</dt>
-  <dd>Requests divided by the ward's 2020 census population, times 1,000.</dd>
+  <dt>Time to acknowledge</dt><dd>Submission to staff acknowledgment. Requests never acknowledged are left out. Since only staff can acknowledge, this is the most direct measure of the city's response.</dd>
+  <dt>Time to close</dt><dd>Submission to the latest close. If a request was archived without a close time, the archive time is used.</dd>
+  <dt>Typical (median)</dt><dd>Half took less time, half took more. Unlike an average, a few very old requests don't skew it.</dd>
+  <dt>1 in 10 took over</dt><dd>The 90th percentile: how long the slowest requests take.</dd>
+  <dt>Ward</dt><dd>Based on the request's map location and the <a href="https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a">2022 MassGIS ward boundaries</a>.</dd>
+  <dt>Per 1,000 residents</dt><dd>Requests divided by the ward's 2020 census population, times 1,000.</dd>
 </dl>
 
-<h2 id="limits">Limits of these figures</h2>
+<h2 id="limits">Keep in mind</h2>
 <ul>
-  <li>Only public requests are counted. Work the city does without a SeeClickFix request is not reflected.</li>
-  <li>A closed request is not always a fixed problem. Duplicates, requests outside city responsibility, and requests closed by the reporter all count as closed.</li>
-  <li>Some departments use SeeClickFix more fully than others, which affects how their categories look.</li>
-  <li>Differences between wards reflect how often residents in each ward report problems, not only how the city responds.</li>
-  <li>Requests submitted recently have had less time to close, so figures for recent months will change.</li>
-  <li>Figures based on fewer than 5 requests are not shown.</li>
+  <li>A closed request isn't always a fixed problem. Duplicates and requests outside the city's responsibility also get closed.</li>
+  <li>Some departments use SeeClickFix more than others.</li>
+  <li>Ward differences reflect how often people report problems, not only how the city responds.</li>
+  <li>Recent months will change as requests close.</li>
+  <li>Numbers based on fewer than 5 requests aren't shown.</li>
 </ul>
 
-<h2 id="data">Data and license</h2>
-<p>Data from <a href="https://seeclickfix.com">seeclickfix.com</a>, used under the <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons BY-NC-SA 3.0</a> license. The collected data and the code that calculates these figures are in the <a href="{{ site.repo_url }}">project's public repository</a>.</p>
+<p class="source-note">Data from <a href="https://seeclickfix.com">seeclickfix.com</a> under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>. The data and code are in the <a href="{{ site.repo_url }}">public repository</a>.</p>
 {% endblock %}

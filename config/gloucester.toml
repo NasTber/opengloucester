@@ -36,7 +36,7 @@ status = "live"
 slug = "311"
 title = "311 Requests"
 nav = "311"
-summary = "How quickly the city acknowledges and closes public service requests, how many are still open, by category and ward."
+summary = "How fast the city responds to service requests, by category and ward."
 status = "live"
 
 [[sections]]
@@ -88,7 +88,7 @@ max_cost_per_run = 5.0
 # Context for unusual months on the 311 scorecard. Each note must cite a source.
 [[seeclickfix.annotations]]
 month = "2025-07"
-text = "A strike by Republic Services trash and recycling workers began July 1, 2025. Trash routes were missed and recycling was not picked up in parts of Gloucester during the strike."
+text = "Republic Services trash and recycling workers went on strike July 1, 2025, and pickups were missed in parts of Gloucester."
 source_title = "WBUR, July 21, 2025"
 source_url = "https://www.wbur.org/news/2025/07/21/gloucester-massachusetts-republic-services-garbage-worker-strike"
 

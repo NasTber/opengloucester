@@ -79,7 +79,7 @@
 
 {# ---- Wards ---- #}
 <h2 id="wards">Requests per 1,000 residents, by ward</h2>
-<p class="small">Past 12 months. Differences reflect how often residents report problems as well as how the city responds.</p>
+<p class="small">Past 12 months. Differences partly reflect how often people in each ward report problems.</p>
 {% set ward_rows = [] %}
 {% for w in sc.by_ward if w.ward != "outside" %}{% set _ = ward_rows.append({"label": "Ward " ~ w.ward, "value": w.per_1000_residents, "text": w.per_1000_residents | round | int, "href": "/311/ward/" ~ w.ward ~ "/"}) %}{% endfor %}
 {{ bars(ward_rows, "Requests per 1,000 residents by ward") }}
@@ -100,7 +100,7 @@
 
 {# ---- Categories ---- #}
 <h2 id="categories">By category</h2>
-<p class="small">Past 12 months. Times are medians: half of requests took less time, half took more.</p>
+<p class="small">Past 12 months. "Typical" means the median: half took less time, half took more.</p>
 <div class="table-wrap">
 <table class="data-table">
   <thead><tr><th scope="col">Category</th><th scope="col" class="num">Requests</th><th scope="col" class="num wide">Still open</th><th scope="col" class="num wide">Typical acknowledge</th><th scope="col" class="num">Typical close</th></tr></thead>
@@ -130,7 +130,7 @@
 
 {# ---- Backlog ---- #}
 <h2 id="open">Open requests by age</h2>
-<p class="small">Every request still open, whenever it was submitted.</p>
+
 {% set age_rows = [] %}
 {% for bk in b.buckets %}{% set _ = age_rows.append({"label": bk.label, "value": bk.count, "text": bk.count | number}) %}{% endfor %}
 {{ bars(age_rows, "Open requests by how long they have been open") }}

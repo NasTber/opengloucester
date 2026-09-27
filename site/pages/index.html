@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% from "macros.html" import day_group %}
-{% block title %}{{ town.name }}, {{ town.state_abbr }}, by the numbers{% endblock %}
+{% block title %}{{ town.name }} this week{% endblock %}
 {% block content %}
 <p class="dateline"><time datetime="{{ built_at.date().isoformat() }}">{{ built_at.date() | date }}</time></p>
-<h1>{{ town.name }}, by the numbers</h1>
-<p class="lede">Public data about the City of {{ town.name }}, updated daily. Every number links to its source.</p>
+<h1>{{ town.name }} this week</h1>
+<p class="lede">City data, meetings, and 311 requests. Updated every morning.</p>
 
 {% if headline %}
 <h2 class="visually-hidden">Headline numbers</h2>
@@ -41,5 +41,5 @@
   </li>
   {% endfor %}
 </ul>
-<p class="small">For city services, news, and department contacts, use the <a href="{{ town.official_site }}">official City of {{ town.name }} website</a>.</p>
+<p class="small">For city services and news, see the <a href="{{ town.official_site }}">city's website</a>.</p>
 {% endblock %}
