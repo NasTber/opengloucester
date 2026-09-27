@@ -15,9 +15,9 @@
 {%- endmacro %}
 
 {# The quiet credit line under AI-written text. #}
-{% macro ai_credit(doc_label, url, report_url) -%}
+{% macro ai_credit(doc_label, url, report_url, posted_by=none) -%}
 <div class="credit">
-  <p>Summary written by AI from the <a href="{{ url }}">city's {{ doc_label }}</a>. Check the original before relying on it. <a href="/about/#ai">About AI summaries</a></p>
+  <p>Summary written by AI from the {% if posted_by %}<a href="{{ url }}">{{ doc_label }} posted by {{ posted_by }}</a>{% else %}<a href="{{ url }}">city's {{ doc_label }}</a>{% endif %}. Check the original before relying on it. <a href="/about/#ai">About AI summaries</a></p>
   {{ report_button(report_url, "Report an error in this summary") }}
 </div>
 {%- endmacro %}
