@@ -44,7 +44,7 @@ SUMMARY_RULES = """Summary rules:
 # version (or another model) are regenerated on the next run.
 KINDS = {
     "agenda": {
-        "version": 3,
+        "version": 4,
         "folder": "agendas",
         "max_tokens": 16000,
         "system": "You convert public meeting agendas from a city government into accessible text for residents. The agendas are usually scanned images, so read every character carefully.\n\n"
@@ -53,7 +53,7 @@ KINDS = {
 
 Return:
 - transcript: the full text of the agenda in reading order, as Markdown. Use headings for the document's own headings and lists for its lists. Leave out stamps, seals, and page decorations, but keep the clerk's posting date if shown.
-- headline: one sentence of at most 25 words saying what the meeting will take up, naming the main business. Do not mention the board's name, the date, the time, or the place; readers already see those.
+- headline: one sentence of at most 25 words saying what the meeting will take up, naming the main business. Start with the business itself, not with who is meeting (write "Public hearing on the 2026 Housing Compass Plan.", not "Board will hold a public hearing on ..."). Do not mention the board, the date, the time, or the place; readers already see those.
 - summary: 1 or 2 short sentences on what the meeting will cover. Name the main business items. Do not repeat the board's name, the date, the time, or the place.
 - items: each agenda item, in order, as short plain-English phrases. Skip routine items such as call to order, roll call, approval of minutes, and adjournment.""",
         "schema": {
@@ -69,7 +69,7 @@ Return:
         },
     },
     "minutes": {
-        "version": 1,
+        "version": 2,
         "folder": "minutes",
         "max_tokens": 64000,
         "system": "You convert the minutes of public meetings of a city government into accessible text for residents. Minutes are usually scanned images, so read every character carefully.\n\n"
@@ -80,7 +80,7 @@ Return:
 
 Return:
 - transcript: the full text of the minutes in reading order, as Markdown. Use headings for the document's own headings and lists for its lists. Leave out stamps, seals, and page decorations.
-- headline: one sentence of at most 25 words on what the meeting decided, or what it discussed if it decided nothing. Do not mention the board's name, the date, the time, or the place; readers already see those.
+- headline: one sentence of at most 25 words on what the meeting decided, or what it discussed if it decided nothing. Start with the outcome itself, not with who met (write "Approved seven board appointments ...", not "Committee approved seven board appointments ..."). Do not mention the board, the date, the time, or the place; readers already see those.
 - summary: 1 to 3 short sentences on what the meeting covered and what was decided. Do not repeat the board's name, the date, the time, or the place.
 - is_minutes: true if this document is minutes of a meeting that took place; false if it is something else, such as an agenda or notice filed under minutes.
 - decisions: each motion, vote, or other decision the minutes record, in order, as a short plain-English sentence that includes the outcome (for example "Approved ... 5-0" or "Continued ... to October 22, 2026"). Skip procedural motions such as adjourning or accepting the agenda.""",
@@ -113,14 +113,20 @@ def summaries_dir(data_dir: Path) -> Path:
     return data_dir / "summaries"
 
 
-def cached(data_dir: Path, sha256: str, model: str, kind: str = "agenda") -> dict | None:
-    """The saved result for a document, if it was made by this model and the current prompt."""
+def cached(data_dir: Path, sha256: str, model: str, kind: str = "agenda", current: bool = True) -> dict | None:
+    """The saved result for a document, if it was made by this model and the current prompt.
+
+    With current=False, any saved result of this kind is returned, so the site
+    keeps showing a summary while a newer prompt's version is waiting to be made.
+    """
     path = summaries_dir(data_dir) / f"{sha256}.json"
     if not path.exists():
         return None
     record = json.loads(path.read_text(encoding="utf-8"))
     version = KINDS[kind]["version"]
-    if record.get("model") != model or record.get("prompt_version") != version or record.get("kind", "agenda") != kind:
+    if record.get("kind", "agenda") != kind:
+        return None
+    if current and (record.get("model") != model or record.get("prompt_version") != version):
         return None
     return record
 

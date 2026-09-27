@@ -100,3 +100,15 @@ def test_oversized_pdfs_are_not_sent():
     assert summarize.too_large({"bytes": 29_811_159})
     assert not summarize.too_large({"bytes": 900_000})
     assert not summarize.too_large({})
+
+
+def test_site_keeps_older_summary_until_replaced(tmp_path, monkeypatch):
+    config = setup(tmp_path)
+    summarize.run(config, FakeAnthropic(), tmp_path, limit=5, now=FETCHED_AT)
+    store = json.loads((tmp_path / "meetings" / "meetings.json").read_text())
+    sha = next(m["agendas"][-1]["sha256"] for m in store.values() if m.get("agendas"))
+    monkeypatch.setitem(summarize.KINDS["agenda"], "version", summarize.KINDS["agenda"]["version"] + 1)
+    model = config["summaries"]["model"]
+    assert summarize.cached(tmp_path, sha, model, "agenda") is None
+    assert summarize.cached(tmp_path, sha, model, "agenda", current=False)["summary"]
+    assert summarize.cached(tmp_path, sha, model, "minutes", current=False) is None
