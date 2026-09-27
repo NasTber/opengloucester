@@ -18,14 +18,18 @@
   <meta property="og:image:alt" content="{{ site.name }}: {{ site.tagline }}">
   <meta name="twitter:card" content="summary_large_image">
   {% endif %}
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  {% set counter = "https://" ~ config.analytics.goatcounter ~ ".goatcounter.com" if config.get("analytics", {}).get("goatcounter") else "" %}
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; connect-src 'self'{% if counter %} {{ counter }}{% endif %}; object-src 'none'; base-uri 'self'; form-action 'self'">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#ffffff">
   <link rel="preload" href="/static/fonts/public-sans-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/static/fonts/source-serif-4-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/static/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }}: City Hall updates" href="/feed.xml">
   <link rel="stylesheet" href="/static/css/site.css?v={{ css_version }}">
+  {% if counter %}<script src="{{ "/static/js/count.js" | versioned }}" data-endpoint="{{ counter }}/count" data-title="{{ self.title() }}" defer></script>{% endif %}
   {% block head %}{% endblock %}
 </head>
 <body>
@@ -64,7 +68,7 @@
       <p>Updated <time datetime="{{ built_at.isoformat(timespec='minutes') }}">{{ built_at.strftime("%A") }}, {{ built_at.strftime("%B") }} {{ built_at.day }}, {{ built_at.year }}</time>.</p>
       <ul class="footer-links">
         <li><a href="/about/">About</a></li>
-        <li><a href="/about/#corrections">Corrections</a></li>
+        <li><a href="{{ report_link(page_url, self.title()) }}">Report a problem with this page</a></li>
         <li><a href="/about/accessibility/">Accessibility</a></li>
         <li><a href="{{ site.repo_url }}">Source code and data</a></li>
       </ul>

@@ -112,6 +112,12 @@ jobs:
         if: inputs.sources != 'meetings'
         run: .github/scripts/commit-data.sh "Update 311 data" data/311
 
+      # Fails the run (and GitHub emails the owner) when a source has stopped
+      # updating. Runs even if an earlier step failed; the site still deploys.
+      - name: Check data freshness
+        if: ${{ !cancelled() }}
+        run: python -m pipeline.freshness --town gloucester
+
   build:
     needs: update
     # Build even when the update job was skipped (push, PR) or failed (keep the last good data online).

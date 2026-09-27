@@ -4,11 +4,10 @@
 
 [site]
 name = "OpenGloucester"
-# The header shows name_prefix in dark ink and name_suffix in the primary color,
-# next to a circle with the mark letter.
+# The masthead shows name_prefix in dark ink and name_suffix in maroon. The
+# icon (site/static/favicon.svg) is the suffix's first letter in the headline font.
 name_prefix = "Open"
 name_suffix = "Gloucester"
-mark = "G"
 domain = "opengloucester.org"
 tagline = "Public data on how Gloucester, Massachusetts responds, decides, and spends. Updated daily."
 # One line under the name at the top of every page.
@@ -65,6 +64,15 @@ slug = "about"
 title = "About"
 summary = "Data sources, update schedule, metric definitions, and corrections."
 status = "live"
+
+# Page view counting with GoatCounter (goatcounter.com): no cookies, no
+# personal data, and never what someone searched for. Set goatcounter to the
+# account's code (the "xyz" in xyz.goatcounter.com) to turn it on; leave it
+# empty to count nothing. public_stats is the account's public dashboard URL,
+# if it has one; the About page links it.
+[analytics]
+goatcounter = ""
+public_stats = ""
 
 # Public meetings, from the city's CivicPlus calendar.
 [meetings]
@@ -263,3 +271,20 @@ years = 3
 [labor]
 local_series = "LAUCT252615000000003"
 state_series = "LAUST250000000000003"
+
+# How often each data source should update. The daily run fails (and GitHub
+# emails the owner) when one goes longer than max_days, and the About page
+# lists them. Daily sources allow one missed day; weekly ones, one missed week.
+[freshness]
+summary_grace_days = 2
+sources = [
+  { label = "Meetings calendar", file = "meetings/status.json", max_days = 2 },
+  { label = "311 requests", file = "311/status.json", max_days = 2 },
+  { label = "311 scorecard", file = "311/scorecard.json", field = "generated_at", max_days = 2 },
+  { label = "Unemployment rate (BLS)", file = "labor/unemployment.json", max_days = 3 },
+  { label = "School figures (DESE)", file = "schools/schools.json", max_days = 3 },
+  { label = "Average tax bill (Mass. DLS)", file = "finance/tax_bill.json", max_days = 7 },
+  { label = "City budget (Mass. DLS)", file = "finance/budget.json", max_days = 15 },
+  { label = "Housing figures", file = "housing/housing.json", max_days = 15 },
+  { label = "Building permits (city Data Hub)", file = "permits/permits.json", max_days = 15 },
+]

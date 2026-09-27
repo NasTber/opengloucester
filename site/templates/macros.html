@@ -15,8 +15,16 @@
 {%- endmacro %}
 
 {# The quiet credit line under AI-written text. #}
-{% macro ai_credit(doc_label, url) -%}
-<p class="credit">Summary written by AI from the <a href="{{ url }}">city's {{ doc_label }}</a>. Check the original before relying on it. <a href="/about/#ai">About AI summaries</a></p>
+{% macro ai_credit(doc_label, url, report_url) -%}
+<div class="credit">
+  <p>Summary written by AI from the <a href="{{ url }}">city's {{ doc_label }}</a>. Check the original before relying on it. <a href="/about/#ai">About AI summaries</a></p>
+  {{ report_button(report_url, "Report an error in this summary") }}
+</div>
+{%- endmacro %}
+
+{# A quiet outlined button that opens a pre-filled correction message. #}
+{% macro report_button(report_url, label) -%}
+<a class="report-link" href="{{ report_url }}"><svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M3 1.5a.75.75 0 0 1 .75.75V2.6c1.5-.8 3-.7 4.4-.1 1.2.5 2.4.6 3.8-.1a.75.75 0 0 1 1.05.7v6.6a.75.75 0 0 1-.4.66c-1.9 1-3.5.8-5 .2-1.3-.5-2.5-.6-3.85.2v4.2a.75.75 0 0 1-1.5 0V2.25A.75.75 0 0 1 3 1.5Z"/></svg>{{ label }}</a>
 {%- endmacro %}
 
 {# One meeting as a row: time (or date), name, preview, and plain status words. #}

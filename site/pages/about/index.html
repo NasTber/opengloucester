@@ -28,8 +28,26 @@
   <li><strong>Street maps:</strong> <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, drawn with <a href="https://leafletjs.com">Leaflet</a>. Map images load from OpenStreetMap's servers.</li>
 </ul>
 
+<h2 id="data-status">Data status</h2>
+<p>Each source and when this site last updated it. A source marked "Behind" has stopped updating; the maintainer is alerted automatically.</p>
+<div class="table-wrap">
+<table class="data-table">
+  <thead><tr><th scope="col">Source</th><th scope="col">Last updated</th><th scope="col">Status</th></tr></thead>
+  <tbody>
+  {% for r in data_status %}
+    <tr><th scope="row">{{ r.label }}</th><td>{% if r.updated_at %}<time datetime="{{ r.updated_at }}">{{ r.updated_at | timestamp }}</time>{% else %}–{% endif %}</td><td>{% if r.stale %}<strong class="flag">Behind</strong>{% if r.get("waiting") %} ({{ plural(r.waiting | length, "document") }} waiting){% endif %}{% else %}Up to date{% endif %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
 <h2 id="ai">AI summaries</h2>
 <p>Meeting summaries, and the readable text of scanned agendas and minutes, are written by AI ({{ config.summaries.model | model_name }}, by Anthropic). They aren't checked by a person before posting. The city's document is the official record, and every summary links to it.</p>
+
+{% if config.get("analytics", {}).get("goatcounter") %}
+<h2 id="privacy">Privacy</h2>
+<p>This site counts page views with <a href="https://www.goatcounter.com">GoatCounter</a>. It uses no cookies and collects no personal information. It records which page was viewed, the site you came from, and your screen size. It never records what you search for or which street you look up.{% if config.analytics.public_stats %} The counts are <a href="{{ config.analytics.public_stats }}">public</a>.{% endif %}</p>
+{% endif %}
 
 <h2 id="corrections">Corrections and contact</h2>
 <p>Spot a mistake or have a question? {{ contact(site) | capitalize_first }}. Fixes are noted on the page they affect.</p>

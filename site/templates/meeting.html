@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "macros.html" import meeting_flags, describe_change, ai_credit %}
+{% set report_url = report_link(page_url, meeting.body ~ ", " ~ (meeting.date | date)) %}
 {% set m = meeting %}
 {% block title %}{{ m.body }}, {{ m.date | date }}{% endblock %}
 {% block description %}{{ m.title }} meeting on {{ m.date | date }}{% if m.start_time %} at {{ m.start_time | time }}{% endif %}: {% if m.minutes_doc %}decisions, minutes, and agenda{% else %}location, how to attend, and agenda{% endif %}.{% endblock %}
@@ -72,7 +73,7 @@
 {% else %}
 <p>The minutes do not record any votes or decisions.</p>
 {% endif %}
-{{ ai_credit("minutes", ms.source_url) }}
+{{ ai_credit("minutes", ms.source_url, report_url) }}
 <details class="expand">
   <summary>Read the full minutes</summary>
   <div class="transcript-body">{{ ms.transcript | markdown }}</div>
@@ -108,7 +109,7 @@
   {% for item in m.preview["items"] %}<li>{{ item }}</li>{% endfor %}
 </ul>
 {% endif %}
-{{ ai_credit("agenda", m.preview.source_url) }}
+{{ ai_credit("agenda", m.preview.source_url, report_url) }}
 <details class="expand">
   <summary>Read the full agenda</summary>
   <div class="transcript-body">{{ m.preview.transcript | markdown }}</div>

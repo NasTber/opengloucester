@@ -70,7 +70,7 @@ def test_support_files(site_dir, config):
 
 def test_share_image(site_dir, config):
     image = f"https://{config['site']['domain']}/static/share/{config['slug']}.png"
-    assert f'<meta property="og:image" content="{image}">' in (site_dir / "311" / "index.html").read_text()
+    assert f'<meta property="og:image" content="{image}?v=' in (site_dir / "311" / "index.html").read_text()
     assert (site_dir / "static" / "share" / f"{config['slug']}.png").exists()
 
 
@@ -339,3 +339,15 @@ def test_recommendations_lead_with_the_action():
     odd = "The committee voted 2-0 (1 absent) to recommend appointing Rosalie Nicastro."
     assert tidy_recommendation(odd) == odd
     assert str(decision_text("Appointed Joseph A. Orlando, TTE 2/14/2029.")) == "Appointed Joseph A. Orlando, term ends 2/14/2029."
+
+
+def test_report_links_name_the_page(site_dir, config):
+    from urllib.parse import unquote
+    from pipeline.build_site import report_link
+    site = dict(config["site"], contact_email="")
+    github = report_link(site, "https://example.org", "/meetings/x/", "Board, June 1")
+    assert github.startswith(config["site"]["repo_url"] + "/issues/new?") and "example.org%2Fmeetings%2Fx%2F" in github
+    email = report_link(dict(site, contact_email="fix@example.org"), "https://example.org", "/x/", "Page")
+    assert email.startswith("mailto:fix@example.org?subject=Correction%3A%20Page") and "https://example.org/x/" in unquote(email)
+    page = next((site_dir / "meetings").glob("*/index.html")).read_text()
+    assert "Report a problem with this page" in page

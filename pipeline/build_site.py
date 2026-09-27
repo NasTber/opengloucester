@@ -22,7 +22,7 @@ from collections import defaultdict
 from datetime import date, datetime, timedelta
 from email.utils import format_datetime
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import quote, urlencode, urlparse
 from xml.sax.saxutils import escape as xml_escape
 from zoneinfo import ZoneInfo
 
@@ -31,6 +31,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup, escape
 
 from pipeline.config import DATA_DIR, ROOT, load_config
+from pipeline import freshness
 from pipeline import streets as streets_mod
 from pipeline import summarize
 from pipeline.fetch_meetings import slugify
@@ -522,6 +523,7 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         digest = hashlib.sha256((STATIC_DIR / path.removeprefix("/static/")).read_bytes()).hexdigest()[:10]
         return f"{path}?v={digest}"
     env.filters["versioned"] = versioned
+    env.globals["report_link"] = lambda page_url, what: report_link(site, base_url, page_url, what)
     env.globals.update(group_by=group_by, reserve_rows=reserve_rows, today=built_at.date().isoformat(), css_version=css_version, plural=plural,
                        change=lambda diff, since: change_text(diff, "", since))
 
@@ -542,9 +544,11 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
                                            built_at.date(), config["town"]), ensure_ascii=False, separators=(",", ":"))
     streets_url = f"/streets/streets.json?v={hashlib.sha256(streets_json.encode()).hexdigest()[:10]}"
     share_path = STATIC_DIR / "share" / f"{town}.png"
-    share_image = f"{base_url}/static/share/{town}.png" if share_path.exists() else None
+    # Versioned, so sites that cache link previews pick up a redrawn image.
+    share_image = (f"{base_url}/static/share/{town}.png?v={hashlib.sha256(share_path.read_bytes()).hexdigest()[:10]}"
+                   if share_path.exists() else None)
     common = dict(config=config, site=site, town=config["town"], sections=sections, share_image=share_image, search_url=search_url,
-                  streets_url=streets_url, permits=permits,
+                  streets_url=streets_url, permits=permits, data_status=freshness.check(config, data_dir, built_at),
                   built_at=built_at, meetings=meetings, scorecard=scorecard, schools=schools, budget=budget, housing=housing,
                   headline=headline_numbers(data_dir, scorecard), map_points=map_points(scorecard))
     urls = []
@@ -661,6 +665,16 @@ def street_index(meetings: list[dict], permits: list[dict], requests: list[dict]
             entry[field + "_total"] = len(items)
         out[key] = entry
     return {"suffixes": streets_mod.SUFFIXES, "streets": dict(sorted(out.items()))}
+
+
+def report_link(site: dict, base_url: str, page_url: str, what: str) -> str:
+    """A pre-filled correction message naming the page: email when the site has a
+    contact address, otherwise a new issue on the public repository."""
+    subject = f"Correction: {what}"
+    body = f"Page: {base_url}{page_url}\n\nWhat's wrong:\n\n\nWhat it should say, and where you saw it (if you know):\n"
+    if site.get("contact_email"):
+        return f"mailto:{site['contact_email']}?{urlencode({'subject': subject, 'body': body}, quote_via=quote)}"
+    return f"{site['repo_url']}/issues/new?{urlencode({'title': subject, 'body': body, 'labels': 'correction'}, quote_via=quote)}"
 
 
 def write_feed(path: Path, meetings: list[dict], config: dict, base_url: str, built_at: datetime, limit: int = 50) -> None:

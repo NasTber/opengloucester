@@ -19,6 +19,7 @@ pipeline/                   Python package
   fetch_schools.py          Graduation, absenteeism, MCAS (DESE) -> data/schools/
   fetch_permits.py          Building and demolition permits (city Data Hub) -> data/permits/
   streets.py                Street-name matching for the street lookup
+  freshness.py              Daily: fails the run when a data source stops updating
   civicplus.py, seeclickfix.py   Source parsers
   geo.py                    Ward/precinct point-in-polygon lookup
   http.py                   Rate-limited HTTP client with retries

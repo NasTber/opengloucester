@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "macros.html" import report_button %}
 {% block title %}Decisions{% endblock %}
 {% block description %}Votes and other decisions recorded in the minutes of {{ town.name }}'s City Council, boards, and committees, newest meeting first.{% endblock %}
 {% macro decision_list(items, shown, more_label, fmt="decision") -%}
@@ -25,7 +26,10 @@
 </div>
 
 {% if meetings.decided %}
-<p class="credit">Decisions are pulled from each meeting's minutes by AI. Check the minutes before relying on one. <a href="/about/#ai">About AI summaries</a></p>
+<div class="credit">
+  <p>Decisions are pulled from each meeting's minutes by AI. Check the minutes before relying on one. <a href="/about/#ai">About AI summaries</a></p>
+  {{ report_button(report_link(page_url, "Decisions page"), "Report an error in a decision") }}
+</div>
 {% for month, items in group_by(meetings.decided, "month") %}
 <h2 id="m-{{ month[:7] }}">{{ month | date("month") }}</h2>
 <ul class="decision-list">
