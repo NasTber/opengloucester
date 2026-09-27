@@ -1,0 +1,17 @@
+{
+  "transcript": "# SPECIAL EVENTS ADVISORY COMMITTEE\nThursday, August 6, 2026\n2:00 P.M.\n1st Floor Council Conference Room\n9 Dale Avenue\nGloucester, MA 01930\n\nThe public is welcome to attend in person. Zoom link to access the meeting remotely is also available.\nJoin from Computer, Smart Device: https://gloucester-ma-gov.zoom.us/j/81834724353\nPhone Number: 1 312 626 6799\nMeeting ID: 818 3472 4353\n\nPlease note that the in-person meeting will not be suspended or terminated if technological problems interrupt the remote connection.\n\n## AGENDA\n\n1. Approval of the July 6, 2026 minutes\n2. Special Event #EVNT-26-47 Gloucester Schooner Festival on September 3-6, 2026\n3. Special Event #EVNT-26-50 Labor Day/Schooner Festival Fireworks Display on September 5, 2026 (rain date September 7, 2026)\n4. Special Event #EVNT-26-48 Autism Surf Clinic on September 12, 2026 (rain date September 13, 2026)\n5. Special Event #EVNT-26-53 Annisquam Road Race on September 12, 2026\n6. Special Event #EVNT-26-52 Gnome Surf Little Legends on September 13, 2026\n7. Special Event #EVNT-26-49 Lanesville Music Festival on September 19, 2026 (rain date on September 20, 2026)\n\nNEXT MEETING (subject to change): September 3, 2026\n\nThe listing of matters is those reasonably anticipated by the Chair which may be discussed at the meeting. Not all items listed may be discussed & other items not listed may also be brought up for discussion to the extent permitted by law. Items may be taken out of order.",
+  "headline": "Committee scheduled to review July minutes and several upcoming special event applications, including the Gloucester Schooner Festival and Labor Day fireworks",
+  "summary": "This document is an agenda listing items for the Special Events Advisory Committee's August 6, 2026 meeting, including approval of prior minutes and review of special event applications such as the Gloucester Schooner Festival, a fireworks display, an Autism Surf Clinic, the Annisquam Road Race, Gnome Surf Little Legends, and the Lanesville Music Festival. It does not record what was discussed or decided.",
+  "is_minutes": false,
+  "decisions": [],
+  "kind": "minutes",
+  "source_url": "https://www.gloucester-ma.gov/Archive.aspx?ADID=20091",
+  "source_sha256": "ca82c80fdbd03251849d8c0e6116104f038a5dd0a771380a63e9631c9bc9038c",
+  "model": "claude-sonnet-5",
+  "prompt_version": 1,
+  "generated_at": "2026-09-27T06:58:21-04:00",
+  "usage": {
+    "input_tokens": 2692,
+    "output_tokens": 870
+  }
+}
