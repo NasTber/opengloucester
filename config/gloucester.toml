@@ -40,6 +40,12 @@ summary = "How fast the city responds to service requests, by category and ward.
 status = "live"
 
 [[sections]]
+slug = "schools"
+title = "Schools"
+summary = "Graduation, attendance, and MCAS results compared with the state, and a link to the Gloucester Schools Report."
+status = "live"
+
+[[sections]]
 slug = "about"
 title = "About"
 summary = "Data sources, update schedule, metric definitions, and corrections."
@@ -116,6 +122,15 @@ minutes_since = "2026-06-28"
 "Planning and Development Standing Committee" = "City Council Planning & Development Committee"
 "Contributory Retirement System" = "Gloucester Retirement Board"
 "Council on Aging" = "Council on Aging Board"
+
+# School district figures from the state's education data portal (DESE).
+# The schools page links to report_url for school-by-school detail.
+[schools]
+district_code = "01070000"
+district_name = "Gloucester Public Schools"
+portal = "https://educationtocareer.data.mass.gov"
+report_name = "Gloucester Schools Report"
+report_url = "https://gloucesterschoolsreport.com"
 
 # Average single-family tax bill (Mass. Division of Local Services).
 [finance]

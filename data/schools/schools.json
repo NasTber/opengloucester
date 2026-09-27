@@ -1,0 +1,187 @@
+{
+  "district": "Gloucester Public Schools",
+  "measures": {
+    "absenteeism": {
+      "dataset_url": "https://educationtocareer.data.mass.gov/d/ak6h-9k7x",
+      "years": [
+        {
+          "state": 12.9,
+          "town": 17.1,
+          "year": 2019
+        },
+        {
+          "state": 13.0,
+          "town": 15.4,
+          "year": 2020
+        },
+        {
+          "state": 17.7,
+          "town": 31.8,
+          "year": 2021
+        },
+        {
+          "state": 27.7,
+          "town": 34.5,
+          "year": 2022
+        },
+        {
+          "state": 22.2,
+          "town": 27.0,
+          "year": 2023
+        },
+        {
+          "state": 19.7,
+          "town": 23.4,
+          "year": 2024
+        },
+        {
+          "state": 18.8,
+          "town": 27.5,
+          "year": 2025
+        },
+        {
+          "state": 17.1,
+          "town": 23.8,
+          "year": 2026
+        }
+      ]
+    },
+    "graduation": {
+      "dataset_url": "https://educationtocareer.data.mass.gov/d/n2xa-p822",
+      "years": [
+        {
+          "state": 87.9,
+          "town": 86.3,
+          "year": 2018
+        },
+        {
+          "state": 88.0,
+          "town": 85.5,
+          "year": 2019
+        },
+        {
+          "state": 89.0,
+          "town": 83.7,
+          "year": 2020
+        },
+        {
+          "state": 89.8,
+          "town": 81.1,
+          "year": 2021
+        },
+        {
+          "state": 90.1,
+          "town": 85.8,
+          "year": 2022
+        },
+        {
+          "state": 89.2,
+          "town": 83.0,
+          "year": 2023
+        },
+        {
+          "state": 88.4,
+          "town": 87.2,
+          "year": 2024
+        },
+        {
+          "state": 89.3,
+          "town": 84.7,
+          "year": 2025
+        }
+      ]
+    },
+    "mcas_ela": {
+      "dataset_url": "https://educationtocareer.data.mass.gov/d/i9w6-niyt",
+      "years": [
+        {
+          "state": 51.0,
+          "town": 47.0,
+          "year": 2018
+        },
+        {
+          "state": 52.0,
+          "town": 48.0,
+          "year": 2019
+        },
+        {
+          "state": 46.0,
+          "town": 44.0,
+          "year": 2021
+        },
+        {
+          "state": 41.0,
+          "town": 37.0,
+          "year": 2022
+        },
+        {
+          "state": 42.0,
+          "town": 38.0,
+          "year": 2023
+        },
+        {
+          "state": 39.0,
+          "town": 32.0,
+          "year": 2024
+        },
+        {
+          "state": 42.0,
+          "town": 34.0,
+          "year": 2025
+        },
+        {
+          "state": 40.0,
+          "town": 34.0,
+          "year": 2026
+        }
+      ]
+    },
+    "mcas_math": {
+      "dataset_url": "https://educationtocareer.data.mass.gov/d/i9w6-niyt",
+      "years": [
+        {
+          "state": 48.0,
+          "town": 44.0,
+          "year": 2018
+        },
+        {
+          "state": 49.0,
+          "town": 43.0,
+          "year": 2019
+        },
+        {
+          "state": 33.0,
+          "town": 31.0,
+          "year": 2021
+        },
+        {
+          "state": 39.0,
+          "town": 34.0,
+          "year": 2022
+        },
+        {
+          "state": 41.0,
+          "town": 34.0,
+          "year": 2023
+        },
+        {
+          "state": 41.0,
+          "town": 29.0,
+          "year": 2024
+        },
+        {
+          "state": 41.0,
+          "town": 30.0,
+          "year": 2025
+        },
+        {
+          "state": 41.0,
+          "town": 29.0,
+          "year": 2026
+        }
+      ]
+    }
+  },
+  "source": "Massachusetts Department of Elementary and Secondary Education",
+  "updated_at": "2026-09-26T20:51:31-04:00"
+}

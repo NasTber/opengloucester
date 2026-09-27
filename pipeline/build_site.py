@@ -132,6 +132,11 @@ def model_name(model_id: str) -> str:
     return " ".join(part.capitalize() for part in model_id.split("-"))
 
 
+def school_year(year: int) -> str:
+    """DESE labels a school year by the year it ends: 2026 -> '2025–26'."""
+    return f"{year - 1}–{str(year)[2:]}"
+
+
 def format_number(n: float | int | None) -> str:
     return "–" if n is None else f"{n:,}"
 
@@ -327,6 +332,8 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     meetings = load_meetings(data_dir, built_at.date(), config.get("summaries", {}).get("model"))
     scorecard_path = data_dir / "311" / "scorecard.json"
     scorecard = json.loads(scorecard_path.read_text(encoding="utf-8")) if scorecard_path.exists() else None
+    schools_path = data_dir / "schools" / "schools.json"
+    schools = json.loads(schools_path.read_text(encoding="utf-8")) if schools_path.exists() else None
 
     env = Environment(
         loader=FileSystemLoader([SITE_DIR / "templates", PAGES_DIR]),
@@ -338,7 +345,8 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     env.filters.update(date=format_date, time=format_time, filesize=format_bytes, timestamp=format_timestamp,
                        duration=format_duration, number=format_number, month=format_month,
                        markdown=render_markdown, duration_cell=format_duration_cell, street=short_address,
-                       model_name=model_name, capitalize_first=lambda t: Markup(t[:1].upper() + t[1:]))
+                       model_name=model_name, capitalize_first=lambda t: Markup(t[:1].upper() + t[1:]),
+                       school_year=school_year)
     # Versioned asset URLs, so a browser never pairs new pages with an old cached stylesheet.
     css_version = hashlib.sha256((STATIC_DIR / "css" / "site.css").read_bytes()).hexdigest()[:10]
     def versioned(path: str) -> str:
@@ -356,7 +364,7 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     own_hosts = {site["domain"], "www." + site["domain"]}
     sections = config["sections"]
     common = dict(config=config, site=site, town=config["town"], sections=sections,
-                  built_at=built_at, meetings=meetings, scorecard=scorecard,
+                  built_at=built_at, meetings=meetings, scorecard=scorecard, schools=schools,
                   headline=headline_numbers(data_dir, scorecard), map_points=map_points(scorecard))
     urls = []
 

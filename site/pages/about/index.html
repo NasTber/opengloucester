@@ -20,6 +20,7 @@
   <li><strong>Meetings, agendas, and minutes:</strong> the city's <a href="{{ config.meetings.base_url }}/calendar.aspx">calendar</a> and <a href="{{ config.meetings.base_url }}/Archive.aspx">Archive Center</a>. Copies are saved when posted. Minutes are collected from {{ config.archive.minutes_since | date("month") }} on.</li>
   <li><strong>Tax bill:</strong> Mass. <a href="https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=AverageSingleTaxBill.SingleFamTaxBill_wRange">Division of Local Services</a>.</li>
   <li><strong>Unemployment:</strong> U.S. <a href="https://www.bls.gov/lau/">Bureau of Labor Statistics</a>. City rates aren't seasonally adjusted, so each month is compared with the same month last year.</li>
+  <li><strong>Schools:</strong> Mass. <a href="{{ config.schools.portal }}">Department of Elementary and Secondary Education</a> open data. School-by-school detail is on the <a href="{{ config.schools.report_url }}">{{ config.schools.report_name }}</a>.</li>
   <li><strong>Ward maps:</strong> <a href="https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a">MassGIS</a>, 2022 boundaries.</li>
   <li><strong>Street maps:</strong> <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, drawn with <a href="https://leafletjs.com">Leaflet</a>. Map images load from OpenStreetMap's servers.</li>
 </ul>

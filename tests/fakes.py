@@ -137,3 +137,19 @@ class FakeAnthropic:
                 return Stream(kwargs)
 
         self.messages = Messages()
+
+
+class FakeDESE:
+    """Serves saved DESE open data responses, one per measure."""
+
+    def __init__(self):
+        self.urls = []
+
+    def get(self, url):
+        import json
+        from urllib.parse import unquote_plus
+        from pipeline.fetch_schools import MEASURES
+        self.urls.append(url)
+        query = unquote_plus(url)
+        name = next(n for n, m in MEASURES.items() if m["dataset"] in url and m["where"] in query)
+        return FakeJSONResponse(json.loads((FIXTURES / f"dese_{name}.json").read_text()))

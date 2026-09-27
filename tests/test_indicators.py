@@ -52,3 +52,21 @@ def test_change_text_is_neutral():
     assert build_site.change_text(7, "", "last week") == "↑ 7 from last week"
     assert build_site.change_text(-0.5, " pts", "July 2025", 1) == "↓ 0.5 pts from July 2025"
     assert build_site.change_text(0.04, "%", "FY2025", 1) == "No change from FY2025"
+
+
+def test_school_figures_compare_like_with_like(tmp_path):
+    from fakes import FakeDESE
+    from pipeline import fetch_schools
+    client = FakeDESE()
+    latest = fetch_schools.run(load_config("gloucester"), client, tmp_path, now=NOW)
+    # The district's "adjusted cohort" rate has no state counterpart, so it is not used.
+    assert all("4-Year+Graduation+Rate%27" in u or "Graduation" not in u for u in client.urls)
+    assert latest["graduation"] == {"year": 2025, "town": 84.7, "state": 89.3}
+    assert latest["absenteeism"]["year"] == 2026 and latest["mcas_math"]["town"] == 29.0
+    saved = json.loads((tmp_path / "schools" / "schools.json").read_text())
+    years = [y["year"] for y in saved["measures"]["mcas_ela"]["years"]]
+    assert years == sorted(years) and 2020 not in years and len(years) <= fetch_schools.YEARS_KEPT
+
+
+def test_school_year_label():
+    assert build_site.school_year(2026) == "2025–26"

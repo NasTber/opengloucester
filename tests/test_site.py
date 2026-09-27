@@ -219,3 +219,10 @@ def test_repeat_locations_page_and_maps(site_dir):
     assert rows[0] == ["id", "submitted", "category", "location", "ward", "url"] and len(rows) == len(data) + 1
     assert (site_dir / "311" / "data" / "repeat-locations.csv").exists()
     assert (site_dir / "static" / "vendor" / "leaflet" / "leaflet.js").exists()
+
+
+def test_schools_page(site_dir):
+    page = (site_dir / "schools" / "index.html").read_text()
+    assert "Graduation rate" in page and "84.7%" in page and "State 89.3%" in page
+    assert 'href="https://gloucesterschoolsreport.com"' in page
+    assert 'href="/schools/"' in (site_dir / "index.html").read_text()

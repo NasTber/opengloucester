@@ -15,8 +15,8 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 import shutil  # noqa: E402
 
-from fakes import FIXTURES, FakeAnthropic, FakeCityClient, FakeSeeClickFix  # noqa: E402
-from pipeline import build_site, compute_311, fetch_311, fetch_meetings, fetch_minutes, summarize  # noqa: E402
+from fakes import FIXTURES, FakeAnthropic, FakeCityClient, FakeDESE, FakeSeeClickFix  # noqa: E402
+from pipeline import build_site, compute_311, fetch_311, fetch_meetings, fetch_minutes, fetch_schools, summarize  # noqa: E402
 from pipeline.config import DATA_DIR as REAL_DATA_DIR  # noqa: E402
 from pipeline.config import load_config  # noqa: E402
 
@@ -49,6 +49,7 @@ def make_fixture_data(data_dir: Path) -> None:
     fetch_311.save_json(data_dir / "labor" / "unemployment.json", {
         "source_url": "https://data.bls.gov/timeseries/LAUCT252615000000003", "months": [
             {"year": 2025, "month": 7, "rate": 5.3}, {"year": 2026, "month": 7, "rate": 4.8, "preliminary": True}]})
+    fetch_schools.run(config, FakeDESE(), data_dir, now=FETCHED_AT)
     fetch_311.run(config, FakeSeeClickFix(), data_dir, now=FETCHED_AT, detail_limit=80)
     fetch_311.save_json(data_dir / "311" / "scorecard.json", compute_311.compute(config, data_dir, now=FETCHED_AT))
 

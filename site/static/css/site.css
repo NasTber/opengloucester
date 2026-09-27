@@ -84,7 +84,7 @@ a.external::after { content: "\2009\2197"; font-size: 0.85em; }
 .brand:hover .brand-name { text-decoration: underline; }
 
 .site-nav { width: 100%; border-top: 1px solid var(--line); }
-.nav-list { display: flex; gap: 1.6rem; margin: 0; padding: 0; list-style: none; }
+.nav-list { display: flex; flex-wrap: wrap; column-gap: 1.1rem; margin: 0; padding: 0; list-style: none; }
 .nav-list a {
   display: flex; align-items: center; min-height: 2.9rem;
   color: var(--muted); font-weight: 600; text-decoration: none;
@@ -95,6 +95,7 @@ a.external::after { content: "\2009\2197"; font-size: 0.85em; }
 @media (min-width: 40rem) {
   .header-inner { flex-wrap: nowrap; }
   .site-nav { width: auto; border-top: 0; }
+  .nav-list { column-gap: 1.6rem; }
   .nav-list a { min-height: 3.6rem; }
 }
 
@@ -300,3 +301,12 @@ dl.defs dd { margin: 0.15rem 0 0; max-width: var(--measure); }
 .map .leaflet-popup-content p { margin: 0.25rem 0 0.4rem; }
 .map .leaflet-popup-content a { color: var(--primary); }
 .map .leaflet-control-attribution a { color: var(--primary); }
+
+/* ---- Callout ---- */
+.callout {
+  margin: 1.25rem 0 1.5rem; padding: 1rem 1.1rem;
+  border: 1px solid var(--line); border-left: 4px solid var(--primary); border-radius: 0.5rem;
+  background: var(--primary-soft);
+}
+.callout p { margin: 0; }
+.callout .actions { margin: 0.8rem 0 0; }

@@ -16,6 +16,7 @@ pipeline/                   Python package
   compute_311.py            Daily: requests -> data/311/scorecard.json
   fetch_finance.py          Average single-family tax bill (Mass. DLS) -> data/finance/
   fetch_labor.py            Unemployment rate (BLS LAUS) -> data/labor/
+  fetch_schools.py          Graduation, absenteeism, MCAS (DESE) -> data/schools/
   civicplus.py, seeclickfix.py   Source parsers
   geo.py                    Ward/precinct point-in-polygon lookup
   http.py                   Rate-limited HTTP client with retries
