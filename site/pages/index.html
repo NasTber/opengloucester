@@ -61,6 +61,7 @@
     <span class="stat-label">{{ n.label }}</span>
     <span class="stat-value">{{ n.value }}</span>
     {% if n.get("change") %}<span class="stat-change">{{ n.change }}</span>{% endif %}
+    {% if n.get("note") %}<span class="stat-change">{{ n.note }}</span>{% endif %}
     {% if n.get("source") %}<span class="stat-source">{{ n.source }}{% if n.href.startswith("http") %} <span aria-hidden="true">↗</span>{% endif %}</span>{% endif %}
   </a></li>
   {% endfor %}

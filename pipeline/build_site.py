@@ -428,6 +428,8 @@ def headline_numbers(config: dict, data_dir: Path, scorecard: dict | None) -> li
         numbers.append({
             "label": "Open 311 requests", "value": f"{backlog['open']:,}", "href": "/311/#open",
             "change": change_text(backlog["open"] - backlog.get("open_week_ago", backlog["open"]), "", "last week"),
+            "note": (f"{backlog['no_update']['count']:,} with no update in over a year"
+                     if backlog.get("no_update", {}).get("count") else ""),
         })
         overall = scorecard["overall"]
         # The median leaves out requests never acknowledged, so show how many were.

@@ -173,3 +173,42 @@ def test_scorecard_has_recent_open_and_repeats(config, data):
     assert recent and all(r["created_at"] >= "2026-08-27" for r in recent)
     assert [r["created_at"] for r in recent] == sorted((r["created_at"] for r in recent), reverse=True)
     assert "places" in sc["repeats"]
+
+
+def test_open_requests_with_no_update_in_a_year():
+    def req(rid, created, updated=None, detail_updated=None, category="Sidewalk Issue", ward="1"):
+        r = {"id": rid, "category": category, "ward": ward, "status": "open", "created_at": created, "updated_at": updated}
+        if detail_updated:
+            r["detail"] = {"updated_at": detail_updated}
+        return r
+    records = [
+        req("a", "2024-05-01T09:00:00-04:00", "2024-06-01T09:00:00-04:00"),           # quiet since June 2024
+        req("b", "2024-05-01T09:00:00-04:00", "2026-08-01T09:00:00-04:00"),           # updated last month
+        req("c", "2024-05-01T09:00:00-04:00", None, "2026-09-01T09:00:00-04:00"),     # a recent status change seen in detail
+        req("d", "2025-02-01T09:00:00-05:00", category="Other", ward=None),           # never updated, 20 months old
+        req("e", "2026-03-01T09:00:00-05:00"),                                        # never updated, 7 months old
+    ]
+    quiet = compute_311.no_update(records, FETCHED_AT)
+    assert quiet["count"] == 2
+    assert quiet["by_category"] == [{"name": "Other", "count": 1}, {"name": "Sidewalk Issue", "count": 1}]
+    assert quiet["by_ward"] == [{"name": "1", "count": 1}, {"name": "outside", "count": 1}]
+
+
+def test_site_explains_requests_with_no_update(site_dir, data_dir, tmp_path):
+    # The saved requests are all recent, so the section stays hidden.
+    assert 'id="no-update"' not in (site_dir / "311" / "index.html").read_text()
+    data = tmp_path / "data"
+    shutil.copytree(data_dir, data)
+    card = json.loads((data / "311" / "scorecard.json").read_text())
+    card["backlog"]["no_update"] = {"days": 365, "count": 298, "by_category": [{"name": "Sidewalk Issue", "count": 298}],
+                                    "by_ward": [{"name": "1", "count": 200}, {"name": "outside", "count": 98}]}
+    (data / "311" / "scorecard.json").write_text(json.dumps(card))
+    from conftest import BUILT_AT
+    from pipeline import build_site
+    build_site.build("gloucester", tmp_path / "site", data_dir=data, now=BUILT_AT)
+    page = (tmp_path / "site" / "311" / "index.html").read_text()
+    assert '<a href="#no-update">298 with no update in over a year</a>' in page
+    assert "298 of the" in page and "fixed and never closed, or never handled" in page
+    assert "Outside wards" in page
+    assert "298 with no update in over a year" in (tmp_path / "site" / "index.html").read_text()
+    assert "No update in over a year" in (tmp_path / "site" / "311" / "methodology" / "index.html").read_text()

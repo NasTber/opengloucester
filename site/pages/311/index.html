@@ -31,6 +31,7 @@
     <span class="stat-label">Open right now</span>
     <span class="stat-value">{{ b.open | number }}</span>
     <span class="stat-change">{{ change(b.open - b.get("open_week_ago", b.open), "last week") }}</span>
+    {% if b.get("no_update", {}).get("count") %}<span class="stat-change"><a href="#no-update">{{ b.no_update.count | number }} with no update in over a year</a></span>{% endif %}
   </div></li>
   <li class="stat" id="speed"><div>
     <span class="stat-label">Typical time to acknowledge</span>
@@ -145,6 +146,33 @@
 {% for bk in b.buckets %}{% set _ = age_rows.append({"label": bk.label, "value": bk.count, "text": bk.count | number}) %}{% endfor %}
 {{ bars(age_rows, "Open requests by how long they have been open") }}
 {{ chart_links("open", "/311/data/open-by-age.csv") }}
+
+{% set nu = b.get("no_update") %}
+{% if nu and nu.count %}
+<h3 id="no-update">No update in over a year</h3>
+<p>{{ nu.count | number }} of the {{ b.open | number }} open requests haven't been updated on SeeClickFix in over a year: no status change, comment, or edit. SeeClickFix doesn't show whether these were fixed and never closed, or never handled.</p>
+<details class="expand">
+  <summary>By category and ward</summary>
+  <div class="table-wrap">
+  <table class="data-table">
+    <caption>Open requests with no update in over a year, by category</caption>
+    <thead><tr><th scope="col">Category</th><th scope="col" class="num">Requests</th></tr></thead>
+    <tbody>
+    {% for c in nu.by_category %}<tr><th scope="row">{{ c.name }}</th><td class="num">{{ c.count | number }}</td></tr>{% endfor %}
+    </tbody>
+  </table>
+  </div>
+  <div class="table-wrap">
+  <table class="data-table">
+    <caption>Open requests with no update in over a year, by ward</caption>
+    <thead><tr><th scope="col">Ward</th><th scope="col" class="num">Requests</th></tr></thead>
+    <tbody>
+    {% for w in nu.by_ward %}<tr><th scope="row">{% if w.name == "outside" %}Outside wards{% else %}Ward {{ w.name }}{% endif %}</th><td class="num">{{ w.count | number }}</td></tr>{% endfor %}
+    </tbody>
+  </table>
+  </div>
+</details>
+{% endif %}
 
 <h3 id="longest-open">Longest-open requests</h3>
 <ol class="plain-list">
