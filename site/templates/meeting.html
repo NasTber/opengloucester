@@ -5,6 +5,8 @@
 {% block title %}{{ m.body }}, {{ m.date | date }}{% endblock %}
 {% block description %}{{ m.title }} meeting on {{ m.date | date }}{% if m.start_time %} at {{ m.start_time | time }}{% endif %}: {% if m.minutes_doc %}decisions, minutes, and agenda{% else %}location, how to attend, and agenda{% endif %}.{% endblock %}
 {% block content %}
+{# Meetings known only from their documents, not from the city calendar. #}
+{% set documents_only = m.source in ("archive", "drive") %}
 <nav aria-label="Breadcrumb" class="breadcrumb">
   <ol>
     <li><a href="/meetings/">Meetings</a></li>
@@ -27,14 +29,14 @@
 </div>
 
 {% set has_where = m.location_name or m.address or m.location %}
-{% if has_where or m.remote_url or m.source != "archive" %}
+{% if has_where or m.remote_url or not documents_only %}
 <dl class="facts">
-  <div><dt>Where</dt><dd>{% if m.location_name %}{{ m.location_name }}<br>{% endif %}{{ m.address or m.location or ("Not listed" if m.source == "archive" else "Not listed on the city calendar") }}</dd></div>
+  <div><dt>Where</dt><dd>{% if m.location_name %}{{ m.location_name }}<br>{% endif %}{{ m.address or m.location or ("Not listed" if documents_only else "Not listed on the city calendar") }}</dd></div>
   {% if m.remote_url %}<div><dt>Online</dt><dd><a href="{{ m.remote_url }}">Join by Zoom</a></dd></div>{% endif %}
-  {% if not m.start_time and m.source != "archive" %}<div><dt>Time</dt><dd>Not listed</dd></div>{% endif %}
+  {% if not m.start_time and not documents_only %}<div><dt>Time</dt><dd>Not listed</dd></div>{% endif %}
   {% if m.end_time %}<div><dt>Scheduled until</dt><dd>{{ m.end_time | time }}</dd></div>{% endif %}
 </dl>
-{% if m.source != "archive" and m.agenda %}<p class="small">Location from the city calendar. The posted agenda is the official notice; check it if the two differ.</p>{% endif %}
+{% if not documents_only and m.agenda %}<p class="small">Location from the city calendar. The posted agenda is the official notice; check it if the two differ.</p>{% endif %}
 {% endif %}
 
 {% set part = config.get("participation", {}).get(m.body, {}) %}
@@ -60,7 +62,7 @@
 <h2 id="minutes">What was decided</h2>
 {% if ms %}
 {% if ms.get("is_minutes") == false %}
-<p>The city filed {{ "an agenda" if "agenda" in ms.summary.lower() else "a different document" }} here instead of minutes. Minutes may be posted later.</p>
+<p>{{ m.minutes_doc.get("posted_by") or "The city" }} filed {{ "an agenda" if "agenda" in ms.summary.lower() else "a different document" }} here instead of minutes. Minutes may be posted later.</p>
 {% else %}
 <p>{{ ms.summary }}</p>
 {% endif %}
@@ -84,7 +86,7 @@
 <p>Minutes are posted. A summary will be added in the next update.</p>
 {% endif %}
 <ul>
-  <li><a href="{{ m.minutes_doc.source_url }}">Minutes on the city website</a> · PDF, {{ m.minutes_doc.bytes | filesize }}</li>
+  <li><a href="{{ m.minutes_doc.source_url }}">Minutes on {{ m.minutes_doc.get("posted_on") or "the city website" }}</a> · PDF, {{ m.minutes_doc.bytes | filesize }}</li>
   <li><a href="/meetings/minutes/{{ m.minutes_doc.file }}">Saved copy of the minutes</a> · saved <time datetime="{{ m.minutes_doc.fetched_at }}">{{ m.minutes_doc.fetched_at | timestamp }}</time></li>
 </ul>
 {% if m.minutes | length > 1 %}
@@ -117,11 +119,11 @@
 {% endif %}
 {% if m.agenda %}
 <ul>
-  <li><a href="{{ m.agenda.source_url }}">Agenda on the city website</a> · PDF, {{ m.agenda.bytes | filesize }}</li>
+  <li><a href="{{ m.agenda.source_url }}">Agenda on {{ m.agenda.get("posted_on") or "the city website" }}</a> · PDF, {{ m.agenda.bytes | filesize }}</li>
   <li><a href="/meetings/agendas/{{ m.agenda.file }}">Saved copy of the agenda</a> · saved <time datetime="{{ m.agenda.fetched_at }}">{{ m.agenda.fetched_at | timestamp }}</time></li>
 </ul>
 {% if m.agenda.has_text == false %}
-<p class="small">The city posted this as a scanned image.{% if m.preview %} The full text above is a readable version.{% endif %}</p>
+<p class="small">{{ m.agenda.get("posted_by") or "The city" }} posted this as a scanned image.{% if m.preview %} The full text above is a readable version.{% endif %}</p>
 {% endif %}
 {% if m.agendas | length > 1 %}
 <p>Earlier versions of this agenda:</p>
@@ -135,6 +137,8 @@
 <p>No agenda posted yet.</p>
 {% elif m.source == "archive" %}
 <p>Agenda not recorded here. It may be in the city's <a href="{{ config.meetings.base_url }}/Archive.aspx">Archive Center</a>.</p>
+{% elif m.source == "drive" %}
+<p>Agenda not recorded here. It may be on the <a href="{{ m.source_url }}">{{ m.source_name }} website</a>.</p>
 {% else %}
 <p>No agenda was posted.</p>
 {% endif %}
@@ -158,6 +162,8 @@
 <h2 id="source">Source</h2>
 {% if m.source == "archive" %}
 <p>This meeting is known from its <a href="{{ m.minutes_doc.source_url }}">minutes in the City of {{ town.name }} Archive Center</a>. First recorded by {{ site.name }} on <time datetime="{{ m.first_seen }}">{{ m.first_seen | timestamp }}</time>.</p>
+{% elif m.source == "drive" %}
+<p>This meeting is known from documents {{ m.source_name }} posted on <a href="{{ m.source_url }}">its website</a>. It was not found on the City of {{ town.name }} calendar. First recorded by {{ site.name }} on <time datetime="{{ m.first_seen }}">{{ m.first_seen | timestamp }}</time>.</p>
 {% else %}
 <p><a href="{{ m.source_url }}">This meeting on the City of {{ town.name }} calendar</a>. First recorded by {{ site.name }} on <time datetime="{{ m.first_seen }}">{{ m.first_seen | timestamp }}</time>.</p>
 {% endif %}

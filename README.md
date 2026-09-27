@@ -11,6 +11,7 @@ config/<town>.toml          Everything town-specific: name, domain, sources, sec
 pipeline/                   Python package
   fetch_meetings.py         Daily: city calendar -> data/meetings/
   fetch_minutes.py          Daily: Archive Center minutes -> data/meetings/minutes/
+  fetch_drive_meetings.py   Daily: School Committee agendas and minutes (Google Drive) -> data/meetings/
   summarize.py              Daily: agenda and minutes PDFs -> readable text + summaries (AI) -> data/summaries/
   fetch_311.py              Daily: SeeClickFix -> data/311/requests.json (also --backfill YYYY-MM)
   compute_311.py            Daily: requests -> data/311/scorecard.json
@@ -56,9 +57,45 @@ python -m http.server -d _site 8000       # browse at http://localhost:8000
 python -m pytest                          # runs offline against tests/fixtures/
 ```
 
+## Starting a site for another town
+
+Each town gets its own copy of this repository, its own `config/<town>.toml`, and its own `data/`.
+
+1. **Copy the repository** (fork it, or push a copy to a new repository). Delete everything in `data/` except `data/README.md` and `data/static/`. Keep `config/gloucester.toml`, `data/static/gloucester-precincts-2022.geojson` and `tests/fixtures/`: the tests run against saved Gloucester data.
+2. **Write `config/<town>.toml`**, starting from a copy of `config/gloucester.toml`. `[site]`, `[town]`, `[[sections]]`, `[meetings]` and `[archive]` are required. Every other table is one data source. Leave out a table the town doesn't have and the command that fetches it does nothing:
+
+   | Table | Source | Works for |
+   |---|---|---|
+   | `[meetings]`, `[archive]` | CivicPlus calendar and Archive Center | Towns whose website runs on CivicPlus |
+   | `[drive_meetings]` | Agendas and minutes in public Google Drive folders (Gloucester's School Committee) | Any board whose folders are laid out one per committee, with dates in file names |
+   | `[seeclickfix]` | SeeClickFix 311 requests | Towns on SeeClickFix; needs a ward boundary file in `data/static/` whose features carry `ward` and `population_2020`, like Gloucester's from MassGIS |
+   | `[finance]` | Tax bill and budget (Mass. DLS) | Massachusetts |
+   | `[schools]` | DESE | Massachusetts districts |
+   | `[housing]` | Census and the Subsidized Housing Inventory | Massachusetts (the Census parts work anywhere) |
+   | `[labor]` | BLS unemployment | Anywhere BLS publishes a local series |
+   | `[permits]` | The city's permit spreadsheet | Gloucester's Data Hub layout only |
+   | `[summaries]` | AI summaries of agendas and minutes | Anywhere, with `ANTHROPIC_API_KEY` |
+   | `[freshness]` | Stale-data alerts | List only the sources the town has |
+
+   Rewrite the hand-written content for the new town from its own sources: `[meetings.aliases]`, `[archive.aliases]`, `[participation.*]`, `[[glossary]]` and `[[seeclickfix.annotations]]`.
+3. **List only the town's sections** in `[[sections]]`. Page folders under `site/pages/` for sections that aren't listed are not built, and their data is ignored.
+4. **Set `TOWN`** at the top of `.github/workflows/deploy.yml`. Every command reads it; locally, pass `--town <town>` or set `TOWN`.
+5. **Fetch and build locally** to see what the town's sources return:
+
+   ```sh
+   export TOWN=<town>
+   python -m pipeline.fetch_meetings && python -m pipeline.fetch_minutes
+   python -m pipeline.fetch_311 --backfill 2024-01 && python -m pipeline.compute_311
+   python -m pipeline.build_site && python -m http.server -d _site 8000
+   ```
+
+6. **Redraw the icon** in `site/static/favicon.svg` (the first letter of `name_suffix`), then run `python -m pipeline.make_share_image` for the share image and PNG icons. Set up the domain and secrets as under [Deploying](#deploying).
+
+Page text is written for a Massachusetts city. A town (rather than a city), or a town outside Massachusetts, needs a read through the page wording.
+
 ## Adding a section
 
-1. Add a `[[sections]]` entry to `config/gloucester.toml`. It appears in the main navigation.
+1. Add a `[[sections]]` entry to `config/<town>.toml`. It appears in the main navigation.
 2. Create `site/pages/<slug>/index.html` extending `base.html`. It is served at `/<slug>/`.
 3. Sub-pages go in sub-folders: `site/pages/<slug>/<name>/index.html` is served at `/<slug>/<name>/`.
 4. Pages generated from data (one per record) use a template in `site/templates/` and are added in `pipeline/build_site.py`.

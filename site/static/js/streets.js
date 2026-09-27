@@ -11,6 +11,8 @@
   var status = document.getElementById("street-status");
   var results = document.getElementById("street-results");
   var index = null;
+  // The sources this town has: meetings, and permits and 311 requests where available.
+  var sources = (root.getAttribute("data-sources") || "").split(" ");
 
   var query = (new URLSearchParams(window.location.search).get("q") || "").trim();
   if (input) input.value = query;
@@ -66,17 +68,19 @@
 
   function show(key, s) {
     results.textContent = "";
-    status.textContent = s.name + ": " + s.meetings_total + " agenda and minutes mentions, " +
-      s.permits_total + " permits, " + s.requests_total + " 311 requests.";
+    var counts = [s.meetings_total + " agenda and minutes mentions"];
+    if (sources.indexOf("permits") >= 0) counts.push(s.permits_total + " permits");
+    if (sources.indexOf("requests") >= 0) counts.push(s.requests_total + " 311 requests");
+    status.textContent = s.name + ": " + counts.join(", ") + ".";
     results.appendChild(el("h2", s.name, { id: "street-name" }));
     results.appendChild(section("On agendas and minutes", s.meetings_total, s.meetings.length, s.meetings.map(function (m) {
       return item(m.board, m.url, date(m.date) + " · " + m.doc, m.line);
     })));
-    results.appendChild(section("Building and demolition permits", s.permits_total, s.permits.length, s.permits.map(function (p) {
+    if (sources.indexOf("permits") >= 0) results.appendChild(section("Building and demolition permits", s.permits_total, s.permits.length, s.permits.map(function (p) {
       var detail = [p.type, date(p.date), p.status].concat(p.cost ? ["Estimated " + money(p.cost)] : []).join(" · ");
       return item(p.address, null, detail, p.work);
     })));
-    results.appendChild(section("311 requests, past 12 months", s.requests_total, s.requests.length, s.requests.map(function (r) {
+    if (sources.indexOf("requests") >= 0) results.appendChild(section("311 requests, past 12 months", s.requests_total, s.requests.length, s.requests.map(function (r) {
       return item(r.category, r.url, [r.address, date(r.date), r.status === "open" ? "Open" : "Closed"].join(" · "));
     })));
   }

@@ -63,5 +63,5 @@
 {% else %}
 <p>No decisions have been recorded yet. This page fills in as minutes are posted.</p>
 {% endif %}
-<p class="source-note">From minutes posted on the <a href="{{ config.meetings.base_url }}/{{ config.archive.index }}">city's Archive Center</a>, for meetings since {{ config.archive.minutes_since | date }}.</p>
+<p class="source-note">From minutes posted on the <a href="{{ config.meetings.base_url }}/{{ config.archive.index }}">city's Archive Center</a>{% if config.drive_meetings is defined %} and the <a href="{{ config.drive_meetings.page_url }}">School Committee website</a>{% endif %}, for meetings since {{ config.archive.minutes_since | date }}.</p>
 {% endblock %}

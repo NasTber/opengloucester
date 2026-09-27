@@ -25,7 +25,7 @@ from zoneinfo import ZoneInfo
 
 import openpyxl
 
-from pipeline.config import DATA_DIR, load_config
+from pipeline.config import DATA_DIR, DEFAULT_TOWN, configured, load_config
 from pipeline.fetch_finance import REPORT_URL, dls_get, not_a_workbook
 from pipeline.fetch_meetings import save_json
 from pipeline.http import FetchError, PoliteClient
@@ -215,11 +215,13 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None, force
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--town", default="gloucester")
+    parser.add_argument("--town", default=DEFAULT_TOWN)
     parser.add_argument("--data", type=Path, default=DATA_DIR)
     parser.add_argument("--force", action="store_true", help="fetch even if the saved file is recent")
     args = parser.parse_args()
     config = load_config(args.town)
+    if not configured(config, "finance"):
+        return 0
     client = PoliteClient(config["site"]["user_agent"], delay=2.0)
     try:
         print(json.dumps(run(config, client, args.data, force=args.force), indent=2))

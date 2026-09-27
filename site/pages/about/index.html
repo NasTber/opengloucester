@@ -11,20 +11,39 @@
   <li>Updated every morning from public sources.</li>
   <li>Every number links to where it came from.</li>
   <li>New agendas and minutes are in an <a href="/feed.xml">RSS feed</a>.</li>
+  {% if config.summaries is defined %}
   <li>Summaries written by AI are labeled on each meeting page.</li>
+  {% endif %}
   <li>Mistakes are corrected openly, with a note on the page.</li>
 </ul>
 
 <h2 id="sources">Sources</h2>
 <ul>
+  {% if config.seeclickfix is defined %}
   <li><strong>311 requests:</strong> <a href="https://seeclickfix.com">SeeClickFix</a>, public requests only, under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a> license. <a href="/311/methodology/">How the 311 numbers work</a>.</li>
+  {% endif %}
   <li><strong>Meetings, agendas, and minutes:</strong> the city's <a href="{{ config.meetings.base_url }}/calendar.aspx">calendar</a> and <a href="{{ config.meetings.base_url }}/Archive.aspx">Archive Center</a>. Copies are saved when posted. Minutes are collected from {{ config.archive.minutes_since | date("month") }} on.</li>
+  {% if config.drive_meetings is defined %}
+  <li><strong>School Committee agendas and minutes:</strong> {{ config.drive_meetings.source_name }}, from the public folders linked on the <a href="{{ config.drive_meetings.page_url }}">School Committee website</a>, from {{ config.drive_meetings.since | date("month") }} on.</li>
+  {% endif %}
+  {% if config.finance is defined %}
   <li><strong>Tax bill and city budget:</strong> Mass. <a href="https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=AverageSingleTaxBill.SingleFamTaxBill_wRange">Division of Local Services</a> Municipal Databank, from the city's filings with the state.</li>
+  {% endif %}
+  {% if config.labor is defined %}
   <li><strong>Unemployment:</strong> U.S. <a href="https://www.bls.gov/lau/">Bureau of Labor Statistics</a>. City rates aren't seasonally adjusted, so each month is compared with the same month last year.</li>
+  {% endif %}
+  {% if config.schools is defined %}
   <li><strong>Schools:</strong> Mass. <a href="{{ config.schools.portal }}">Department of Elementary and Secondary Education</a> open data. School-by-school detail is on the <a href="{{ config.schools.report_url }}">{{ config.schools.report_name }}</a>.</li>
+  {% endif %}
+  {% if config.housing is defined %}
   <li><strong>Housing:</strong> U.S. Census Bureau <a href="https://www.census.gov/construction/bps/">Building Permits Survey</a> and <a href="https://www.census.gov/programs-surveys/acs">American Community Survey</a> (through <a href="https://censusreporter.org">Census Reporter</a>), the state's <a href="https://www.mass.gov/info-details/subsidized-housing-inventory-shi">Subsidized Housing Inventory</a>, and Division of Local Services parcel counts.</li>
+  {% endif %}
+  {% if config.permits is defined %}
   <li><strong>Building and demolition permits:</strong> the city's <a href="{{ config.permits.page_url }}">Inspectional Services permit data</a> on its Data Hub, used for the <a href="/streets/">street lookup</a>.</li>
+  {% endif %}
+  {% if config.seeclickfix is defined %}
   <li><strong>Ward maps:</strong> <a href="https://gis.data.mass.gov/maps/aec5130790814ace94438d3bcf23cf9a">MassGIS</a>, 2022 boundaries.</li>
+  {% endif %}
   <li><strong>Street maps:</strong> <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, drawn with <a href="https://leafletjs.com">Leaflet</a>. Map images load from OpenStreetMap's servers.</li>
 </ul>
 
@@ -41,8 +60,10 @@
 </table>
 </div>
 
+{% if config.summaries is defined %}
 <h2 id="ai">AI summaries</h2>
 <p>Meeting summaries, and the readable text of scanned agendas and minutes, are written by AI ({{ config.summaries.model | model_name }}, by Anthropic). They aren't checked by a person before posting. The city's document is the official record, and every summary links to it.</p>
+{% endif %}
 
 {% if config.get("analytics", {}).get("goatcounter") %}
 <h2 id="privacy">Privacy</h2>

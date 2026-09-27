@@ -123,7 +123,8 @@ max_per_run = 50
 # Prices per million tokens, for the spending limit below.
 input_price = 2.0
 output_price = 10.0
-max_cost_per_run = 5.0
+# Raised to 10.0 for one catch-up run on Sept 27, 2026; set back to 5.0 after it.
+max_cost_per_run = 10.0
 
 # Context for unusual months on the 311 scorecard. Each note must cite a source.
 [[seeclickfix.annotations]]
@@ -146,6 +147,11 @@ source_title = "City Council FAQ"
 source_url = "https://gloucester-ma.gov/faq.aspx?TID=40"
 video_title = "1623 Studios"
 video_url = "https://1623studios.org/watch-content/government/"
+
+[participation."School Committee"]
+comment = "The public can attend School Committee meetings in person at Gloucester High School or remotely."
+source_title = "School Committee website"
+source_url = "https://schoolcommittee.gloucesterschools.com/"
 
 # Terms that come up on agendas and minutes, explained on each meeting page
 # where they appear. Acronyms match exactly; other terms ignore case. Use
@@ -287,4 +293,26 @@ sources = [
   { label = "City budget (Mass. DLS)", file = "finance/budget.json", max_days = 15 },
   { label = "Housing figures", file = "housing/housing.json", max_days = 15 },
   { label = "Building permits (city Data Hub)", file = "permits/permits.json", max_days = 15 },
+  { label = "School Committee documents (Google Drive)", file = "meetings/drive_status.json", max_days = 2 },
 ]
+
+# School Committee and subcommittee agendas and minutes. The school district
+# posts them in public Google Drive folders, linked from the School Committee
+# website, rather than in the city's Archive Center. bodies maps the start of
+# each committee's folder name to the name used on the city calendar;
+# abbreviations are the committees' short names in file names.
+[drive_meetings]
+source_name = "Gloucester Public Schools"
+posted_on = "the School Committee's Google Drive"
+page_url = "https://schoolcommittee.gloucesterschools.com/"
+agendas_folder = "1u0gqwhSFwcyDGzaTmXkdV-yLzgevHozW"
+minutes_folder = "1uDibz6g_fSFrl7MwqyU_bt__Sb2C_iPB"
+since = "2026-06-28"
+abbreviations = ["SC", "B&F", "B & F", "Program", "Personnel", "Ad Hoc Communications", "Communications"]
+
+[drive_meetings.bodies]
+"School Committee" = "School Committee"
+"Program Subcommittee" = "School Committee Program Subcommittee"
+"Building & Finance Subcommittee" = "School Committee Building & Finance Subcommittee"
+"Personnel Subcommittee" = "School Committee Personnel Subcommittee"
+"Ad Hoc Communications Subcommittee" = "School Committee Ad Hoc Communications Subcommittee"

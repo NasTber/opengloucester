@@ -26,7 +26,7 @@ from zoneinfo import ZoneInfo
 
 from pypdf import PdfReader
 
-from pipeline.config import DATA_DIR, load_config
+from pipeline.config import DATA_DIR, DEFAULT_TOWN, configured, load_config
 
 TRANSCRIPT_RULES = """Transcript rules:
 - Copy the document's text character for character. Do not reword, correct, modernize, or change the spelling of anything (for example, keep "Councilor" if that is how it is written).
@@ -238,7 +238,7 @@ def run(config: dict, client, data_dir: Path, limit: int, now: datetime | None =
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--town", default="gloucester")
+    parser.add_argument("--town", default=DEFAULT_TOWN)
     parser.add_argument("--data", type=Path, default=DATA_DIR)
     parser.add_argument("--limit", type=int, help="max documents this run")
     args = parser.parse_args()
@@ -248,6 +248,8 @@ def main() -> int:
     import anthropic
 
     config = load_config(args.town)
+    if not configured(config, "summaries"):
+        return 0
     client = anthropic.Anthropic(max_retries=3)
     summary = run(config, client, args.data, args.limit or config["summaries"]["max_per_run"])
     print(json.dumps(summary, indent=2))

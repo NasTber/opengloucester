@@ -12,7 +12,7 @@
     <input id="home-street" name="q" type="search" autocomplete="off" spellcheck="false" aria-describedby="home-street-hint">
     <button class="button button-primary" type="submit">Look up</button>
   </div>
-  <p class="small" id="home-street-hint">Agenda items, building permits, and 311 requests on any street, such as "Pleasant Street".</p>
+  <p class="small" id="home-street-hint">{{ street_sources | capitalize_first }} on any street, such as "Pleasant Street".</p>
 </form>
 
 {# ---- Coming up ---- #}

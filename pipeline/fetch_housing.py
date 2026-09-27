@@ -32,7 +32,7 @@ from zoneinfo import ZoneInfo
 import requests
 from pypdf import PdfReader
 
-from pipeline.config import DATA_DIR, load_config
+from pipeline.config import DATA_DIR, DEFAULT_TOWN, configured, load_config
 from pipeline.fetch_budget import REPORT_URL, rows as dls_rows
 from pipeline.fetch_finance import dls_get
 from pipeline.fetch_meetings import save_json
@@ -244,11 +244,13 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None, force
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--town", default="gloucester")
+    parser.add_argument("--town", default=DEFAULT_TOWN)
     parser.add_argument("--data", type=Path, default=DATA_DIR)
     parser.add_argument("--force", action="store_true", help="fetch even if the saved file is recent")
     args = parser.parse_args()
     config = load_config(args.town)
+    if not configured(config, "housing"):
+        return 0
     client = PoliteClient(config["site"]["user_agent"], delay=2.0, timeout=60.0)
     # mass.gov refuses the site's usual User-Agent but accepts the HTTP
     # library's own, so this one request sends that plus the site's domain.

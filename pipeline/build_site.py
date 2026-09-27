@@ -30,7 +30,7 @@ import markdown
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup, escape
 
-from pipeline.config import DATA_DIR, ROOT, load_config
+from pipeline.config import DATA_DIR, DEFAULT_TOWN, ROOT, load_config
 from pipeline import freshness
 from pipeline import streets as streets_mod
 from pipeline import summarize
@@ -43,6 +43,8 @@ STATIC_DIR = SITE_DIR / "static"
 
 # Built but kept out of the sitemap.
 UNLISTED_PAGES = {"/404.html"}
+# Page folders built for every town, whether or not they are in the navigation.
+SHARED_FOLDERS = {"streets"}
 
 
 def url_for(rel_path: Path) -> str:
@@ -418,7 +420,7 @@ def preview_line(meeting: dict) -> str | None:
     return None
 
 
-def headline_numbers(data_dir: Path, scorecard: dict | None) -> list[dict]:
+def headline_numbers(config: dict, data_dir: Path, scorecard: dict | None) -> list[dict]:
     """The home page's headline row. Each number links to where it comes from."""
     numbers = []
     if scorecard:
@@ -437,7 +439,7 @@ def headline_numbers(data_dir: Path, scorecard: dict | None) -> list[dict]:
             "value": format_duration(overall["time_to_acknowledge"]["median"]), "href": "/311/#speed", "change": change,
         })
     tax_path = data_dir / "finance" / "tax_bill.json"
-    if tax_path.exists():
+    if "finance" in config and tax_path.exists():
         tax = json.loads(tax_path.read_text(encoding="utf-8"))
         latest, prior = tax["years"][-1], (tax["years"][-2] if len(tax["years"]) > 1 else None)
         change = ""
@@ -450,7 +452,7 @@ def headline_numbers(data_dir: Path, scorecard: dict | None) -> list[dict]:
             "source": f"Fiscal year {latest['fiscal_year']} · Mass. Division of Local Services",
         })
     labor_path = data_dir / "labor" / "unemployment.json"
-    if labor_path.exists():
+    if "labor" in config and labor_path.exists():
         labor = json.loads(labor_path.read_text(encoding="utf-8"))
         latest = labor["months"][-1]
         month_name = date(latest["year"], latest["month"], 1).strftime("%B")
@@ -494,14 +496,18 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     base_url = f"https://{site['domain']}"
     built_at = now or datetime.now(ZoneInfo(site["timezone"]))
     meetings = load_meetings(data_dir, built_at.date(), config.get("summaries", {}).get("model"), config.get("glossary", []))
-    scorecard_path = data_dir / "311" / "scorecard.json"
-    scorecard = json.loads(scorecard_path.read_text(encoding="utf-8")) if scorecard_path.exists() else None
-    schools_path = data_dir / "schools" / "schools.json"
-    schools = json.loads(schools_path.read_text(encoding="utf-8")) if schools_path.exists() else None
-    budget_path = data_dir / "finance" / "budget.json"
-    budget = json.loads(budget_path.read_text(encoding="utf-8")) if budget_path.exists() else None
-    housing_path = data_dir / "housing" / "housing.json"
-    housing = json.loads(housing_path.read_text(encoding="utf-8")) if housing_path.exists() else None
+    # A section folder is built only for a town that lists the section in its
+    # config, and data for a section the town doesn't list is left out.
+    built_folders = {s["slug"] for s in config["sections"]} | SHARED_FOLDERS
+
+    def section_data(slug: str, path: str) -> dict | None:
+        file = data_dir / path
+        return json.loads(file.read_text(encoding="utf-8")) if slug in built_folders and file.exists() else None
+
+    scorecard = section_data("311", "311/scorecard.json")
+    schools = section_data("schools", "schools/schools.json")
+    budget = section_data("budget", "finance/budget.json")
+    housing = section_data("housing", "housing/housing.json")
 
     env = Environment(
         loader=FileSystemLoader([SITE_DIR / "templates", PAGES_DIR]),
@@ -512,7 +518,8 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     )
     env.filters.update(date=format_date, time=format_time, filesize=format_bytes, timestamp=format_timestamp,
                        duration=format_duration, number=format_number, money=format_money, month=format_month,
-                       markdown=render_markdown, duration_cell=format_duration_cell, street=short_address,
+                       markdown=render_markdown, duration_cell=format_duration_cell,
+                       street=lambda a: short_address(a, config["town"]["name"]),
                        model_name=model_name, capitalize_first=lambda t: Markup(t[:1].upper() + t[1:]),
                        school_year=school_year, money_bold=emphasize_money, decision=decision_text,
                        recommendation=lambda t: decision_text(tidy_recommendation(t)))
@@ -537,20 +544,25 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
     search_json = json.dumps(search_index(meetings["all"]), ensure_ascii=False, separators=(",", ":"))
     search_url = f"/meetings/search-index.json?v={hashlib.sha256(search_json.encode()).hexdigest()[:10]}"
     permits_path = data_dir / "permits" / "permits.json"
-    permits = json.loads(permits_path.read_text(encoding="utf-8")) if permits_path.exists() else None
+    permits = json.loads(permits_path.read_text(encoding="utf-8")) if "permits" in config and permits_path.exists() else None
     requests_path = data_dir / "311" / "requests.json"
-    requests_311 = list(json.loads(requests_path.read_text(encoding="utf-8")).values()) if requests_path.exists() else []
+    requests_311 = list(json.loads(requests_path.read_text(encoding="utf-8")).values()) if "seeclickfix" in config and requests_path.exists() else []
     streets_json = json.dumps(street_index(meetings["all"], (permits or {}).get("permits", []), requests_311,
                                            built_at.date(), config["town"]), ensure_ascii=False, separators=(",", ":"))
     streets_url = f"/streets/streets.json?v={hashlib.sha256(streets_json.encode()).hexdigest()[:10]}"
+    # What the street lookup covers, as a phrase: "agenda items, building permits, and 311 requests".
+    street_sources = ["agenda items"] + (["building permits"] if "permits" in config else []) + (
+        ["311 requests"] if "seeclickfix" in config else [])
+    street_sources = (", ".join(street_sources[:-1]) + ("," if len(street_sources) > 2 else "") + " and " + street_sources[-1]
+                      if len(street_sources) > 1 else street_sources[0])
     share_path = STATIC_DIR / "share" / f"{town}.png"
     # Versioned, so sites that cache link previews pick up a redrawn image.
     share_image = (f"{base_url}/static/share/{town}.png?v={hashlib.sha256(share_path.read_bytes()).hexdigest()[:10]}"
                    if share_path.exists() else None)
     common = dict(config=config, site=site, town=config["town"], sections=sections, share_image=share_image, search_url=search_url,
-                  streets_url=streets_url, permits=permits, data_status=freshness.check(config, data_dir, built_at),
+                  streets_url=streets_url, street_sources=street_sources, permits=permits, data_status=freshness.check(config, data_dir, built_at),
                   built_at=built_at, meetings=meetings, scorecard=scorecard, schools=schools, budget=budget, housing=housing,
-                  headline=headline_numbers(data_dir, scorecard), map_points=map_points(scorecard))
+                  headline=headline_numbers(config, data_dir, scorecard), map_points=map_points(scorecard))
     urls = []
 
     def render(template: str, url: str, **context) -> None:
@@ -568,6 +580,8 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
 
     for page_path in sorted(PAGES_DIR.rglob("*.html")):
         rel = page_path.relative_to(PAGES_DIR)
+        if len(rel.parts) > 1 and rel.parts[0] not in built_folders:
+            continue
         render(rel.as_posix(), url_for(rel))
 
     for m in meetings["all"]:
@@ -614,7 +628,7 @@ def street_index(meetings: list[dict], permits: list[dict], requests: list[dict]
 
     def place(address: str) -> tuple[str, list[str]]:
         number = streets_mod.HOUSE_NUMBER.match(address.upper() + " ")
-        return (number.group(0).strip() if number else ""), streets_mod.street_keys(address)
+        return (number.group(0).strip() if number else ""), streets_mod.street_keys(address, town["name"])
 
     # Meeting places (City Hall, the high school library) head every agenda; they aren't news.
     venues = {(num, key) for m in meetings for num, keys in [place(m.get("address") or "")] for key in keys}
@@ -652,10 +666,10 @@ def street_index(meetings: list[dict], permits: list[dict], requests: list[dict]
     for r in requests:
         if r.get("removed") or (r.get("created_at") or "") < year_ago:
             continue
-        for key in streets_mod.street_keys(r.get("address", "")):
+        for key in streets_mod.street_keys(r.get("address", ""), town["name"]):
             streets[key]["requests"].append({
                 "date": r["created_at"][:10], "category": r["category"], "status": r["status"],
-                "address": short_address(r["address"]), "url": f"https://seeclickfix.com/issues/{r['id']}"})
+                "address": short_address(r["address"], town["name"]), "url": f"https://seeclickfix.com/issues/{r['id']}"})
     out = {}
     for key, s in streets.items():
         entry = {"name": streets_mod.street_name(key)}
@@ -787,7 +801,7 @@ def write_support_files(out_dir: Path, site: dict, base_url: str, urls: list[str
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--town", default="gloucester", help="config/<town>.toml to build")
+    parser.add_argument("--town", default=DEFAULT_TOWN, help="config/<town>.toml to build")
     parser.add_argument("--out", type=Path, default=ROOT / "_site", help="output directory")
     parser.add_argument("--data", type=Path, default=DATA_DIR, help="data directory")
     args = parser.parse_args()

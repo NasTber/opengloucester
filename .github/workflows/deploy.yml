@@ -15,6 +15,10 @@ on:
         options: [all, meetings, "311"]
         default: all
 
+# The town this repository builds: config/<town>.toml.
+env:
+  TOWN: gloucester
+
 permissions:
   contents: read
 
@@ -44,18 +48,24 @@ jobs:
       - name: Fetch meetings
         if: inputs.sources != '311'
         continue-on-error: true
-        run: python -m pipeline.fetch_meetings --town gloucester
+        run: python -m pipeline.fetch_meetings --town "$TOWN"
 
       - name: Fetch minutes
         if: inputs.sources != '311'
         continue-on-error: true
-        run: python -m pipeline.fetch_minutes --town gloucester
+        run: python -m pipeline.fetch_minutes --town "$TOWN"
+
+      # School Committee agendas and minutes, from the school district's Google Drive.
+      - name: Fetch School Committee documents
+        if: inputs.sources != '311'
+        continue-on-error: true
+        run: python -m pipeline.fetch_drive_meetings --town "$TOWN"
 
       # Readable text and summaries of new agendas and minutes (skipped if no API key).
       - name: Summarize agendas
         if: inputs.sources != '311'
         continue-on-error: true
-        run: python -m pipeline.summarize --town gloucester
+        run: python -m pipeline.summarize --town "$TOWN"
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
@@ -63,36 +73,36 @@ jobs:
       - name: Fetch tax bill
         if: inputs.sources != '311'
         continue-on-error: true
-        run: python -m pipeline.fetch_finance --town gloucester
+        run: python -m pipeline.fetch_finance --town "$TOWN"
 
       - name: Fetch unemployment
         if: inputs.sources != '311'
         continue-on-error: true
-        run: python -m pipeline.fetch_labor --town gloucester
+        run: python -m pipeline.fetch_labor --town "$TOWN"
         env:
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
 
       - name: Fetch school figures
         if: inputs.sources != '311'
         continue-on-error: true
-        run: python -m pipeline.fetch_schools --town gloucester
+        run: python -m pipeline.fetch_schools --town "$TOWN"
 
       # Budget and housing: weekly at most; skipped when the saved figures are recent.
       - name: Fetch budget figures
         if: inputs.sources != '311'
         continue-on-error: true
-        run: python -m pipeline.fetch_budget --town gloucester
+        run: python -m pipeline.fetch_budget --town "$TOWN"
 
       - name: Fetch housing figures
         if: inputs.sources != '311'
         continue-on-error: true
-        run: python -m pipeline.fetch_housing --town gloucester
+        run: python -m pipeline.fetch_housing --town "$TOWN"
 
       # Building permits for the street lookup: weekly at most, like budget and housing.
       - name: Fetch building permits
         if: inputs.sources != '311'
         continue-on-error: true
-        run: python -m pipeline.fetch_permits --town gloucester
+        run: python -m pipeline.fetch_permits --town "$TOWN"
 
       # Commit meetings first so they are not held up by the longer 311 step.
       - name: Commit meetings
@@ -102,11 +112,11 @@ jobs:
       - name: Fetch 311 requests
         if: inputs.sources != 'meetings'
         continue-on-error: true
-        run: python -m pipeline.fetch_311 --town gloucester
+        run: python -m pipeline.fetch_311 --town "$TOWN"
 
       - name: Compute 311 scorecard
         if: inputs.sources != 'meetings'
-        run: python -m pipeline.compute_311 --town gloucester
+        run: python -m pipeline.compute_311 --town "$TOWN"
 
       - name: Commit 311
         if: inputs.sources != 'meetings'
@@ -116,7 +126,7 @@ jobs:
       # updating. Runs even if an earlier step failed; the site still deploys.
       - name: Check data freshness
         if: ${{ !cancelled() }}
-        run: python -m pipeline.freshness --town gloucester
+        run: python -m pipeline.freshness --town "$TOWN"
 
   build:
     needs: update
@@ -146,7 +156,7 @@ jobs:
         run: python -m pytest
 
       - name: Build site
-        run: python -m pipeline.build_site --town gloucester
+        run: python -m pipeline.build_site --town "$TOWN"
 
       - uses: actions/upload-pages-artifact@v4
         with:

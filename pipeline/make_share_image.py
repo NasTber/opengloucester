@@ -16,7 +16,7 @@ import base64
 from html import escape
 from pathlib import Path
 
-from pipeline.config import load_config
+from pipeline.config import DEFAULT_TOWN, load_config
 
 ROOT = Path(__file__).resolve().parent.parent
 STATIC = ROOT / "site" / "static"
@@ -67,7 +67,7 @@ def write_icons(page) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--town", default="gloucester", help="config/<town>.toml to use")
+    parser.add_argument("--town", default=DEFAULT_TOWN, help="config/<town>.toml to use")
     args = parser.parse_args()
     from playwright.sync_api import sync_playwright
 

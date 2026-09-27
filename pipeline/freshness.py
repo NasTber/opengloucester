@@ -25,7 +25,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from pipeline import summarize
-from pipeline.config import DATA_DIR, load_config
+from pipeline.config import DATA_DIR, DEFAULT_TOWN, load_config
 
 
 def last_update(data_dir: Path, source: dict) -> datetime | None:
@@ -55,7 +55,7 @@ def waiting_summaries(config: dict, data_dir: Path, now: datetime, grace_days: f
 def check(config: dict, data_dir: Path, now: datetime | None = None) -> list[dict]:
     """One row per source: its label, last update, allowed age, and whether it is stale."""
     now = now or datetime.now(ZoneInfo(config["site"]["timezone"]))
-    fresh = config["freshness"]
+    fresh = {"sources": [], "summary_grace_days": 2, **config.get("freshness", {})}
     rows = []
     for source in fresh["sources"]:
         updated = last_update(data_dir, source)
@@ -70,7 +70,7 @@ def check(config: dict, data_dir: Path, now: datetime | None = None) -> list[dic
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--town", default="gloucester")
+    parser.add_argument("--town", default=DEFAULT_TOWN)
     parser.add_argument("--data", type=Path, default=DATA_DIR)
     args = parser.parse_args()
     rows = check(load_config(args.town), args.data)

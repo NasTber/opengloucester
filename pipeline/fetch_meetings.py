@@ -24,7 +24,7 @@ from zoneinfo import ZoneInfo
 from pypdf import PdfReader
 
 from pipeline import civicplus
-from pipeline.config import DATA_DIR, load_config
+from pipeline.config import DATA_DIR, DEFAULT_TOWN, configured, load_config
 from pipeline.http import FetchError, PoliteClient
 
 # Fields whose changes are recorded in a meeting's history.
@@ -120,6 +120,23 @@ def fetch_agenda(client, meeting: dict, details: dict, agenda_dir: Path, now: st
     })
 
 
+def adopt_drive_meeting(store: dict, event: dict) -> dict | None:
+    """A meeting first recorded from documents in Google Drive (see
+    fetch_drive_meetings) that has now appeared on the calendar. It becomes the
+    calendar's record, keeping its page address and documents; the title and
+    time are the calendar's, not changes to record."""
+    for key, m in list(store.items()):
+        if (m.get("source") == "drive" and not m.get("variant") and m["date"] == event["date"]
+                and slugify(m["body"]) == slugify(event["body"])):
+            del store[key]
+            for field in ("source", "source_name", "variant", "title", "start_time", "end_time"):
+                m.pop(field, None)
+            m["id"] = event["id"]
+            store[event["id"]] = m
+            return m
+    return None
+
+
 def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> dict:
     """Update the meetings store. Returns a summary for logging."""
     tz = ZoneInfo(config["site"]["timezone"])
@@ -141,7 +158,7 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
         seen.add(event["id"])
         event["body"] = normalize_body(event["body"], aliases)
         event.pop("raw_title", None)
-        meeting = store.get(event["id"])
+        meeting = store.get(event["id"]) or adopt_drive_meeting(store, event)
         if meeting is None:
             meeting = store[event["id"]] = {
                 "id": event["id"],
@@ -195,10 +212,12 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--town", default="gloucester")
+    parser.add_argument("--town", default=DEFAULT_TOWN)
     parser.add_argument("--data", type=Path, default=DATA_DIR)
     args = parser.parse_args()
     config = load_config(args.town)
+    if not configured(config, "meetings"):
+        return 0
     client = PoliteClient(config["site"]["user_agent"], delay=config["meetings"].get("request_delay", 3.0))
     try:
         status = run(config, client, args.data)

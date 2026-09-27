@@ -34,5 +34,6 @@
 <ul class="meeting-list">
   {% for m in b.meetings %}{{ meeting_item(m, show_date=true, show_body=false) }}{% endfor %}
 </ul>
-<p class="source-note">Meetings recorded here start in {{ meetings.all[0].date | date("month") }}. Earlier meetings are on the <a href="{{ config.meetings.base_url }}/Archive.aspx">city's Archive Center</a>.</p>
+{% set drive = (b.meetings | selectattr("source", "equalto", "drive") | list)[:1] %}
+<p class="source-note">Meetings recorded here start in {{ meetings.all[0].date | date("month") }}. Earlier meetings are on the {% if drive %}<a href="{{ drive[0].source_url }}">{{ drive[0].source_name }} website</a>{% else %}<a href="{{ config.meetings.base_url }}/Archive.aspx">city's Archive Center</a>{% endif %}.</p>
 {% endblock %}
