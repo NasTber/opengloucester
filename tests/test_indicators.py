@@ -25,12 +25,11 @@ class FakeDLS:
     def get(self, url):
         self.urls.append(url)
         # Only FY2026 has certified figures in this stand-in.
-        return FakeResponse(self.sheet if "iclYear=2026" in url else b"")
+        # Years without certified figures come back as a workbook with no data row.
+        return FakeResponse(self.sheet if "iclYear=2026" in url else (FIXTURES / "dls_tax_bill_empty_year.xlsx").read_bytes())
 
 
-def test_tax_bill_skips_uncertified_years(tmp_path, monkeypatch):
-    real = fetch_finance.parse_workbook
-    monkeypatch.setattr(fetch_finance, "parse_workbook", lambda content: real(content) if content else None)
+def test_tax_bill_skips_uncertified_years(tmp_path):
     fetch_finance.run(load_config("gloucester"), FakeDLS(), tmp_path, now=NOW)
     saved = json.loads((tmp_path / "finance" / "tax_bill.json").read_text())
     assert [y["fiscal_year"] for y in saved["years"]] == [2026]
@@ -192,3 +191,20 @@ def test_dls_download_retried_when_empty(monkeypatch):
     client = Client()
     assert fetch_finance.dls_get(client, "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?x=1") == sheet
     assert len(client.urls) == 3 and client.urls[1].endswith("/rdExport-1/file")
+
+
+def test_dls_empty_reply_is_an_error_with_details(monkeypatch):
+    import pytest
+    from pipeline.http import FetchError
+    monkeypatch.setattr(fetch_finance.time, "sleep", lambda s: None)
+
+    class Response:
+        content, url, status_code = b"", "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?x=1", 200
+        headers = {"Server": "Microsoft-IIS/10.0", "Content-Length": "0"}
+
+    class Client:
+        def get(self, url):
+            return Response()
+
+    with pytest.raises(FetchError, match=r"0 bytes.*HTTP 200 from https://dls-gw.*Server: Microsoft-IIS/10.0"):
+        fetch_finance.dls_get(Client(), Response.url)

@@ -59,6 +59,12 @@ def dls_get(client, url: str) -> bytes:
             break
         time.sleep(2 * (attempt + 1))
         response = client.get(download)
+    if not response.content.startswith(b"PK"):
+        headers = getattr(response, "headers", {}) or {}
+        detail = ", ".join(f"{k}: {headers.get(k)}" for k in ("Server", "Content-Type", "Content-Length", "Location")
+                           if headers.get(k))
+        status = getattr(response, "status_code", "?")
+        raise FetchError(f"{not_a_workbook(response.content)} (HTTP {status} from {getattr(response, 'url', url)}; {detail})")
     return response.content
 
 
