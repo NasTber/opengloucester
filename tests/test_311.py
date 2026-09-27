@@ -159,6 +159,16 @@ def test_private_categories_stay_off_maps(config):
     assert [r["category"] for r in compute_311.mappable(records, exclude)] == ["Pothole"]
 
 
+def test_longest_open_by_block_without_private_categories(config):
+    exclude = config["seeclickfix"]["repeats"]["exclude"]
+    records = [request("1", "2026-01-01T09:00:00-04:00", status="open", category="Health Department (Housing) - Internal"),
+               request("2", "2026-02-01T09:00:00-04:00", status="open", lat=None),
+               request("3", "2026-03-01T09:00:00-04:00", status="open")]
+    oldest = compute_311.oldest_open(records, FETCHED_AT, "https://seeclickfix.com/issues", exclude)
+    assert [r["id"] for r in oldest] == ["2", "3"]
+    assert {r["address"] for r in oldest} == {"1–99 Main St"}
+
+
 def test_scorecard_has_recent_open_and_repeats(config, data):
     fetch_311.run(config, FakeSeeClickFix(), data, now=FETCHED_AT, detail_limit=500)
     sc = compute_311.compute(config, data, now=FETCHED_AT)

@@ -30,16 +30,7 @@
   "median_age_days": 214.3,
   "oldest": [
    {
-    "address": "6 Sadler St Gloucester MA 01930, United States",
-    "age_days": 2349.3,
-    "category": "Private Property Issue",
-    "created_at": "2020-04-21T13:57:09-04:00",
-    "id": "7696257",
-    "url": "https://seeclickfix.com/issues/7696257",
-    "ward": "2"
-   },
-   {
-    "address": "1 Western Ave Gloucester MA 01930, United States",
+    "address": "1–99 Western Ave",
     "age_days": 2085.5,
     "category": "Illegal Dumping",
     "created_at": "2021-01-10T08:37:04-05:00",
@@ -48,17 +39,8 @@
     "ward": "3"
    },
    {
-    "address": "201 Gloucester Crossing Gloucester, MA, 01930, USA",
-    "age_days": 2062.1,
-    "category": "Health Department",
-    "created_at": "2021-02-02T17:25:34-05:00",
-    "id": "9282468",
-    "url": "https://seeclickfix.com/issues/9282468",
-    "ward": "2"
-   },
-   {
-    "address": "1240 Washington Street Gloucester, MA, 01930, USA",
-    "age_days": 2048.2,
+    "address": "1200 block of Washington Street",
+    "age_days": 2048.3,
     "category": "Storm Drain/Flooding Issue",
     "created_at": "2021-02-16T14:30:35-05:00",
     "id": "9364041",
@@ -66,8 +48,8 @@
     "ward": "4"
    },
    {
-    "address": "498 Washington Street Gloucester, MA, 01930, USA",
-    "age_days": 2042.2,
+    "address": "400 block of Washington Street",
+    "age_days": 2042.3,
     "category": "Other",
     "created_at": "2021-02-22T14:13:16-05:00",
     "id": "9391474",
@@ -75,8 +57,8 @@
     "ward": "4"
    },
    {
-    "address": "30 Reservoir Rd Gloucester MA 01930, United States",
-    "age_days": 1998.5,
+    "address": "1–99 Reservoir Rd",
+    "age_days": 1998.6,
     "category": "Sidewalk Issue",
     "created_at": "2021-04-07T08:09:55-04:00",
     "id": "9665568",
@@ -84,17 +66,8 @@
     "ward": "4"
    },
    {
-    "address": "67 Middle St Gloucester, MA 01930, USA",
-    "age_days": 1898.5,
-    "category": "Health Department",
-    "created_at": "2021-07-16T09:01:28-04:00",
-    "id": "10427677",
-    "url": "https://seeclickfix.com/issues/10427677",
-    "ward": "2"
-   },
-   {
-    "address": "86 Main Street Gloucester, MA, 01930, USA",
-    "age_days": 1858.2,
+    "address": "1–99 Main Street",
+    "age_days": 1858.3,
     "category": "Other",
     "created_at": "2021-08-25T15:04:08-04:00",
     "id": "10876481",
@@ -102,22 +75,49 @@
     "ward": "2"
    },
    {
-    "address": "34 Railroad Ave Gloucester, MA 01930, USA",
-    "age_days": 1708.4,
-    "category": "Health Department",
-    "created_at": "2022-01-22T10:00:37-05:00",
-    "id": "11772169",
-    "url": "https://seeclickfix.com/issues/11772169",
-    "ward": "2"
+    "address": "1–99 Wells Street",
+    "age_days": 1649.4,
+    "category": "Other",
+    "created_at": "2022-03-22T12:23:59-04:00",
+    "id": "12063222",
+    "url": "https://seeclickfix.com/issues/12063222",
+    "ward": "3"
    },
    {
-    "address": "262 Main Street Gloucester, MA, 01930, USA",
-    "age_days": 1698.8,
-    "category": "Health Department",
-    "created_at": "2022-02-01T00:11:12-05:00",
-    "id": "11812528",
-    "url": "https://seeclickfix.com/issues/11812528",
-    "ward": "2"
+    "address": "1–99 Beachcroft Road",
+    "age_days": 1620.5,
+    "category": "Other",
+    "created_at": "2022-04-20T08:48:35-04:00",
+    "id": "12206588",
+    "url": "https://seeclickfix.com/issues/12206588",
+    "ward": "1"
+   },
+   {
+    "address": "Veterans Way",
+    "age_days": 1562.5,
+    "category": "Sidewalk Issue",
+    "created_at": "2022-06-17T09:56:23-04:00",
+    "id": "12570050",
+    "url": "https://seeclickfix.com/issues/12570050",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Cushing Lane",
+    "age_days": 1407.2,
+    "category": "Conservation",
+    "created_at": "2022-11-19T15:15:58-05:00",
+    "id": "13718695",
+    "url": "https://seeclickfix.com/issues/13718695",
+    "ward": "4"
+   },
+   {
+    "address": "1–99 Harriet Road",
+    "age_days": 1390.2,
+    "category": "Conservation",
+    "created_at": "2022-12-06T15:31:39-05:00",
+    "id": "13786777",
+    "url": "https://seeclickfix.com/issues/13786777",
+    "ward": "1"
    }
   ],
   "open": 907,
@@ -1043,8 +1043,8 @@
    ],
    "oldest": [
     {
-     "address": "18 Morgan Ave Gloucester, Massachusetts, 01930",
-     "age_days": 193.1,
+     "address": "1–99 Morgan Ave",
+     "age_days": 193.2,
      "category": "Trash or Recycling",
      "created_at": "2026-03-17T17:53:30-04:00",
      "id": "21252059",
@@ -1052,7 +1052,7 @@
      "ward": "4"
     },
     {
-     "address": "4-16 Gee Ave Gloucester, Massachusetts, 01930",
+     "address": "1–99 Gee Ave",
      "age_days": 155.1,
      "category": "Trash or Recycling",
      "created_at": "2026-04-24T18:11:01-04:00",
@@ -1061,8 +1061,8 @@
      "ward": "4"
     },
     {
-     "address": "Rocky Neck Ave & Sumac Ln Gloucester, MA, 01930, USA",
-     "age_days": 154.5,
+     "address": "Rocky Neck Ave & Sumac Ln",
+     "age_days": 154.6,
      "category": "Trash or Recycling",
      "created_at": "2026-04-25T07:59:20-04:00",
      "id": "21555208",
@@ -1070,8 +1070,8 @@
      "ward": "1"
     },
     {
-     "address": "1 Fairmount Rd GLOUCESTER, MA, 01930, USA",
-     "age_days": 152.0,
+     "address": "1–99 Fairmount Rd",
+     "age_days": 152.1,
      "category": "Trash or Recycling",
      "created_at": "2026-04-27T20:12:44-04:00",
      "id": "21572825",
@@ -1079,7 +1079,7 @@
      "ward": "1"
     },
     {
-     "address": "45 Main St Gloucester, MA, 01930, USA",
+     "address": "1–99 Main St",
      "age_days": 151.6,
      "category": "Trash or Recycling",
      "created_at": "2026-04-28T06:24:56-04:00",
@@ -1088,7 +1088,7 @@
      "ward": "2"
     },
     {
-     "address": "25 Brooks Rd Gloucester, Massachusetts, 01930",
+     "address": "1–99 Brooks Rd",
      "age_days": 151.0,
      "category": "Trash or Recycling",
      "created_at": "2026-04-28T21:15:51-04:00",
@@ -1097,8 +1097,8 @@
      "ward": "5"
     },
     {
-     "address": "1 Fairmount Rd Gloucester, Massachusetts, 01930",
-     "age_days": 150.1,
+     "address": "1–99 Fairmount Rd",
+     "age_days": 150.2,
      "category": "Trash or Recycling",
      "created_at": "2026-04-29T17:20:14-04:00",
      "id": "21591252",
@@ -1106,7 +1106,7 @@
      "ward": "1"
     },
     {
-     "address": "1-17 Madison Ct Gloucester, Massachusetts, 01930",
+     "address": "1–99 Madison Ct",
      "age_days": 150.0,
      "category": "Trash or Recycling",
      "created_at": "2026-04-29T20:47:44-04:00",
@@ -1115,8 +1115,8 @@
      "ward": "3"
     },
     {
-     "address": "4 Clearview Ave Gloucester, Massachusetts, 01930",
-     "age_days": 149.0,
+     "address": "1–99 Clearview Ave",
+     "age_days": 149.1,
      "category": "Trash or Recycling",
      "created_at": "2026-04-30T19:23:00-04:00",
      "id": "21601474",
@@ -1124,7 +1124,7 @@
      "ward": "5"
     },
     {
-     "address": "25 Wonson St Gloucester, Massachusetts, 01930",
+     "address": "1–99 Wonson St",
      "age_days": 145.1,
      "category": "Trash or Recycling",
      "created_at": "2026-05-04T19:01:27-04:00",
@@ -1296,8 +1296,8 @@
    ],
    "oldest": [
     {
-     "address": "22 Reservoir Road Gloucester, MA, 01930, USA",
-     "age_days": 461.0,
+     "address": "1–99 Reservoir Road",
+     "age_days": 461.1,
      "category": "Pothole",
      "created_at": "2025-06-22T19:20:01-04:00",
      "id": "19310202",
@@ -1305,7 +1305,7 @@
      "ward": "4"
     },
     {
-     "address": "228 Bray Street Gloucester, Massachusetts, 01930",
+     "address": "200 block of Bray Street",
      "age_days": 457.0,
      "category": "Pothole",
      "created_at": "2025-06-26T20:40:16-04:00",
@@ -1314,8 +1314,8 @@
      "ward": "5"
     },
     {
-     "address": "2-6 Cherry Hill Rd Gloucester, MA, 01930, USA",
-     "age_days": 425.3,
+     "address": "1–99 Cherry Hill Rd",
+     "age_days": 425.4,
      "category": "Pothole",
      "created_at": "2025-07-28T12:16:45-04:00",
      "id": "19606555",
@@ -1323,8 +1323,8 @@
      "ward": "4"
     },
     {
-     "address": "3 Sylvan Street Gloucester, Massachusetts, 01930",
-     "age_days": 423.2,
+     "address": "1–99 Sylvan Street",
+     "age_days": 423.3,
      "category": "Pothole",
      "created_at": "2025-07-30T14:51:56-04:00",
      "id": "19628896",
@@ -1332,8 +1332,8 @@
      "ward": "3"
     },
     {
-     "address": "1-5 Gerring Rd Gloucester, MA, 01930, USA",
-     "age_days": 416.3,
+     "address": "1–99 Gerring Rd",
+     "age_days": 416.4,
      "category": "Pothole",
      "created_at": "2025-08-06T12:28:15-04:00",
      "id": "19683668",
@@ -1341,7 +1341,7 @@
      "ward": "1"
     },
     {
-     "address": "24 Lexington Ave Gloucester 01930, United States",
+     "address": "1–99 Lexington Ave",
      "age_days": 214.2,
      "category": "Pothole",
      "created_at": "2026-02-24T15:29:13-05:00",
@@ -1350,8 +1350,8 @@
      "ward": "5"
     },
     {
-     "address": "97 Gloucester Ave Gloucester, MA, 01930, USA",
-     "age_days": 199.3,
+     "address": "97",
+     "age_days": 199.4,
      "category": "Pothole",
      "created_at": "2026-03-11T13:00:31-04:00",
      "id": "21201508",
@@ -1359,8 +1359,8 @@
      "ward": "3"
     },
     {
-     "address": "Mile 56.4 State Rte 128 S Gloucester, MA, 01930, USA",
-     "age_days": 198.4,
+     "address": "Mile 56.4 State Rte 128 S",
+     "age_days": 198.5,
      "category": "Pothole",
      "created_at": "2026-03-12T09:52:42-04:00",
      "id": "21209246",
@@ -1368,8 +1368,8 @@
      "ward": "3"
     },
     {
-     "address": "Mile 1.8 State Rte 127 N Gloucester, Massachusetts, 01930",
-     "age_days": 195.5,
+     "address": "Mile 1.8 State Rte 127 N",
+     "age_days": 195.6,
      "category": "Pothole",
      "created_at": "2026-03-15T08:17:05-04:00",
      "id": "21231194",
@@ -1377,7 +1377,7 @@
      "ward": "1"
     },
     {
-     "address": "672 Washington St Gloucester, MA, 01930, USA",
+     "address": "600 block of Washington St",
      "age_days": 193.4,
      "category": "Pothole",
      "created_at": "2026-03-17T10:51:18-04:00",
@@ -1549,7 +1549,7 @@
    ],
    "oldest": [
     {
-     "address": "171 Atlantic Rd Gloucester, Massachusetts, 01930",
+     "address": "100 block of Atlantic Rd",
      "age_days": 241.2,
      "category": "Snow/Ice Removal",
      "created_at": "2026-01-28T14:34:00-05:00",
@@ -1558,7 +1558,7 @@
      "ward": "1"
     },
     {
-     "address": "7-11 Rocky Neck Ave Gloucester, Massachusetts, 01930",
+     "address": "1–99 Rocky Neck Ave",
      "age_days": 241.0,
      "category": "Snow/Ice Removal",
      "created_at": "2026-01-28T19:25:25-05:00",
@@ -1567,7 +1567,7 @@
      "ward": "1"
     },
     {
-     "address": "3 Summit St Gloucester, MA, 01930, USA",
+     "address": "1–99 Summit St",
      "age_days": 240.5,
      "category": "Snow/Ice Removal",
      "created_at": "2026-01-29T08:28:21-05:00",
@@ -1576,8 +1576,8 @@
      "ward": "2"
     },
     {
-     "address": "18 Centennial Ave Gloucester, Massachusetts, 01930",
-     "age_days": 240.4,
+     "address": "1–99 Centennial Ave",
+     "age_days": 240.5,
      "category": "Snow/Ice Removal",
      "created_at": "2026-01-29T08:57:58-05:00",
      "id": "20898908",
@@ -1585,8 +1585,8 @@
      "ward": "3"
     },
     {
-     "address": "15 Norman Ave Gloucester, MA, 01930, USA",
-     "age_days": 240.3,
+     "address": "1–99 Norman Ave",
+     "age_days": 240.4,
      "category": "Snow/Ice Removal",
      "created_at": "2026-01-29T11:31:26-05:00",
      "id": "20900785",
@@ -1594,7 +1594,7 @@
      "ward": "5"
     },
     {
-     "address": "180 Washington St Gloucester, Massachusetts, 01930",
+     "address": "100 block of Washington St",
      "age_days": 232.4,
      "category": "Snow/Ice Removal",
      "created_at": "2026-02-06T11:05:23-05:00",
@@ -1603,7 +1603,7 @@
      "ward": "3"
     },
     {
-     "address": "10 Sayward St Gloucester, Massachusetts, 01930",
+     "address": "1–99 Sayward St",
      "age_days": 232.3,
      "category": "Snow/Ice Removal",
      "created_at": "2026-02-06T12:43:43-05:00",
@@ -1612,7 +1612,7 @@
      "ward": "1"
     },
     {
-     "address": "271 E Main St Gloucester, Massachusetts, 01930",
+     "address": "200 block of E Main St",
      "age_days": 232.2,
      "category": "Snow/Ice Removal",
      "created_at": "2026-02-06T15:47:21-05:00",
@@ -1621,8 +1621,8 @@
      "ward": "1"
     },
     {
-     "address": "28-28 Centennial Ave Gloucester, Massachusetts, 01930",
-     "age_days": 231.3,
+     "address": "1–99 Centennial Ave",
+     "age_days": 231.4,
      "category": "Snow/Ice Removal",
      "created_at": "2026-02-07T11:22:25-05:00",
      "id": "20964881",
@@ -1630,7 +1630,7 @@
      "ward": "3"
     },
     {
-     "address": "Ronna Rd Gloucester, Massachusetts, 01930",
+     "address": "Ronna Rd",
      "age_days": 231.2,
      "category": "Snow/Ice Removal",
      "created_at": "2026-02-07T15:53:12-05:00",
@@ -1802,8 +1802,8 @@
    ],
    "oldest": [
     {
-     "address": "498 Washington Street Gloucester, MA, 01930, USA",
-     "age_days": 2042.2,
+     "address": "400 block of Washington Street",
+     "age_days": 2042.3,
      "category": "Other",
      "created_at": "2021-02-22T14:13:16-05:00",
      "id": "9391474",
@@ -1811,8 +1811,8 @@
      "ward": "4"
     },
     {
-     "address": "86 Main Street Gloucester, MA, 01930, USA",
-     "age_days": 1858.2,
+     "address": "1–99 Main Street",
+     "age_days": 1858.3,
      "category": "Other",
      "created_at": "2021-08-25T15:04:08-04:00",
      "id": "10876481",
@@ -1820,8 +1820,8 @@
      "ward": "2"
     },
     {
-     "address": "18 Wells Street Gloucester, MA, 01930, USA",
-     "age_days": 1649.3,
+     "address": "1–99 Wells Street",
+     "age_days": 1649.4,
      "category": "Other",
      "created_at": "2022-03-22T12:23:59-04:00",
      "id": "12063222",
@@ -1829,7 +1829,7 @@
      "ward": "3"
     },
     {
-     "address": "34 Beachcroft Road Gloucester, MA, 01930, USA",
+     "address": "1–99 Beachcroft Road",
      "age_days": 1620.5,
      "category": "Other",
      "created_at": "2022-04-20T08:48:35-04:00",
@@ -1838,7 +1838,7 @@
      "ward": "1"
     },
     {
-     "address": "749 Washington Street Gloucester, Massachusetts, 01930",
+     "address": "700 block of Washington Street",
      "age_days": 1293.4,
      "category": "Other",
      "created_at": "2023-03-13T11:58:23-04:00",
@@ -1847,7 +1847,7 @@
      "ward": "4"
     },
     {
-     "address": "470-580 Western Ave Gloucester, MA, 01930, USA",
+     "address": "400 block of Western Ave",
      "age_days": 1252.3,
      "category": "Other",
      "created_at": "2023-04-23T14:22:12-04:00",
@@ -1856,7 +1856,7 @@
      "ward": "5"
     },
     {
-     "address": "115 Western Avenue Gloucester, MA, 01930, USA",
+     "address": "100 block of Western Avenue",
      "age_days": 1105.3,
      "category": "Other",
      "created_at": "2023-09-17T13:56:15-04:00",
@@ -1865,8 +1865,8 @@
      "ward": "3"
     },
     {
-     "address": "23 Addison Street Gloucester, Massachusetts, 01930",
-     "age_days": 1034.9,
+     "address": "1–99 Addison Street",
+     "age_days": 1035.0,
      "category": "Other",
      "created_at": "2023-11-26T21:24:22-05:00",
      "id": "15661849",
@@ -1874,8 +1874,8 @@
      "ward": "2"
     },
     {
-     "address": "48 Summer St Gloucester, Massachusetts, 01930",
-     "age_days": 923.3,
+     "address": "1–99 Summer St",
+     "age_days": 923.4,
      "category": "Other",
      "created_at": "2024-03-17T12:55:14-04:00",
      "id": "16231366",
@@ -1883,7 +1883,7 @@
      "ward": "3"
     },
     {
-     "address": "Stage Fort Park Gloucester MA 01930, United States",
+     "address": "Stage Fort Park",
      "age_days": 868.9,
      "category": "Other",
      "created_at": "2024-05-10T23:18:00-04:00",
@@ -2055,8 +2055,8 @@
    ],
    "oldest": [
     {
-     "address": "164 Hesperus Avenue Gloucester, Massachusetts, 01930",
-     "age_days": 1102.0,
+     "address": "100 block of Hesperus Avenue",
+     "age_days": 1102.1,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2023-09-20T19:55:27-04:00",
      "id": "15314839",
@@ -2064,7 +2064,7 @@
      "ward": "5"
     },
     {
-     "address": "7 Lisa Dr Gloucester MA 01930, United States",
+     "address": "1–99 Lisa Dr",
      "age_days": 993.4,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2024-01-07T10:09:40-05:00",
@@ -2073,7 +2073,7 @@
      "ward": "5"
     },
     {
-     "address": "Poplar Park & Poplar St Gloucester, MA, 01930, USA",
+     "address": "Poplar Park & Poplar St",
      "age_days": 812.1,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2024-07-06T19:06:56-04:00",
@@ -2082,8 +2082,8 @@
      "ward": "3"
     },
     {
-     "address": "Atlantic St Gloucester, Massachusetts, 01930",
-     "age_days": 801.3,
+     "address": "Atlantic St",
+     "age_days": 801.4,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2024-07-17T12:40:19-04:00",
      "id": "17067249",
@@ -2091,7 +2091,7 @@
      "ward": "5"
     },
     {
-     "address": "9 Cross St Gloucester MA 01930, United States",
+     "address": "1–99 Cross St",
      "age_days": 788.4,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2024-07-30T11:19:45-04:00",
@@ -2100,7 +2100,7 @@
      "ward": "1"
     },
     {
-     "address": "14 Silva Court Gloucester, Massachusetts, 01930",
+     "address": "1–99 Silva Court",
      "age_days": 578.4,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2025-02-25T10:14:42-05:00",
@@ -2109,7 +2109,7 @@
      "ward": "1"
     },
     {
-     "address": "16 Walnut Street Gloucester, Massachusetts, 01930",
+     "address": "1–99 Walnut Street",
      "age_days": 417.4,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2025-08-05T10:56:36-04:00",
@@ -2118,8 +2118,8 @@
      "ward": "4"
     },
     {
-     "address": "6 Leonard Street Gloucester, Massachusetts, 01930",
-     "age_days": 409.1,
+     "address": "1–99 Leonard Street",
+     "age_days": 409.2,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2025-08-13T17:08:13-04:00",
      "id": "19745404",
@@ -2127,8 +2127,8 @@
      "ward": "4"
     },
     {
-     "address": "5-11 Mason St Gloucester, MA, 01930, USA",
-     "age_days": 395.4,
+     "address": "1–99 Mason St",
+     "age_days": 395.5,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2025-08-27T10:04:09-04:00",
      "id": "19854130",
@@ -2136,7 +2136,7 @@
      "ward": "2"
     },
     {
-     "address": "77 Hesperus Avenue Gloucester, Massachusetts, 01930",
+     "address": "1–99 Hesperus Avenue",
      "age_days": 390.3,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2025-09-01T14:10:13-04:00",
@@ -2308,7 +2308,7 @@
    ],
    "oldest": [
     {
-     "address": "1 Western Ave Gloucester MA 01930, United States",
+     "address": "1–99 Western Ave",
      "age_days": 2085.5,
      "category": "Illegal Dumping",
      "created_at": "2021-01-10T08:37:04-05:00",
@@ -2317,7 +2317,7 @@
      "ward": "3"
     },
     {
-     "address": "5 Herd'S Hill Gloucester, Massachusetts, 01930",
+     "address": "1–99 Herd'S Hill",
      "age_days": 998.2,
      "category": "Illegal Dumping",
      "created_at": "2024-01-02T14:54:21-05:00",
@@ -2326,7 +2326,7 @@
      "ward": "5"
     },
     {
-     "address": "1062 Washington Street Gloucester, Massachusetts, 01930",
+     "address": "1000 block of Washington Street",
      "age_days": 988.4,
      "category": "Illegal Dumping",
      "created_at": "2024-01-12T10:52:02-05:00",
@@ -2335,8 +2335,8 @@
      "ward": "4"
     },
     {
-     "address": "32–36 Grove St Gloucester MA 01930, United States",
-     "age_days": 726.5,
+     "address": "1–99 Grove St",
+     "age_days": 726.6,
      "category": "Illegal Dumping",
      "created_at": "2024-09-30T07:43:36-04:00",
      "id": "17606839",
@@ -2344,8 +2344,8 @@
      "ward": "2"
     },
     {
-     "address": "2 Barn Ln Gloucester MA 01930, United States",
-     "age_days": 681.1,
+     "address": "1–99 Barn Ln",
+     "age_days": 681.2,
      "category": "Illegal Dumping",
      "created_at": "2024-11-14T16:03:39-05:00",
      "id": "17887789",
@@ -2353,8 +2353,8 @@
      "ward": "1"
     },
     {
-     "address": "Mile 0.4 State Rte 127 Alt N Gloucester, MA, 01930, USA",
-     "age_days": 616.3,
+     "address": "Mile 0.4 State Rte 127 Alt N",
+     "age_days": 616.4,
      "category": "Illegal Dumping",
      "created_at": "2025-01-18T11:25:55-05:00",
      "id": "18223779",
@@ -2362,8 +2362,8 @@
      "ward": "1"
     },
     {
-     "address": "64-64 Thatcher Rd Gloucester, Massachusetts, 01930",
-     "age_days": 565.5,
+     "address": "1–99 Thatcher Rd",
+     "age_days": 565.6,
      "category": "Illegal Dumping",
      "created_at": "2025-03-10T08:14:41-04:00",
      "id": "18531183",
@@ -2371,7 +2371,7 @@
      "ward": "1"
     },
     {
-     "address": "7 Green St Gloucester, MA 01930, USA",
+     "address": "1–99 Green St",
      "age_days": 541.2,
      "category": "Illegal Dumping",
      "created_at": "2025-04-03T16:24:03-04:00",
@@ -2380,7 +2380,7 @@
      "ward": "2"
     },
     {
-     "address": "11-17 Dogtown Rd Gloucester, MA, 01930, USA",
+     "address": "1–99 Dogtown Rd",
      "age_days": 536.1,
      "category": "Illegal Dumping",
      "created_at": "2025-04-08T18:37:52-04:00",
@@ -2389,7 +2389,7 @@
      "ward": "4"
     },
     {
-     "address": "1 Essex Avenue Gloucester, Massachusetts, 01930",
+     "address": "1–99 Essex Avenue",
      "age_days": 533.2,
      "category": "Illegal Dumping",
      "created_at": "2025-04-11T16:43:38-04:00",
@@ -2559,26 +2559,7 @@
      "received": 12
     }
    ],
-   "oldest": [
-    {
-     "address": "418r Essex Ave Gloucester, MA, 01930, USA",
-     "age_days": 31.1,
-     "category": "Health Department (General Nuisance/Inquiry)",
-     "created_at": "2026-08-26T18:42:25-04:00",
-     "id": "22620616",
-     "url": "https://seeclickfix.com/issues/22620616",
-     "ward": "5"
-    },
-    {
-     "address": "Shaw'S",
-     "age_days": 0.5,
-     "category": "Health Department (General Nuisance/Inquiry)",
-     "created_at": "2026-09-26T08:44:37-04:00",
-     "id": "22874475",
-     "url": "https://seeclickfix.com/issues/22874475",
-     "ward": "1"
-    }
-   ],
+   "oldest": [],
    "open": 2,
    "received": 106,
    "slug": "health-department-general-nuisance-inquiry",
@@ -2740,35 +2721,7 @@
      "received": 1
     }
    ],
-   "oldest": [
-    {
-     "address": "Cedar St & Pleasant St Gloucester, MA, 01930, USA",
-     "age_days": 349.2,
-     "category": "Police Department (Non-Emergency)",
-     "created_at": "2025-10-12T16:15:54-04:00",
-     "id": "20193520",
-     "url": "https://seeclickfix.com/issues/20193520",
-     "ward": "2"
-    },
-    {
-     "address": "14 Perkins St Gloucester, Massachusetts, 01930",
-     "age_days": 343.9,
-     "category": "Police Department (Non-Emergency)",
-     "created_at": "2025-10-17T23:01:12-04:00",
-     "id": "20233315",
-     "url": "https://seeclickfix.com/issues/20233315",
-     "ward": "2"
-    },
-    {
-     "address": "31 Mansfield St Gloucester, Massachusetts, 01930",
-     "age_days": 299.5,
-     "category": "Police Department (Non-Emergency)",
-     "created_at": "2025-12-01T08:15:05-05:00",
-     "id": "20508140",
-     "url": "https://seeclickfix.com/issues/20508140",
-     "ward": "3"
-    }
-   ],
+   "oldest": [],
    "open": 3,
    "received": 94,
    "slug": "police-department-non-emergency",
@@ -2932,8 +2885,8 @@
    ],
    "oldest": [
     {
-     "address": "977 Washington Street Gloucester, Massachusetts, 01930",
-     "age_days": 1044.3,
+     "address": "900 block of Washington Street",
+     "age_days": 1044.4,
      "category": "Street Light Issue",
      "created_at": "2023-11-17T11:17:50-05:00",
      "id": "15630531",
@@ -2941,8 +2894,8 @@
      "ward": "4"
     },
     {
-     "address": "1–13 Essex Ave Gloucester MA 01930, United States",
-     "age_days": 1035.0,
+     "address": "1–99 Essex Ave",
+     "age_days": 1035.1,
      "category": "Street Light Issue",
      "created_at": "2023-11-26T18:38:59-05:00",
      "id": "15661528",
@@ -2950,7 +2903,7 @@
      "ward": "3"
     },
     {
-     "address": "4 Sunset Point Road Gloucester, MA, 01930, USA",
+     "address": "1–99 Sunset Point Road",
      "age_days": 997.3,
      "category": "Street Light Issue",
      "created_at": "2024-01-03T13:02:05-05:00",
@@ -2959,7 +2912,7 @@
      "ward": "4"
     },
     {
-     "address": "Adams Pl Gloucester, Massachusetts, 01930",
+     "address": "Adams Pl",
      "age_days": 984.4,
      "category": "Street Light Issue",
      "created_at": "2024-01-16T09:47:53-05:00",
@@ -2968,8 +2921,8 @@
      "ward": "1"
     },
     {
-     "address": "Yankee Division Hwy Gloucester MA 01930, United States",
-     "age_days": 960.2,
+     "address": "Yankee Division Hwy",
+     "age_days": 960.3,
      "category": "Street Light Issue",
      "created_at": "2024-02-09T14:18:06-05:00",
      "id": "16030700",
@@ -2977,7 +2930,7 @@
      "ward": "1"
     },
     {
-     "address": "Western Ave Gloucester, MA, 01930, USA",
+     "address": "Western Ave",
      "age_days": 908.9,
      "category": "Street Light Issue",
      "created_at": "2024-03-31T23:45:04-04:00",
@@ -2986,8 +2939,8 @@
      "ward": "3"
     },
     {
-     "address": "34 Atlantic Road Gloucester, Massachusetts, 01930",
-     "age_days": 874.9,
+     "address": "1–99 Atlantic Road",
+     "age_days": 875.0,
      "category": "Street Light Issue",
      "created_at": "2024-05-04T22:19:38-04:00",
      "id": "16538276",
@@ -2995,8 +2948,8 @@
      "ward": "1"
     },
     {
-     "address": "13 S Kilby Street Gloucester, Massachusetts, 01930",
-     "age_days": 793.4,
+     "address": "1–99 S Kilby Street",
+     "age_days": 793.5,
      "category": "Street Light Issue",
      "created_at": "2024-07-25T09:54:00-04:00",
      "id": "17124620",
@@ -3004,7 +2957,7 @@
      "ward": "4"
     },
     {
-     "address": "84-84 Rogers St Gloucester, MA, 01930, USA",
+     "address": "1–99 Rogers St",
      "age_days": 789.2,
      "category": "Street Light Issue",
      "created_at": "2024-07-29T16:29:44-04:00",
@@ -3013,8 +2966,8 @@
      "ward": "2"
     },
     {
-     "address": "279 Concord Street Gloucester, MA, 01930, USA",
-     "age_days": 766.3,
+     "address": "200 block of Concord Street",
+     "age_days": 766.4,
      "category": "Street Light Issue",
      "created_at": "2024-08-21T12:29:11-04:00",
      "id": "17339486",
@@ -3185,8 +3138,8 @@
    ],
    "oldest": [
     {
-     "address": "201 Main St Gloucester, MA, 01930, USA",
-     "age_days": 243.2,
+     "address": "200 block of Main St",
+     "age_days": 243.3,
      "category": "Snow: Plow Request",
      "created_at": "2026-01-26T14:24:10-05:00",
      "id": "20870287",
@@ -3194,8 +3147,8 @@
      "ward": "2"
     },
     {
-     "address": "13-99 Conant Ave Gloucester, MA, 01930, USA",
-     "age_days": 243.0,
+     "address": "1–99 Conant Ave",
+     "age_days": 243.1,
      "category": "Snow: Plow Request",
      "created_at": "2026-01-26T19:07:41-05:00",
      "id": "20873685",
@@ -3203,7 +3156,7 @@
      "ward": "3"
     },
     {
-     "address": "59 Eastern Point Rd Gloucester, Massachusetts, 01930",
+     "address": "1–99 Eastern Point Rd",
      "age_days": 242.4,
      "category": "Snow: Plow Request",
      "created_at": "2026-01-27T10:21:57-05:00",
@@ -3212,7 +3165,7 @@
      "ward": "1"
     },
     {
-     "address": "45 Friend St Gloucester, MA, 01930, USA",
+     "address": "1–99 Friend St",
      "age_days": 242.4,
      "category": "Snow: Plow Request",
      "created_at": "2026-01-27T10:44:13-05:00",
@@ -3221,7 +3174,7 @@
      "ward": "1"
     },
     {
-     "address": "180 Atlantic St Gloucester, MA, 01930, USA",
+     "address": "100 block of Atlantic St",
      "age_days": 236.2,
      "category": "Snow: Plow Request",
      "created_at": "2026-02-02T14:58:57-05:00",
@@ -3230,7 +3183,7 @@
      "ward": "5"
     },
     {
-     "address": "Elm St Gloucester, Massachusetts, 01930",
+     "address": "Elm St",
      "age_days": 219.2,
      "category": "Snow: Plow Request",
      "created_at": "2026-02-19T15:38:25-05:00",
@@ -3239,7 +3192,7 @@
      "ward": "2"
     },
     {
-     "address": "12 Wiley St Gloucester, MA, 01930, USA",
+     "address": "1–99 Wiley St",
      "age_days": 215.1,
      "category": "Snow: Plow Request",
      "created_at": "2026-02-23T17:35:21-05:00",
@@ -3248,8 +3201,8 @@
      "ward": "1"
     },
     {
-     "address": "19 Wolf Hill Way Gloucester, Massachusetts, 01930",
-     "age_days": 214.5,
+     "address": "1–99 Wolf Hill Way",
+     "age_days": 214.6,
      "category": "Snow: Plow Request",
      "created_at": "2026-02-24T07:16:09-05:00",
      "id": "21076018",
@@ -3257,7 +3210,7 @@
      "ward": "3"
     },
     {
-     "address": "1-7 Willow St Gloucester, Massachusetts, 01930",
+     "address": "1–99 Willow St",
      "age_days": 214.3,
      "category": "Snow: Plow Request",
      "created_at": "2026-02-24T12:34:25-05:00",
@@ -3266,7 +3219,7 @@
      "ward": "2"
     },
     {
-     "address": "Willow St Gloucester, Massachusetts, 01930",
+     "address": "Willow St",
      "age_days": 214.3,
      "category": "Snow: Plow Request",
      "created_at": "2026-02-24T12:46:12-05:00",
@@ -3438,8 +3391,8 @@
    ],
    "oldest": [
     {
-     "address": "30 Reservoir Rd Gloucester MA 01930, United States",
-     "age_days": 1998.5,
+     "address": "1–99 Reservoir Rd",
+     "age_days": 1998.6,
      "category": "Sidewalk Issue",
      "created_at": "2021-04-07T08:09:55-04:00",
      "id": "9665568",
@@ -3447,8 +3400,8 @@
      "ward": "4"
     },
     {
-     "address": "Veterans Way Gloucester, Massachusetts, 01930",
-     "age_days": 1562.4,
+     "address": "Veterans Way",
+     "age_days": 1562.5,
      "category": "Sidewalk Issue",
      "created_at": "2022-06-17T09:56:23-04:00",
      "id": "12570050",
@@ -3456,8 +3409,8 @@
      "ward": "4"
     },
     {
-     "address": "6 Burnham Street Gloucester, Massachusetts, 01930",
-     "age_days": 1265.5,
+     "address": "1–99 Burnham Street",
+     "age_days": 1265.6,
      "category": "Sidewalk Issue",
      "created_at": "2023-04-10T08:17:38-04:00",
      "id": "14336996",
@@ -3465,7 +3418,7 @@
      "ward": "2"
     },
     {
-     "address": "6 Elm Street Gloucester, Massachusetts, 01930",
+     "address": "1–99 Elm Street",
      "age_days": 1263.3,
      "category": "Sidewalk Issue",
      "created_at": "2023-04-12T14:04:31-04:00",
@@ -3474,8 +3427,8 @@
      "ward": "2"
     },
     {
-     "address": "53 River Rd Gloucester, MA 01930, USA",
-     "age_days": 1239.5,
+     "address": "1–99 River Rd",
+     "age_days": 1239.6,
      "category": "Sidewalk Issue",
      "created_at": "2023-05-06T07:51:58-04:00",
      "id": "14483315",
@@ -3483,7 +3436,7 @@
      "ward": "4"
     },
     {
-     "address": "29 Emerson Avenue Gloucester, Massachusetts, 01930",
+     "address": "1–99 Emerson Avenue",
      "age_days": 1227.4,
      "category": "Sidewalk Issue",
      "created_at": "2023-05-18T11:32:16-04:00",
@@ -3492,8 +3445,8 @@
      "ward": "3"
     },
     {
-     "address": "18 Traverse Street Gloucester, Massachusetts, 01930",
-     "age_days": 1208.2,
+     "address": "1–99 Traverse Street",
+     "age_days": 1208.3,
      "category": "Sidewalk Issue",
      "created_at": "2023-06-06T15:11:49-04:00",
      "id": "14663985",
@@ -3501,7 +3454,7 @@
      "ward": "1"
     },
     {
-     "address": "1085 Washington St Gloucester MA 01930, United States",
+     "address": "1000 block of Washington St",
      "age_days": 1191.2,
      "category": "Sidewalk Issue",
      "created_at": "2023-06-23T15:59:36-04:00",
@@ -3510,7 +3463,7 @@
      "ward": "4"
     },
     {
-     "address": "5 Myrtle Square Gloucester, Massachusetts, 01930",
+     "address": "1–99 Myrtle Square",
      "age_days": 1157.3,
      "category": "Sidewalk Issue",
      "created_at": "2023-07-27T13:30:44-04:00",
@@ -3519,7 +3472,7 @@
      "ward": "2"
     },
     {
-     "address": "Burnham St & Sargent St Gloucester, MA, 01930, USA",
+     "address": "Burnham St & Sargent St",
      "age_days": 1090.3,
      "category": "Sidewalk Issue",
      "created_at": "2023-10-02T13:59:22-04:00",
@@ -3691,8 +3644,8 @@
    ],
    "oldest": [
     {
-     "address": "24 Hough Ave Gloucester MA 01930, United States",
-     "age_days": 1337.1,
+     "address": "1–99 Hough Ave",
+     "age_days": 1337.2,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2023-01-28T16:31:15-05:00",
      "id": "14002311",
@@ -3700,7 +3653,7 @@
      "ward": "5"
     },
     {
-     "address": "5 East Main Street Gloucester, MA, 01930, USA",
+     "address": "1–99 East Main Street",
      "age_days": 1241.1,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2023-05-04T19:16:20-04:00",
@@ -3709,7 +3662,7 @@
      "ward": "1"
     },
     {
-     "address": "81 Pleasant St Gloucester, MA 01930, USA",
+     "address": "1–99 Pleasant St",
      "age_days": 1074.4,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2023-10-18T12:03:16-04:00",
@@ -3718,8 +3671,8 @@
      "ward": "2"
     },
     {
-     "address": "24-40 Hough Ave Gloucester, MA, 01930, USA",
-     "age_days": 1067.1,
+     "address": "1–99 Hough Ave",
+     "age_days": 1067.2,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2023-10-25T17:19:27-04:00",
      "id": "15520298",
@@ -3727,7 +3680,7 @@
      "ward": "5"
     },
     {
-     "address": "124r Centennial Avenue Gloucester, MA, 01930, USA",
+     "address": "100 block of Centennial Avenue",
      "age_days": 996.4,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2024-01-04T09:58:20-05:00",
@@ -3736,7 +3689,7 @@
      "ward": "3"
     },
     {
-     "address": "6 Lexington Ave Gloucester 01930, United States",
+     "address": "1–99 Lexington Ave",
      "age_days": 927.3,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2024-03-13T14:03:19-04:00",
@@ -3745,7 +3698,7 @@
      "ward": "5"
     },
     {
-     "address": "12-98 Griffin Ct Gloucester, MA, 01930, USA",
+     "address": "1–99 Griffin Ct",
      "age_days": 858.5,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2024-05-21T08:52:23-04:00",
@@ -3754,7 +3707,7 @@
      "ward": "3"
     },
     {
-     "address": "34 Blynman Avenue Gloucester, MA, 01930, USA",
+     "address": "1–99 Blynman Avenue",
      "age_days": 851.4,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2024-05-28T11:15:58-04:00",
@@ -3763,7 +3716,7 @@
      "ward": "3"
     },
     {
-     "address": "Eastern Point Rd & Ledge Ln Gloucester, MA, 01930, USA",
+     "address": "Eastern Point Rd & Ledge Ln",
      "age_days": 822.1,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2024-06-26T18:31:56-04:00",
@@ -3772,8 +3725,8 @@
      "ward": "1"
     },
     {
-     "address": "32 Leslie O Johnson Road Gloucester, MA, 01930, USA",
-     "age_days": 793.2,
+     "address": "1–99 Leslie O Johnson Road",
+     "age_days": 793.3,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2024-07-25T14:35:34-04:00",
      "id": "17127791",
@@ -3944,8 +3897,8 @@
    ],
    "oldest": [
     {
-     "address": "Ma-128 Gloucester, MA, 01930, USA",
-     "age_days": 742.8,
+     "address": "Ma-128",
+     "age_days": 742.9,
      "category": "Utilities (Water/Sewer)",
      "created_at": "2024-09-14T00:24:26-04:00",
      "id": "17505706",
@@ -3953,7 +3906,7 @@
      "ward": "3"
     },
     {
-     "address": "269 Washington Street Gloucester, Massachusetts, 01930",
+     "address": "200 block of Washington Street",
      "age_days": 600.1,
      "category": "Utilities (Water/Sewer)",
      "created_at": "2025-02-03T17:13:25-05:00",
@@ -3962,7 +3915,7 @@
      "ward": "4"
     },
     {
-     "address": "8 Washington Street Gloucester, Massachusetts, 01930",
+     "address": "1–99 Washington Street",
      "age_days": 441.5,
      "category": "Utilities (Water/Sewer)",
      "created_at": "2025-07-12T08:32:21-04:00",
@@ -3971,7 +3924,7 @@
      "ward": "3"
     },
     {
-     "address": "16 Highland Street Gloucester, Massachusetts, 01930",
+     "address": "1–99 Highland Street",
      "age_days": 369.0,
      "category": "Utilities (Water/Sewer)",
      "created_at": "2025-09-22T20:33:26-04:00",
@@ -3980,7 +3933,7 @@
      "ward": "1"
     },
     {
-     "address": "218 Main St Gloucester, Massachusetts, 01930",
+     "address": "200 block of Main St",
      "age_days": 270.4,
      "category": "Utilities (Water/Sewer)",
      "created_at": "2025-12-30T10:09:23-05:00",
@@ -3989,8 +3942,8 @@
      "ward": "2"
     },
     {
-     "address": "22 Mason St Gloucester, MA, 01930, USA",
-     "age_days": 231.0,
+     "address": "1–99 Mason St",
+     "age_days": 231.1,
      "category": "Utilities (Water/Sewer)",
      "created_at": "2026-02-07T18:21:40-05:00",
      "id": "20966716",
@@ -3998,7 +3951,7 @@
      "ward": "2"
     },
     {
-     "address": "54 A Laurel Street Gloucester, Massachusetts, 01930",
+     "address": "1–99 A Laurel Street",
      "age_days": 207.3,
      "category": "Utilities (Water/Sewer)",
      "created_at": "2026-03-03T13:09:22-05:00",
@@ -4007,8 +3960,8 @@
      "ward": "5"
     },
     {
-     "address": "Castle View Dr Gloucester, Massachusetts, 01930",
-     "age_days": 170.1,
+     "address": "Castle View Dr",
+     "age_days": 170.2,
      "category": "Utilities (Water/Sewer)",
      "created_at": "2026-04-09T17:21:18-04:00",
      "id": "21431015",
@@ -4016,8 +3969,8 @@
      "ward": "5"
     },
     {
-     "address": "20 Magnolia Ave GLOUCESTER, Massachusetts, 01930",
-     "age_days": 124.3,
+     "address": "1–99 Magnolia Ave",
+     "age_days": 124.4,
      "category": "Utilities (Water/Sewer)",
      "created_at": "2026-05-25T12:23:14-04:00",
      "id": "21797084",
@@ -4025,7 +3978,7 @@
      "ward": "5"
     },
     {
-     "address": "15-21 Nautilus Rd Gloucester, Massachusetts, 01930",
+     "address": "1–99 Nautilus Rd",
      "age_days": 86.4,
      "category": "Utilities (Water/Sewer)",
      "created_at": "2026-07-02T10:57:32-04:00",
@@ -4197,7 +4150,7 @@
    ],
    "oldest": [
     {
-     "address": "24 Hough Ave Gloucester MA 01930, United States",
+     "address": "1–99 Hough Ave",
      "age_days": 886.2,
      "category": "Manhole Cover",
      "created_at": "2024-04-23T16:14:06-04:00",
@@ -4206,8 +4159,8 @@
      "ward": "5"
     },
     {
-     "address": "16 Apple Street Gloucester, Massachusetts, 01930",
-     "age_days": 451.4,
+     "address": "1–99 Apple Street",
+     "age_days": 451.5,
      "category": "Manhole Cover",
      "created_at": "2025-07-02T09:50:34-04:00",
      "id": "19392547",
@@ -4215,7 +4168,7 @@
      "ward": "4"
     },
     {
-     "address": "32 Bass Avenue Gloucester, Massachusetts, 01930",
+     "address": "1–99 Bass Avenue",
      "age_days": 389.1,
      "category": "Manhole Cover",
      "created_at": "2025-09-02T18:09:51-04:00",
@@ -4224,8 +4177,8 @@
      "ward": "1"
     },
     {
-     "address": "34 Burnham St Gloucester, Massachusetts, 01930",
-     "age_days": 273.3,
+     "address": "1–99 Burnham St",
+     "age_days": 273.4,
      "category": "Manhole Cover",
      "created_at": "2025-12-27T11:49:23-05:00",
      "id": "20676822",
@@ -4233,8 +4186,8 @@
      "ward": "2"
     },
     {
-     "address": "23 Bass Ave Gloucester, MA, 01930, USA",
-     "age_days": 246.2,
+     "address": "1–99 Bass Ave",
+     "age_days": 246.3,
      "category": "Manhole Cover",
      "created_at": "2026-01-23T13:38:58-05:00",
      "id": "20854458",
@@ -4242,7 +4195,7 @@
      "ward": "1"
     },
     {
-     "address": "Middle St & Pleasant St Gloucester, MA, 01930, USA",
+     "address": "Middle St & Pleasant St",
      "age_days": 227.5,
      "category": "Manhole Cover",
      "created_at": "2026-02-11T08:10:27-05:00",
@@ -4251,7 +4204,7 @@
      "ward": "2"
     },
     {
-     "address": "Mile 0.4 State Rte 127 S Gloucester, MA, 01930, USA",
+     "address": "Mile 0.4 State Rte 127 S",
      "age_days": 199.4,
      "category": "Manhole Cover",
      "created_at": "2026-03-11T11:07:54-04:00",
@@ -4260,7 +4213,7 @@
      "ward": "1"
     },
     {
-     "address": "Mile 12 State Rte 127 N Gloucester, Massachusetts, 01930",
+     "address": "Mile 12 State Rte 127 N",
      "age_days": 189.2,
      "category": "Manhole Cover",
      "created_at": "2026-03-21T16:50:52-04:00",
@@ -4269,8 +4222,8 @@
      "ward": "5"
     },
     {
-     "address": "34 Bass Ave GLOUCESTER, MA, 01930, USA",
-     "age_days": 162.2,
+     "address": "1–99 Bass Ave",
+     "age_days": 162.3,
      "category": "Manhole Cover",
      "created_at": "2026-04-17T14:55:39-04:00",
      "id": "21495610",
@@ -4278,8 +4231,8 @@
      "ward": "1"
     },
     {
-     "address": "23 Bass Ave GLOUCESTER, MA, 01930, USA",
-     "age_days": 157.2,
+     "address": "1–99 Bass Ave",
+     "age_days": 157.3,
      "category": "Manhole Cover",
      "created_at": "2026-04-22T15:25:51-04:00",
      "id": "21533954",
@@ -4450,7 +4403,7 @@
    ],
    "oldest": [
     {
-     "address": "1-99 Norseman Ave Gloucester, MA, 01930, USA",
+     "address": "1–99 Norseman Ave",
      "age_days": 952.0,
      "category": "Street Sign Issue",
      "created_at": "2024-02-17T19:57:14-05:00",
@@ -4459,8 +4412,8 @@
      "ward": "4"
     },
     {
-     "address": "23 Riggs Street Gloucester, Massachusetts, 01930",
-     "age_days": 939.3,
+     "address": "1–99 Riggs Street",
+     "age_days": 939.4,
      "category": "Street Sign Issue",
      "created_at": "2024-03-01T11:54:29-05:00",
      "id": "16141605",
@@ -4468,7 +4421,7 @@
      "ward": "3"
     },
     {
-     "address": "36 Trask Street Gloucester, MA, 01930, USA",
+     "address": "1–99 Trask Street",
      "age_days": 855.5,
      "category": "Street Sign Issue",
      "created_at": "2024-05-24T08:25:24-04:00",
@@ -4477,8 +4430,8 @@
      "ward": "2"
     },
     {
-     "address": "Wheeler St Gloucester, Massachusetts, 01930",
-     "age_days": 851.3,
+     "address": "Wheeler St",
+     "age_days": 851.4,
      "category": "Street Sign Issue",
      "created_at": "2024-05-28T13:02:05-04:00",
      "id": "16709025",
@@ -4486,8 +4439,8 @@
      "ward": "4"
     },
     {
-     "address": "Salt Island Rd Gloucester, Massachusetts, 01930",
-     "age_days": 850.4,
+     "address": "Salt Island Rd",
+     "age_days": 850.5,
      "category": "Street Sign Issue",
      "created_at": "2024-05-29T09:43:32-04:00",
      "id": "16716989",
@@ -4495,8 +4448,8 @@
      "ward": "1"
     },
     {
-     "address": "Chestnut St Gloucester, Massachusetts, 01930",
-     "age_days": 815.3,
+     "address": "Chestnut St",
+     "age_days": 815.4,
      "category": "Street Sign Issue",
      "created_at": "2024-07-03T12:19:41-04:00",
      "id": "16969571",
@@ -4504,8 +4457,8 @@
      "ward": "2"
     },
     {
-     "address": "2-10 Burnham St Gloucester, MA, 01930, USA",
-     "age_days": 793.2,
+     "address": "1–99 Burnham St",
+     "age_days": 793.3,
      "category": "Street Sign Issue",
      "created_at": "2024-07-25T15:08:05-04:00",
      "id": "17128153",
@@ -4513,7 +4466,7 @@
      "ward": "2"
     },
     {
-     "address": "68 Poplar St Gloucester MA 01930, United States",
+     "address": "1–99 Poplar St",
      "age_days": 767.3,
      "category": "Street Sign Issue",
      "created_at": "2024-08-20T13:51:55-04:00",
@@ -4522,8 +4475,8 @@
      "ward": "4"
     },
     {
-     "address": "31-33 Eastern Ave Gloucester, MA, 01930, USA",
-     "age_days": 729.4,
+     "address": "1–99 Eastern Ave",
+     "age_days": 729.5,
      "category": "Street Sign Issue",
      "created_at": "2024-09-27T10:17:18-04:00",
      "id": "17593248",
@@ -4531,7 +4484,7 @@
      "ward": "1"
     },
     {
-     "address": "Highland St & E Main St Gloucester, MA, 01930, USA",
+     "address": "Highland St & E Main St",
      "age_days": 591.3,
      "category": "Street Sign Issue",
      "created_at": "2025-02-12T12:45:50-05:00",
@@ -4703,8 +4656,8 @@
    ],
    "oldest": [
     {
-     "address": "40 Summer St Gloucester, Massachusetts, 01930",
-     "age_days": 900.3,
+     "address": "1–99 Summer St",
+     "age_days": 900.4,
      "category": "Abandoned Vehicle",
      "created_at": "2024-04-09T12:49:54-04:00",
      "id": "16368425",
@@ -4712,7 +4665,7 @@
      "ward": "3"
     },
     {
-     "address": "43 Prospect Street Gloucester, Massachusetts, 01930",
+     "address": "1–99 Prospect Street",
      "age_days": 476.3,
      "category": "Abandoned Vehicle",
      "created_at": "2025-06-07T14:07:39-04:00",
@@ -4721,8 +4674,8 @@
      "ward": "2"
     },
     {
-     "address": "9-21 Hodgkins St Gloucester, MA, 01930, USA",
-     "age_days": 247.4,
+     "address": "1–99 Hodgkins St",
+     "age_days": 247.5,
      "category": "Abandoned Vehicle",
      "created_at": "2026-01-22T09:18:42-05:00",
      "id": "20844506",
@@ -4730,8 +4683,8 @@
      "ward": "4"
     },
     {
-     "address": "17 Veterans Way GLOUCESTER, MA, 01930, USA",
-     "age_days": 178.2,
+     "address": "1–99 Veterans Way",
+     "age_days": 178.3,
      "category": "Abandoned Vehicle",
      "created_at": "2026-04-01T15:24:35-04:00",
      "id": "21368095",
@@ -4739,8 +4692,8 @@
      "ward": "4"
     },
     {
-     "address": "16 Spring St Gloucester, MA, 01930, USA",
-     "age_days": 161.5,
+     "address": "1–99 Spring St",
+     "age_days": 161.6,
      "category": "Abandoned Vehicle",
      "created_at": "2026-04-18T07:19:29-04:00",
      "id": "21499423",
@@ -4748,8 +4701,8 @@
      "ward": "2"
     },
     {
-     "address": "Mile 25.9 State Rte 127 N Gloucester, MA, 01930, USA",
-     "age_days": 128.2,
+     "address": "Mile 25.9 State Rte 127 N",
+     "age_days": 128.3,
      "category": "Abandoned Vehicle",
      "created_at": "2026-05-21T15:29:55-04:00",
      "id": "21775062",
@@ -4757,7 +4710,7 @@
      "ward": "4"
     },
     {
-     "address": "5 Proctor St Gloucester, MA, 01930, USA",
+     "address": "1–99 Proctor St",
      "age_days": 66.5,
      "category": "Abandoned Vehicle",
      "created_at": "2026-07-22T08:54:22-04:00",
@@ -4766,7 +4719,7 @@
      "ward": "2"
     },
     {
-     "address": "5 Proctor St Gloucester, MA, 01930, USA",
+     "address": "1–99 Proctor St",
      "age_days": 66.5,
      "category": "Abandoned Vehicle",
      "created_at": "2026-07-22T08:54:33-04:00",
@@ -4775,8 +4728,8 @@
      "ward": "2"
     },
     {
-     "address": "7 Proctor St Gloucester, MA, 01930, USA",
-     "age_days": 24.3,
+     "address": "1–99 Proctor St",
+     "age_days": 24.4,
      "category": "Abandoned Vehicle",
      "created_at": "2026-09-02T12:42:39-04:00",
      "id": "22676420",
@@ -4784,8 +4737,8 @@
      "ward": "2"
     },
     {
-     "address": "7 Proctor St Gloucester, MA, 01930, USA",
-     "age_days": 24.3,
+     "address": "1–99 Proctor St",
+     "age_days": 24.4,
      "category": "Abandoned Vehicle",
      "created_at": "2026-09-02T12:42:44-04:00",
      "id": "22676421",
@@ -4956,7 +4909,7 @@
    ],
    "oldest": [
     {
-     "address": "364 Concord Street Gloucester, Massachusetts, 01930",
+     "address": "300 block of Concord Street",
      "age_days": 850.4,
      "category": "Brush",
      "created_at": "2024-05-29T10:50:54-04:00",
@@ -4965,7 +4918,7 @@
      "ward": "5"
     },
     {
-     "address": "46 Grove Street Gloucester, MA, 01930, USA",
+     "address": "1–99 Grove Street",
      "age_days": 834.2,
      "category": "Brush",
      "created_at": "2024-06-14T16:27:45-04:00",
@@ -4974,8 +4927,8 @@
      "ward": "3"
     },
     {
-     "address": "32 Leslie O Johnson Rd Gloucester MA 01930, United States",
-     "age_days": 829.6,
+     "address": "1–99 Leslie O Johnson Rd",
+     "age_days": 829.7,
      "category": "Brush",
      "created_at": "2024-06-19T05:23:45-04:00",
      "id": "16868910",
@@ -4983,8 +4936,8 @@
      "ward": "3"
     },
     {
-     "address": "101 Mount Pleasant Avenue Gloucester, MA, 01930, USA",
-     "age_days": 829.4,
+     "address": "100 block of Mount Pleasant Avenue",
+     "age_days": 829.5,
      "category": "Brush",
      "created_at": "2024-06-19T09:48:50-04:00",
      "id": "16869838",
@@ -4992,7 +4945,7 @@
      "ward": "1"
     },
     {
-     "address": "15 Wheeler St Gloucester MA 01930, United States",
+     "address": "1–99 Wheeler St",
      "age_days": 803.5,
      "category": "Brush",
      "created_at": "2024-07-15T09:15:15-04:00",
@@ -5001,7 +4954,7 @@
      "ward": "4"
     },
     {
-     "address": "Eastern Ave Gloucester, Massachusetts, 01930",
+     "address": "Eastern Ave",
      "age_days": 775.4,
      "category": "Brush",
      "created_at": "2024-08-12T10:58:57-04:00",
@@ -5010,8 +4963,8 @@
      "ward": "1"
     },
     {
-     "address": "39a Friend Street Gloucester, MA, 01930, USA",
-     "age_days": 774.4,
+     "address": "1–99 Friend Street",
+     "age_days": 774.5,
      "category": "Brush",
      "created_at": "2024-08-13T09:47:57-04:00",
      "id": "17265910",
@@ -5019,7 +4972,7 @@
      "ward": "1"
     },
     {
-     "address": "High Rock Gloucester MA 01930, United States",
+     "address": "High Rock",
      "age_days": 516.0,
      "category": "Brush",
      "created_at": "2025-04-28T21:13:06-04:00",
@@ -5028,7 +4981,7 @@
      "ward": "4"
     },
     {
-     "address": "Mile 25.3 State Rte 127 N Gloucester, Massachusetts, 01930",
+     "address": "Mile 25.3 State Rte 127 N",
      "age_days": 486.5,
      "category": "Brush",
      "created_at": "2025-05-28T08:43:57-04:00",
@@ -5037,8 +4990,8 @@
      "ward": "4"
     },
     {
-     "address": "169 Main Street Gloucester, MA, 01930, USA",
-     "age_days": 456.0,
+     "address": "100 block of Main Street",
+     "age_days": 456.1,
      "category": "Brush",
      "created_at": "2025-06-27T19:44:22-04:00",
      "id": "19358902",
@@ -5209,7 +5162,7 @@
    ],
    "oldest": [
     {
-     "address": "34 Cleveland St Gloucester MA 01930, United States",
+     "address": "1–99 Cleveland St",
      "age_days": 1125.1,
      "category": "Tree Issues",
      "created_at": "2023-08-28T18:59:59-04:00",
@@ -5218,7 +5171,7 @@
      "ward": "2"
     },
     {
-     "address": "9 Beachmont Avenue Gloucester, Massachusetts, 01930",
+     "address": "1–99 Beachmont Avenue",
      "age_days": 1101.4,
      "category": "Tree Issues",
      "created_at": "2023-09-21T11:03:43-04:00",
@@ -5227,7 +5180,7 @@
      "ward": "5"
     },
     {
-     "address": "1085 Washington St Gloucester MA 01930, United States",
+     "address": "1000 block of Washington St",
      "age_days": 957.0,
      "category": "Tree Issues",
      "created_at": "2024-02-12T20:28:38-05:00",
@@ -5236,8 +5189,8 @@
      "ward": "4"
     },
     {
-     "address": "Lincoln Ave Gloucester, Massachusetts, 01930",
-     "age_days": 858.4,
+     "address": "Lincoln Ave",
+     "age_days": 858.5,
      "category": "Tree Issues",
      "created_at": "2024-05-21T10:36:41-04:00",
      "id": "16662307",
@@ -5245,7 +5198,7 @@
      "ward": "3"
     },
     {
-     "address": "363 Concord St Gloucester MA 01930, United States",
+     "address": "300 block of Concord St",
      "age_days": 781.1,
      "category": "Tree Issues",
      "created_at": "2024-08-06T18:24:40-04:00",
@@ -5254,8 +5207,8 @@
      "ward": "5"
     },
     {
-     "address": "1197-1235 Washington St Gloucester, MA, 01930, USA",
-     "age_days": 754.3,
+     "address": "1100 block of Washington St",
+     "age_days": 754.4,
      "category": "Tree Issues",
      "created_at": "2024-09-02T12:29:17-04:00",
      "id": "17419035",
@@ -5263,8 +5216,8 @@
      "ward": "4"
     },
     {
-     "address": "68 Magnolia Ave Gloucester, Massachusetts, 01930",
-     "age_days": 487.5,
+     "address": "1–99 Magnolia Ave",
+     "age_days": 487.6,
      "category": "Tree Issues",
      "created_at": "2025-05-27T07:19:54-04:00",
      "id": "19086736",
@@ -5272,7 +5225,7 @@
      "ward": "5"
     },
     {
-     "address": "139 Western Avenue Gloucester, Massachusetts, 01930",
+     "address": "100 block of Western Avenue",
      "age_days": 451.4,
      "category": "Tree Issues",
      "created_at": "2025-07-02T11:06:45-04:00",
@@ -5281,8 +5234,8 @@
      "ward": "3"
     },
     {
-     "address": "379 Essex Avenue Gloucester, MA, 01930, USA",
-     "age_days": 439.5,
+     "address": "300 block of Essex Avenue",
+     "age_days": 439.6,
      "category": "Tree Issues",
      "created_at": "2025-07-14T08:06:27-04:00",
      "id": "19486167",
@@ -5290,7 +5243,7 @@
      "ward": "5"
     },
     {
-     "address": "103 Magnolia Avenue Gloucester, Massachusetts, 01930",
+     "address": "100 block of Magnolia Avenue",
      "age_days": 439.4,
      "category": "Tree Issues",
      "created_at": "2025-07-14T11:21:25-04:00",
@@ -5462,7 +5415,7 @@
    ],
    "oldest": [
     {
-     "address": "18–50 Hough Ave Gloucester MA 01930, United States",
+     "address": "1–99 Hough Ave",
      "age_days": 983.6,
      "category": "Beaches",
      "created_at": "2024-01-17T05:55:55-05:00",
@@ -5471,7 +5424,7 @@
      "ward": "5"
     },
     {
-     "address": "1-21 Eastern Point Blvd Gloucester, MA, 01930, USA",
+     "address": "1–99 Eastern Point Blvd",
      "age_days": 822.1,
      "category": "Beaches",
      "created_at": "2024-06-26T18:35:56-04:00",
@@ -5480,7 +5433,7 @@
      "ward": "1"
     },
     {
-     "address": "2 Nautilus Road Gloucester, MA, 01930, USA",
+     "address": "1–99 Nautilus Road",
      "age_days": 815.4,
      "category": "Beaches",
      "created_at": "2024-07-03T11:20:47-04:00",
@@ -5498,7 +5451,7 @@
      "ward": "1"
     },
     {
-     "address": "Mile 21.2 State Rte 127 S Gloucester, MA, 01930, USA",
+     "address": "Mile 21.2 State Rte 127 S",
      "age_days": 201.2,
      "category": "Beaches",
      "created_at": "2026-03-09T16:37:38-04:00",
@@ -5507,8 +5460,8 @@
      "ward": "4"
     },
     {
-     "address": "01930 Gloucester, MA, USA",
-     "age_days": 135.5,
+     "address": "",
+     "age_days": 135.6,
      "category": "Beaches",
      "created_at": "2026-05-14T08:13:54-04:00",
      "id": "21709666",
@@ -5516,8 +5469,8 @@
      "ward": "1"
     },
     {
-     "address": "1000 Washington St Gloucester, Massachusetts, 01930",
-     "age_days": 121.4,
+     "address": "1000 block of Washington St",
+     "age_days": 121.5,
      "category": "Beaches",
      "created_at": "2026-05-28T10:36:08-04:00",
      "id": "21826609",
@@ -5525,7 +5478,7 @@
      "ward": "4"
     },
     {
-     "address": "01930 Gloucester, MA, USA",
+     "address": "",
      "age_days": 112.3,
      "category": "Beaches",
      "created_at": "2026-06-06T13:26:29-04:00",
@@ -5534,8 +5487,8 @@
      "ward": "1"
     },
     {
-     "address": "Mile 22.7 State Rte 127 S Gloucester, MA, 01930, USA",
-     "age_days": 103.5,
+     "address": "Mile 22.7 State Rte 127 S",
+     "age_days": 103.6,
      "category": "Beaches",
      "created_at": "2026-06-15T07:48:26-04:00",
      "id": "21983322",
@@ -5543,7 +5496,7 @@
      "ward": "4"
     },
     {
-     "address": "Atlantic St Gloucester, MA, 01930, USA",
+     "address": "Atlantic St",
      "age_days": 80.5,
      "category": "Beaches",
      "created_at": "2026-07-08T09:22:03-04:00",
@@ -5715,7 +5668,7 @@
    ],
    "oldest": [
     {
-     "address": "136 Western Ave Gloucester, MA, 01930, USA",
+     "address": "100 block of Western Ave",
      "age_days": 196.9,
      "category": "Clean Team/Volunteer Yellow Bag Pick Up",
      "created_at": "2026-03-13T23:19:13-04:00",
@@ -5724,8 +5677,8 @@
      "ward": "5"
     },
     {
-     "address": "73 Concord St Gloucester, Massachusetts, 01930",
-     "age_days": 179.5,
+     "address": "1–99 Concord St",
+     "age_days": 179.6,
      "category": "Clean Team/Volunteer Yellow Bag Pick Up",
      "created_at": "2026-03-31T07:47:43-04:00",
      "id": "21353148",
@@ -6058,7 +6011,7 @@
    ],
    "oldest": [
     {
-     "address": "Maplewood Ave & Poplar St Gloucester, MA, 01930, USA",
+     "address": "Maplewood Ave & Poplar St",
      "age_days": 914.2,
      "category": "Crosswalks",
      "created_at": "2024-03-26T15:41:10-04:00",
@@ -6067,8 +6020,8 @@
      "ward": "3"
     },
     {
-     "address": "2 Cherry Hill Rd Gloucester MA 01930, United States",
-     "age_days": 834.9,
+     "address": "1–99 Cherry Hill Rd",
+     "age_days": 835.0,
      "category": "Crosswalks",
      "created_at": "2024-06-13T21:53:16-04:00",
      "id": "16836498",
@@ -6076,8 +6029,8 @@
      "ward": "4"
     },
     {
-     "address": "716 Washington St Gloucester MA 01930, United States",
-     "age_days": 733.0,
+     "address": "700 block of Washington St",
+     "age_days": 733.1,
      "category": "Crosswalks",
      "created_at": "2024-09-23T19:38:32-04:00",
      "id": "17567810",
@@ -6085,8 +6038,8 @@
      "ward": "4"
     },
     {
-     "address": "84 Prospect Street Gloucester, Massachusetts, 01930",
-     "age_days": 509.4,
+     "address": "1–99 Prospect Street",
+     "age_days": 509.5,
      "category": "Crosswalks",
      "created_at": "2025-05-05T10:18:02-04:00",
      "id": "18916651",
@@ -6094,7 +6047,7 @@
      "ward": "2"
     },
     {
-     "address": "Gloucester Xing & School House Rd Gloucester, MA, 01930, USA",
+     "address": "Gloucester Xing & School House Rd",
      "age_days": 445.2,
      "category": "Crosswalks",
      "created_at": "2025-07-08T15:41:33-04:00",
@@ -6103,8 +6056,8 @@
      "ward": "2"
     },
     {
-     "address": "70 Thatcher Road Gloucester, Massachusetts, 01930",
-     "age_days": 428.1,
+     "address": "1–99 Thatcher Road",
+     "age_days": 428.2,
      "category": "Crosswalks",
      "created_at": "2025-07-25T17:40:39-04:00",
      "id": "19591827",
@@ -6112,7 +6065,7 @@
      "ward": "1"
     },
     {
-     "address": "Butman Ave Gloucester, MA, 01930, USA",
+     "address": "Butman Ave",
      "age_days": 373.4,
      "category": "Crosswalks",
      "created_at": "2025-09-18T11:20:55-04:00",
@@ -6121,7 +6074,7 @@
      "ward": "4"
     },
     {
-     "address": "Centennial Ave & Washington St Gloucester, MA, 01930, USA",
+     "address": "Centennial Ave & Washington St",
      "age_days": 232.3,
      "category": "Crosswalks",
      "created_at": "2026-02-06T12:21:18-05:00",
@@ -6130,7 +6083,7 @@
      "ward": "3"
     },
     {
-     "address": "Ma-128 & E Main St Gloucester, MA, 01930, USA",
+     "address": "Ma-128 & E Main St",
      "age_days": 201.5,
      "category": "Crosswalks",
      "created_at": "2026-03-09T08:48:26-04:00",
@@ -6139,7 +6092,7 @@
      "ward": "1"
     },
     {
-     "address": "Centennial Ave & Leslie O Johnson Rd Gloucester, MA, 01930, USA",
+     "address": "Centennial Ave & Leslie O Johnson Rd",
      "age_days": 178.2,
      "category": "Crosswalks",
      "created_at": "2026-04-01T15:43:58-04:00",
@@ -6309,98 +6262,7 @@
      "received": 4
     }
    ],
-   "oldest": [
-    {
-     "address": "6 Sadler St Gloucester MA 01930, United States",
-     "age_days": 2349.3,
-     "category": "Private Property Issue",
-     "created_at": "2020-04-21T13:57:09-04:00",
-     "id": "7696257",
-     "url": "https://seeclickfix.com/issues/7696257",
-     "ward": "2"
-    },
-    {
-     "address": "16 Winthrop Avenue Gloucester, MA, 01930, USA",
-     "age_days": 1498.2,
-     "category": "Private Property Issue",
-     "created_at": "2022-08-20T16:29:51-04:00",
-     "id": "13031515",
-     "url": "https://seeclickfix.com/issues/13031515",
-     "ward": "5"
-    },
-    {
-     "address": "11 Niles Pond Road Gloucester, MA, 01930, USA",
-     "age_days": 1392.0,
-     "category": "Private Property Issue",
-     "created_at": "2022-12-04T20:25:47-05:00",
-     "id": "13778265",
-     "url": "https://seeclickfix.com/issues/13778265",
-     "ward": "1"
-    },
-    {
-     "address": "8 Orchard Road Gloucester, Massachusetts, 01930",
-     "age_days": 1328.2,
-     "category": "Private Property Issue",
-     "created_at": "2023-02-06T14:56:00-05:00",
-     "id": "14037151",
-     "url": "https://seeclickfix.com/issues/14037151",
-     "ward": "1"
-    },
-    {
-     "address": "2 Mansfield Court Gloucester, MA, 01930, USA",
-     "age_days": 950.3,
-     "category": "Private Property Issue",
-     "created_at": "2024-02-19T11:44:40-05:00",
-     "id": "16076457",
-     "url": "https://seeclickfix.com/issues/16076457",
-     "ward": "3"
-    },
-    {
-     "address": "31 Winthrop Ave Gloucester, Massachusetts, 01930",
-     "age_days": 888.0,
-     "category": "Private Property Issue",
-     "created_at": "2024-04-21T20:06:50-04:00",
-     "id": "16448308",
-     "url": "https://seeclickfix.com/issues/16448308",
-     "ward": "5"
-    },
-    {
-     "address": "14 Raven Lane Gloucester, MA, 01930, USA",
-     "age_days": 857.2,
-     "category": "Private Property Issue",
-     "created_at": "2024-05-22T14:32:18-04:00",
-     "id": "16674402",
-     "url": "https://seeclickfix.com/issues/16674402",
-     "ward": "1"
-    },
-    {
-     "address": "6 Sadler Street Gloucester, Massachusetts, 01930",
-     "age_days": 846.3,
-     "category": "Private Property Issue",
-     "created_at": "2024-06-02T14:08:31-04:00",
-     "id": "16746965",
-     "url": "https://seeclickfix.com/issues/16746965",
-     "ward": "2"
-    },
-    {
-     "address": "35 Mt Pleasant Ave Gloucester MA 01930, United States",
-     "age_days": 813.4,
-     "category": "Private Property Issue",
-     "created_at": "2024-07-05T11:16:22-04:00",
-     "id": "16979934",
-     "url": "https://seeclickfix.com/issues/16979934",
-     "ward": "1"
-    },
-    {
-     "address": "47 Thurston Point Road Gloucester, MA, 01930, USA",
-     "age_days": 773.3,
-     "category": "Private Property Issue",
-     "created_at": "2024-08-14T12:26:54-04:00",
-     "id": "17277151",
-     "url": "https://seeclickfix.com/issues/17277151",
-     "ward": "4"
-    }
-   ],
+   "oldest": [],
    "open": 19,
    "received": 26,
    "slug": "private-property-issue",
@@ -6564,8 +6426,8 @@
    ],
    "oldest": [
     {
-     "address": "1240 Washington Street Gloucester, MA, 01930, USA",
-     "age_days": 2048.2,
+     "address": "1200 block of Washington Street",
+     "age_days": 2048.3,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2021-02-16T14:30:35-05:00",
      "id": "9364041",
@@ -6573,7 +6435,7 @@
      "ward": "4"
     },
     {
-     "address": "Herrick Ct Gloucester MA 01930, United States",
+     "address": "Herrick Ct",
      "age_days": 1235.0,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2023-05-10T20:25:27-04:00",
@@ -6582,7 +6444,7 @@
      "ward": "1"
     },
     {
-     "address": "13-15 Revere St Gloucester, MA, 01930, USA",
+     "address": "1–99 Revere St",
      "age_days": 1118.5,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2023-09-04T09:06:34-04:00",
@@ -6591,7 +6453,7 @@
      "ward": "4"
     },
     {
-     "address": "66-72 Prospect St Gloucester, MA, 01930, USA",
+     "address": "1–99 Prospect St",
      "age_days": 888.3,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2024-04-21T13:14:25-04:00",
@@ -6600,7 +6462,7 @@
      "ward": "2"
     },
     {
-     "address": "5 Saint Peters Lane Gloucester, MA, 01930, USA",
+     "address": "1–99 Saint Peters Lane",
      "age_days": 826.6,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2024-06-22T07:10:05-04:00",
@@ -6609,8 +6471,8 @@
      "ward": "5"
     },
     {
-     "address": "59–99 Shore Rd Gloucester 01930, United States",
-     "age_days": 504.5,
+     "address": "1–99 Shore Rd",
+     "age_days": 504.6,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2025-05-10T07:38:28-04:00",
      "id": "18959917",
@@ -6618,7 +6480,7 @@
      "ward": "5"
     },
     {
-     "address": "Mile 22.4 State Rte 127 N Gloucester, MA, 01930, USA",
+     "address": "Mile 22.4 State Rte 127 N",
      "age_days": 490.4,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2025-05-24T10:55:28-04:00",
@@ -6627,7 +6489,7 @@
      "ward": "4"
     },
     {
-     "address": "359 Western Ave Gloucester, MA, 01930, USA",
+     "address": "300 block of Western Ave",
      "age_days": 200.1,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2026-03-10T18:50:36-04:00",
@@ -6636,7 +6498,7 @@
      "ward": "5"
     },
     {
-     "address": "45 Dennison St Gloucester, MA, 01930, USA",
+     "address": "1–99 Dennison St",
      "age_days": 186.6,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2026-03-24T07:12:02-04:00",
@@ -6645,8 +6507,8 @@
      "ward": "4"
     },
     {
-     "address": "2 Clifford Ct Gloucester, Massachusetts, 01930",
-     "age_days": 131.5,
+     "address": "1–99 Clifford Ct",
+     "age_days": 131.6,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2026-05-18T08:11:47-04:00",
      "id": "21736712",
@@ -6763,7 +6625,7 @@
    ],
    "oldest": [
     {
-     "address": "11 Webster Street Gloucester, Massachusetts, 01930",
+     "address": "1–99 Webster Street",
      "age_days": 361.5,
      "category": "Parking Kiosk",
      "created_at": "2025-09-30T08:20:28-04:00",
@@ -6773,7 +6635,7 @@
     },
     {
      "address": "Main Street",
-     "age_days": 259.4,
+     "age_days": 259.5,
      "category": "Parking Kiosk",
      "created_at": "2026-01-10T09:23:02-05:00",
      "id": "20768332",
@@ -6781,8 +6643,8 @@
      "ward": "2"
     },
     {
-     "address": "Dale Ave Gloucester, Massachusetts, 01930",
-     "age_days": 236.1,
+     "address": "Dale Ave",
+     "age_days": 236.2,
      "category": "Parking Kiosk",
      "created_at": "2026-02-02T16:19:23-05:00",
      "id": "20929108",
@@ -6790,8 +6652,8 @@
      "ward": "2"
     },
     {
-     "address": "36 Main St GLOUCESTER, MA, 01930, USA",
-     "age_days": 175.3,
+     "address": "1–99 Main St",
+     "age_days": 175.4,
      "category": "Parking Kiosk",
      "created_at": "2026-04-04T12:28:21-04:00",
      "id": "21388720",
@@ -6799,7 +6661,7 @@
      "ward": "2"
     },
     {
-     "address": "282-284 Main St Gloucester, Massachusetts, 01930",
+     "address": "200 block of Main St",
      "age_days": 142.2,
      "category": "Parking Kiosk",
      "created_at": "2026-05-07T15:45:19-04:00",
@@ -6808,7 +6670,7 @@
      "ward": "2"
     },
     {
-     "address": "Rogers St Gloucester, Massachusetts, 01930",
+     "address": "Rogers St",
      "age_days": 113.5,
      "category": "Parking Kiosk",
      "created_at": "2026-06-05T09:08:30-04:00",
@@ -6817,8 +6679,8 @@
      "ward": "2"
     },
     {
-     "address": "Mile 14.1 State Rte 127 S Gloucester, MA, 01930, USA",
-     "age_days": 111.7,
+     "address": "Mile 14.1 State Rte 127 S",
+     "age_days": 111.8,
      "category": "Parking Kiosk",
      "created_at": "2026-06-07T02:51:00-04:00",
      "id": "21913402",
@@ -6826,8 +6688,8 @@
      "ward": "2"
     },
     {
-     "address": "278 Main St Gloucester, Massachusetts, 01930",
-     "age_days": 95.3,
+     "address": "200 block of Main St",
+     "age_days": 95.4,
      "category": "Parking Kiosk",
      "created_at": "2026-06-23T12:09:58-04:00",
      "id": "22056481",
@@ -6835,7 +6697,7 @@
      "ward": "2"
     },
     {
-     "address": "52-76 Middle St Gloucester, MA, 01930, USA",
+     "address": "1–99 Middle St",
      "age_days": 94.5,
      "category": "Parking Kiosk",
      "created_at": "2026-06-24T09:36:19-04:00",
@@ -6844,8 +6706,8 @@
      "ward": "2"
     },
     {
-     "address": "45 Rogers St Gloucester, MA, 01930, USA",
-     "age_days": 82.3,
+     "address": "1–99 Rogers St",
+     "age_days": 82.4,
      "category": "Parking Kiosk",
      "created_at": "2026-07-06T12:36:06-04:00",
      "id": "22164108",
@@ -6998,7 +6860,7 @@
    ],
    "oldest": [
     {
-     "address": "3 Pond Road Gloucester, Massachusetts, 01930",
+     "address": "1–99 Pond Road",
      "age_days": 535.5,
      "category": "Community Development",
      "created_at": "2025-04-09T09:09:56-04:00",
@@ -7007,7 +6869,7 @@
      "ward": "1"
     },
     {
-     "address": "18a Beckford Street Gloucester, MA, 01930, USA",
+     "address": "1–99 Beckford Street",
      "age_days": 507.4,
      "category": "Community Development",
      "created_at": "2025-05-07T11:30:50-04:00",
@@ -7016,8 +6878,8 @@
      "ward": "2"
     },
     {
-     "address": "101-199 Gloucester Xing Gloucester, MA, 01930, USA",
-     "age_days": 389.5,
+     "address": "101-199",
+     "age_days": 389.6,
      "category": "Community Development",
      "created_at": "2025-09-02T07:34:21-04:00",
      "id": "19891689",
@@ -7025,7 +6887,7 @@
      "ward": "2"
     },
     {
-     "address": "Friend St & Webster St Gloucester, MA, 01930, USA",
+     "address": "Friend St & Webster St",
      "age_days": 161.5,
      "category": "Community Development",
      "created_at": "2026-04-18T09:36:07-04:00",
@@ -7034,8 +6896,8 @@
      "ward": "1"
     },
     {
-     "address": "2-98 Bradford Rd Gloucester, MA, 01930, USA",
-     "age_days": 132.4,
+     "address": "1–99 Bradford Rd",
+     "age_days": 132.5,
      "category": "Community Development",
      "created_at": "2026-05-17T09:47:56-04:00",
      "id": "21732022",
@@ -7043,7 +6905,7 @@
      "ward": "3"
     },
     {
-     "address": "25 Hawthorne Rd GLOUCESTER, MA, 01930, USA",
+     "address": "1–99 Hawthorne Rd",
      "age_days": 116.5,
      "category": "Community Development",
      "created_at": "2026-06-02T08:54:29-04:00",
@@ -7052,8 +6914,8 @@
      "ward": "3"
     },
     {
-     "address": "Gloucester Xing Gloucester, MA, 01930, USA",
-     "age_days": 99.5,
+     "address": "Gloucester Xing",
+     "age_days": 99.6,
      "category": "Community Development",
      "created_at": "2026-06-19T07:26:35-04:00",
      "id": "22025871",
@@ -7061,7 +6923,7 @@
      "ward": "2"
     },
     {
-     "address": "1101 School House Rd Gloucester, MA, 01930, USA",
+     "address": "1100 block of School House Rd",
      "age_days": 80.4,
      "category": "Community Development",
      "created_at": "2026-07-08T11:41:48-04:00",
@@ -7070,7 +6932,7 @@
      "ward": "2"
     },
     {
-     "address": "Gloucester Xing Gloucester, MA, 01930, USA",
+     "address": "Gloucester Xing",
      "age_days": 72.3,
      "category": "Community Development",
      "created_at": "2026-07-16T13:29:45-04:00",
@@ -7079,8 +6941,8 @@
      "ward": "2"
     },
     {
-     "address": "Mile 55.8 State Rte 128 N Gloucester, MA, 01930, USA",
-     "age_days": 28.3,
+     "address": "Mile 55.8 State Rte 128 N",
+     "age_days": 28.4,
      "category": "Community Development",
      "created_at": "2026-08-29T12:20:28-04:00",
      "id": "22642553",
@@ -7377,7 +7239,7 @@
    ],
    "oldest": [
     {
-     "address": "3 Cushing Lane Gloucester, MA, 01930, USA",
+     "address": "1–99 Cushing Lane",
      "age_days": 1407.2,
      "category": "Conservation",
      "created_at": "2022-11-19T15:15:58-05:00",
@@ -7386,7 +7248,7 @@
      "ward": "4"
     },
     {
-     "address": "15 Harriet Road Gloucester, Massachusetts, 01930",
+     "address": "1–99 Harriet Road",
      "age_days": 1390.2,
      "category": "Conservation",
      "created_at": "2022-12-06T15:31:39-05:00",
@@ -7395,7 +7257,7 @@
      "ward": "1"
     },
     {
-     "address": "9-31 Niles Pond Rd Gloucester, MA, 01930, USA",
+     "address": "1–99 Niles Pond Rd",
      "age_days": 1252.3,
      "category": "Conservation",
      "created_at": "2023-04-23T14:11:53-04:00",
@@ -7404,7 +7266,7 @@
      "ward": "1"
     },
     {
-     "address": "9-31 Niles Pond Rd Gloucester, MA, 01930, USA",
+     "address": "1–99 Niles Pond Rd",
      "age_days": 1252.3,
      "category": "Conservation",
      "created_at": "2023-04-23T14:12:24-04:00",
@@ -7413,8 +7275,8 @@
      "ward": "1"
     },
     {
-     "address": "3 Colburn Street Gloucester, MA, 01930, USA",
-     "age_days": 1023.3,
+     "address": "1–99 Colburn Street",
+     "age_days": 1023.4,
      "category": "Conservation",
      "created_at": "2023-12-08T11:17:50-05:00",
      "id": "15719093",
@@ -7422,7 +7284,7 @@
      "ward": "4"
     },
     {
-     "address": "2 Niles Pond Road Gloucester, MA, 01930, USA",
+     "address": "1–99 Niles Pond Road",
      "age_days": 1003.2,
      "category": "Conservation",
      "created_at": "2023-12-28T14:35:35-05:00",
@@ -7431,7 +7293,7 @@
      "ward": "1"
     },
     {
-     "address": "56 New Way Lane Gloucester, MA, 01930, USA",
+     "address": "1–99 New Way Lane",
      "age_days": 957.4,
      "category": "Conservation",
      "created_at": "2024-02-12T09:50:21-05:00",
@@ -7440,8 +7302,8 @@
      "ward": "5"
     },
     {
-     "address": "10 Brace Cove Gloucester, MA, 01930, USA",
-     "age_days": 957.3,
+     "address": "1–99 Brace Cove",
+     "age_days": 957.4,
      "category": "Conservation",
      "created_at": "2024-02-12T11:31:09-05:00",
      "id": "16040646",
@@ -7449,7 +7311,7 @@
      "ward": "1"
     },
     {
-     "address": "14 Ft Hill Ave Gloucester MA 01930, United States",
+     "address": "1–99 Ft Hill Ave",
      "age_days": 941.5,
      "category": "Conservation",
      "created_at": "2024-02-28T08:07:09-05:00",
@@ -7458,7 +7320,7 @@
      "ward": "1"
     },
     {
-     "address": "1 Essex Avenue Gloucester, MA, 01930, USA",
+     "address": "1–99 Essex Avenue",
      "age_days": 829.2,
      "category": "Conservation",
      "created_at": "2024-06-19T15:39:02-04:00",
@@ -7612,7 +7474,7 @@
    ],
    "oldest": [
     {
-     "address": "Maple St & Mount Vernon St Gloucester, MA, 01930, USA",
+     "address": "Maple St & Mount Vernon St",
      "age_days": 912.2,
      "category": "Water Quality",
      "created_at": "2024-03-28T16:13:21-04:00",
@@ -7621,7 +7483,7 @@
      "ward": "2"
     },
     {
-     "address": "129 Leonard St Gloucester, Massachusetts, 01930",
+     "address": "100 block of Leonard St",
      "age_days": 33.4,
      "category": "Water Quality",
      "created_at": "2026-08-24T11:01:22-04:00",
@@ -7883,8 +7745,8 @@
    ],
    "oldest": [
     {
-     "address": "805–831 Washington St Gloucester MA 01930, United States",
-     "age_days": 877.2,
+     "address": "800 block of Washington St",
+     "age_days": 877.3,
      "category": "Graffiti",
      "created_at": "2024-05-02T15:08:22-04:00",
      "id": "16525104",
@@ -7892,7 +7754,7 @@
      "ward": "4"
     },
     {
-     "address": "Mile 22.7 State Rte 127 S Gloucester, Massachusetts, 01930",
+     "address": "Mile 22.7 State Rte 127 S",
      "age_days": 477.5,
      "category": "Graffiti",
      "created_at": "2025-06-06T08:49:27-04:00",
@@ -7901,8 +7763,8 @@
      "ward": "4"
     },
     {
-     "address": "01930 Gloucester, MA, USA",
-     "age_days": 121.3,
+     "address": "",
+     "age_days": 121.4,
      "category": "Graffiti",
      "created_at": "2026-05-28T12:22:22-04:00",
      "id": "21828158",
@@ -7910,7 +7772,7 @@
      "ward": "3"
     },
     {
-     "address": "Cherry St Gloucester, Massachusetts, 01930",
+     "address": "Cherry St",
      "age_days": 36.4,
      "category": "Graffiti",
      "created_at": "2026-08-21T11:49:57-04:00",
@@ -7919,7 +7781,7 @@
      "ward": "4"
     },
     {
-     "address": "Cherry St Gloucester, Massachusetts, 01930",
+     "address": "Cherry St",
      "age_days": 36.4,
      "category": "Graffiti",
      "created_at": "2026-08-21T11:56:26-04:00",
@@ -8064,8 +7926,8 @@
      "ward": "1"
     },
     {
-     "address": "Kent Rd Gloucester, Massachusetts, 01930",
-     "age_days": 132.4,
+     "address": "Kent Rd",
+     "age_days": 132.5,
      "category": "Traffic Signal Issue",
      "created_at": "2026-05-17T10:09:33-04:00",
      "id": "21732100",
@@ -8164,7 +8026,7 @@
    ],
    "oldest": [
     {
-     "address": "32-32 Western Ave Gloucester, MA, 01930, USA",
+     "address": "1–99 Western Ave",
      "age_days": 795.4,
      "category": "Harbor Master's Office",
      "created_at": "2024-07-23T11:16:10-04:00",
@@ -8173,8 +8035,8 @@
      "ward": "3"
     },
     {
-     "address": "237 E Main Street Gloucester, MA, 01930, USA",
-     "age_days": 791.2,
+     "address": "200 block of E Main Street",
+     "age_days": 791.3,
      "category": "Harbor Master's Office",
      "created_at": "2024-07-27T14:36:52-04:00",
      "id": "17140336",
@@ -8182,7 +8044,7 @@
      "ward": "1"
     },
     {
-     "address": "59–99 Shore Rd Gloucester MA 01930, United States",
+     "address": "1–99 Shore Rd",
      "age_days": 776.3,
      "category": "Harbor Master's Office",
      "created_at": "2024-08-11T14:06:39-04:00",
@@ -8191,7 +8053,7 @@
      "ward": "5"
     },
     {
-     "address": "4 Lobster Ln Gloucester 01930, United States",
+     "address": "1–99 Lobster Ln",
      "age_days": 519.2,
      "category": "Harbor Master's Office",
      "created_at": "2025-04-25T16:02:43-04:00",
@@ -8200,7 +8062,7 @@
      "ward": "5"
     },
     {
-     "address": "4 Stanwood Point Gloucester, MA, 01930, USA",
+     "address": "1–99 Stanwood Point",
      "age_days": 443.1,
      "category": "Harbor Master's Office",
      "created_at": "2025-07-10T18:49:55-04:00",
@@ -8209,7 +8071,7 @@
      "ward": "5"
     },
     {
-     "address": "Lanes Cove Rd Gloucester, MA, 01930, USA",
+     "address": "Lanes Cove Rd",
      "age_days": 62.3,
      "category": "Harbor Master's Office",
      "created_at": "2026-07-26T14:06:14-04:00",
@@ -8594,16 +8456,16 @@
   }
  ],
  "data_since": "2020-04-21",
- "generated_at": "2026-09-26T20:29:33-04:00",
+ "generated_at": "2026-09-26T21:31:17-04:00",
  "min_sample": 5,
  "monthly": [
   {
    "acknowledged": 0,
    "checked": 0,
-   "closed": 71,
+   "closed": 70,
    "month": "2024-10",
    "open": 4,
-   "received": 75,
+   "received": 74,
    "recent": false,
    "time_to_acknowledge": {
     "median": null,
@@ -8611,9 +8473,9 @@
     "p90": null
    },
    "time_to_close": {
-    "median": 8.61,
-    "n": 71,
-    "p90": 197.65
+    "median": 8.31,
+    "n": 70,
+    "p90": 199.05
    },
    "top_category": {
     "category": "Illegal Dumping",
@@ -15139,7 +15001,7 @@
    ],
    "oldest": [
     {
-     "address": "34 Beachcroft Road Gloucester, MA, 01930, USA",
+     "address": "1–99 Beachcroft Road",
      "age_days": 1620.5,
      "category": "Other",
      "created_at": "2022-04-20T08:48:35-04:00",
@@ -15148,16 +15010,7 @@
      "ward": "1"
     },
     {
-     "address": "11 Niles Pond Road Gloucester, MA, 01930, USA",
-     "age_days": 1392.0,
-     "category": "Private Property Issue",
-     "created_at": "2022-12-04T20:25:47-05:00",
-     "id": "13778265",
-     "url": "https://seeclickfix.com/issues/13778265",
-     "ward": "1"
-    },
-    {
-     "address": "15 Harriet Road Gloucester, Massachusetts, 01930",
+     "address": "1–99 Harriet Road",
      "age_days": 1390.2,
      "category": "Conservation",
      "created_at": "2022-12-06T15:31:39-05:00",
@@ -15166,25 +15019,7 @@
      "ward": "1"
     },
     {
-     "address": "8 Orchard Road Gloucester, Massachusetts, 01930",
-     "age_days": 1328.2,
-     "category": "Private Property Issue",
-     "created_at": "2023-02-06T14:56:00-05:00",
-     "id": "14037151",
-     "url": "https://seeclickfix.com/issues/14037151",
-     "ward": "1"
-    },
-    {
-     "address": "15 Sadler St Gloucester MA 01930, United States",
-     "age_days": 1327.3,
-     "category": "Health Department",
-     "created_at": "2023-02-07T11:46:30-05:00",
-     "id": "14041298",
-     "url": "https://seeclickfix.com/issues/14041298",
-     "ward": "1"
-    },
-    {
-     "address": "9-31 Niles Pond Rd Gloucester, MA, 01930, USA",
+     "address": "1–99 Niles Pond Rd",
      "age_days": 1252.3,
      "category": "Conservation",
      "created_at": "2023-04-23T14:11:53-04:00",
@@ -15193,7 +15028,7 @@
      "ward": "1"
     },
     {
-     "address": "9-31 Niles Pond Rd Gloucester, MA, 01930, USA",
+     "address": "1–99 Niles Pond Rd",
      "age_days": 1252.3,
      "category": "Conservation",
      "created_at": "2023-04-23T14:12:24-04:00",
@@ -15202,7 +15037,7 @@
      "ward": "1"
     },
     {
-     "address": "5 East Main Street Gloucester, MA, 01930, USA",
+     "address": "1–99 East Main Street",
      "age_days": 1241.1,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2023-05-04T19:16:20-04:00",
@@ -15211,7 +15046,7 @@
      "ward": "1"
     },
     {
-     "address": "Herrick Ct Gloucester MA 01930, United States",
+     "address": "Herrick Ct",
      "age_days": 1235.0,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2023-05-10T20:25:27-04:00",
@@ -15220,12 +15055,39 @@
      "ward": "1"
     },
     {
-     "address": "18 Traverse Street Gloucester, Massachusetts, 01930",
-     "age_days": 1208.2,
+     "address": "1–99 Traverse Street",
+     "age_days": 1208.3,
      "category": "Sidewalk Issue",
      "created_at": "2023-06-06T15:11:49-04:00",
      "id": "14663985",
      "url": "https://seeclickfix.com/issues/14663985",
+     "ward": "1"
+    },
+    {
+     "address": "1–99 Blake Ct",
+     "age_days": 1056.3,
+     "category": "Sidewalk Issue",
+     "created_at": "2023-11-05T12:34:31-05:00",
+     "id": "15569333",
+     "url": "https://seeclickfix.com/issues/15569333",
+     "ward": "1"
+    },
+    {
+     "address": "1–99 Niles Pond Road",
+     "age_days": 1003.2,
+     "category": "Conservation",
+     "created_at": "2023-12-28T14:35:35-05:00",
+     "id": "15799327",
+     "url": "https://seeclickfix.com/issues/15799327",
+     "ward": "1"
+    },
+    {
+     "address": "Adams Pl",
+     "age_days": 984.4,
+     "category": "Street Light Issue",
+     "created_at": "2024-01-16T09:47:53-05:00",
+     "id": "15884504",
+     "url": "https://seeclickfix.com/issues/15884504",
      "ward": "1"
     }
    ],
@@ -15871,35 +15733,8 @@
    ],
    "oldest": [
     {
-     "address": "6 Sadler St Gloucester MA 01930, United States",
-     "age_days": 2349.3,
-     "category": "Private Property Issue",
-     "created_at": "2020-04-21T13:57:09-04:00",
-     "id": "7696257",
-     "url": "https://seeclickfix.com/issues/7696257",
-     "ward": "2"
-    },
-    {
-     "address": "201 Gloucester Crossing Gloucester, MA, 01930, USA",
-     "age_days": 2062.1,
-     "category": "Health Department",
-     "created_at": "2021-02-02T17:25:34-05:00",
-     "id": "9282468",
-     "url": "https://seeclickfix.com/issues/9282468",
-     "ward": "2"
-    },
-    {
-     "address": "67 Middle St Gloucester, MA 01930, USA",
-     "age_days": 1898.5,
-     "category": "Health Department",
-     "created_at": "2021-07-16T09:01:28-04:00",
-     "id": "10427677",
-     "url": "https://seeclickfix.com/issues/10427677",
-     "ward": "2"
-    },
-    {
-     "address": "86 Main Street Gloucester, MA, 01930, USA",
-     "age_days": 1858.2,
+     "address": "1–99 Main Street",
+     "age_days": 1858.3,
      "category": "Other",
      "created_at": "2021-08-25T15:04:08-04:00",
      "id": "10876481",
@@ -15907,57 +15742,84 @@
      "ward": "2"
     },
     {
-     "address": "34 Railroad Ave Gloucester, MA 01930, USA",
-     "age_days": 1708.4,
-     "category": "Health Department",
-     "created_at": "2022-01-22T10:00:37-05:00",
-     "id": "11772169",
-     "url": "https://seeclickfix.com/issues/11772169",
+     "address": "1–99 Burnham Street",
+     "age_days": 1265.6,
+     "category": "Sidewalk Issue",
+     "created_at": "2023-04-10T08:17:38-04:00",
+     "id": "14336996",
+     "url": "https://seeclickfix.com/issues/14336996",
      "ward": "2"
     },
     {
-     "address": "262 Main Street Gloucester, MA, 01930, USA",
-     "age_days": 1698.8,
-     "category": "Health Department",
-     "created_at": "2022-02-01T00:11:12-05:00",
-     "id": "11812528",
-     "url": "https://seeclickfix.com/issues/11812528",
+     "address": "1–99 Elm Street",
+     "age_days": 1263.3,
+     "category": "Sidewalk Issue",
+     "created_at": "2023-04-12T14:04:31-04:00",
+     "id": "14354537",
+     "url": "https://seeclickfix.com/issues/14354537",
      "ward": "2"
     },
     {
-     "address": "62 Warner Street Gloucester, Massachusetts, 01930",
-     "age_days": 1571.2,
-     "category": "Health Department",
-     "created_at": "2022-06-08T14:44:54-04:00",
-     "id": "12525023",
-     "url": "https://seeclickfix.com/issues/12525023",
+     "address": "1–99 Myrtle Square",
+     "age_days": 1157.3,
+     "category": "Sidewalk Issue",
+     "created_at": "2023-07-27T13:30:44-04:00",
+     "id": "14973448",
+     "url": "https://seeclickfix.com/issues/14973448",
      "ward": "2"
     },
     {
-     "address": "51 Commercial Street Gloucester, Massachusetts, 01930",
-     "age_days": 1532.5,
-     "category": "Health Department",
-     "created_at": "2022-07-17T07:53:37-04:00",
-     "id": "12855704",
-     "url": "https://seeclickfix.com/issues/12855704",
+     "address": "1–99 Cleveland St",
+     "age_days": 1125.1,
+     "category": "Tree Issues",
+     "created_at": "2023-08-28T18:59:59-04:00",
+     "id": "15175356",
+     "url": "https://seeclickfix.com/issues/15175356",
      "ward": "2"
     },
     {
-     "address": "46 Maplewood Ave Gloucester MA 01930, United States",
-     "age_days": 1531.3,
-     "category": "Health Department",
-     "created_at": "2022-07-18T13:20:10-04:00",
-     "id": "12861370",
-     "url": "https://seeclickfix.com/issues/12861370",
+     "address": "Burnham St & Sargent St",
+     "age_days": 1090.3,
+     "category": "Sidewalk Issue",
+     "created_at": "2023-10-02T13:59:22-04:00",
+     "id": "15376070",
+     "url": "https://seeclickfix.com/issues/15376070",
      "ward": "2"
     },
     {
-     "address": "20 Maplewood Avenue Gloucester, MA, 01930, USA",
-     "age_days": 1508.5,
-     "category": "Health Department",
-     "created_at": "2022-08-10T07:53:58-04:00",
-     "id": "12978598",
-     "url": "https://seeclickfix.com/issues/12978598",
+     "address": "1–99 Pleasant St",
+     "age_days": 1074.4,
+     "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
+     "created_at": "2023-10-18T12:03:16-04:00",
+     "id": "15482221",
+     "url": "https://seeclickfix.com/issues/15482221",
+     "ward": "2"
+    },
+    {
+     "address": "1–99 Addison Street",
+     "age_days": 1035.0,
+     "category": "Other",
+     "created_at": "2023-11-26T21:24:22-05:00",
+     "id": "15661849",
+     "url": "https://seeclickfix.com/issues/15661849",
+     "ward": "2"
+    },
+    {
+     "address": "Liberty St",
+     "age_days": 923.1,
+     "category": "Sidewalk Issue",
+     "created_at": "2024-03-17T19:48:16-04:00",
+     "id": "16232874",
+     "url": "https://seeclickfix.com/issues/16232874",
+     "ward": "2"
+    },
+    {
+     "address": "1–99 Myrtle Square",
+     "age_days": 921.3,
+     "category": "Sidewalk Issue",
+     "created_at": "2024-03-19T13:26:30-04:00",
+     "id": "16244738",
+     "url": "https://seeclickfix.com/issues/16244738",
      "ward": "2"
     }
    ],
@@ -16565,7 +16427,7 @@
    ],
    "oldest": [
     {
-     "address": "1 Western Ave Gloucester MA 01930, United States",
+     "address": "1–99 Western Ave",
      "age_days": 2085.5,
      "category": "Illegal Dumping",
      "created_at": "2021-01-10T08:37:04-05:00",
@@ -16574,8 +16436,8 @@
      "ward": "3"
     },
     {
-     "address": "18 Wells Street Gloucester, MA, 01930, USA",
-     "age_days": 1649.3,
+     "address": "1–99 Wells Street",
+     "age_days": 1649.4,
      "category": "Other",
      "created_at": "2022-03-22T12:23:59-04:00",
      "id": "12063222",
@@ -16583,25 +16445,7 @@
      "ward": "3"
     },
     {
-     "address": "Lookout Park Governors Hill",
-     "age_days": 1593.6,
-     "category": "Health Department",
-     "created_at": "2022-05-17T06:38:41-04:00",
-     "id": "12339682",
-     "url": "https://seeclickfix.com/issues/12339682",
-     "ward": "3"
-    },
-    {
-     "address": "35 Commonwealth Avenue Gloucester, Massachusetts, 01930",
-     "age_days": 1531.4,
-     "category": "Health Department",
-     "created_at": "2022-07-18T10:37:27-04:00",
-     "id": "12859868",
-     "url": "https://seeclickfix.com/issues/12859868",
-     "ward": "3"
-    },
-    {
-     "address": "29 Emerson Avenue Gloucester, Massachusetts, 01930",
+     "address": "1–99 Emerson Avenue",
      "age_days": 1227.4,
      "category": "Sidewalk Issue",
      "created_at": "2023-05-18T11:32:16-04:00",
@@ -16610,7 +16454,7 @@
      "ward": "3"
     },
     {
-     "address": "115 Western Avenue Gloucester, MA, 01930, USA",
+     "address": "100 block of Western Avenue",
      "age_days": 1105.3,
      "category": "Other",
      "created_at": "2023-09-17T13:56:15-04:00",
@@ -16619,8 +16463,8 @@
      "ward": "3"
     },
     {
-     "address": "38 Middle Street Gloucester, Massachusetts, 01930",
-     "age_days": 1082.4,
+     "address": "1–99 Middle Street",
+     "age_days": 1082.5,
      "category": "Sidewalk Issue",
      "created_at": "2023-10-10T10:34:44-04:00",
      "id": "15417949",
@@ -16628,8 +16472,8 @@
      "ward": "3"
     },
     {
-     "address": "1–13 Essex Ave Gloucester MA 01930, United States",
-     "age_days": 1035.0,
+     "address": "1–99 Essex Ave",
+     "age_days": 1035.1,
      "category": "Street Light Issue",
      "created_at": "2023-11-26T18:38:59-05:00",
      "id": "15661528",
@@ -16637,7 +16481,7 @@
      "ward": "3"
     },
     {
-     "address": "124r Centennial Avenue Gloucester, MA, 01930, USA",
+     "address": "100 block of Centennial Avenue",
      "age_days": 996.4,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2024-01-04T09:58:20-05:00",
@@ -16646,12 +16490,30 @@
      "ward": "3"
     },
     {
-     "address": "29 Emerson Avenue Gloucester, Massachusetts, 01930",
-     "age_days": 990.4,
+     "address": "1–99 Emerson Avenue",
+     "age_days": 990.5,
      "category": "Sidewalk Issue",
      "created_at": "2024-01-10T09:13:27-05:00",
      "id": "15856465",
      "url": "https://seeclickfix.com/issues/15856465",
+     "ward": "3"
+    },
+    {
+     "address": "1–99 Commonwealth Ave",
+     "age_days": 985.4,
+     "category": "Sidewalk Issue",
+     "created_at": "2024-01-15T10:23:55-05:00",
+     "id": "15880214",
+     "url": "https://seeclickfix.com/issues/15880214",
+     "ward": "3"
+    },
+    {
+     "address": "1–99 Summer St",
+     "age_days": 985.2,
+     "category": "Sidewalk Issue",
+     "created_at": "2024-01-15T15:32:55-05:00",
+     "id": "15881761",
+     "url": "https://seeclickfix.com/issues/15881761",
      "ward": "3"
     }
    ],
@@ -17316,8 +17178,8 @@
    ],
    "oldest": [
     {
-     "address": "1240 Washington Street Gloucester, MA, 01930, USA",
-     "age_days": 2048.2,
+     "address": "1200 block of Washington Street",
+     "age_days": 2048.3,
      "category": "Storm Drain/Flooding Issue",
      "created_at": "2021-02-16T14:30:35-05:00",
      "id": "9364041",
@@ -17325,8 +17187,8 @@
      "ward": "4"
     },
     {
-     "address": "498 Washington Street Gloucester, MA, 01930, USA",
-     "age_days": 2042.2,
+     "address": "400 block of Washington Street",
+     "age_days": 2042.3,
      "category": "Other",
      "created_at": "2021-02-22T14:13:16-05:00",
      "id": "9391474",
@@ -17334,8 +17196,8 @@
      "ward": "4"
     },
     {
-     "address": "30 Reservoir Rd Gloucester MA 01930, United States",
-     "age_days": 1998.5,
+     "address": "1–99 Reservoir Rd",
+     "age_days": 1998.6,
      "category": "Sidewalk Issue",
      "created_at": "2021-04-07T08:09:55-04:00",
      "id": "9665568",
@@ -17343,17 +17205,8 @@
      "ward": "4"
     },
     {
-     "address": "16 Butman Avenue Gloucester, Massachusetts, 01930",
-     "age_days": 1594.3,
-     "category": "Health Department",
-     "created_at": "2022-05-16T12:52:30-04:00",
-     "id": "12335777",
-     "url": "https://seeclickfix.com/issues/12335777",
-     "ward": "4"
-    },
-    {
-     "address": "Veterans Way Gloucester, Massachusetts, 01930",
-     "age_days": 1562.4,
+     "address": "Veterans Way",
+     "age_days": 1562.5,
      "category": "Sidewalk Issue",
      "created_at": "2022-06-17T09:56:23-04:00",
      "id": "12570050",
@@ -17361,16 +17214,7 @@
      "ward": "4"
     },
     {
-     "address": "498 Washington Street Gloucester, MA, 01930, USA",
-     "age_days": 1499.5,
-     "category": "Health Department",
-     "created_at": "2022-08-19T09:17:45-04:00",
-     "id": "13025668",
-     "url": "https://seeclickfix.com/issues/13025668",
-     "ward": "4"
-    },
-    {
-     "address": "3 Cushing Lane Gloucester, MA, 01930, USA",
+     "address": "1–99 Cushing Lane",
      "age_days": 1407.2,
      "category": "Conservation",
      "created_at": "2022-11-19T15:15:58-05:00",
@@ -17379,7 +17223,7 @@
      "ward": "4"
     },
     {
-     "address": "749 Washington Street Gloucester, Massachusetts, 01930",
+     "address": "700 block of Washington Street",
      "age_days": 1293.4,
      "category": "Other",
      "created_at": "2023-03-13T11:58:23-04:00",
@@ -17388,8 +17232,8 @@
      "ward": "4"
     },
     {
-     "address": "53 River Rd Gloucester, MA 01930, USA",
-     "age_days": 1239.5,
+     "address": "1–99 River Rd",
+     "age_days": 1239.6,
      "category": "Sidewalk Issue",
      "created_at": "2023-05-06T07:51:58-04:00",
      "id": "14483315",
@@ -17397,12 +17241,30 @@
      "ward": "4"
     },
     {
-     "address": "1085 Washington St Gloucester MA 01930, United States",
+     "address": "1000 block of Washington St",
      "age_days": 1191.2,
      "category": "Sidewalk Issue",
      "created_at": "2023-06-23T15:59:36-04:00",
      "id": "14763401",
      "url": "https://seeclickfix.com/issues/14763401",
+     "ward": "4"
+    },
+    {
+     "address": "1–99 Revere St",
+     "age_days": 1118.5,
+     "category": "Storm Drain/Flooding Issue",
+     "created_at": "2023-09-04T09:06:34-04:00",
+     "id": "15210808",
+     "url": "https://seeclickfix.com/issues/15210808",
+     "ward": "4"
+    },
+    {
+     "address": "900 block of Washington Street",
+     "age_days": 1044.4,
+     "category": "Street Light Issue",
+     "created_at": "2023-11-17T11:17:50-05:00",
+     "id": "15630531",
+     "url": "https://seeclickfix.com/issues/15630531",
      "ward": "4"
     }
    ],
@@ -18029,26 +17891,8 @@
    ],
    "oldest": [
     {
-     "address": "13 Cedarwood Road Gloucester, Massachusetts, 01930",
-     "age_days": 1607.3,
-     "category": "Health Department",
-     "created_at": "2022-05-03T13:44:23-04:00",
-     "id": "12274633",
-     "url": "https://seeclickfix.com/issues/12274633",
-     "ward": "5"
-    },
-    {
-     "address": "16 Winthrop Avenue Gloucester, MA, 01930, USA",
-     "age_days": 1498.2,
-     "category": "Private Property Issue",
-     "created_at": "2022-08-20T16:29:51-04:00",
-     "id": "13031515",
-     "url": "https://seeclickfix.com/issues/13031515",
-     "ward": "5"
-    },
-    {
-     "address": "24 Hough Ave Gloucester MA 01930, United States",
-     "age_days": 1337.1,
+     "address": "1–99 Hough Ave",
+     "age_days": 1337.2,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2023-01-28T16:31:15-05:00",
      "id": "14002311",
@@ -18056,7 +17900,7 @@
      "ward": "5"
     },
     {
-     "address": "470-580 Western Ave Gloucester, MA, 01930, USA",
+     "address": "400 block of Western Ave",
      "age_days": 1252.3,
      "category": "Other",
      "created_at": "2023-04-23T14:22:12-04:00",
@@ -18065,8 +17909,8 @@
      "ward": "5"
     },
     {
-     "address": "164 Hesperus Avenue Gloucester, Massachusetts, 01930",
-     "age_days": 1102.0,
+     "address": "100 block of Hesperus Avenue",
+     "age_days": 1102.1,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2023-09-20T19:55:27-04:00",
      "id": "15314839",
@@ -18074,7 +17918,7 @@
      "ward": "5"
     },
     {
-     "address": "9 Beachmont Avenue Gloucester, Massachusetts, 01930",
+     "address": "1–99 Beachmont Avenue",
      "age_days": 1101.4,
      "category": "Tree Issues",
      "created_at": "2023-09-21T11:03:43-04:00",
@@ -18083,8 +17927,8 @@
      "ward": "5"
     },
     {
-     "address": "24-40 Hough Ave Gloucester, MA, 01930, USA",
-     "age_days": 1067.1,
+     "address": "1–99 Hough Ave",
+     "age_days": 1067.2,
      "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
      "created_at": "2023-10-25T17:19:27-04:00",
      "id": "15520298",
@@ -18092,7 +17936,7 @@
      "ward": "5"
     },
     {
-     "address": "5 Herd'S Hill Gloucester, Massachusetts, 01930",
+     "address": "1–99 Herd'S Hill",
      "age_days": 998.2,
      "category": "Illegal Dumping",
      "created_at": "2024-01-02T14:54:21-05:00",
@@ -18101,7 +17945,7 @@
      "ward": "5"
     },
     {
-     "address": "7 Lisa Dr Gloucester MA 01930, United States",
+     "address": "1–99 Lisa Dr",
      "age_days": 993.4,
      "category": "Road Issues Other Than Potholes",
      "created_at": "2024-01-07T10:09:40-05:00",
@@ -18110,12 +17954,30 @@
      "ward": "5"
     },
     {
-     "address": "18–50 Hough Ave Gloucester MA 01930, United States",
+     "address": "1–99 Hough Ave",
      "age_days": 983.6,
      "category": "Beaches",
      "created_at": "2024-01-17T05:55:55-05:00",
      "id": "15890179",
      "url": "https://seeclickfix.com/issues/15890179",
+     "ward": "5"
+    },
+    {
+     "address": "1–99 New Way Lane",
+     "age_days": 957.4,
+     "category": "Conservation",
+     "created_at": "2024-02-12T09:50:21-05:00",
+     "id": "16039601",
+     "url": "https://seeclickfix.com/issues/16039601",
+     "ward": "5"
+    },
+    {
+     "address": "1–99 Lexington Ave",
+     "age_days": 927.3,
+     "category": "Public Spaces (Parks, Playgrounds, Boulevard)",
+     "created_at": "2024-03-13T14:03:19-04:00",
+     "id": "16210258",
+     "url": "https://seeclickfix.com/issues/16210258",
      "ward": "5"
     }
    ],

@@ -97,12 +97,13 @@ def open_at(record: dict, when: datetime) -> bool:
     return closed is None or closed > when
 
 
-def oldest_open(records: list[dict], now: datetime, link_base: str, n: int = 10) -> list[dict]:
+def oldest_open(records: list[dict], now: datetime, link_base: str, exclude: list[str], n: int = 10) -> list[dict]:
+    """Longest-open requests, by block, without the categories kept off lists."""
     return [{
-        "id": r["id"], "category": r["category"], "address": r["address"], "ward": r.get("ward"),
+        "id": r["id"], "category": r["category"], "address": block_address(r["address"]), "ward": r.get("ward"),
         "created_at": r["created_at"], "age_days": round(days_between(parse(r["created_at"]), now), 1),
         "url": f"{link_base}/{r['id']}",
-    } for r in sorted(records, key=lambda r: r["created_at"])[:n]]
+    } for r in sorted(listable(records, exclude), key=lambda r: r["created_at"])[:n]]
 
 
 def month_counts(records: list[dict], months: list[str]) -> list[dict]:
@@ -112,7 +113,7 @@ def month_counts(records: list[dict], months: list[str]) -> list[dict]:
     return [{"month": m, "received": counts.get(m, 0)} for m in months]
 
 
-def backlog(open_records: list[dict], now: datetime, link_base: str) -> dict:
+def backlog(open_records: list[dict], now: datetime, link_base: str, exclude: list[str]) -> dict:
     buckets = [{"label": label, "max_days": limit, "count": 0} for limit, label in BACKLOG_BUCKETS]
     for r in open_records:
         age = days_between(parse(r["created_at"]), now)
@@ -124,7 +125,7 @@ def backlog(open_records: list[dict], now: datetime, link_base: str) -> dict:
         "open": len(open_records),
         "median_age_days": round(median([days_between(parse(r["created_at"]), now) for r in open_records]), 1) if open_records else None,
         "buckets": buckets,
-        "oldest": oldest_open(open_records, now, link_base),
+        "oldest": oldest_open(open_records, now, link_base, exclude),
     }
 
 
@@ -135,11 +136,15 @@ def distance_m(a: dict, b: dict) -> float:
     return 2 * 6371000 * math.asin(math.sqrt(h))
 
 
+def listable(records: list[dict], exclude: list[str]) -> list[dict]:
+    """Requests whose category can be shown on maps and lists."""
+    patterns = [re.compile(p) for p in exclude]
+    return [r for r in records if not any(p.search(r["category"]) for p in patterns)]
+
+
 def mappable(records: list[dict], exclude: list[str]) -> list[dict]:
     """Requests that can be shown on the map and the repeat list."""
-    patterns = [re.compile(p) for p in exclude]
-    return [r for r in records if r.get("lat") is not None and r.get("lng") is not None
-            and not any(p.search(r["category"]) for p in patterns)]
+    return [r for r in listable(records, exclude) if r.get("lat") is not None and r.get("lng") is not None]
 
 
 def point(r: dict) -> dict:
@@ -248,7 +253,8 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
 
     open_records = [r for r in records if r["status"] == "open"]
     earliest = min((r["created_at"] for r in records), default=None)
-    backlog_now = backlog(open_records, now, link_base)
+    rep = config["seeclickfix"]["repeats"]
+    backlog_now = backlog(open_records, now, link_base, rep["exclude"])
     backlog_now["open_week_ago"] = sum(open_at(r, now - timedelta(days=7)) for r in records)
 
     # Detail for the per-category and per-ward pages: past 12 months.
@@ -262,7 +268,7 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
             "category": c, "slug": slugify(c), **summarize(rs),
             "monthly": month_counts(rs, last_months),
             "by_ward": [{"ward": w, **summarize(ws)} for w, ws in sorted(wards.items(), key=lambda x: (x[0] == "outside", x[0]))],
-            "oldest": oldest_open([r for r in open_records if r["category"] == c], now, link_base),
+            "oldest": oldest_open([r for r in open_records if r["category"] == c], now, link_base, rep["exclude"]),
         })
     wards_detail = []
     for w, rs in sorted(by_ward.items(), key=lambda x: (x[0] == "outside", x[0])):
@@ -274,10 +280,9 @@ def compute(config: dict, data_dir: Path, now: datetime | None = None) -> dict:
             "monthly": month_counts(rs, last_months),
             "by_category": sorted(({"category": c, "slug": slugify(c), **summarize(cs)} for c, cs in cats.items()),
                                   key=lambda x: (-x["received"], x["category"])),
-            "oldest": oldest_open([r for r in open_records if (r.get("ward") or "outside") == w], now, link_base),
+            "oldest": oldest_open([r for r in open_records if (r.get("ward") or "outside") == w], now, link_base, rep["exclude"]),
         })
 
-    rep = config["seeclickfix"]["repeats"]
     on_map = mappable(records, rep["exclude"])
     on_map_window = [r for r in on_map if parse(r["created_at"]) >= window_start]
 

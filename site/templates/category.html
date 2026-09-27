@@ -29,8 +29,10 @@
 {% if c.oldest %}
 <h2 id="longest-open">Longest-open {{ c.category }} requests</h2>
 <ol class="plain-list">
-  {% for r in c.oldest %}<li><a href="{{ r.url }}">{{ (r.address | street) or "No address" }}</a>{% if r.ward %}, Ward {{ r.ward }}{% endif %}. Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>{% endfor %}
+  {% for r in c.oldest %}<li><a href="{{ r.url }}">{{ r.address or "No street address" }}</a>{% if r.ward %}, Ward {{ r.ward }}{% endif %}. Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>{% endfor %}
 </ol>
+{% elif c.open %}
+<p>Open requests in this category aren't listed by location because they can be about private homes, people, or animals. They count in the totals above.</p>
 {% endif %}
 <p class="source-note"><a href="/311/methodology/">How these numbers are calculated</a>.</p>
 {% endblock %}

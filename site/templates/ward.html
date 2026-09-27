@@ -37,7 +37,7 @@
 {% if w.oldest %}
 <h2 id="longest-open">Longest-open requests in Ward {{ w.ward }}</h2>
 <ol class="plain-list">
-  {% for r in w.oldest %}<li><a href="{{ r.url }}">{{ r.category }}</a>, {{ (r.address | street) or "no address" }}. Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>{% endfor %}
+  {% for r in w.oldest %}<li><a href="{{ r.url }}">{{ r.category }}</a>, {{ r.address or "no street address" }}. Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>{% endfor %}
 </ol>
 {% endif %}
 <p class="source-note">Wards use the 2022 boundaries from MassGIS. Differences between wards reflect how often residents report problems as well as how the city responds. <a href="/311/methodology/">Methodology</a>.</p>

@@ -139,9 +139,10 @@
 {{ chart_links("open", "/311/data/open-by-age.csv") }}
 
 <h3 id="longest-open">Longest-open requests</h3>
+<p>Requests about private homes, people, and animals aren't listed.</p>
 <ol class="plain-list">
   {% for r in b.oldest %}
-  <li><a href="{{ r.url }}">{{ r.category }}</a>, {{ (r.address | street) or "no address" }}{% if r.ward %}, Ward {{ r.ward }}{% endif %}. Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>
+  <li><a href="{{ r.url }}">{{ r.category }}</a>, {{ r.address or "no street address" }}{% if r.ward %}, Ward {{ r.ward }}{% endif %}. Open since <time datetime="{{ r.created_at }}">{{ r.created_at[:10] | date("plain") }}</time>.</li>
   {% endfor %}
 </ol>
 
