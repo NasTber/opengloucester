@@ -123,7 +123,8 @@ max_per_run = 50
 # Prices per million tokens, for the spending limit below.
 input_price = 2.0
 output_price = 10.0
-max_cost_per_run = 5.0
+# Raised to 10.0 for one catch-up run on Sept 27, 2026; set back to 5.0 after it.
+max_cost_per_run = 10.0
 
 # Context for unusual months on the 311 scorecard. Each note must cite a source.
 [[seeclickfix.annotations]]
