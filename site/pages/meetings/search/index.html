@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "macros.html" import search_form %}
+{% block title %}Search meetings{% endblock %}
+{% block description %}Search the text of {{ town.name }} agendas and minutes.{% endblock %}
+{% block head %}<script src="{{ "/static/js/search.js" | versioned }}" defer></script>{% endblock %}
+{% block content %}
+<nav aria-label="Breadcrumb" class="breadcrumb"><ol><li><a href="/meetings/">Meetings</a></li></ol></nav>
+<div class="page-head">
+  <h1>Search meetings</h1>
+  <p class="lede">Search the full text of agendas and minutes, plus board names and dates.</p>
+  {{ search_form() }}
+</div>
+
+<div id="search" data-index="{{ search_url }}">
+  <noscript><p>Search needs JavaScript. You can browse <a href="/meetings/boards/">boards and committees</a> or <a href="/meetings/past/">past meetings</a> instead.</p></noscript>
+  <p id="search-status" role="status"></p>
+  <ol id="search-results" class="search-results"></ol>
+</div>
+
+<p class="source-note">Covers meetings{% if meetings.all %} since <time datetime="{{ meetings.all[0].date }}">{{ meetings.all[0].date | date("plain") }}</time>{% endif %}. A document's text is added once it has been read, usually the morning after it's posted. Scanned pages may be missed.</p>
+{% endblock %}

@@ -2,10 +2,13 @@
 technology and every internal link resolves."""
 
 import json
+import re
 from html.parser import HTMLParser
 from urllib.parse import urlparse
 
 import pytest
+
+from pipeline import build_site
 
 
 class PageParser(HTMLParser):
@@ -232,3 +235,18 @@ def test_schools_page(site_dir):
     assert "Graduation rate" in page and "84.7%" in page and "State 89.3%" in page
     assert 'href="https://gloucesterschoolsreport.com"' in page
     assert 'href="/schools/"' in (site_dir / "index.html").read_text()
+
+
+def test_meeting_search_index(site_dir):
+    page = (site_dir / "meetings" / "search" / "index.html").read_text()
+    url = re.search(r'data-index="([^"]+)"', page).group(1)
+    assert url.startswith("/meetings/search-index.json?v=")
+    index = json.loads((site_dir / "meetings" / "search-index.json").read_text())
+    assert index and all(m["url"].startswith("/meetings/") and m["board"] and m["date"] for m in index)
+    assert [m["date"] for m in index] == sorted((m["date"] for m in index), reverse=True)
+    assert any(d["text"] and "**" not in d["text"] for m in index for d in m["docs"])
+    assert 'action="/meetings/search/"' in (site_dir / "meetings" / "index.html").read_text()
+
+
+def test_plain_text():
+    assert build_site.plain_text("# Agenda\n\n**1.** Call to order  |  x\n") == "Agenda\n1. Call to order x"

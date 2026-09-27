@@ -93,3 +93,21 @@ def test_unknown_path_serves_404_page(browser, server_url):
     assert response.status == 404
     assert page.locator("h1").inner_text() == "Page not found"
     context.close()
+
+
+@pytest.mark.parametrize("viewport", VIEWPORTS)
+def test_meeting_search_results(browser, axe, server_url, viewport):
+    context = browser.new_context(viewport=VIEWPORTS[viewport])
+    page = context.new_page()
+    page.goto(server_url + "/meetings/search/?q=ada+compliance")
+    page.wait_for_selector("#search-results > li")
+    assert "match" in page.text_content("#search-status")
+    assert page.locator("#search-results mark").first.text_content().lower() in ("ada", "compliance")
+    assert page.input_value("#search-q") == "ada compliance"
+    results = axe.run(page, options={"runOnly": {"type": "tag", "values": WCAG_TAGS}})
+    overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
+    page.goto(server_url + "/meetings/search/?q=zzzqqq")
+    page.wait_for_function("document.getElementById('search-status').textContent.startsWith('No meetings')")
+    context.close()
+    assert results.violations_count == 0, format_violations(results)
+    assert overflow <= 0

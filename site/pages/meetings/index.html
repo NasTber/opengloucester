@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros.html" import day_group %}
+{% from "macros.html" import day_group, search_form %}
 {% block title %}Meetings{% endblock %}
 {% block description %}Upcoming public meetings in {{ town.name }}, {{ town.state_abbr }}, with times, places, how to attend, agendas, and what was decided.{% endblock %}
 {% block content %}
@@ -10,6 +10,7 @@
     <li><a href="/meetings/boards/">Boards and committees</a></li>
     <li><a href="/meetings/past/">Past meetings and decisions</a></li>
   </ul>
+  {{ search_form() }}
 </div>
 
 <h2 id="upcoming">Upcoming</h2>

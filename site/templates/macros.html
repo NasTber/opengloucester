@@ -72,3 +72,13 @@
   {% if meetings.status %}Last checked <time datetime="{{ meetings.status.updated_at }}">{{ meetings.status.updated_at | timestamp }}</time>.{% endif %}
 </p>
 {%- endmacro %}
+
+{% macro search_form() -%}
+<form class="search-form" role="search" action="/meetings/search/" method="get">
+  <label for="search-q">Search agendas and minutes</label>
+  <div class="search-row">
+    <input id="search-q" name="q" type="search" autocomplete="off" spellcheck="false">
+    <button class="button button-primary" type="submit">Search</button>
+  </div>
+</form>
+{%- endmacro %}

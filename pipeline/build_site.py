@@ -214,6 +214,28 @@ def load_meetings(data_dir: Path, today: date, summary_model: str | None = None)
     }
 
 
+def plain_text(transcript: str | None) -> str:
+    """Markdown transcript -> plain lines, for search."""
+    lines = (re.sub(r"\s+", " ", re.sub(r"[*_`#>|]+", " ", line)).strip() for line in (transcript or "").splitlines())
+    return "\n".join(line for line in lines if line)
+
+
+def search_index(meetings: list[dict]) -> list[dict]:
+    """Every meeting's board, date, and document text, for /meetings/search/."""
+    rows = []
+    for m in meetings:
+        docs = []
+        if m["preview"]:
+            docs.append({"kind": "Agenda", "text": plain_text(m["preview"].get("transcript"))})
+        ms = m["minutes_summary"]
+        if ms:
+            docs.append({"kind": "Minutes" if ms.get("is_minutes", True) else "Agenda",
+                         "text": plain_text(ms.get("transcript"))})
+        rows.append({"url": m["url"], "board": m["body"], "date": m["date"],
+                     "date_text": format_date(m["date"]), "docs": [d for d in docs if d["text"]]})
+    return rows[::-1]
+
+
 def group_by(meetings: list[dict], period: str) -> list[tuple]:
     """Group meetings (already in order) by "date" (YYYY-MM-DD) or "month" (YYYY-MM-01)."""
     groups: dict = {}
@@ -363,9 +385,12 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
 
     own_hosts = {site["domain"], "www." + site["domain"]}
     sections = config["sections"]
+    # Newest first; the version in the URL changes whenever the text does.
+    search_json = json.dumps(search_index(meetings["all"]), ensure_ascii=False, separators=(",", ":"))
+    search_url = f"/meetings/search-index.json?v={hashlib.sha256(search_json.encode()).hexdigest()[:10]}"
     share_path = STATIC_DIR / "share" / f"{town}.png"
     share_image = f"{base_url}/static/share/{town}.png" if share_path.exists() else None
-    common = dict(config=config, site=site, town=config["town"], sections=sections, share_image=share_image,
+    common = dict(config=config, site=site, town=config["town"], sections=sections, share_image=share_image, search_url=search_url,
                   built_at=built_at, meetings=meetings, scorecard=scorecard, schools=schools,
                   headline=headline_numbers(data_dir, scorecard), map_points=map_points(scorecard))
     urls = []
@@ -405,6 +430,7 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         if src.exists():
             shutil.copytree(src, out_dir / "meetings" / folder)
 
+    (out_dir / "meetings" / "search-index.json").write_text(search_json, encoding="utf-8")
     write_support_files(out_dir, site, base_url, urls, built_at)
     return urls
 

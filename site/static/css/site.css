@@ -131,6 +131,20 @@ main .link-row li + li { margin-top: 0; }
 .button-primary:hover { background: var(--primary-dark); }
 @media (max-width: 30rem) { .actions .button { flex: 1 1 100%; } }
 
+/* Meeting search */
+.search-form { margin: 1.25rem 0 0; }
+.search-form label { display: block; font-weight: 700; margin-bottom: 0.35rem; }
+.search-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.search-row input {
+  flex: 1 1 12rem; min-width: 0; min-height: 2.9rem; padding: 0 0.75rem;
+  border: 1.5px solid var(--line-strong); border-radius: 4px; font: inherit; color: var(--ink); background: var(--bg);
+}
+.search-results { padding-left: 0; list-style: none; }
+.search-results > li { padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+.search-results > li + li { margin-top: 0; }
+.search-results .excerpt { margin: 0.35rem 0 0; font-size: 0.95rem; }
+.search-results mark { background: #fff1a8; color: inherit; font-weight: 600; }
+
 /* Status words: plain text with a marker, never color alone. */
 .flag { font-weight: 700; color: var(--accent); }
 .status { display: inline-block; font-size: 0.85rem; font-weight: 700; color: var(--muted); }
