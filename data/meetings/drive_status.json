@@ -1,14 +1,13 @@
 {
-  "documents_added": 10,
+  "documents_added": 0,
   "errors": [],
   "files_listed": 120,
   "left_out": [],
-  "meetings_created": 7,
-  "new_unreadable_names": [
-    "B & F Agenda 6_17_2.pdf"
-  ],
+  "meetings_created": 0,
+  "new_unreadable_names": [],
+  "scheduled_meetings_added": 6,
   "unreadable_names": [
     "B & F Agenda 6_17_2.pdf"
   ],
-  "updated_at": "2026-09-27T14:52:22-04:00"
+  "updated_at": "2026-09-27T16:52:30-04:00"
 }
