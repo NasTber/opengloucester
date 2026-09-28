@@ -14,7 +14,7 @@ tagline = "Public data on how Gloucester, Massachusetts responds, decides, and s
 masthead = "An independent guide to city government in Gloucester, Massachusetts"
 repo_url = "https://github.com/NasTber/opengloucester"
 # Public contact address. Shown on the About and Accessibility pages when set.
-contact_email = ""
+contact_email = "opengloucester@protonmail.com"
 timezone = "America/New_York"
 user_agent = "opengloucester.org (+https://opengloucester.org/about/)"
 
