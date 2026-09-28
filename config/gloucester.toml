@@ -16,7 +16,7 @@ network = "Publick"
 tagline = "Public data on how Gloucester, Massachusetts responds, decides, and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Gloucester, Massachusetts"
-repo_url = "https://github.com/NasTber/opengloucester"
+repo_url = "https://github.com/publick-org/gloucester-ma"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "opengloucester@protonmail.com"
 timezone = "America/New_York"

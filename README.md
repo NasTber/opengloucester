@@ -140,7 +140,7 @@ One-time setup. Each town's site is a subdomain of the network's domain, `<town>
 
 1. **Verify the network domain** once, so no other account can claim it or its subdomains: GitHub profile **Settings → Pages → Add a domain**, enter `publick.org`, then add the TXT record it gives you in Cloudflare **DNS → Records**.
 2. **Repository settings → Pages → Source:** GitHub Actions.
-3. **DNS record** in Cloudflare: a `CNAME` named `<town>-<state>` (e.g. `gloucester-ma`) with target `<github-username>.github.io`, **Proxy status: DNS only** (grey cloud). Proxied records stop GitHub from issuing the site's certificate.
+3. **DNS record** in Cloudflare: a `CNAME` named `<town>-<state>` (e.g. `gloucester-ma`) with target `<github-owner>.github.io` (for Publick: `publick-org.github.io`), **Proxy status: DNS only** (grey cloud). Proxied records stop GitHub from issuing the site's certificate.
 4. **Repository settings → Pages → Custom domain:** enter the town's domain, matching `domain` in its config. Once the certificate is issued, turn on **Enforce HTTPS**.
 
 ### Moving a site to a new domain
