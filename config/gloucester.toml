@@ -121,6 +121,14 @@ recent_open_days = 30
 
 # Plain-English agenda text and previews, written by a language model and
 # labeled as AI-generated on the site. Cached by document hash.
+[storage]
+# Agenda and minutes PDFs live in this Cloudflare R2 bucket, not in git (see
+# pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "gloucester-ma"
+
 [summaries]
 model = "claude-sonnet-5"
 max_per_run = 50

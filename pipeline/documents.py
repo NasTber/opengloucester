@@ -16,6 +16,8 @@ each PDF (its text, summary and SHA-256 hash).
 
 The keys come from the STORAGE_ACCESS_KEY_ID and STORAGE_SECRET_ACCESS_KEY
 environment variables. Building the site needs no keys, only public_url.
+Setting DOCUMENTS_LOCAL=1 keeps PDFs under data/meetings even for a town with
+a bucket: the tests do this, and so can a local run without keys.
 
 A PDF still in data/meetings (saved before the town had a bucket) is read and
 linked from there, so a site builds correctly before, during and after the
@@ -124,7 +126,7 @@ def make_client(settings: dict):
 
 def open_documents(config: dict, data_dir: Path) -> LocalDocuments:
     """The town's document store: its bucket if it has a [storage] table, else data/meetings."""
-    if "storage" in config:
+    if "storage" in config and not os.environ.get("DOCUMENTS_LOCAL"):
         return BucketDocuments(config["storage"], config["slug"], data_dir)
     return LocalDocuments(data_dir)
 

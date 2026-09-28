@@ -43,6 +43,11 @@ def with_storage(config: dict) -> dict:
     return town
 
 
+@pytest.fixture(autouse=True)
+def use_buckets(monkeypatch):
+    monkeypatch.delenv("DOCUMENTS_LOCAL", raising=False)
+
+
 @pytest.fixture
 def bucket(monkeypatch):
     bucket = FakeBucket()
@@ -50,8 +55,14 @@ def bucket(monkeypatch):
     return bucket
 
 
+def without_storage(config: dict) -> dict:
+    town = copy.deepcopy(config)
+    town.pop("storage", None)
+    return town
+
+
 def test_town_without_storage_keeps_pdfs_in_data(tmp_path):
-    store = documents.open_documents(load_config("gloucester"), tmp_path)
+    store = documents.open_documents(without_storage(load_config("gloucester")), tmp_path)
     assert type(store) is documents.LocalDocuments
     store.put("agendas", "1.pdf", b"%PDF-1")
     assert (tmp_path / "meetings" / "agendas" / "1.pdf").read_bytes() == b"%PDF-1"
@@ -94,8 +105,13 @@ def test_missing_keys_are_reported_per_document(tmp_path, monkeypatch):
         store.put("agendas", "1.pdf", b"%PDF-1")
 
 
+def test_documents_local_keeps_pdfs_in_data_despite_a_bucket(tmp_path, monkeypatch):
+    monkeypatch.setenv("DOCUMENTS_LOCAL", "1")
+    assert type(documents.open_documents(with_storage(load_config("gloucester")), tmp_path)) is documents.LocalDocuments
+
+
 def test_upload_moves_local_pdfs_and_keeps_links_working(tmp_path, bucket):
-    config = load_config("gloucester")
+    config = without_storage(load_config("gloucester"))
     fetch_meetings.run(config, FakeCityClient(), tmp_path, now=FETCHED_AT)
     fetch_minutes.run(config, FakeCityClient(), tmp_path, now=FETCHED_AT)
     local = sorted(p.relative_to(tmp_path / "meetings") for p in (tmp_path / "meetings").rglob("*.pdf"))
