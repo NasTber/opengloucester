@@ -15,177 +15,21 @@ on:
         options: [all, meetings, "311"]
         default: all
 
-# The town this repository builds: config/<town>.toml.
-env:
-  TOWN: gloucester
-
-permissions:
-  contents: read
-
+# One run at a time, so two data commits never race.
 concurrency:
   group: update-${{ github.ref }}
   cancel-in-progress: false
 
+# Fetch, commit data, build, check, and deploy, with the Publick engine at the
+# version pinned here: https://github.com/publick-org/publick-engine
 jobs:
-  # Fetch new data and commit it to main. Runs only on the schedule or by hand.
-  update:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    timeout-minutes: 90
+  site:
+    uses: publick-org/publick-engine/.github/workflows/town.yml@v1
+    with:
+      town: gloucester
+      sources: ${{ inputs.sources || 'all' }}
+    secrets: inherit
     permissions:
       contents: write
-    # For towns with a [storage] table: the bucket that holds agenda and minutes PDFs.
-    env:
-      STORAGE_ACCESS_KEY_ID: ${{ secrets.STORAGE_ACCESS_KEY_ID }}
-      STORAGE_SECRET_ACCESS_KEY: ${{ secrets.STORAGE_SECRET_ACCESS_KEY }}
-    steps:
-      - uses: actions/checkout@v5
-
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-          cache: pip
-          cache-dependency-path: requirements*.txt
-
-      - run: pip install -r requirements.txt
-
-      - name: Fetch meetings
-        if: inputs.sources != '311'
-        continue-on-error: true
-        run: python -m pipeline.fetch_meetings --town "$TOWN"
-
-      - name: Fetch minutes
-        if: inputs.sources != '311'
-        continue-on-error: true
-        run: python -m pipeline.fetch_minutes --town "$TOWN"
-
-      # School Committee agendas and minutes, from the school district's Google Drive.
-      - name: Fetch School Committee documents
-        if: inputs.sources != '311'
-        continue-on-error: true
-        run: python -m pipeline.fetch_drive_meetings --town "$TOWN"
-
-      # Readable text and summaries of new agendas and minutes (skipped if no API key).
-      - name: Summarize agendas
-        if: inputs.sources != '311'
-        continue-on-error: true
-        run: python -m pipeline.summarize --town "$TOWN"
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-
-      # One step per source, so one failing source doesn't stop the others.
-      - name: Fetch tax bill
-        if: inputs.sources != '311'
-        continue-on-error: true
-        run: python -m pipeline.fetch_finance --town "$TOWN"
-
-      - name: Fetch unemployment
-        if: inputs.sources != '311'
-        continue-on-error: true
-        run: python -m pipeline.fetch_labor --town "$TOWN"
-        env:
-          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
-
-      - name: Fetch school figures
-        if: inputs.sources != '311'
-        continue-on-error: true
-        run: python -m pipeline.fetch_schools --town "$TOWN"
-
-      # Budget and housing: weekly at most; skipped when the saved figures are recent.
-      - name: Fetch budget figures
-        if: inputs.sources != '311'
-        continue-on-error: true
-        run: python -m pipeline.fetch_budget --town "$TOWN"
-
-      - name: Fetch housing figures
-        if: inputs.sources != '311'
-        continue-on-error: true
-        run: python -m pipeline.fetch_housing --town "$TOWN"
-
-      # Building permits for the street lookup: weekly at most, like budget and housing.
-      - name: Fetch building permits
-        if: inputs.sources != '311'
-        continue-on-error: true
-        run: python -m pipeline.fetch_permits --town "$TOWN"
-
-      # With a [storage] table: move PDFs still saved in data/meetings to the bucket.
-      # Does nothing for a town without one.
-      - name: Move saved documents to storage
-        if: inputs.sources != '311'
-        continue-on-error: true
-        run: python -m pipeline.documents upload --town "$TOWN"
-
-      # Commit meetings first so they are not held up by the longer 311 step.
-      - name: Commit meetings
-        if: inputs.sources != '311'
-        run: .github/scripts/commit-data.sh "Update meetings and indicators" data/meetings data/summaries data/finance data/labor data/schools data/housing data/permits
-
-      - name: Fetch 311 requests
-        if: inputs.sources != 'meetings'
-        continue-on-error: true
-        run: python -m pipeline.fetch_311 --town "$TOWN"
-
-      - name: Compute 311 scorecard
-        if: inputs.sources != 'meetings'
-        run: python -m pipeline.compute_311 --town "$TOWN"
-
-      - name: Commit 311
-        if: inputs.sources != 'meetings'
-        run: .github/scripts/commit-data.sh "Update 311 data" data/311
-
-      # Fails the run (and GitHub emails the owner) when a source has stopped
-      # updating. Runs even if an earlier step failed; the site still deploys.
-      - name: Check data freshness
-        if: ${{ !cancelled() }}
-        run: python -m pipeline.freshness --town "$TOWN"
-
-  build:
-    needs: update
-    # Build even when the update job was skipped (push, PR) or failed (keep the last good data online).
-    if: ${{ !cancelled() }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-        with:
-          # After an update, build the commit it just pushed.
-          ref: ${{ github.event_name == 'pull_request' && github.sha || github.ref }}
-
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-          cache: pip
-          cache-dependency-path: requirements*.txt
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt -r requirements-dev.txt
-          python -m playwright install --with-deps chromium
-
-      # Tests run on saved fixtures: pipeline parsing, page structure, links,
-      # and WCAG 2.2 AA checks. A failure here blocks deploy.
-      - name: Test
-        run: python -m pytest
-
-      - name: Build site
-        run: python -m pipeline.build_site --town "$TOWN"
-
-      - uses: actions/upload-pages-artifact@v4
-        with:
-          path: _site
-
-  deploy:
-    if: ${{ !cancelled() && needs.build.result == 'success' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
       pages: write
       id-token: write
-    concurrency:
-      group: pages
-      cancel-in-progress: false
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
