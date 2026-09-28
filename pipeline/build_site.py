@@ -31,6 +31,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup, escape
 
 from pipeline.config import DATA_DIR, DEFAULT_TOWN, ROOT, load_config
+from pipeline.documents import open_documents
 from pipeline import freshness
 from pipeline import streets as streets_mod
 from pipeline import summarize
@@ -533,6 +534,8 @@ def build(town: str, out_dir: Path, data_dir: Path = DATA_DIR, now: datetime | N
         return f"{path}?v={digest}"
     env.filters["versioned"] = versioned
     env.globals["report_link"] = lambda page_url, what: report_link(site, base_url, page_url, what)
+    # Saved agenda and minutes PDFs: in the site itself, or in the town's bucket (see pipeline/documents.py).
+    env.globals["document_url"] = open_documents(config, data_dir).url
     env.globals.update(group_by=group_by, reserve_rows=reserve_rows, today=built_at.date().isoformat(), css_version=css_version, plural=plural,
                        change=lambda diff, since: change_text(diff, "", since))
 

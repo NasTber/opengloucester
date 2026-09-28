@@ -76,6 +76,7 @@ Each town gets its own copy of this repository, its own `config/<town>.toml`, an
    | `[permits]` | The city's permit spreadsheet | Gloucester's Data Hub layout only |
    | `[summaries]` | AI summaries of agendas and minutes | Anywhere, with `ANTHROPIC_API_KEY` |
    | `[freshness]` | Stale-data alerts | List only the sources the town has |
+   | `[storage]` | Keeps agenda and minutes PDFs in a bucket instead of git | Recommended for every town; see [Document storage](#document-storage) |
 
    Rewrite the hand-written content for the new town from its own sources: `[meetings.aliases]`, `[archive.aliases]`, `[participation.*]`, `[[glossary]]` and `[[seeclickfix.annotations]]`.
 3. **List only the town's sections** in `[[sections]]`. Page folders under `site/pages/` for sections that aren't listed are not built, and their data is ignored.
@@ -145,6 +146,28 @@ One-time setup:
    - `www` `CNAME` → `<github-username>.github.io`
 4. **Repository settings → Pages → Custom domain:** enter the domain. Once the certificate is issued, turn on **Enforce HTTPS**.
 
+## Document storage
+
+Agenda and minutes PDFs average well over a megabyte, git keeps every version forever, and a GitHub Pages site may be at most 1 GB. Without a `[storage]` table they're committed under `data/meetings/` and copied into the site, which works for a small or short-lived town. With one, they go to an S3-compatible bucket and pages link to the bucket's public address. Git keeps each document's text, summary and SHA-256 hash, so the site is still rebuilt entirely from the repository.
+
+One bucket serves every town: each town's files sit under its own prefix (`gloucester/agendas/<id>.pdf`). Cloudflare R2 is the suggested host: no charge for downloads, and the first 10 GB are free.
+
+1. **Create the bucket** in Cloudflare: **R2 → Create bucket**, e.g. `opengloucester-documents`.
+2. **Give it a public address:** the bucket's **Settings → Custom Domains**, e.g. `files.opengloucester.org`.
+3. **Create an API token:** **R2 → Manage API tokens → Create**, with *Object Read & Write* on that bucket only. Save its access key ID and secret as the repository secrets `STORAGE_ACCESS_KEY_ID` and `STORAGE_SECRET_ACCESS_KEY`.
+4. **Add the table** to `config/<town>.toml`, with the account ID from the R2 overview page:
+
+   ```toml
+   [storage]
+   endpoint = "https://<account id>.r2.cloudflarestorage.com"
+   bucket = "opengloucester-documents"
+   public_url = "https://files.opengloucester.org"
+   ```
+
+5. **Run the workflow.** New PDFs go straight to the bucket. The **Move saved documents to storage** step uploads the ones already in `data/meetings/`, checks each copy, and commits their removal. Until a file is moved, the site keeps linking to its copy in the repository.
+
+The files remain in the repository's git history. Shrinking the history means rewriting it, which is a separate decision.
+
 ## Data and licenses
 
 The code is under the [MIT License](LICENSE). Data keeps the terms of its source. See [`data/README.md`](data/README.md). 311 data comes from [SeeClickFix](https://seeclickfix.com) under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/). Other sources are listed on the site's [About page](https://opengloucester.org/about/).
@@ -152,4 +175,5 @@ The code is under the [MIT License](LICENSE). Data keeps the terms of its source
 ## Secrets
 
 - `ANTHROPIC_API_KEY` (repository secret, optional): enables agenda and minutes text and summaries. Without it the step is skipped.
+- `STORAGE_ACCESS_KEY_ID`, `STORAGE_SECRET_ACCESS_KEY` (repository secrets, needed with `[storage]`): an R2 API token for the documents bucket. See [Document storage](#document-storage).
 - `BLS_API_KEY` (repository secret, optional): free key from bls.gov/developers for the unemployment rate. Without it the job uses BLS's keyless limit, then falls back to the bulk data file.

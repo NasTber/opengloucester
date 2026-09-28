@@ -87,13 +87,13 @@
 {% endif %}
 <ul>
   <li><a href="{{ m.minutes_doc.source_url }}">Minutes on {{ m.minutes_doc.get("posted_on") or "the city website" }}</a> · PDF, {{ m.minutes_doc.bytes | filesize }}</li>
-  <li><a href="/meetings/minutes/{{ m.minutes_doc.file }}">Saved copy of the minutes</a> · saved <time datetime="{{ m.minutes_doc.fetched_at }}">{{ m.minutes_doc.fetched_at | timestamp }}</time></li>
+  <li><a href="{{ document_url('minutes', m.minutes_doc.file) }}">Saved copy of the minutes</a> · saved <time datetime="{{ m.minutes_doc.fetched_at }}">{{ m.minutes_doc.fetched_at | timestamp }}</time></li>
 </ul>
 {% if m.minutes | length > 1 %}
 <p>Earlier versions of these minutes:</p>
 <ul>
   {% for d in m.minutes[:-1] | reverse %}
-  <li><a href="/meetings/minutes/{{ d.file }}">Version saved <time datetime="{{ d.fetched_at }}">{{ d.fetched_at | timestamp }}</time></a> (PDF, {{ d.bytes | filesize }})</li>
+  <li><a href="{{ document_url('minutes', d.file) }}">Version saved <time datetime="{{ d.fetched_at }}">{{ d.fetched_at | timestamp }}</time></a> (PDF, {{ d.bytes | filesize }})</li>
   {% endfor %}
 </ul>
 {% endif %}
@@ -120,7 +120,7 @@
 {% if m.agenda %}
 <ul>
   <li><a href="{{ m.agenda.source_url }}">Agenda on {{ m.agenda.get("posted_on") or "the city website" }}</a> · PDF, {{ m.agenda.bytes | filesize }}</li>
-  <li><a href="/meetings/agendas/{{ m.agenda.file }}">Saved copy of the agenda</a> · saved <time datetime="{{ m.agenda.fetched_at }}">{{ m.agenda.fetched_at | timestamp }}</time></li>
+  <li><a href="{{ document_url('agendas', m.agenda.file) }}">Saved copy of the agenda</a> · saved <time datetime="{{ m.agenda.fetched_at }}">{{ m.agenda.fetched_at | timestamp }}</time></li>
 </ul>
 {% if m.agenda.has_text == false %}
 <p class="small">{{ m.agenda.get("posted_by") or "The city" }} posted this as a scanned image.{% if m.preview %} The full text above is a readable version.{% endif %}</p>
@@ -129,7 +129,7 @@
 <p>Earlier versions of this agenda:</p>
 <ul>
   {% for a in m.agendas[:-1] | reverse %}
-  <li><a href="/meetings/agendas/{{ a.file }}">Version saved <time datetime="{{ a.fetched_at }}">{{ a.fetched_at | timestamp }}</time></a> (PDF, {{ a.bytes | filesize }})</li>
+  <li><a href="{{ document_url('agendas', a.file) }}">Version saved <time datetime="{{ a.fetched_at }}">{{ a.fetched_at | timestamp }}</time></a> (PDF, {{ a.bytes | filesize }})</li>
   {% endfor %}
 </ul>
 {% endif %}

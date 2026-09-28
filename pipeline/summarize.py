@@ -27,6 +27,8 @@ from zoneinfo import ZoneInfo
 from pypdf import PdfReader
 
 from pipeline.config import DATA_DIR, DEFAULT_TOWN, configured, load_config
+from pipeline.documents import open_documents
+from pipeline.http import FetchError
 
 TRANSCRIPT_RULES = """Transcript rules:
 - Copy the document's text character for character. Do not reword, correct, modernize, or change the spelling of anything (for example, keep "Councilor" if that is how it is written).
@@ -196,12 +198,17 @@ def run(config: dict, client, data_dir: Path, limit: int, now: datetime | None =
     settings = config["summaries"]
     now = now or datetime.now(ZoneInfo(config["site"]["timezone"]))
     todo = pending_documents(data_dir, now.date().isoformat(), settings["model"])
+    storage = open_documents(config, data_dir)
     done, errors, tokens, spent = 0, [], {"input_tokens": 0, "output_tokens": 0}, 0.0
     for kind, meeting, doc in todo[:limit]:
         if spent >= settings["max_cost_per_run"]:
             errors.append(f"stopped at the ${settings['max_cost_per_run']:.2f} spending limit for one run")
             break
-        pdf = (data_dir / "meetings" / KINDS[kind]["folder"] / doc["file"]).read_bytes()
+        try:
+            pdf = storage.get(KINDS[kind]["folder"], doc["file"])
+        except FetchError as e:
+            errors.append(f"{kind} {doc['id']}: {e}")
+            continue
         pages = page_count(pdf)
         if pages and pages > MAX_PAGES:
             errors.append(f"{kind} {doc['id']}: {pages} pages, over the {MAX_PAGES}-page limit")

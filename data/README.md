@@ -6,8 +6,8 @@ never deleted; changes over time are kept in each record and in git history.
 | Path | Contents | Source and license |
 |---|---|---|
 | `meetings/meetings.json` | One record per public meeting, with a `history` of changes the city made after posting | City of Gloucester calendar; School Committee meetings also from Gloucester Public Schools (public record) |
-| `meetings/agendas/<id>.pdf` | Each agenda as the city or school district posted it | City of Gloucester Archive Center; School Committee agendas from Gloucester Public Schools' Google Drive (public record) |
-| `meetings/minutes/<id>.pdf` | Each set of minutes as the city or school district posted it | City of Gloucester Archive Center; School Committee minutes from Gloucester Public Schools' Google Drive (public record) |
+| `meetings/agendas/<id>.pdf` | Each agenda as the city or school district posted it. With a `[storage]` table in the town's config, these are kept in its documents bucket instead | City of Gloucester Archive Center; School Committee agendas from Gloucester Public Schools' Google Drive (public record) |
+| `meetings/minutes/<id>.pdf` | Each set of minutes as the city or school district posted it. With a `[storage]` table, kept in the documents bucket instead | City of Gloucester Archive Center; School Committee minutes from Gloucester Public Schools' Google Drive (public record) |
 | `summaries/<sha256>.json` | Readable text and a plain-English summary of an agenda or minutes (`kind`), keyed by the PDF's SHA-256. AI-generated; see `model` and `generated_at` | Derived from the agenda it names in `source_url` |
 | `311/requests.json` | One record per public SeeClickFix request: category, location, ward, status, and submitted/acknowledged/closed/reopened times. No descriptions, photos, or reporter details | [SeeClickFix](https://seeclickfix.com), [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) |
 | `311/scorecard.json` | Metrics shown on the 311 page, recomputed daily | Derived from `311/requests.json`; same license |
