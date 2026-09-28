@@ -13,7 +13,7 @@ domain = "gloucester-ma.publick.org"
 # The network of town sites this one belongs to, named in every page footer.
 # network_url links the name once the network has its own home page.
 network = "Publick"
-# network_url = "https://publick.org"
+network_url = "https://publick.org"
 tagline = "Public data on how Gloucester, Massachusetts responds, decides, and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Gloucester, Massachusetts"
