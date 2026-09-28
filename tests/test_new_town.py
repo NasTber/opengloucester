@@ -21,9 +21,9 @@ def meetings_only(config: dict) -> dict:
     for table in OPTIONAL:
         town.pop(table, None)
     town["slug"] = "newtown"
-    town["site"].update(name="OpenNewtown", name_suffix="Newtown", domain="opennewtown.example",
+    town["site"].update(name="Newtown Record", name_prefix="Newtown ", name_suffix="Record", domain="newtown.example",
                         masthead="An independent guide to city government in Newtown",
-                        repo_url="https://github.com/example/opennewtown")
+                        repo_url="https://github.com/example/newtown")
     town["town"]["name"] = "Newtown"
     town["site"].pop("network", None)
     town["sections"] = [s for s in town["sections"] if s["slug"] in ("meetings", "about")]
@@ -51,7 +51,7 @@ def test_only_listed_sections_are_built(new_town_site):
     assert (new_town_site / "meetings" / "index.html").exists()
     assert (new_town_site / "about" / "index.html").exists()
     assert (new_town_site / "streets" / "index.html").exists()
-    assert (new_town_site / "CNAME").read_text().strip() == "opennewtown.example"
+    assert (new_town_site / "CNAME").read_text().strip() == "newtown.example"
 
 
 def test_pages_name_the_new_town_only(new_town_site):

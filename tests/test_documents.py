@@ -11,7 +11,7 @@ from pipeline import build_site, documents, fetch_meetings, fetch_minutes, summa
 from pipeline.config import load_config
 from pipeline.http import FetchError
 
-PUBLIC_URL = "https://files.opengloucester.example"
+PUBLIC_URL = "https://files.publick.example"
 
 
 class FakeBucket:

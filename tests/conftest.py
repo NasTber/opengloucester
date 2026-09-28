@@ -68,7 +68,7 @@ def make_fixture_data(data_dir: Path) -> None:
 
 
 def _build_fixture_site() -> Path:
-    base = Path(tempfile.mkdtemp(prefix="opengloucester-test-"))
+    base = Path(tempfile.mkdtemp(prefix="publick-test-"))
     make_fixture_data(base / "data")
     build_site.build("gloucester", base / "site", data_dir=base / "data", now=BUILT_AT)
     return base
