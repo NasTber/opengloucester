@@ -69,10 +69,17 @@ def test_support_files(site_dir, config):
 
 
 def test_footer_names_the_network(page_files, config):
-    network = config["site"]["network"]
+    site = config["site"]
+    network = site["network"]
     for page in page_files:
         html = page.read_text()
-        assert f"Part of {network}, a network of independent sites" in html, page
+        if site.get("network_url"):
+            # Off-site links gain new-tab attributes, so check the address and wording.
+            assert f'Part of <a href="{site["network_url"]}"' in html, page
+            assert f">{network}<" in html, page
+            assert "</a>, a network of independent sites" in html, page
+        else:
+            assert f"Part of {network}, a network of independent sites" in html, page
 
 
 def test_share_image(site_dir, config):
