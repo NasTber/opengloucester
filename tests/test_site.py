@@ -125,12 +125,12 @@ def test_internal_links_resolve(site_dir, page_files):
 def test_contact_route_present(site_dir, rel):
     html = (site_dir / rel).read_text()
     assert "/issues" in html
-    assert 'href="mailto:opengloucester@protonmail.com"' in html
+    assert 'href="mailto:gloucester-ma@publick.org"' in html
 
 
 def test_report_buttons_open_an_email(site_dir):
     page = (site_dir / "meetings" / "decisions" / "index.html").read_text()
-    assert 'class="report-link" href="mailto:opengloucester@protonmail.com?subject=Correction' in page
+    assert 'class="report-link" href="mailto:gloucester-ma@publick.org?subject=Correction' in page
 
 
 def test_meeting_pages(site_dir):

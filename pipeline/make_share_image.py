@@ -1,6 +1,6 @@
 """Draw the image shown when a page is shared on social media or in a message.
 
-A 1200 x 630 PNG of the site's masthead (its G, name, and tagline), in the
+A 1200 x 630 PNG of the site's masthead (its icon, name, and tagline), in the
 site's own fonts and colors. Also writes PNG copies of the favicon for phones. Run it once per town, or again after changing the name or
 tagline; the build links the image when site/static/share/<town>.png exists.
 Needs Playwright (requirements-dev.txt).
@@ -33,7 +33,7 @@ def svg_url(name: str) -> str:
 
 
 def share_html(site: dict, sections: list[dict]) -> str:
-    """The masthead as it appears at the top of every page, with the site's G."""
+    """The masthead as it appears at the top of every page, with the site's icon."""
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face {{ font-family: "Public Sans"; font-weight: 400; src: url("{font_url("public-sans-400")}"); }}
 @font-face {{ font-family: "Source Serif 4"; font-weight: 700; src: url("{font_url("source-serif-4-700")}"); }}
