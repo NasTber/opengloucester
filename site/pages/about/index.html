@@ -5,6 +5,11 @@
 {% block content %}
 <h1>About</h1>
 <p class="lede">An independent site tracking public data about the City of {{ town.name }}. Not run by or affiliated with the city.</p>
+{% if site.get("network") %}
+
+<h2 id="network">Part of {{ site.network }}</h2>
+<p>{{ site.name }} is one of the {{ site.network }} sites, which publish the public record of towns and cities every day. The name comes from <cite>Publick Occurrences Both Forreign and Domestick</cite>, the first newspaper in the American colonies. It was printed in Boston in 1690 and shut down after one issue for printing without permission.</p>
+{% endif %}
 
 <h2 id="how">How it works</h2>
 <ul>

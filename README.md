@@ -1,6 +1,6 @@
-# OpenGloucester
+# Gloucester Publick
 
-Source for [OpenGloucester](https://gloucester-ma.publick.org), part of the Publick network of town sites: an independent, read-only site that publishes public data about Gloucester, Massachusetts: how the city responds to 311 requests, what is on upcoming meeting agendas, and more over time.
+Source for [Gloucester Publick](https://gloucester-ma.publick.org), part of the Publick network of town sites: an independent, read-only site that publishes public data about Gloucester, Massachusetts: how the city responds to 311 requests, what is on upcoming meeting agendas, and more over time.
 
 The site is static HTML built by a small Python script and deployed to GitHub Pages by GitHub Actions. There is no server and no database.
 
@@ -145,7 +145,7 @@ One-time setup. Each town's site is a subdomain of the network's domain, `<town>
 
 ### Moving a site to a new domain
 
-GitHub Pages serves one custom domain per repository, so a town's old domain is redirected at Cloudflare. For OpenGloucester's move from `opengloucester.org`:
+GitHub Pages serves one custom domain per repository, so a town's old domain is redirected at Cloudflare. For example, for a move from `opengloucester.org`:
 
 1. Create the new site's DNS record (step 3 above) and wait for it to resolve.
 2. Change `domain` in the town's config and merge; then set the same domain under **Repository settings → Pages → Custom domain** straight away. Until then, pages name the new address while being served from the old one.

@@ -3,11 +3,12 @@
 # Build with: python -m pipeline.build_site --town gloucester
 
 [site]
-name = "OpenGloucester"
-# The masthead shows name_prefix in dark ink and name_suffix in maroon. The
-# icon (site/static/favicon.svg) is the suffix's first letter in the headline font.
-name_prefix = "Open"
-name_suffix = "Gloucester"
+name = "Gloucester Publick"
+# The masthead shows name_prefix in dark ink and name_suffix in maroon: the
+# town, then the network. The icon (site/static/favicon.svg) is the network's
+# P in the headline font, the same for every town.
+name_prefix = "Gloucester "
+name_suffix = "Publick"
 domain = "gloucester-ma.publick.org"
 # The network of town sites this one belongs to, named in every page footer.
 # network_url links the name once the network has its own home page.
@@ -18,7 +19,7 @@ tagline = "Public data on how Gloucester, Massachusetts responds, decides, and s
 masthead = "An independent guide to city government in Gloucester, Massachusetts"
 repo_url = "https://github.com/publick-org/gloucester-ma"
 # Public contact address. Shown on the About and Accessibility pages when set.
-contact_email = "opengloucester@protonmail.com"
+contact_email = "gloucester-ma@publick.org"
 timezone = "America/New_York"
 user_agent = "gloucester-ma.publick.org (+https://gloucester-ma.publick.org/about/)"
 
