@@ -153,7 +153,7 @@ Agenda and minutes PDFs average well over a megabyte, git keeps every version fo
 One bucket serves every town: each town's files sit under its own prefix (`gloucester/agendas/<id>.pdf`). Cloudflare R2 is the suggested host: no charge for downloads, and the first 10 GB are free.
 
 1. **Create the bucket** in Cloudflare: **R2 → Create bucket**, e.g. `opengloucester-documents`.
-2. **Give it a public address:** the bucket's **Settings → Custom Domains**, e.g. `files.opengloucester.org`.
+2. **Give it a public address:** the bucket's **Settings → Custom Domains → Add**, e.g. `files.opengloucester.org`. The domain's DNS must be on Cloudflare, in the same account. Keep GitHub Pages' own records set to *DNS only* so GitHub can still issue the site's certificate. The bucket's `r2.dev` address is rate-limited and meant only for testing.
 3. **Create an API token:** **R2 → Manage API tokens → Create**, with *Object Read & Write* on that bucket only. Save its access key ID and secret as the repository secrets `STORAGE_ACCESS_KEY_ID` and `STORAGE_SECRET_ACCESS_KEY`.
 4. **Add the table** to `config/<town>.toml`, with the account ID from the R2 overview page:
 
