@@ -1,6 +1,6 @@
 # OpenGloucester
 
-Source for [opengloucester.org](https://opengloucester.org), an independent, read-only site that publishes public data about Gloucester, Massachusetts: how the city responds to 311 requests, what is on upcoming meeting agendas, and more over time.
+Source for [OpenGloucester](https://gloucester-ma.publick.org), part of the Publick network of town sites: an independent, read-only site that publishes public data about Gloucester, Massachusetts: how the city responds to 311 requests, what is on upcoming meeting agendas, and more over time.
 
 The site is static HTML built by a small Python script and deployed to GitHub Pages by GitHub Actions. There is no server and no database.
 
@@ -136,15 +136,22 @@ python -m pipeline.make_share_image --town gloucester
 
 Pushes to `main` test, build, and deploy. Pull requests test only. The daily schedule and the **Run workflow** button also fetch new data first.
 
-One-time setup:
+One-time setup. Each town's site is a subdomain of the network's domain, `<town>-<state>.publick.org`, whose DNS is on Cloudflare:
 
-1. **Verify the domain** so no other account can claim it: GitHub profile **Settings → Pages → Add a domain**, then add the TXT record it gives you at the DNS provider.
+1. **Verify the network domain** once, so no other account can claim it or its subdomains: GitHub profile **Settings → Pages → Add a domain**, enter `publick.org`, then add the TXT record it gives you in Cloudflare **DNS → Records**.
 2. **Repository settings → Pages → Source:** GitHub Actions.
-3. **DNS records:**
-   - Apex `A` records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - Optional apex `AAAA` records: `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-   - `www` `CNAME` → `<github-username>.github.io`
-4. **Repository settings → Pages → Custom domain:** enter the domain. Once the certificate is issued, turn on **Enforce HTTPS**.
+3. **DNS record** in Cloudflare: a `CNAME` named `<town>-<state>` (e.g. `gloucester-ma`) with target `<github-username>.github.io`, **Proxy status: DNS only** (grey cloud). Proxied records stop GitHub from issuing the site's certificate.
+4. **Repository settings → Pages → Custom domain:** enter the town's domain, matching `domain` in its config. Once the certificate is issued, turn on **Enforce HTTPS**.
+
+### Moving a site to a new domain
+
+GitHub Pages serves one custom domain per repository, so a town's old domain is redirected at Cloudflare. For OpenGloucester's move from `opengloucester.org`:
+
+1. Create the new site's DNS record (step 3 above) and wait for it to resolve.
+2. Change `domain` in the town's config and merge; then set the same domain under **Repository settings → Pages → Custom domain** straight away. Until then, pages name the new address while being served from the old one.
+3. Add the old domain to Cloudflare (**Add a domain**, Free plan) and switch its nameservers at the registrar to the two Cloudflare gives. Before switching, turn off DNSSEC at the registrar if it's on.
+4. In the old domain's **DNS → Records**, replace the GitHub records with one `A` record for `@` and one for `www`, both pointing to `192.0.2.1` with **Proxied** (orange cloud). The address is never reached; Cloudflare answers first.
+5. **Rules → Redirect Rules → Create rule:** match all incoming requests, with a **Dynamic** redirect to `concat("https://gloucester-ma.publick.org", http.request.uri.path)`, status **301**, and **Preserve query string** on. Old links, including deep ones like `/meetings/…`, land on the same page at the new address.
 
 ## Document storage
 
@@ -152,16 +159,16 @@ Agenda and minutes PDFs average well over a megabyte, git keeps every version fo
 
 One bucket serves every town: each town's files sit under its own prefix (`gloucester/agendas/<id>.pdf`). Cloudflare R2 is the suggested host: no charge for downloads, and the first 10 GB are free.
 
-1. **Create the bucket** in Cloudflare: **R2 → Create bucket**, e.g. `opengloucester-documents`.
-2. **Give it a public address:** the bucket's **Settings → Custom Domains → Add**, e.g. `files.opengloucester.org`. The domain's DNS must be on Cloudflare, in the same account. Keep GitHub Pages' own records set to *DNS only* so GitHub can still issue the site's certificate. The bucket's `r2.dev` address is rate-limited and meant only for testing.
+1. **Create the bucket** in Cloudflare: **R2 → Create bucket**, e.g. `publick-documents`.
+2. **Give it a public address:** the bucket's **Settings → Custom Domains → Add**, e.g. `files.publick.org`. The domain's DNS must be on Cloudflare, in the same account. Keep GitHub Pages' own records set to *DNS only* so GitHub can still issue the site's certificate. The bucket's `r2.dev` address is rate-limited and meant only for testing.
 3. **Create an API token:** **R2 → Manage API tokens → Create**, with *Object Read & Write* on that bucket only. Save its access key ID and secret as the repository secrets `STORAGE_ACCESS_KEY_ID` and `STORAGE_SECRET_ACCESS_KEY`.
 4. **Add the table** to `config/<town>.toml`, with the account ID from the R2 overview page:
 
    ```toml
    [storage]
    endpoint = "https://<account id>.r2.cloudflarestorage.com"
-   bucket = "opengloucester-documents"
-   public_url = "https://files.opengloucester.org"
+   bucket = "publick-documents"
+   public_url = "https://files.publick.org"
    ```
 
 5. **Run the workflow.** New PDFs go straight to the bucket. The **Move saved documents to storage** step uploads the ones already in `data/meetings/`, checks each copy, and commits their removal. Until a file is moved, the site keeps linking to its copy in the repository.
@@ -170,7 +177,7 @@ The files remain in the repository's git history. Shrinking the history means re
 
 ## Data and licenses
 
-The code is under the [MIT License](LICENSE). Data keeps the terms of its source. See [`data/README.md`](data/README.md). 311 data comes from [SeeClickFix](https://seeclickfix.com) under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/). Other sources are listed on the site's [About page](https://opengloucester.org/about/).
+The code is under the [MIT License](LICENSE). Data keeps the terms of its source. See [`data/README.md`](data/README.md). 311 data comes from [SeeClickFix](https://seeclickfix.com) under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/). Other sources are listed on the site's [About page](https://gloucester-ma.publick.org/about/).
 
 ## Secrets
 

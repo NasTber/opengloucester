@@ -8,7 +8,11 @@ name = "OpenGloucester"
 # icon (site/static/favicon.svg) is the suffix's first letter in the headline font.
 name_prefix = "Open"
 name_suffix = "Gloucester"
-domain = "opengloucester.org"
+domain = "gloucester-ma.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+# network_url links the name once the network has its own home page.
+network = "Publick"
+# network_url = "https://publick.org"
 tagline = "Public data on how Gloucester, Massachusetts responds, decides, and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Gloucester, Massachusetts"
@@ -16,7 +20,7 @@ repo_url = "https://github.com/NasTber/opengloucester"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "opengloucester@protonmail.com"
 timezone = "America/New_York"
-user_agent = "opengloucester.org (+https://opengloucester.org/about/)"
+user_agent = "gloucester-ma.publick.org (+https://gloucester-ma.publick.org/about/)"
 
 [town]
 name = "Gloucester"

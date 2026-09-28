@@ -25,6 +25,7 @@ def meetings_only(config: dict) -> dict:
                         masthead="An independent guide to city government in Newtown",
                         repo_url="https://github.com/example/opennewtown")
     town["town"]["name"] = "Newtown"
+    town["site"].pop("network", None)
     town["sections"] = [s for s in town["sections"] if s["slug"] in ("meetings", "about")]
     return town
 
@@ -55,6 +56,7 @@ def test_only_listed_sections_are_built(new_town_site):
 
 def test_pages_name_the_new_town_only(new_town_site):
     home = (new_town_site / "index.html").read_text()
+    assert "Part of " not in home  # a town outside any network names none
     assert "Newtown" in home
     assert "/311/" not in home and "tax bill" not in home.lower()
     about = (new_town_site / "about" / "index.html").read_text()

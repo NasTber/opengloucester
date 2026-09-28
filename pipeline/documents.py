@@ -10,8 +10,8 @@ each PDF (its text, summary and SHA-256 hash).
 
   [storage]
   endpoint = "https://<account id>.r2.cloudflarestorage.com"
-  bucket = "opengloucester-documents"
-  public_url = "https://files.opengloucester.org"
+  bucket = "publick-documents"
+  public_url = "https://files.publick.org"
   prefix = "gloucester"   # optional; defaults to the town's config name
 
 The keys come from the STORAGE_ACCESS_KEY_ID and STORAGE_SECRET_ACCESS_KEY
