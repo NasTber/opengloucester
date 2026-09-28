@@ -8,15 +8,19 @@ name = "OpenGloucester"
 # icon (site/static/favicon.svg) is the suffix's first letter in the headline font.
 name_prefix = "Open"
 name_suffix = "Gloucester"
-domain = "opengloucester.org"
+domain = "gloucester-ma.publick.org"
+# The network of town sites this one belongs to, named in every page footer.
+# network_url links the name once the network has its own home page.
+network = "Publick"
+# network_url = "https://publick.org"
 tagline = "Public data on how Gloucester, Massachusetts responds, decides, and spends. Updated daily."
 # One line under the name at the top of every page.
 masthead = "An independent guide to city government in Gloucester, Massachusetts"
-repo_url = "https://github.com/NasTber/opengloucester"
+repo_url = "https://github.com/publick-org/gloucester-ma"
 # Public contact address. Shown on the About and Accessibility pages when set.
 contact_email = "opengloucester@protonmail.com"
 timezone = "America/New_York"
-user_agent = "opengloucester.org (+https://opengloucester.org/about/)"
+user_agent = "gloucester-ma.publick.org (+https://gloucester-ma.publick.org/about/)"
 
 [town]
 name = "Gloucester"
@@ -117,6 +121,14 @@ recent_open_days = 30
 
 # Plain-English agenda text and previews, written by a language model and
 # labeled as AI-generated on the site. Cached by document hash.
+[storage]
+# Agenda and minutes PDFs live in this Cloudflare R2 bucket, not in git (see
+# pipeline/documents.py). Keys: STORAGE_ACCESS_KEY_ID, STORAGE_SECRET_ACCESS_KEY.
+endpoint = "https://6bbfee5a3892553c7993dbfa4b4e8453.r2.cloudflarestorage.com"
+bucket = "publick-documents"
+public_url = "https://files.publick.org"
+prefix = "gloucester-ma"
+
 [summaries]
 model = "claude-sonnet-5"
 max_per_run = 50

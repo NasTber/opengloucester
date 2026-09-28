@@ -2,7 +2,8 @@
 
 One request to the Archive Center's main page lists the newest documents in
 every board's collection. Minutes dated on or after the configured start
-date are downloaded, saved under data/meetings/minutes/, and attached to the
+date are downloaded, saved under data/meetings/minutes/ (or in the town's
+bucket; see pipeline/documents.py), and attached to the
 matching meeting in data/meetings/meetings.json. A meeting that was never on
 the calendar feed (usually because it predates this site) gets a record
 built from its minutes.
@@ -24,6 +25,7 @@ from zoneinfo import ZoneInfo
 
 from pipeline import civicplus
 from pipeline.config import DATA_DIR, DEFAULT_TOWN, configured, load_config
+from pipeline.documents import open_documents
 from pipeline.fetch_meetings import (
     load_store, meetings_dir, normalize_body, pdf_has_text, record_change, save_json, slugify, unique_slug,
 )
@@ -69,15 +71,14 @@ def new_meeting_from_minutes(store: dict, item: dict, body: str, stamp: str) -> 
     return meeting
 
 
-def save_document(client, item: dict, folder: Path, stamp: str) -> dict:
+def save_document(client, item: dict, storage, stamp: str) -> dict:
     response = client.get(item["url"])
     content = response.content
     if not content.startswith(b"%PDF"):
         raise FetchError(f"{item['url']}: not a PDF")
     disposition = response.headers.get("content-disposition", "")
     filename = re.search(r'filename="?([^";]+)', disposition)
-    folder.mkdir(parents=True, exist_ok=True)
-    (folder / f"{item['id']}.pdf").write_bytes(content)
+    storage.put("minutes", f"{item['id']}.pdf", content)
     return {
         "id": item["id"],
         "title": item["title"],
@@ -102,6 +103,7 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
     page = client.get(base_url.rstrip("/") + "/" + settings["index"].lstrip("/"))
     collections = civicplus.parse_archive_index(page.text, base_url)
     store = load_store(data_dir)
+    storage = open_documents(config, data_dir)
     known = {doc["id"] for m in store.values() for doc in m.get("minutes", [])}
 
     added, created, errors = 0, 0, []
@@ -113,7 +115,7 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
             if not item["date"] or item["date"] < since or item["id"] in known:
                 continue
             try:
-                doc = save_document(client, item, meetings_dir(data_dir) / "minutes", stamp)
+                doc = save_document(client, item, storage, stamp)
             except FetchError as e:
                 errors.append(str(e))
                 continue

@@ -1,5 +1,6 @@
 import functools
 import http.server
+import os
 import sys
 import tempfile
 import threading
@@ -10,6 +11,8 @@ from zoneinfo import ZoneInfo
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
+# Saved PDFs stay in the test's data folder, never the town's real bucket.
+os.environ["DOCUMENTS_LOCAL"] = "1"
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(Path(__file__).parent))
 

@@ -1,7 +1,8 @@
 """Collect public meetings from the city calendar and archive their agendas.
 
 Writes data/meetings/meetings.json (one record per meeting, never deleted) and
-saves each posted agenda PDF under data/meetings/agendas/. Changes the city
+saves each posted agenda PDF under data/meetings/agendas/ (or in the town's
+bucket; see pipeline/documents.py). Changes the city
 makes after posting (new time, new place, revised agenda, cancellation) are
 recorded in each meeting's history so they stay visible.
 
@@ -25,6 +26,7 @@ from pypdf import PdfReader
 
 from pipeline import civicplus
 from pipeline.config import DATA_DIR, DEFAULT_TOWN, configured, load_config
+from pipeline.documents import open_documents
 from pipeline.http import FetchError, PoliteClient
 
 # Fields whose changes are recorded in a meeting's history.
@@ -90,7 +92,7 @@ def merge(meeting: dict, updates: dict, at: str, track: bool) -> None:
         meeting[field] = new
 
 
-def fetch_agenda(client, meeting: dict, details: dict, agenda_dir: Path, now: str) -> None:
+def fetch_agenda(client, meeting: dict, details: dict, storage, now: str) -> None:
     agenda_id = details.get("agenda_id")
     if not agenda_id:
         return
@@ -103,15 +105,14 @@ def fetch_agenda(client, meeting: dict, details: dict, agenda_dir: Path, now: st
         raise FetchError(f"agenda {agenda_id} is not a PDF")
     disposition = response.headers.get("content-disposition", "")
     filename = re.search(r'filename="?([^";]+)', disposition)
-    path = agenda_dir / f"{agenda_id}.pdf"
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(content)
+    name = f"{agenda_id}.pdf"
+    storage.put("agendas", name, content)
     if agendas:
         record_change(meeting, "agenda", agendas[-1]["id"], agenda_id, now)
     agendas.append({
         "id": agenda_id,
         "source_url": details["agenda_url"],
-        "file": path.name,
+        "file": name,
         "original_filename": filename.group(1).strip() if filename else None,
         "sha256": hashlib.sha256(content).hexdigest(),
         "bytes": len(content),
@@ -149,6 +150,7 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
     aliases = source.get("aliases", {})
 
     store = load_store(data_dir)
+    storage = open_documents(config, data_dir)
     feed = client.get(base_url.rstrip("/") + "/" + source["calendar_feed"].lstrip("/"))
     events = [e for e in civicplus.parse_calendar_feed(feed.content, base_url) if include.search(e["title"])]
 
@@ -192,7 +194,7 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
             pages += 1
             details = civicplus.parse_event_page(page.text, base_url)
             merge(meeting, {k: details[k] for k in ("location_name", "address", "remote_url") if details.get(k)}, stamp, track=True)
-            fetch_agenda(client, meeting, details, meetings_dir(data_dir) / "agendas", stamp)
+            fetch_agenda(client, meeting, details, storage, stamp)
             meeting["checked_at"] = stamp
         except FetchError as e:
             errors.append(str(e))

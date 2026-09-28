@@ -68,6 +68,13 @@ def test_support_files(site_dir, config):
     assert "sitemap.xml" in (site_dir / "robots.txt").read_text()
 
 
+def test_footer_names_the_network(page_files, config):
+    network = config["site"]["network"]
+    for page in page_files:
+        html = page.read_text()
+        assert f"Part of {network}, a network of independent sites" in html, page
+
+
 def test_share_image(site_dir, config):
     image = f"https://{config['site']['domain']}/static/share/{config['slug']}.png"
     assert f'<meta property="og:image" content="{image}?v=' in (site_dir / "311" / "index.html").read_text()

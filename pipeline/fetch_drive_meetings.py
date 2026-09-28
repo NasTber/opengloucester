@@ -38,6 +38,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from pipeline.config import DATA_DIR, DEFAULT_TOWN, configured, load_config
+from pipeline.documents import open_documents
 from pipeline.fetch_meetings import load_store, meetings_dir, pdf_has_text, record_change, save_json, slugify, unique_slug
 from pipeline.http import FetchError, PoliteClient
 
@@ -198,12 +199,11 @@ def new_meeting(store: dict, meeting_id: str, body: str, info: dict, settings: d
     return meeting
 
 
-def save_document(client, file: dict, folder: Path, settings: dict, stamp: str) -> dict:
+def save_document(client, file: dict, storage, folder: str, settings: dict, stamp: str) -> dict:
     content = client.get(FILE_URL.format(id=file["id"])).content
     if not content.startswith(b"%PDF"):
         raise FetchError(f"{file['name']}: not a PDF")
-    folder.mkdir(parents=True, exist_ok=True)
-    (folder / f"{file['id']}.pdf").write_bytes(content)
+    storage.put(folder, f"{file['id']}.pdf", content)
     return {
         "id": file["id"],
         "title": file["name"],
@@ -225,6 +225,7 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
     settings = config["drive_meetings"]
     since = settings["since"]
     store = load_store(data_dir)
+    storage = open_documents(config, data_dir)
     known = {doc["id"] for m in store.values() for field in ("agendas", "minutes") for doc in m.get(field, [])}
     scheduled = (update_schedule(store, client.get(settings["schedule_url"]).text, settings, now.date(), stamp)
                  if settings.get("schedule_url") else 0)
@@ -249,7 +250,7 @@ def run(config: dict, client, data_dir: Path, now: datetime | None = None) -> di
     # Originals before revisions, so a meeting's latest version is its last.
     for kind, body, file, info in sorted(documents, key=lambda d: (d[3]["date"], d[3]["revised"], d[2]["name"])):
         try:
-            doc = save_document(client, file, meetings_dir(data_dir) / kind, settings, stamp)
+            doc = save_document(client, file, storage, kind, settings, stamp)
         except FetchError as e:
             errors.append(str(e))
             continue
